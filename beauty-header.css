@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700,800,900&display=swap");
+#header-section {
+  max-width: 1936px;
+  height: 96px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 4px 8px 0px rgba(21, 24, 26, 0.16);
+  border-radius: 4px;
+}
+
+#header-section .d-flex {
+  display: flex;
+}
+
+#header-section .dropdown-menu:after {
+  display: none;
+}
+#header-section .left-mobile {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+#header-section .btn-group ul {
+  display: flex;
+}
+#header-section .btn-group ul li {
+  height: 28px;
+  color: rgba(26, 26, 26, 0.7);
+  font-size: 18px;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.16px;
+  line-height: 28px;
+  margin-right: 32px;
+}
+.additional_menu {
+  margin-right: 15px;
+  display: flex;
+  /* align-items: center; */
+  width: 250px;
+  justify-content: space-between;
+}
+
+.right-buttons {
+  background: #dedede;
+  padding: 4px 13px;
+  height: 40px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  margin-left: 10px;
+  align-items: center;
+  display: flex;
+  /* font-family: inter; */
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(80, 80, 80);
+}
+.btn-group ul li a {
+  height: 28px;
+  color: rgba(26, 26, 26, 0.7);
+  font-size: 18px;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.16px;
+  line-height: 28px;
+}
+
+.btn-group ul li a:hover {
+  cursor: pointer;
+}
+
+.btn-group .wishlist {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#header-section .container-fluid {
+  height: 96px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+#header-section .justify-content-right {
+  justify-content: flex-end;
+  width: 30%;
+  margin-left: auto;
+}
+
+#header-section .justify-content-left {
+  justify-content: flex-start;
+  width: 70%;
+}
+#header-section .btn-group {
+  display: flex;
+  align-items: center;
+}
+#header-section .btn-group button {
+  outline: none;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  color: #a29696;
+  height: 40px;
+  line-height: 20px;
+  padding: 0 15px;
+  margin-left: 10px;
+}
+
+#header-section .dropdown {
+  height: 40px;
+  margin-right: 5px;
+}
+#header-section .dropdown .dropdown-log-in:hover {
+  background-color: #a29696;
+  color: #8b7e7e;
+}
+#header-section .dropdown .dropdown-log-in {
+  background-color: transparent;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  border: 2px solid #8b7e7e;
+  border-radius: 300px;
+  color: white;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 750;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  -webkit-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+#header-section .dropdown a {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  font-size: 10px;
+}
+#header-section .dropdown a:hover {
+  background: #8b7e7e;
+  color: white;
+}
+.logo:hover {
+  cursor: pointer;
+}
+
+#header-section .dropdown-menu:before {
+  border: none !important;
+}
+#header-section .dropdown-menu {
+  width: 135px;
+  text-align: center;
+}
+#header-section .favorite {
+  position: relative;
+  width: 118px;
+}
+.showMobile {
+  display: none;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  font-size: 14px;
+  vertical-align: middle;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  right: 0px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.dropdown-content ul {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+}
+
+.dropdown-content ul li {
+  height: 26px;
+  padding-top: 5px;
+  color: #15181a;
+  cursor: pointer;
+}
+@media (max-width: 1200px) {
+  #header-section .dropdown-menu-left {
+    left: 0;
+    font-size: 25px;
+    width: 95vw;
+  }
+  .logo {
+    display: none;
+  }
+  .showMobile {
+    display: block;
+  }
+  .showDesktop,
+  #header-section .btn-group ul {
+    display: none;
+  }
+}
