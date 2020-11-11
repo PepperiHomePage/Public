@@ -1,0 +1,291 @@
+.slides {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 1000ms;
+  transition: opacity 1000ms;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide .gard-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
+  padding: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 960px) {
+  .slide .gard-overlay {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.slide-text {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: left;
+  color: white;
+  opacity: 0;
+  font-weight: 600;
+  max-width: 35rem;
+}
+
+@media screen and (max-width: 960px) {
+  .slide-text {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+}
+
+.slide-text #shop_now {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  padding: 0.5em 0.7em;
+  border-radius: 4px;
+  background: green;
+  margin-bottom: 0.25rem;
+}
+
+.slide-text .title {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.slide-text .sub_title {
+  font-size: 0.875rem;
+}
+
+.slide-text .desc {
+  font-size: 1.25rem;
+}
+
+.slide:nth-child(1) {
+  opacity: 1;
+}
+
+.slide-text:nth-child(1) {
+  opacity: 1;
+}
+
+.slide[data-state="active"] {
+  display: block;
+}
+
+.slide-controllers {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.slide-controllers button {
+  -webkit-margin-start: 1rem;
+          margin-inline-start: 1rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  -webkit-transition: background-color ease-in-out 0.25s, -webkit-box-shadow ease-in-out 0.125s;
+  transition: background-color ease-in-out 0.25s, -webkit-box-shadow ease-in-out 0.125s;
+  transition: background-color ease-in-out 0.25s, box-shadow ease-in-out 0.125s;
+  transition: background-color ease-in-out 0.25s, box-shadow ease-in-out 0.125s, -webkit-box-shadow ease-in-out 0.125s;
+  height: 3rem;
+  width: 3rem;
+  background-position: center;
+  background-size: 2rem;
+  background-repeat: no-repeat;
+}
+
+.slide-controllers button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.slide-controllers button:active, .slide-controllers button:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(23, 102, 166, 0.25);
+          box-shadow: 0 0 0 4px rgba(23, 102, 166, 0.25);
+}
+
+.slide-controllers .pause {
+  background-image: url("https://storage.pepperi.com/PreSales/NewFoodDemoImg/pause.svg");
+}
+
+.slide-controllers .play {
+  background-image: url("https://storage.pepperi.com/PreSales/NewFoodDemoImg/play.svg");
+}
+
+
+#carousal-content {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: carousal;
+}
+
+#carousal-content {
+  display: -ms-grid;
+  display: grid;
+}
+
+@media screen and (max-width: 768px) {
+  #carousal-content {
+    margin-top: var(--header-height);
+  }
+  .carousel {
+    border-radius: 0;
+  }
+}
+
+#carousal-content {
+  display: -ms-grid;
+  display: grid;
+  grid-template-areas: "carousel";
+  -ms-grid-rows: 1fr;
+  grid-template-rows: 1fr;
+  background: linear-gradient(45deg, black 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 4px;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  background: url("https://storage.pepperi.com/PreSales/NewFoodDemoImg/back.png");
+  background-color: #e5e5e5;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.slides {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.indicators {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
+  width: 100px;
+  padding: 8px 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.indicators:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.indicators:active, .indicators:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(23, 102, 166, 0.25);
+          box-shadow: 0 0 0 4px rgba(23, 102, 166, 0.25);
+}
+
+.indicators:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.radio-box {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  height: 1.25rem;
+  width: 1.25rem;
+  -webkit-margin-end: 1rem;
+          margin-inline-end: 1rem;
+}
+
+.radio-box:last-child {
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
+}
+
+.radio-box input {
+  height: 1.25rem;
+  width: 1.25rem;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-box input:checked ~ .radio-dot {
+  background-color: #0a0a0a;
+}
+
+.radio-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  background-color: rgba(10, 10, 10, 0.25);
+  border-radius: 50%;
+}
+
+.radio-dot :after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-dot:hover {
+  background-color: rgba(10, 10, 10, 0.4);
+}
+
+.radio-dot:active, .radio-dot:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(23, 102, 166, 0.25);
+          box-shadow: 0 0 0 4px rgba(23, 102, 166, 0.25);
+}
+
+.pause {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 11px 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  background-image: url("https://storage.pepperi.com/PreSales/NewFoodDemoImg/pause.svg");
+  background-position: center;
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
