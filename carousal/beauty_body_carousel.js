@@ -1,4 +1,5 @@
-customHomePage.slideLifetyme = 5000;
+setTimeout(function(){
+    customHomePage.slideLifetyme = 5000;
 customHomePage.slideSwitchTimeoutKeeper;
 customHomePage.CaruselData = []
 customHomePage.carousel = function (slideid, CaruselData) {
@@ -153,3 +154,4 @@ customHomePage.carousel = function (slideid, CaruselData) {
     }
     customHomePage.swipeListener()
 }
+}, 200)
