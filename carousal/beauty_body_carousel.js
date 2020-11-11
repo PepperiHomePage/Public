@@ -1,7 +1,14 @@
 this.slideLifetyme = 5000;
 this.slideSwitchTimeoutKeeper;
 this.CaruselData = []
+this.cssFilePath = "https://github.com/PepperiHomePage/Public/blob/Burrypony-test/brands/beauty_body_brands.css";
 this.carousel = function (slideid, CaruselData) {
+    this.initPlugin = function () {
+        var options = {
+          cssURLs: [this.cssFilePath],
+        };
+        return options;
+      };
     this.CaruselData = CaruselData
     let htmlStr = "";
     let indicatorsStr = "";

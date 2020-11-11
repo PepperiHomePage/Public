@@ -1,5 +1,7 @@
 
+this.cssFilePath = "https://github.com/PepperiHomePage/Public/blob/Burrypony-test/promotions/beauty_body_promotions.css";
 this.promotions = function (Promotions) {
+  
   this.drawPromotions(Promotions);
   this.drawPromotions = function (Promotions) {
     let str = "";
@@ -19,5 +21,11 @@ this.promotions = function (Promotions) {
     }
     if(document.getElementById("promotions"))
     document.getElementById("promotions").innerHTML = str;
+  };
+  this.initPlugin = function () {
+    var options = {
+      cssURLs: [this.cssFilePath],
+    };
+    return options;
   };
 }
