@@ -24,10 +24,12 @@ var customHomepage = {};
   this.accounts = [];
   this.jsonFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/config_body.js'
   this.jsonModuleChatFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/chat.js'
-  this.promotionsFilePath = 'https://github.com/PepperiHomePage/Public/blob/Burrypony-test/promotions/beauty_body_promotions.js'
-  this.brandsFilePath = 'https://github.com/PepperiHomePage/Public/blob/Burrypony-test/promotions/beauty_body_promotions.js'
+  this.promotionsJsonPath = 'https://pepperihomepage.github.io/Public/promotions/beauty_body_promotions.js'
+  this.brandsJsonPath = 'https://pepperihomepage.github.io/Public/brands/beauty_body_brands.js'
+  this.brandscssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
   this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
+  this.brandscssPath = "https://pepperihomepage.github.io/Public/brands/beauty_body_brands.css";
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -103,7 +105,7 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsFilePath ,this.brandsFilePath, this.carousalJsonPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath],
       cssURLs: [this.cssFilePath, this.carousalcssPath],
     };
     return options;
@@ -506,8 +508,8 @@ var customHomepage = {};
       this.getAccounts(additionalAccountFields);
       this.closeAllMenusListener();
       customHomepage.carousel("slides",CaruselData)
-      brands(Brands)
-      promotions(Promotions)
+      customHomepage.drawImagesBlocks("brands",Brands)
+      customHomepage.promotions("promotions",Promotions)
     } else {
       setTimeout(() => {
         customHomepage.buildHTML()
