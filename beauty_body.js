@@ -26,7 +26,8 @@ var customHomepage = {};
   this.jsonModuleChatFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/chat.js'
   this.promotionsFilePath = 'https://github.com/PepperiHomePage/Public/blob/Burrypony-test/promotions/beauty_body_promotions.js'
   this.brandsFilePath = 'https://github.com/PepperiHomePage/Public/blob/Burrypony-test/promotions/beauty_body_promotions.js'
-  this.carousalFilePath = 'https://github.com/PepperiHomePage/Public/blob/Burrypony-test/promotions/beauty_body_promotions.js'
+  this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
+  this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -102,8 +103,8 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsFilePath ,this.brandsFilePath, this.carousalFilePath],
-      cssURLs: [this.cssFilePath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsFilePath ,this.brandsFilePath, this.carousalJsonPath],
+      cssURLs: [this.cssFilePath, this.carousalcssPath],
     };
     return options;
   };
@@ -505,8 +506,8 @@ var customHomepage = {};
       this.getAccounts(additionalAccountFields);
       this.closeAllMenusListener();
       this.carousel("slides",CaruselData)
-      this.brands(Brands)
-      this.promotions(Promotions)
+      brands(Brands)
+      promotions(Promotions)
     } else {
       setTimeout(() => {
         customHomepage.buildHTML()
