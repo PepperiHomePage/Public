@@ -1,13 +1,12 @@
-setTimeout(function(){
-    customHomePage.slideLifetyme = 5000;
-customHomePage.slideSwitchTimeoutKeeper;
-customHomePage.CaruselData = []
-customHomePage.carousel = function (slideid, CaruselData) {
-    customHomePage.CaruselData = CaruselData
+customHomepage.slideLifetyme = 5000;
+customHomepage.slideSwitchTimeoutKeeper;
+customHomepage.CaruselData = []
+customHomepage.carousel = function (slideid, CaruselData) {
+    customHomepage.CaruselData = CaruselData
     let htmlStr = "";
     let indicatorsStr = "";
     var idx = 0;
-    var value = customHomePage.CaruselData[idx];
+    var value = customHomepage.CaruselData[idx];
     htmlStr += `<div class="slide" data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
@@ -28,37 +27,37 @@ customHomePage.carousel = function (slideid, CaruselData) {
 
     document.getElementById(slideid).innerHTML = htmlStr;
 
-    for (const [idx1, value] of customHomePage.CaruselData.entries()) {
+    for (const [idx1, value] of customHomepage.CaruselData.entries()) {
         indicatorsStr +=
             idx1 == idx ?
             `<div class="radio-box">
-           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide')); customHomepage.switchSlide(true)" checked="checked">
-           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide'));  customHomepage.switchSlide(true)" ></span>
+           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide')); customHomepage.switchSlide(true)" checked="checked">
+           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide'));  customHomepage.switchSlide(true)" ></span>
            </div>` :
             `<div class="radio-box">
-           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide'));  customHomepage.switchSlide(true)">
-           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide'));  customHomepage.switchSlide(true)"></span>
+           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide'));  customHomepage.switchSlide(true)">
+           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide'));  customHomepage.switchSlide(true)"></span>
            </div>`
     }
 
 
     document.getElementById("indicators").innerHTML = indicatorsStr;
-    customHomePage.setSessionStorage("savedIDX", 0);
-    customHomePage.slideLifetyme = value.time;
-    customHomePage.switchSlide();
-    customHomePage.playerClick = function () {
+    customHomepage.setSessionStorage("savedIDX", 0);
+    customHomepage.slideLifetyme = value.time;
+    customHomepage.switchSlide();
+    customHomepage.playerClick = function () {
         var btn = document.getElementById("player");
         var btnClass = btn.className;
         if (btnClass == "play") {
             btn.className = "pause";
-            customHomePage.switchSlide();
+            customHomepage.switchSlide();
         } else {
             btn.className = "play";
-            clearTimeout(customHomePage.slideSwitchTimeoutKeeper);
+            clearTimeout(customHomepage.slideSwitchTimeoutKeeper);
         }
     };
-    customHomePage.switchSlide = function (isCurrent, next = true) {
-        clearTimeout(customHomePage.slideSwitchTimeoutKeeper);
+    customHomepage.switchSlide = function (isCurrent, next = true) {
+        clearTimeout(customHomepage.slideSwitchTimeoutKeeper);
         let htmlStr = "";
 
         let indicatorsStr = "";
@@ -66,20 +65,20 @@ customHomePage.carousel = function (slideid, CaruselData) {
         var idx;
         var value;
 
-        idx = +sessionStorage.getItem("savedIDX") < customHomePage.CaruselData.length ?
+        idx = +sessionStorage.getItem("savedIDX") < customHomepage.CaruselData.length ?
             +sessionStorage.getItem("savedIDX") :
             0;
 
-        value = customHomePage.CaruselData[idx];
+        value = customHomepage.CaruselData[idx];
         if (next) {
-            customHomePage.setSessionStorage(
+            customHomepage.setSessionStorage(
                 "savedIDX",
-                +sessionStorage.getItem("savedIDX") + 1 < customHomePage.CaruselData.length ?
+                +sessionStorage.getItem("savedIDX") + 1 < customHomepage.CaruselData.length ?
                 +sessionStorage.getItem("savedIDX") + 1 :
                 0
             );
         } else {
-            customHomePage.setSessionStorage(
+            customHomepage.setSessionStorage(
                 "savedIDX",
                 +sessionStorage.getItem("savedIDX") - 1 > 0 ?
                 +sessionStorage.getItem("savedIDX") - 1 :
@@ -107,27 +106,27 @@ customHomePage.carousel = function (slideid, CaruselData) {
     </div>`
         if (document.getElementById("slides")) {
             document.getElementById("slides").innerHTML = htmlStr;
-            for (const [idx1, value] of customHomePage.CaruselData.entries()) {
+            for (const [idx1, value] of customHomepage.CaruselData.entries()) {
                 indicatorsStr +=
                     idx1 == idx ?
                     `<div class="radio-box">
-               <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide')); customHomepage.switchSlide(true)" checked="checked">
-               <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide')); customHomepage.switchSlide(true)"></span>
+               <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide')); customHomepage.switchSlide(true)" checked="checked">
+               <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide')); customHomepage.switchSlide(true)"></span>
                </div>` :
                     `<div class="radio-box">
-               <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide')); customHomepage.switchSlide(true)">
-               <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomePage.getAttribute('data-slide')); customHomepage.switchSlide(true)"></span>
+               <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide')); customHomepage.switchSlide(true)">
+               <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', customHomepage.getAttribute('data-slide')); customHomepage.switchSlide(true)"></span>
                </div>`
             }
             document.getElementById("indicators").innerHTML = indicatorsStr;
             document.querySelectorAll(".slide-text")[0].style.opacity = 1;
-            customHomePage.slideLifetyme = value.time;
-            customHomePage.slideSwitchTimeoutKeeper = setTimeout(function () {
+            customHomepage.slideLifetyme = value.time;
+            customHomepage.slideSwitchTimeoutKeeper = setTimeout(function () {
                 customHomepage.switchSlide();
-            }, customHomePage.slideLifetyme);
+            }, customHomepage.slideLifetyme);
         }
     };
-    customHomePage.swipeListener = function () {
+    customHomepage.swipeListener = function () {
         var initialPoint;
         var finalPoint;
         document.addEventListener('touchstart', function (event) {
@@ -152,6 +151,5 @@ customHomePage.carousel = function (slideid, CaruselData) {
             }
         }, false);
     }
-    customHomePage.swipeListener()
+    customHomepage.swipeListener()
 }
-}, 200)

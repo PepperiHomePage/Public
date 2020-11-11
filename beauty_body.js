@@ -505,7 +505,7 @@ var customHomepage = {};
         this.transactionsHistoryFields = blocks_config["submitted_orders"].table
       this.getAccounts(additionalAccountFields);
       this.closeAllMenusListener();
-      this.carousel("slides",CaruselData)
+      customHomepage.carousel("slides",CaruselData)
       brands(Brands)
       promotions(Promotions)
     } else {
