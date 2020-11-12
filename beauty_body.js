@@ -30,8 +30,10 @@ var customHomepage = {};
   this.brandscssPath = "https://pepperihomepage.github.io/Public/brands/beauty_body_brands.css";
   this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
-  this.freeShippingJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping /beauty_body_sidebar_free_shipping.js'
-  this.freeShippingCssPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping /beauty_body_sidebar_free_shipping.js'
+  this.freeShippingJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping/beauty_body_sidebar_free_shipping.js'
+  this.freeShippingCssPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping/beauty_body_sidebar_free_shipping.css'
+  this.accountBalanceJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_body_sidebar-account_balance.js'
+  this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_body_sidebar-account_balance.css'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -107,8 +109,8 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath],
-      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath],
+      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath],
     };
     return options;
   };
@@ -267,12 +269,8 @@ var customHomepage = {};
       customHomepage.freeShipping(uuid,blocks_config.free_shipping)
     }
     if (blocks_config.account_balance) {
-      document.getElementById("account_balance").innerHTML = `                  
-        <div>
-        <p class="dimmed">${blocks_config.account_balance.text}</p>
-        <p class="title-2-sm "><b id='balance'>${currentAccount[0][blocks_config.account_balance.field]}</b> ${blocks_config.account_balance.measure_unit}</p>
-      </div>` + (blocks_config.free_shipping.svg ? `<img src="${blocks_config.account_balance.svg}" alt="Go to Account Balance icon">` : '')
-    }
+      customHomepage.accountBalance(uuid,blocks_config.account_balance)
+     }
 
     pepperi.api.transactions.search({
       fields: [
@@ -508,7 +506,7 @@ var customHomepage = {};
       this.closeAllMenusListener();
       customHomepage.carousel("slides",CaruselData)
       customHomepage.drawImagesBlocks("brands",Brands)
-      customHomepage.promotions("promotions",Promotions)
+      customHomepage.drawPromotions("promotions",Promotions)
     } else {
       setTimeout(() => {
         customHomepage.buildHTML()
