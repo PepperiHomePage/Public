@@ -25,16 +25,18 @@ var customHomepage = {};
   this.jsonFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/config_body.js'
   this.jsonModuleChatFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/chat.js'
   this.promotionsJsonPath = 'https://pepperihomepage.github.io/Public/promotions/beauty_body_promotions.js'
+  this.brandscssPath = "https://pepperihomepage.github.io/Public/brands/beauty_body_brands.css";
   this.brandsJsonPath = 'https://pepperihomepage.github.io/Public/brands/beauty_body_brands.js'
-  this.brandscssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
+  this.brandscssPath = "https://pepperihomepage.github.io/Public/brands/beauty_body_brands.css";
   this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
-  this.brandscssPath = "https://pepperihomepage.github.io/Public/brands/beauty_body_brands.css";
+  this.freeShippingJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping /beauty_body_sidebar_free_shipping.js'
+  this.freeShippingCssPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping /beauty_body_sidebar_free_shipping.js'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
-  this.setHtml = function () {
-    var str = `           
+  this.setHtml = function () { 
+    var str = `            
             <main class="wrapper">
             <section id="carousal-content">
               <div id="carousel" class="carousel">
@@ -105,8 +107,8 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath],
-      cssURLs: [this.cssFilePath, this.carousalcssPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath],
+      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath],
     };
     return options;
   };
@@ -262,10 +264,7 @@ var customHomepage = {};
     console.log("blocks_config", blocks_config)
     console.log("currentAccount", currentAccount)
     if (blocks_config.free_shipping) {
-      document.getElementById("free_shipping").innerHTML = `
-          <div>
-          <p>${blocks_config.free_shipping.text}${currentAccount[0][blocks_config.free_shipping.field]}</p>
-        </div>` + (blocks_config.free_shipping.svg ? `<img src="${blocks_config.free_shipping.svg}" alt="Promotion truck icon">` : '')
+      customHomepage.freeShipping(uuid,blocks_config.free_shipping)
     }
     if (blocks_config.account_balance) {
       document.getElementById("account_balance").innerHTML = `                  
