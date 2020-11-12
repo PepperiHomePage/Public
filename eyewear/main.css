@@ -818,7 +818,7 @@ button {
   margin: 0 auto;
 }
 
-.content {
+.chp-content {
   height: 100%;
   display: -ms-grid;
   display: grid;
