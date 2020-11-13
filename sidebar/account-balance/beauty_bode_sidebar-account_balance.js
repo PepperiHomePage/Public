@@ -1,5 +1,5 @@
 customHomepage.accountBalance=function(uuid,config){
-  customHomepage.accountBalance=config
+  customHomepage.accountBalanceConfig=config
   pepperi.api.accounts.get({
      key: { UUID: uuid },
      fields: [config.field],
@@ -12,8 +12,8 @@ customHomepage.accountBalance=function(uuid,config){
 customHomepage.accountBalanceCallBack=function(data){
   document.getElementById("account_balance").innerHTML = `                  
   <div>
-  <p class="dimmed">${customHomepage.freeShippingConfig.text}</p>
-  <p class="title-2-sm "><b id='balance'>${data.object[customHomepage.freeShippingConfig.field]}</b> ${data.object[customHomepage.freeShippingConfig.measure_unit]}</p>
-  </div>` + (customHomepage.freeShippingConfig.svg ? `<img src="${customHomepage.freeShippingConfig.svg}" alt="Go to Account Balance icon">` : '')
+  <p class="dimmed">${customHomepage.accountBalanceConfig.text}</p>
+  <p class="title-2-sm "><b id='balance'>${data.object[customHomepage.accountBalanceConfig.field]}</b> ${data.object[customHomepage.accountBalanceConfig.measure_unit]}</p>
+  </div>` + (customHomepage.accountBalanceConfig.svg ? `<img src="${customHomepage.accountBalanceConfig.svg}" alt="Go to Account Balance icon">` : '')
   }
 

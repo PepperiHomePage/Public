@@ -32,8 +32,8 @@ var customHomepage = {};
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
   this.freeShippingJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping/beauty_body_sidebar_free_shipping.js'
   this.freeShippingCssPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping/beauty_body_sidebar_free_shipping.css'
-  this.accountBalanceJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_body_sidebar-account_balance.js'
-  this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_body_sidebar-account_balance.css'
+  this.accountBalanceJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.js'
+  this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.css'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -271,61 +271,8 @@ var customHomepage = {};
     if (blocks_config.account_balance) {
       customHomepage.accountBalance(uuid,blocks_config.account_balance)
      }
-
-    pepperi.api.transactions.search({
-      fields: [
-        "UUID",
-        "Status",
-        "WrntyID",
-        ...this.transactionFields.map(el => el.field)
-      ],
-      filter: {
-        Operation: "AND",
-        RightNode: {
-          ApiName: "ActionDateTime",
-          Operation: "InTheLast",
-          Values: ["4", "Weeks"],
-        },
-        LeftNode: {
-          Operation: "AND",
-          RightNode: {
-            ApiName: "Type",
-            Operation: "IsEqual",
-            Values: [this.transactionName],
-          },
-          LeftNode: {
-            Operation: "AND",
-            RightNode: {
-              ApiName: "Account.UUID",
-              Operation: "IsEqual",
-              Values: [uuid],
-            },
-            LeftNode: {
-              Operation: "AND",
-              RightNode: {
-                ApiName: "Hidden",
-                Operation: "IsEqual",
-                Values: ['false'],
-              },
-              LeftNode: {
-                ApiName: "Status",
-                Operation: "IsEqual",
-                Values: ["1", "1000"],
-              },
-            },
-          },
-        },
-      },
-      sorting: [{
-        Field: "ActionDateTime",
-        Ascending: false
-      }],
-      pageSize: 5,
-      page: 1,
-      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
-    });
-  };
-  
+    customHomepage.activeOrder(id,this.transactionName, this.transactionFields, uuid)
+    } 
   this.findSubmittedTransactionForSelectedAccount = function () {
     let uuid = this.accountUUID;
     console.log("blocks_config",JSON.stringify(blocks_config))
