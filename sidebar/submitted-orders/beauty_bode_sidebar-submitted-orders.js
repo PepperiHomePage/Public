@@ -1,8 +1,8 @@
-this.submitedOrders = function (transactionName,fields,accountUUID) {
+customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
   pepperi.api.transactions.search({
     fields: [
       "UUID",
-      ...this.transactionsHistoryFields
+      ...fields
     ],
     filter: {
       Operation: "AND",
@@ -16,14 +16,14 @@ this.submitedOrders = function (transactionName,fields,accountUUID) {
         RightNode: {
           ApiName: "Type",
           Operation: "IsEqual",
-          Values: [this.transactionName],
+          Values: [transactionName],
         },
         LeftNode: {
           Operation: "AND",
           RightNode: {
             ApiName: "Account.UUID",
             Operation: "IsEqual",
-            Values: [uuid],
+            Values: [accountUUID],
           },
           LeftNode: {
             Operation: "AND",
@@ -47,26 +47,26 @@ this.submitedOrders = function (transactionName,fields,accountUUID) {
     responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
   });
 };
-this.getRecentSubmittedTransactionForAccountCallback = function (data) {
+customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data) {
   if (data && data.objects && data.objects.length) {
-    this.buildSubmittedOrdersTable(data.objects);
+    customHomepage.buildSubmittedOrdersTable(data.objects);
   } else {
     document.getElementById(
       "open-orders"
-    ).innerHTML = `<li>No submitted orders for this account</li>`;
+    ).innerHTML = `<li>No submitted orders for customHomepage account</li>`;
   }
 };
-this.buildSubmittedOrdersTable = function (data) {
+customHomepage.buildSubmittedOrdersTable = function (data) {
   let tableHtml = "";
   let Container = document.getElementById("open-orders");
   document.getElementById("submitted_orders_name").innerHTML = blocks_config['submitted_orders'].name
   data.forEach((element) => {
-    let dateValue = new Date(element[this.transactionsHistoryFields[0]]).toLocaleDateString();
+    let dateValue = new Date(element[customHomepage.transactionsHistoryFields[0]]).toLocaleDateString();
     let deepLink = "/transactions/cart/" + element.UUID;
     tableHtml += `
           <li>
           <span  class="dimmed">${dateValue}</span>
-          <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element[this.transactionsHistoryFields[1]]}</a></span>
+          <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element[customHomepage.transactionsHistoryFields[1]]}</a></span>
         </li>            
           `;
   });

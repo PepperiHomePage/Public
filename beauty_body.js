@@ -35,6 +35,9 @@ var customHomepage = {};
   this.accountBalanceJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.js'
   this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.css'
   this.activeOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.js'
+  this.activeOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.css'
+  this.submitedOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_submitted-order.js'
+  this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_submitted-order.css'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -110,8 +113,8 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath],
-      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath],
+      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath],
     };
     return options;
   };
