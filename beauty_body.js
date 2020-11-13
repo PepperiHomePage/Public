@@ -271,7 +271,7 @@ var customHomepage = {};
     if (blocks_config.account_balance) {
       customHomepage.accountBalance(uuid,blocks_config.account_balance)
      }
-    customHomepage.activeOrder(id,this.transactionName, this.transactionFields, uuid)
+    customHomepage.activeOrder(this.transactionName, this.transactionFields, uuid)
     } 
   this.findSubmittedTransactionForSelectedAccount = function () {
     let uuid = this.accountUUID;

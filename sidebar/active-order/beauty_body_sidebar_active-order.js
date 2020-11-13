@@ -1,4 +1,4 @@
-customHomepage.openOrder = function(id,transactionName,fields,accountUUID){
+customHomepage.activeOrder = function(transactionName,fields,accountUUID){
   pepperi.api.transactions.search({
     fields: [
       "UUID",
