@@ -34,6 +34,7 @@ var customHomepage = {};
   this.freeShippingCssPath = 'https://pepperihomepage.github.io/Public/sidebar/free-shipping/beauty_body_sidebar_free_shipping.css'
   this.accountBalanceJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.js'
   this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.css'
+  this.activeOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.js'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -109,7 +110,7 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath],
       cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath],
     };
     return options;
@@ -272,164 +273,8 @@ var customHomepage = {};
       customHomepage.accountBalance(uuid,blocks_config.account_balance)
      }
     customHomepage.activeOrder(this.transactionName, this.transactionFields, uuid)
+    customHomepage.submitedOrders(this.transactionName, this.transactionFields, uuid)
     } 
-  this.findSubmittedTransactionForSelectedAccount = function () {
-    let uuid = this.accountUUID;
-    console.log("blocks_config",JSON.stringify(blocks_config))
-    console.log({
-      Operation: "AND",
-      RightNode: {
-        ApiName: "ActionDateTime",
-        Operation: "InTheLast",
-        Values: ["4", "Weeks"],
-      },
-      LeftNode: {
-        Operation: "AND",
-        RightNode: {
-          ApiName: "Type",
-          Operation: "IsEqual",
-          Values: [this.transactionName],
-        },
-        LeftNode: {
-          Operation: "AND",
-          RightNode: {
-            ApiName: "Account.UUID",
-            Operation: "IsEqual",
-            Values: [uuid],
-          },
-          LeftNode: {
-            Operation: "AND",
-            RightNode: {
-              ApiName: "Hidden",
-              Operation: "IsEqual",
-              Values: ['false'],
-            },
-            LeftNode: {
-              ApiName: "Status",
-              Operation: "IsEqual",
-              Values: blocks_config["submitted_orders"].statuses,
-            },
-          },
-        },
-      },
-    },)
-    pepperi.api.transactions.search({
-      fields: [
-        "UUID",
-        ...this.transactionsHistoryFields
-      ],
-      filter: {
-        Operation: "AND",
-        RightNode: {
-          ApiName: "ActionDateTime",
-          Operation: "InTheLast",
-          Values: ["4", "Weeks"],
-        },
-        LeftNode: {
-          Operation: "AND",
-          RightNode: {
-            ApiName: "Type",
-            Operation: "IsEqual",
-            Values: [this.transactionName],
-          },
-          LeftNode: {
-            Operation: "AND",
-            RightNode: {
-              ApiName: "Account.UUID",
-              Operation: "IsEqual",
-              Values: [uuid],
-            },
-            LeftNode: {
-              Operation: "AND",
-              RightNode: {
-                ApiName: "Hidden",
-                Operation: "IsEqual",
-                Values: ['false'],
-              },
-              LeftNode: {
-                ApiName: "Status",
-                Operation: "IsEqual",
-                Values: blocks_config["submitted_orders"].statuses,
-              },
-            },
-          },
-        },
-      },
-      sorting: [{ Field: "ActionDateTime", Ascending: false }],
-      pageSize: 5,
-      page: 1,
-      responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
-    });
-  };
-  this.getRecentSubmittedTransactionForAccountCallback = function (data) {
-    if (data && data.objects && data.objects.length) {
-      this.buildSubmittedOrdersTable(data.objects);
-    } else {
-      document.getElementById(
-        "open-orders"
-      ).innerHTML = `<li>No submitted orders for this account</li>`;
-    }
-  };
-  this.getRecentTransactionForAccountCallback = function (data) {
-    console.log("data", data)
-    console.log("blocks_config",JSON.stringify(blocks_config))
-    let recentOrdBtnDeeplink = ''
-    if (data && data.objects && data.objects.length) {
-      let uuid = data.objects[0].UUID ? data.objects[0].UUID : "00000000";
-      this.setSessionStorage("LastOpenTransactionUUID", uuid);
-      recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
-      $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
-      $("#orderBtn").text("Back to Cart")
-      this.buildOpenOrdersTable(data.objects);
-    } else {
-      this.setSessionStorage("LastOpenTransactionUUID", '');
-      recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
-      $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
-      $("#orderBtn").text("Create New Order");
-      let html = '';
-      this.transactionFields.forEach(el => {
-        html += `<li>
-        <span  class="dimmed">${el.text}</span>
-        <span class="bold">0</span>
-      </li>`
-      })
-      document.getElementById("currTransactionFields").innerHTML = html
-    }
-  };
-  this.buildOpenOrdersTable = function (data) {
-    var is_new = false;
-    if (data[0].Status == 1000)
-      is_new = true;
-    let html = '';
-    this.transactionFields.forEach(el => {
-      html += `<li>
-      <span  class="dimmed">${el.text}</span>
-      <span class="bold">${is_new ? 0 : data[0][el.field]}</span>
-    </li>`
-    })
-    document.getElementById("currTransactionFields").innerHTML = html
-    console.log('blocks-config:', blocks_config["active-order"])
-    document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
-    this.findSubmittedTransactionForSelectedAccount()
-  };
-  this.buildSubmittedOrdersTable = function (data) {
-    let tableHtml = "";
-    let Container = document.getElementById("open-orders");
-    document.getElementById("submitted_orders_name").innerHTML = blocks_config['submitted_orders'].name
-    data.forEach((element) => {
-      let dateValue = new Date(element[this.transactionsHistoryFields[0]]).toLocaleDateString();
-      let deepLink = "/transactions/cart/" + element.UUID;
-      tableHtml += `
-            <li>
-            <span  class="dimmed">${dateValue}</span>
-            <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element[this.transactionsHistoryFields[1]]}</a></span>
-          </li>            
-            `;
-    });
-
-    Container.innerHTML = "";
-    Container.innerHTML = tableHtml;
-  };
   this.buildHTML = function () {
     if (document.getElementById("slides")) {
       this.transactionName = Transaction
