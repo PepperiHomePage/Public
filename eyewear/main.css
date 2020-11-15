@@ -314,6 +314,7 @@ a.disable, a:disabled {
 }
 
 .logo {
+  cursor: pointer;
   max-height: 2.5rem;
   -webkit-margin-end: 1rem;
           margin-inline-end: 1rem;
