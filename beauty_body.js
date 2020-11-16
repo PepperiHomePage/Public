@@ -87,9 +87,7 @@ var customHomepage = {};
                 <hr class="sidebar-gap">
           
                 <div class="sidebar-box" id="submitted_orders" style="display:none">
-                  <h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
-                  <hr>
-                  <ul id="open-orders" class="leaders"></ul>
+                  
                 </div>
                 <div id="overSide"></div>
               </div>
