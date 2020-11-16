@@ -36,8 +36,10 @@ var customHomepage = {};
   this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.css'
   this.activeOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.js'
   this.activeOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.css'
-  this.submitedOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_submitted-order.js'
-  this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_submitted-order.css'
+  this.submitedOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_bode_sidebar-submitted-orders.js'
+  this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_body_sidebar_submitted-orders.css'
+  this.accountDropdownJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.js'
+  this.accountDropdownCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.css'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -111,8 +113,8 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath],
-      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath, this.accountDropdownJsonPath],
+      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath,  this.accountDropdownCssPath],
     };
     return options;
   };
@@ -222,7 +224,7 @@ var customHomepage = {};
     console.log("accounts", data)
     if (!data.success || data.count == 0) return;
     this.accounts = data.objects;
-    this.buildAccountsDropDown(this.accounts, );
+    customHomepage.buildAccountsDropDown(this.accounts);
   };
 
   this.setActiveDropdown = function (uuid, name) {

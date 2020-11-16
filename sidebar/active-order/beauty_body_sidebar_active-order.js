@@ -56,18 +56,18 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
   let recentOrdBtnDeeplink = ''
   if (data && data.objects && data.objects.length) {
     let uuid = data.objects[0].UUID ? data.objects[0].UUID : "00000000";
-    this.setSessionStorage("LastOpenTransactionUUID", uuid);
+    customHomepage.setSessionStorage("LastOpenTransactionUUID", uuid);
     recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
     $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
     $("#orderBtn").text("Back to Cart")
-    this.buildOpenOrdersTable(data.objects);
+    customHomepage.buildOpenOrdersTable(data.objects);
   } else {
-    this.setSessionStorage("LastOpenTransactionUUID", '');
+    customHomepage.setSessionStorage("LastOpenTransactionUUID", '');
     recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
     $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
     $("#orderBtn").text("Create New Order");
     let html = '';
-    this.transactionFields.forEach(el => {
+    customHomepage.transactionFields.forEach(el => {
       html += `<li>
       <span  class="dimmed">${el.text}</span>
       <span class="bold">0</span>
@@ -77,12 +77,12 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
   }
 };
 
-this.buildOpenOrdersTable = function (data) {
+customHomepage.buildOpenOrdersTable = function (data) {
   var is_new = false;
   if (data[0].Status == 1000)
     is_new = true;
   let html = '';
-  this.transactionFields.forEach(el => {
+  customHomepage.transactionFields.forEach(el => {
     html += `<li>
     <span  class="dimmed">${el.text}</span>
     <span class="bold">${is_new ? 0 : data[0][el.field]}</span>
