@@ -81,8 +81,7 @@ var customHomepage = {};
                 <div id="active-order" class="sidebar-box  sidebar-gap" style="display:none">
                   <h3 class="title-2-sm " id="currTransactionName"></h3>
                   <ul class="leaders" id="currTransactionFields"></ul>
-                  <button class="comonBtn" id="orderBtn">
-                  Back to Cart</button>
+                  <button class="comonBtn" id="orderBtn">Back to Cart</button>
                 </div>
           
                 <hr class="sidebar-gap">
@@ -90,8 +89,7 @@ var customHomepage = {};
                 <div class="sidebar-box" id="submitted_orders" style="display:none">
                   <h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
                   <hr>
-                  <ul id="open-orders" class="leaders">                    
-                  </ul>
+                  <ul id="open-orders" class="leaders"></ul>
                 </div>
                 <div id="overSide"></div>
               </div>
@@ -224,34 +222,7 @@ var customHomepage = {};
     console.log("accounts", data)
     if (!data.success || data.count == 0) return;
     this.accounts = data.objects;
-    this.buildAccountsDropDown();
-  };
-
-  this.buildAccountsDropDown = function () {
-    let ddElement = document.getElementById("select-menu");
-    let html = "";
-    accounts = this.accounts
-    accounts.forEach((element) => {
-      if ((this.getSessionStorage("accountUUID") && this.getSessionStorage("accountUUID") != '' && element.UUID == this.getSessionStorage("accountUUID"))) {
-        html += `
-                    <li class="active-dropdown-item" onclick="customHomepage.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customHomepage.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>`;
-        document.getElementById("selected-account").innerHTML = element.Name + `(${element.ExternalID})`
-        this.setSessionStorage("accountUUID", element.UUID);
-      } else
-        html += `
-            <li onclick="customHomepage.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customHomepage.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>`;
-    });
-    ddElement.innerHTML = html;
-    if (this.accounts.length == 1) {
-      document.getElementById("store-selector-hr").style.display = "none"
-      document.getElementById("store-selector").style.display = "none"
-    } else {
-      document.getElementById("store-selector-hr").style.display = "flex"
-      document.getElementById("store-selector").style.display = "flex"
-    }
-    if (!this.getSessionStorage("accountUUID") || this.getSessionStorage("accountUUID") == '')
-      this.setActiveDropdown(this.accounts[0].UUID, this.accounts[0].Name)
-    this.findTransactionForSelectedAccount(this.getSessionStorage("accountUUID"));
+    this.buildAccountsDropDown(this.accounts, );
   };
 
   this.setActiveDropdown = function (uuid, name) {
