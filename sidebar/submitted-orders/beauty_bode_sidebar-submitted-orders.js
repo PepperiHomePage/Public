@@ -55,7 +55,7 @@ customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data)
       "submitted_orders"
     ).innerHTML = `<h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
     <hr>
-    <ul id="open-orders" class="leaders"><li>No submitted orders for customHomepage account</li></ul>
+    <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
       `;
   }
 };
@@ -63,20 +63,21 @@ customHomepage.buildSubmittedOrdersTable = function (data) {
   let tableHtml = "";
   let Container = document.getElementById("submitted_orders");
   document.getElementById("submitted_orders_name").innerHTML = blocks_config['submitted_orders'].name
+  tableHtml += `
+  <h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3><hr>
+  <ul id="open-orders" class="leaders">`
   data.forEach((element) => {
     let dateValue = new Date(element[customHomepage.transactionsHistoryFields[0]]).toLocaleDateString();
     let deepLink = "/transactions/cart/" + element.UUID;
     tableHtml += `
-    <h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
-                  <hr>
-                  <ul id="open-orders" class="leaders"><li>
+                  <li>
                   <span  class="dimmed">${dateValue}</span>
                   <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element[customHomepage.transactionsHistoryFields[1]]}</a></span>
-                </li>  </ul>
+                </li>
                     
           `;
   });
-
+  tableHtml += `</ul>`
   Container.innerHTML = "";
   Container.innerHTML = tableHtml;
 };
