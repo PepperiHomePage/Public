@@ -66,17 +66,17 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
     recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
     $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
     $("#orderBtn").text("Create New Order");
-    let html = '';
+    let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
+    <ul class="leaders" id="currTransactionFields">
+    `;
     customHomepage.transactionFields.forEach(el => {
       html += `
-      <h3 class="title-2-sm " id="currTransactionName"></h3>
-                  <ul class="leaders" id="currTransactionFields">
-                  <li>
+      <li>
       <span  class="dimmed">${el.text}</span>
       <span class="bold">0</span>
-    </li></ul>
-                  <button class="comonBtn" id="orderBtn">Back to Cart</button>`
+    </li>`
     })
+    html += `</ul><button class="comonBtn" id="orderBtn">Back to Cart</button>`
     document.getElementById("active-order").innerHTML = html
   }
 };
@@ -85,15 +85,16 @@ customHomepage.buildOpenOrdersTable = function (data) {
   var is_new = false;
   if (data[0].Status == 1000)
     is_new = true;
-  let html = '';
+  let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
+  <ul class="leaders" id="currTransactionFields">`;
   customHomepage.transactionFields.forEach(el => {
-    html += `<h3 class="title-2-sm " id="currTransactionName"></h3>
-    <ul class="leaders" id="currTransactionFields"><li>
+    html += `<li>
     <span  class="dimmed">${el.text}</span>
     <span class="bold">${is_new ? 0 : data[0][el.field]}</span>
-  </li></ul>
-    <button class="comonBtn" id="orderBtn">Back to Cart</button>`
+  </li>`
   })
+  html += `</ul>
+  <button class="comonBtn" id="orderBtn">Back to Cart</button>`
   document.getElementById("active-order").innerHTML = html
   console.log('blocks-config:', blocks_config["active-order"])
   document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
