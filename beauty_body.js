@@ -81,9 +81,7 @@ var customHomepage = {};
                 <hr id ="store-selector-hr" style="display:none" class="sidebar-gap">
           
                 <div id="active-order" class="sidebar-box  sidebar-gap" style="display:none">
-                  <h3 class="title-2-sm " id="currTransactionName"></h3>
-                  <ul class="leaders" id="currTransactionFields"></ul>
-                  <button class="comonBtn" id="orderBtn">Back to Cart</button>
+                  
                 </div>
           
                 <hr class="sidebar-gap">

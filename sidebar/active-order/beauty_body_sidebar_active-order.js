@@ -68,12 +68,16 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
     $("#orderBtn").text("Create New Order");
     let html = '';
     customHomepage.transactionFields.forEach(el => {
-      html += `<li>
+      html += `
+      <h3 class="title-2-sm " id="currTransactionName"></h3>
+                  <ul class="leaders" id="currTransactionFields">
+                  <li>
       <span  class="dimmed">${el.text}</span>
       <span class="bold">0</span>
-    </li>`
+    </li></ul>
+                  <button class="comonBtn" id="orderBtn">Back to Cart</button>`
     })
-    document.getElementById("currTransactionFields").innerHTML = html
+    document.getElementById("active-order").innerHTML = html
   }
 };
 
@@ -83,12 +87,14 @@ customHomepage.buildOpenOrdersTable = function (data) {
     is_new = true;
   let html = '';
   customHomepage.transactionFields.forEach(el => {
-    html += `<li>
+    html += `<h3 class="title-2-sm " id="currTransactionName"></h3>
+    <ul class="leaders" id="currTransactionFields"><li>
     <span  class="dimmed">${el.text}</span>
     <span class="bold">${is_new ? 0 : data[0][el.field]}</span>
-  </li>`
+  </li></ul>
+    <button class="comonBtn" id="orderBtn">Back to Cart</button>`
   })
-  document.getElementById("currTransactionFields").innerHTML = html
+  document.getElementById("active-order").innerHTML = html
   console.log('blocks-config:', blocks_config["active-order"])
   document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
 };
