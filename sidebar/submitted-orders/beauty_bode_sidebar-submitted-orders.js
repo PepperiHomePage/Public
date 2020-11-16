@@ -78,6 +78,5 @@ customHomepage.buildSubmittedOrdersTable = function (data) {
           `;
   });
   tableHtml += `</ul>`
-  Container.innerHTML = "";
   Container.innerHTML = tableHtml;
 };
