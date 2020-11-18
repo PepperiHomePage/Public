@@ -43,9 +43,10 @@ var customHomepage = {};
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
-  this.setHtml = function () { 
+  this.setHtml = function () {
     var str = `            
             <main class="wrapper">
+            TO DO:
             <section id="carousal-content">
               <div id="carousel" class="carousel">
                 <div id="slides" class="slides"></div>
@@ -71,11 +72,11 @@ var customHomepage = {};
                 </div>
           
                 <!--<hr>-->
-          
-                <div class="card dark-card  sidebar-gap" id="free_shipping" style="display:none">
+                
+                <div class="card dark-card sidebar-gap" id="free_shipping" style="display:none">
                 </div>
           
-                <div class="card  sidebar-gap" id="account_balance" style="display:none">
+                <div class="card sidebar-gap" id="account_balance" style="display:none">
                 </div>
           
                 <hr id ="store-selector-hr" style="display:none" class="sidebar-gap">
@@ -109,8 +110,13 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath, this.accountDropdownJsonPath],
-      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath,  this.accountDropdownCssPath],
+      JsURLs: [this.jsonFilePath,
+        this.jsonModuleChatFilePath,
+        this.promotionsJsonPath, 
+        this.brandsJsonPath, 
+        this.carousalJsonPath, this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath, this.accountDropdownJsonPath
+      ],
+      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath, this.accountDropdownCssPath],
     };
     return options;
   };
@@ -122,107 +128,7 @@ var customHomepage = {};
     }
     this.getCatalogs();
   };
-  this.getCatalogs = function () {
-    pepperi.api.catalogs.search({
-      fields: ["UUID", "ExternalID", "Description", "ID"],
-      responseCallback: 'customHomepage.getCatalogsCallback'
-    });
-  }
-  this.getCatalogsCallback = function (res) {
-    (res && res.objects && res.objects.length) ? this.catalogs = res.objects : false;
-    this.buildHTML();
-  }
-  this.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving) {
-    let catalogUUID = !inCatalog ? this.catalogs.find((el) => el.ExternalID === this.catalogName).UUID : this.catalogs.find((el) => el.ExternalID === inCatalog).UUID
-    var bridgeObject = {
-      references: {
-        account: { UUID: this.accountUUID },
-        catalog: { UUID: catalogUUID }
-      },
-      type: { Name: !in_transactionName ? this.transactionName : in_transactionName },
-      responseCallback: skipSessionSaving ? "customHomepage.createNewOrderCallback" : "customHomepage.createNewOrderAndNavCallback",
-      requestID: deepLink
-    };
-    pepperi.app.transactions.add(bridgeObject);
-  };
-  this.createNewActivity = function (in_transactionName, deeplink) {
-    var bridgeObject = {
-      references: {
-        account: {
-          UUID: this.accountUUID,
-        },
-      },
-      type: {
-        Name: !in_transactionName ? this.transactionName : in_transactionName,
-      },
-
-      responseCallback: "customHomepage.createNewActivityCallback",
-      requestID: deeplink,
-    };
-
-    pepperi.app.activities.add(bridgeObject);
-  };
-  this.createNewOrderAndNavCallback = function (res) {
-    console.log('createNewOrderAndNavCallback res', res);
-    if (res && res.success) {
-      customHomepage.setSessionStorage('LastOpenTransactionUUID', res.id);
-      let uuid = res.id;
-      if (res.requestID) {
-        var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-        customHomepage.navigation(requestID);
-      }
-    }
-  };
-  this.createNewOrderCallback = function (res) {
-    console.log('createNewOrderCallback res', res);
-    if (res && res.success) {
-      let uuid = res.id;
-      if (res.requestID) {
-        var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-        customHomepage.navigation(requestID);
-      }
-    }
-  };
-  this.createNewActivityCallback = function (res) {
-    if (res && res.success) {
-      var uuid = res.id;
-
-      if (res.requestID) {
-        var requestID = res.requestID.replace(
-          "{{UUID}}",
-          uuid.replace(/-/g, "")
-        );
-        this.navigation(requestID);
-      }
-    }
-  };
-  this.getAccounts = function (fields) {
-    var bridgeObject = {
-      fields: ["Name", "UUID", "ExternalID", ...fields],
-      filter: {
-        Operation: "AND",
-        RightNode: {
-          ApiName: "ParentExternalID",
-          Operation: "IsEqual",
-          Values: [""],
-        },
-        LeftNode: {
-          ApiName: "Hidden",
-          Operation: "IsEqual",
-          Values: ["false"],
-        },
-      },
-      responseCallback: "customHomepage.setAccountDD",
-    };
-    pepperi.api.accounts.search(bridgeObject);
-  };
-  this.setAccountDD = function (data) {
-    console.log("accounts", data)
-    if (!data.success || data.count == 0) return;
-    this.accounts = data.objects;
-    customHomepage.buildAccountsDropDown(this.accounts);
-  };
-
+ 
   this.setActiveDropdown = function (uuid, name) {
     document.getElementById("selected-account").innerHTML = name
     document.querySelector('li.active-dropdown-item') ? document.querySelector('li.active-dropdown-item').classList.remove("active-dropdown-item") : null;
@@ -239,14 +145,14 @@ var customHomepage = {};
     console.log("blocks_config", blocks_config)
     console.log("currentAccount", currentAccount)
     if (blocks_config.free_shipping) {
-      customHomepage.freeShipping(uuid,blocks_config.free_shipping)
+      customHomepage.freeShipping(uuid, blocks_config.free_shipping)
     }
     if (blocks_config.account_balance) {
-      customHomepage.accountBalance(uuid,blocks_config.account_balance)
-     }
+      customHomepage.accountBalance(uuid, blocks_config.account_balance)
+    }
     customHomepage.activeOrder(this.transactionName, this.transactionFields, uuid)
     customHomepage.submitedOrders(this.transactionName, this.transactionFields, uuid)
-    } 
+  }
   this.buildHTML = function () {
     if (document.getElementById("slides")) {
       this.transactionName = Transaction
@@ -268,9 +174,9 @@ var customHomepage = {};
         this.transactionsHistoryFields = blocks_config["submitted_orders"].table
       this.getAccounts(additionalAccountFields);
       this.closeAllMenusListener();
-      customHomepage.carousel("slides",CaruselData)
-      customHomepage.drawImagesBlocks("brands",Brands)
-      customHomepage.drawPromotions("promotions",Promotions)
+      customHomepage.carousel("slides", CaruselData)
+      customHomepage.drawImagesBlocks("brands", Brands)
+      customHomepage.drawPromotions("promotions", Promotions)
     } else {
       setTimeout(() => {
         customHomepage.buildHTML()
@@ -278,8 +184,8 @@ var customHomepage = {};
     }
 
   };
-  
-  
+
+
   this.setSessionStorage = function (paramName, data) {
     sessionStorage.setItem(paramName, data);
   };
@@ -327,31 +233,6 @@ var customHomepage = {};
     }
   };
   //JS listeners
-  this.openStoreSelect = function () {
-    document.getElementById('select-menu').classList.toggle('show')
-  }
-  this.openCloseMenu = function () {
-    const over = document.getElementById("overSide");
-    const e = document.getElementById("sidebar-sm");
-    const btn = document.getElementById("btn");
-    if (e.style.display == "block") {
-      e.style.display = "none";
-      over.style.display = "none";
-      btn.innerText = "Open Menu";
-    } else {
-      over.style.display = "block";
-      e.style.display = "block";
-      btn.innerText = "Close Menu";
-      $('#sidebar-sm').attr('tabindex', '-1');
-      $('#sidebar-sm').focus()
-    }
-  };
-  this.closeAllMenusListener = function () {
-    $('#select-menu').attr('tabindex', '-1');
-    $('#select-menu').on('focusout', function () {
-      $('#select-menu').removeClass('show');
-    });
-  };
-  //carousel
-  
+
+
 }.apply(customHomepage));
