@@ -40,14 +40,15 @@ var customHomepage = {};
   this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_body_sidebar_submitted-orders.css'
   this.accountDropdownJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.js'
   this.accountDropdownCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.css'
-  this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigationJsonPath.js'
+  this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
+  this.jsListenersJsonPath = 'https://pepperihomepage.github.io/Public/jsListeners/beauty_demo_jsListeners.js'
+  this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_demo_helper.js'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
   this.setHtml = function () {
     var str = `            
             <main class="wrapper">
-            TO DO:
             <section id="carousal-content">
               <div id="carousel" class="carousel">
                 <div id="slides" class="slides"></div>
@@ -111,8 +112,27 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath, this.accountDropdownJsonPath, this.navigationJsonPath],
-      cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath,  this.accountDropdownCssPath],
+      JsURLs: [this.jsonFilePath,
+               this.jsonModuleChatFilePath,
+               this.promotionsJsonPath,
+               this.brandsJsonPath, 
+               this.carousalJsonPath, 
+               this.freeShippingJsonPath, 
+               this.accountBalanceJsonPath,
+               this.activeOrderJsonPath, 
+               this.submitedOrderJsonPath, 
+               this.accountDropdownJsonPath, 
+               this.navigationJsonPath,
+               this.jsListenersJsonPath,
+               this.helperJsonPath],
+      cssURLs: [this.cssFilePath, 
+                this.carousalcssPath, 
+                this.brandscssPath, 
+                this.freeShippingCssPath, 
+                this.accountBalanceCssPath, 
+                this.submitedOrderCssPath, 
+                this.activeOrderCssPath, 
+                this.accountDropdownCssPath],
     };
     return options;
   };
@@ -122,7 +142,7 @@ var customHomepage = {};
     if (data) {
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
     }
-    this.getCatalogs();
+    customHomepage.getCatalogs();
   };
  
   this.setActiveDropdown = function (uuid, name) {
