@@ -40,6 +40,7 @@ var customHomepage = {};
   this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_body_sidebar_submitted-orders.css'
   this.accountDropdownJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.js'
   this.accountDropdownCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.css'
+  this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigationJsonPath.js'
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -109,7 +110,7 @@ var customHomepage = {};
   };
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath, this.accountDropdownJsonPath],
+      JsURLs: [this.jsonFilePath,this.jsonModuleChatFilePath, this.promotionsJsonPath ,this.brandsJsonPath, this.carousalJsonPath , this.freeShippingJsonPath, this.accountBalanceJsonPath, this.activeOrderJsonPath, this.submitedOrderJsonPath, this.accountDropdownJsonPath, this.navigationJsonPath],
       cssURLs: [this.cssFilePath, this.carousalcssPath, this.brandscssPath, this.freeShippingCssPath, this.accountBalanceCssPath, this.submitedOrderCssPath, this.activeOrderCssPath,  this.accountDropdownCssPath],
     };
     return options;
@@ -287,45 +288,7 @@ var customHomepage = {};
     return sessionStorage.getItem(paramName);
   };
   //navigation
-  this.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null) {
-    const uuid = customHomepage.getSessionStorage('LastOpenTransactionUUID');
-    if (uuid && uuid !== "undefined") {
-      deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
-      customHomepage.navigation(deepLink);
-    } else {
-      customHomepage.createNewOrder(in_catalog, in_transactionName, deepLink);
-    }
-  };
-  this.NavigateToActiveCart = function (data) {
-    var uuid = this.getSessionStorage("LastOpenTransactionUUID");
-    if (uuid) {
-      this.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
-    }
-  };
-  this.navigation = function (path) {
-    var eventData = {
-      detail: {
-        path: path,
-      },
-    };
-
-    var event = new CustomEvent("navigateTo", eventData);
-
-    if (document.createEvent) {
-      window.dispatchEvent(event);
-    } else {
-      window.fireEvent("on" + event.eventType, event);
-    }
-  };
-  this.logout = function () {
-    var event = new CustomEvent("logout");
-
-    if (document.createEvent) {
-      window.dispatchEvent(event);
-    } else {
-      window.fireEvent("on" + event.eventType, event);
-    }
-  };
+  
   //JS listeners
   this.openStoreSelect = function () {
     document.getElementById('select-menu').classList.toggle('show')
