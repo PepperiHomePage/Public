@@ -112,8 +112,8 @@ customHomepage.switchSlide = function (isCurrent, next = true) {
     </div>
 </div></div>
 </div>`
-    if (document.getElementById("slides")) {
-        document.getElementById("slides").innerHTML = htmlStr;
+    if (document.getElementById("carousal-content")) {
+        document.getElementById("carousal-content").innerHTML = htmlStr;
         for (const [idx1, value] of customHomepage.CaruselData.entries()) {
             indicatorsStr +=
                 idx1 == idx ?
