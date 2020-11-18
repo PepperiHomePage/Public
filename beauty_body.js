@@ -35,9 +35,9 @@ var customHomepage = {};
   this.accountBalanceJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.js'
   this.accountBalanceCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-balance/beauty_bode_sidebar-account_balance.css'
   this.activeOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.js'
-  this.activeOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_body_sidebar_active-order.css'
+  this.activeOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/active-order/beauty_bode_sidebar-active-order.css'
   this.submitedOrderJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_bode_sidebar-submitted-orders.js'
-  this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_body_sidebar_submitted-orders.css'
+  this.submitedOrderCssPath = 'https://pepperihomepage.github.io/Public/sidebar/submitted-orders/beauty_bode_sidebar-submitted-orders.css'
   this.accountDropdownJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.js'
   this.accountDropdownCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/beauty_body_sidebar_store-selector.css'
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
@@ -50,9 +50,6 @@ var customHomepage = {};
     var str = `            
             <main class="wrapper">
             <section id="carousal-content">
-              <div id="carousel" class="carousel">
-                <div id="slides" class="slides"></div>
-              </div>
             </section>
             <aside id="sidebar">
               <div id="response-menu" class="response-menu">
@@ -75,13 +72,13 @@ var customHomepage = {};
           
                 <!--<hr>-->
                 
-                <div class="card dark-card sidebar-gap" id="free_shipping" style="display:none">
+                <div id="free_shipping" style="display:none">
                 </div>
           
-                <div class="card sidebar-gap" id="account_balance" style="display:none">
+                <div id="account_balance" style="display:none">
                 </div>
           
-                <hr id ="store-selector-hr" style="display:none" class="sidebar-gap">
+                <hr id ="store-selector-hr" style="display:none">
           
                 <div id="active-order" class="sidebar-box  sidebar-gap" style="display:none">
                   
@@ -89,7 +86,7 @@ var customHomepage = {};
           
                 <hr class="sidebar-gap">
           
-                <div class="sidebar-box" id="submitted_orders" style="display:none">
+                <div id="submitted_orders" style="display:none">
                   
                 </div>
                 <div id="overSide"></div>
@@ -102,7 +99,7 @@ var customHomepage = {};
               <div id="brands">
           
               </div>
-              <div class="promotions" id="promotions">
+              <div id="promotions">
                 
               </div>
             </div>
@@ -190,7 +187,7 @@ var customHomepage = {};
         this.transactionsHistoryFields = blocks_config["submitted_orders"].table
       this.getAccounts(additionalAccountFields);
       this.closeAllMenusListener();
-      customHomepage.carousel("slides", CaruselData)
+      customHomepage.carousel("carousal-content", CaruselData)
       customHomepage.drawImagesBlocks("brands", Brands)
       customHomepage.drawPromotions("promotions", Promotions)
     } else {

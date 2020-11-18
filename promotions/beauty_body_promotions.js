@@ -16,4 +16,5 @@ customHomepage.drawPromotions = function (id, Promotions) {
   }
   if (document.getElementById(id))
     document.getElementById(id).innerHTML = str;
+  document.getElementById(id).classList.add("promotions")  
 };

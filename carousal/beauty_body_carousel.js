@@ -7,7 +7,9 @@ customHomepage.carousel = function (slideid, CaruselData) {
     let indicatorsStr = "";
     var idx = 0;
     var value = customHomepage.CaruselData[idx];
-    htmlStr += `<div class="slide" data-state="active"
+    
+    htmlStr += ` <div id="carousel" class="carousel"> 
+    <div id="slides" class="slides"><div class="slide" data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
@@ -23,7 +25,7 @@ customHomepage.carousel = function (slideid, CaruselData) {
             </button>
         </div>
     </div>
-</div>`
+</div></div></div>`
 
     document.getElementById(slideid).innerHTML = htmlStr;
 

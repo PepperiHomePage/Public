@@ -14,4 +14,6 @@ customHomepage.freeShippingCallback=function(data){
       <div>
       <p>${customHomepage.freeShippingConfig.text}${data.object[customHomepage.freeShippingConfig.field]}</p>
     </div>` + (customHomepage.freeShippingConfig.svg ? `<img src="${customHomepage.freeShippingConfig.svg}" alt="Promotion truck icon">` : '')
+
+    document.getElementById("free_shipping").classList.add("card", "sidebar-gap","dark-card")
 }

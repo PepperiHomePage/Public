@@ -80,5 +80,5 @@ customHomepage.buildSubmittedOrdersTable = function (data) {
   });
   tableHtml += `</ul>`
   Container.innerHTML = tableHtml;
-  
+  document.getElementById("submitted_orders").classList.add("sidebar-box");
 };
