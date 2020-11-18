@@ -93,7 +93,8 @@ customHomepage.switchSlide = function (isCurrent, next = true) {
 
     }
 
-    htmlStr += `<div class="slide"  data-state="active"
+    htmlStr += `<div id="carousel" class="carousel"> 
+    <div id="slides" class="slides"><div class="slide"  data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
@@ -109,6 +110,7 @@ customHomepage.switchSlide = function (isCurrent, next = true) {
             </button>
         </div>
     </div>
+</div></div>
 </div>`
     if (document.getElementById("slides")) {
         document.getElementById("slides").innerHTML = htmlStr;
