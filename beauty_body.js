@@ -167,7 +167,7 @@ var customHomepage = {};
     customHomepage.submitedOrders(this.transactionName, this.transactionFields, uuid)
   }
   this.buildHTML = function () {
-    if (document.getElementById("slides")) {
+    if (document.getElementById("carousal-content")) {
       this.transactionName = Transaction
       this.catalogName = Catalog
       for (var keys in blocks_config) {
