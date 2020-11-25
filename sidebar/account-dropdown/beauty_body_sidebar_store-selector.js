@@ -25,3 +25,29 @@ customHomepage.buildAccountsDropDown = function (thisAccounts) {
   customHomepage.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"));
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };
+customHomepage.getAccounts = function (fields) {
+  var bridgeObject = {
+    fields: ["Name", "UUID", "ExternalID", ...fields],
+    filter: {
+      Operation: "AND",
+      RightNode: {
+        ApiName: "ParentExternalID",
+        Operation: "IsEqual",
+        Values: [""],
+      },
+      LeftNode: {
+        ApiName: "Hidden",
+        Operation: "IsEqual",
+        Values: ["false"],
+      },
+    },
+    responseCallback: "customHomepage.setAccountDD",
+  };
+  pepperi.api.accounts.search(bridgeObject);
+};
+customHomepage.setAccountDD = function (data) {
+  console.log("accounts", data)
+  if (!data.success || data.count == 0) return;
+  customHomepage.accounts = data.objects;
+  customHomepage.buildAccountsDropDown(customHomepage.accounts);
+};

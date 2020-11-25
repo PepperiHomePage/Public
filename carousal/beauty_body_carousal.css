@@ -276,9 +276,6 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
   padding: 11px 0;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;

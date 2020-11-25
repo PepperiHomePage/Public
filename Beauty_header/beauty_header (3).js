@@ -464,14 +464,14 @@ var customHeader = {};
          }
          
          [class*="dropdown-content"] li {
-           line-height: 1.5rem;
-           background-color: white;
-           border-radius: 4px;
-           padding: var(--dd-space-2) var(--dd-space-3);
-           cursor: pointer;
-           -webkit-transition: background-color ease-in-out 0.25s;
-           transition: background-color ease-in-out 0.25s;
-           margin-bottom: var(--dd-space-1);
+          line-height: 1.5rem;
+          background-color: white;
+          border-radius: 4px;
+          padding: var(--dd-space-2) var(--dd-space-3);
+          cursor: pointer;
+          -webkit-transition: background-color ease-in-out 0.25s;
+          transition: background-color ease-in-out 0.25s;
+          margin-bottom: var(--dd-space-1);
          }
          
          [class*="dropdown-content"] li:last-child {
@@ -512,6 +512,8 @@ var customHeader = {};
          .dropdown-content-end {
            right: 0;
          }
+
+         
          
          .dropdown-content-fit {
            min-width: unset;
@@ -524,9 +526,7 @@ var customHeader = {};
          }
          
          .show {
-           display: flex !important;
-           flex-direction: column;
-           align-items: center;
+           display: inline-block !important;
          }
          
          .hide {
@@ -537,12 +537,7 @@ var customHeader = {};
            .hidden-on-mobile {
              display: none !important;
            }
-           [class*="dropdown-content"] p{
-             padding: 0;
-           }
-           [class*="dropdown-content"] li{
-             padding: 0;
-           }
+
          }
 
          @media screen and (min-width: 1280px) {
@@ -683,7 +678,19 @@ var customHeader = {};
          }
          
          .wrapper {
-           margin: 0 auto;
+            height: 100%;
+            display: -ms-grid;
+            display: grid;
+                grid-template-areas: "carousal sidebar" "categories sidebar";
+            -ms-grid-rows: 28rem auto;
+                grid-template-rows: 28rem auto;
+            -ms-grid-columns: auto 16rem;
+                grid-template-columns: auto 16rem;
+            gap: 2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            max-width: 1464px;
+            margin: 2rem auto;
          }
          
          #sidebar {
@@ -1383,7 +1390,7 @@ var customHeader = {};
          }
          /*# sourceMappingURL=style.css.map */
                   </style>
-        <header id="header-section" class="wrapper header">
+        <header id="header-section" class="header" style="margin: 0 auto;">
               <div class="header-start"> 
                 <a id="logo" href="/HomePage" class="logo">
                   <img id="logo" src="" /> 
@@ -1596,10 +1603,14 @@ var customHeader = {};
         classMenu = "link"
         htmlTag = "a"
       }
+      if (window.innerWidth <= 960){
+        classMenu = "active"
+        htmlTag = "li"
+      }
       htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${this.handleAction(item)}">${item.title}</${htmlTag}>`;
     }
     if (document.getElementById('menuDropdown')) {
-      document.getElementById('menuDropdown').innerHTML += `<div class="shown-on-mobile" style="display:flex; flex-direction:column; align-items:center;">${htmlStr}</div><hr>`;
+      document.getElementById('menuDropdown').innerHTML += `<ul class="shown-on-mobile">${htmlStr}</ul><hr class="shown-on-mobile">`;
     }
     if (document.getElementById('header_btn_bar')) {
       document.getElementById('header_btn_bar').innerHTML = htmlStr;

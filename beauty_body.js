@@ -80,7 +80,7 @@ var customHomepage = {};
           
                 <hr id ="store-selector-hr" style="display:none">
           
-                <div id="active-order" class="sidebar-box  sidebar-gap" style="display:none">
+                <div id="active-order" style="display:none">
                   
                 </div>
           
@@ -142,6 +142,7 @@ var customHomepage = {};
     customHomepage.getCatalogs();
   };
  
+// TODO: start
   this.setActiveDropdown = function (uuid, name) {
     document.getElementById("selected-account").innerHTML = name
     document.querySelector('li.active-dropdown-item') ? document.querySelector('li.active-dropdown-item').classList.remove("active-dropdown-item") : null;
@@ -166,6 +167,7 @@ var customHomepage = {};
     customHomepage.activeOrder(this.transactionName, this.transactionFields, uuid)
     customHomepage.submitedOrders(this.transactionName, this.transactionFields, uuid)
   }
+//end  
   this.buildHTML = function () {
     if (document.getElementById("carousal-content")) {
       this.transactionName = Transaction
