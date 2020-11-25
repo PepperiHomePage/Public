@@ -192,9 +192,6 @@
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  position: absolute;
-  bottom: 20px;
-  right: 60px;
   width: 100px;
   padding: 8px 5px;
   background: rgba(255, 255, 255, 0.5);
