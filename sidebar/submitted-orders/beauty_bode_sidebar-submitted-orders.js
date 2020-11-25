@@ -1,9 +1,9 @@
 customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
-  console.log("fields -->",fields);
   pepperi.api.transactions.search({
     fields: [
       "UUID",
-      "ActionDateTime"
+      "ActionDateTime",
+      "InternalID"
     ],
     filter: {
       Operation: "AND",
