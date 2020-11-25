@@ -3,7 +3,7 @@ customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
   pepperi.api.transactions.search({
     fields: [
       "UUID",
-      ...fields
+      "ActionDateTime"
     ],
     filter: {
       Operation: "AND",
