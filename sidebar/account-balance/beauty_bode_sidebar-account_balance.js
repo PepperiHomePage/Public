@@ -1,4 +1,5 @@
 customHomepage.accountBalance=function(uuid,config){
+  console.log("config ---> ",config);
   customHomepage.accountBalanceConfig=config
   pepperi.api.accounts.get({
      key: { UUID: uuid },
@@ -10,7 +11,7 @@ customHomepage.accountBalance=function(uuid,config){
  
 
 customHomepage.accountBalanceCallBack=function(data){
-  console.log(data);
+  console.log("data ---> ",data);
   document.getElementById("account_balance").innerHTML = `                  
   <div>
   <p class="dimmed">${customHomepage.accountBalanceConfig.text}</p>
