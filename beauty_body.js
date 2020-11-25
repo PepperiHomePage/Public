@@ -185,8 +185,11 @@ var customHomepage = {};
         additionalAccountFields.push(blocks_config.account_balance.field)
       if (blocks_config["active-order"] && blocks_config["active-order"].table && blocks_config["active-order"].table.length > 0)
         this.transactionFields = blocks_config["active-order"].table
-      if (blocks_config["active-order"] && blocks_config["submitted_orders"].table && blocks_config["submitted_orders"].table.length > 0)
+      if (blocks_config["active-order"] && blocks_config["submitted_orders"].table && blocks_config["submitted_orders"].table.length > 0){
+        console.log(blocks_config["submitted_orders"].table);
         this.transactionsHistoryFields = blocks_config["submitted_orders"].table
+      }
+        
       this.getAccounts(additionalAccountFields);
       this.closeAllMenusListener();
       customHomepage.carousel("carousal-content", CaruselData)
