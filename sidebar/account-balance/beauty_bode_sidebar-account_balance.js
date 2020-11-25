@@ -10,6 +10,7 @@ customHomepage.accountBalance=function(uuid,config){
  
 
 customHomepage.accountBalanceCallBack=function(data){
+  console.log(data);
   document.getElementById("account_balance").innerHTML = `                  
   <div>
   <p class="dimmed">${customHomepage.accountBalanceConfig.text}</p>
