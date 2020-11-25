@@ -1,4 +1,5 @@
 customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
+  console.log("fields -->",fields);
   pepperi.api.transactions.search({
     fields: [
       "UUID",
@@ -52,8 +53,7 @@ customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data)
   if (data && data.objects && data.objects.length) {
     customHomepage.buildSubmittedOrdersTable(data.objects);
   } else {
-    document.getElementById(
-      "submitted_orders"
+    document.getElementById("submitted_orders"
     ).innerHTML = `<h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
     <hr>
     <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
