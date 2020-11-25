@@ -3,7 +3,7 @@ customHomepage.accountBalance=function(uuid,config){
   customHomepage.accountBalanceConfig=config
   pepperi.api.accounts.get({
      key: { UUID: uuid },
-     fields: [config.field],
+     fields: [config.field, config.measure_unit],
      responseCallback:"customHomepage.accountBalanceCallBack"
 });
 }
