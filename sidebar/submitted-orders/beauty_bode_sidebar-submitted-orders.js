@@ -48,6 +48,7 @@ customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
   });
 };
 customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data) {
+  console.log("transaction data ------> ", data);
   if (data && data.objects && data.objects.length) {
     customHomepage.buildSubmittedOrdersTable(data.objects);
   } else {
