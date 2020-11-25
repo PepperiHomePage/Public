@@ -143,30 +143,7 @@ var customHomepage = {};
   };
  
 // TODO: start
-  this.setActiveDropdown = function (uuid, name) {
-    document.getElementById("selected-account").innerHTML = name
-    document.querySelector('li.active-dropdown-item') ? document.querySelector('li.active-dropdown-item').classList.remove("active-dropdown-item") : null;
-    document.getElementById(uuid).classList.add("active-dropdown-item");
-    this.setSessionStorage("accountUUID", uuid);
-  }
-  this.findTransactionForSelectedAccount = function (uuid) {
-
-    this.accountUUID = uuid;
-    this.setSessionStorage("accountUUID", uuid);
-    let currentAccount = this.accounts.filter((el) => {
-      return el.UUID == uuid;
-    });
-    console.log("blocks_config", blocks_config)
-    console.log("currentAccount", currentAccount)
-    if (blocks_config.free_shipping) {
-      customHomepage.freeShipping(uuid, blocks_config.free_shipping)
-    }
-    if (blocks_config.account_balance) {
-      customHomepage.accountBalance(uuid, blocks_config.account_balance)
-    }
-    customHomepage.activeOrder(this.transactionName, this.transactionFields, uuid)
-    customHomepage.submitedOrders(this.transactionName, this.transactionFields, uuid)
-  }
+ 
 //end  
   this.buildHTML = function () {
     if (document.getElementById("carousal-content")) {
