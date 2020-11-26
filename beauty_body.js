@@ -180,6 +180,7 @@ var customHomepage = {};
     return sessionStorage.getItem(paramName);
   };
   this.findTransactionForSelectedAccount = function (uuid) {
+    console.log("uuid -----> ", uuid)
     this.accountUUID = uuid;
     customHomepage.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {

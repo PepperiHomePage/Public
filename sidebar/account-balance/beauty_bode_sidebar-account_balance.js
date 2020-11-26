@@ -1,4 +1,4 @@
-customHomepage.accountBalance=function(uuid,config){
+customHomepage.accountBalance=function(uuid,config,id){
   console.log("config ---> ",config);
   customHomepage.accountBalanceConfig=config
   pepperi.api.accounts.get({
