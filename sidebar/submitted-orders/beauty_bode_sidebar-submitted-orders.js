@@ -53,12 +53,13 @@ customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data)
   if (data && data.objects && data.objects.length) {
     customHomepage.buildSubmittedOrdersTable(data.objects, data.requestID);
   } else {
+    document.getElementById(data.requestID).style.display = "flex"
     document.getElementById(data.requestID
     ).innerHTML = `<h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
     <hr>
     <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
       `;
-      document.getElementById(data.requestID).style.display = "flex"
+      
   }
 };
 customHomepage.buildSubmittedOrdersTable = function (data, id) {
@@ -81,7 +82,8 @@ customHomepage.buildSubmittedOrdersTable = function (data, id) {
           `;
   });
   tableHtml += `</ul>`
-  Container.innerHTML = tableHtml;
   document.getElementById(id).classList.add("sidebar-box");
   document.getElementById(id).style.display = "flex"
+  Container.innerHTML = tableHtml;
+
 };
