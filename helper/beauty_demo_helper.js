@@ -1,4 +1,4 @@
-customHomepage.getCatalogs = function () {
+customHomepage.getCatalogsAndBuildHTML = function () {
     pepperi.api.catalogs.search({
       fields: ["UUID", "ExternalID", "Description", "ID"],
       responseCallback: 'customHomepage.getCatalogsCallback'

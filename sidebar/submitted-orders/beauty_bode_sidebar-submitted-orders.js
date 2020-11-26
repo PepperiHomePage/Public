@@ -58,6 +58,7 @@ customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data)
     <hr>
     <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
       `;
+      document.getElementById("submitted_orders").style.display = "flex"
   }
 };
 customHomepage.buildSubmittedOrdersTable = function (data) {
@@ -82,4 +83,5 @@ customHomepage.buildSubmittedOrdersTable = function (data) {
   tableHtml += `</ul>`
   Container.innerHTML = tableHtml;
   document.getElementById("submitted_orders").classList.add("sidebar-box");
+  document.getElementById("submitted_orders").style.display = "flex"
 };

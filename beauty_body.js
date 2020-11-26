@@ -43,6 +43,7 @@ var customHomepage = {};
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
   this.jsListenersJsonPath = 'https://pepperihomepage.github.io/Public/jsListeners/beauty_demo_jsListeners.js'
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_demo_helper.js'
+  this.isMultiAccount = true
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
@@ -110,68 +111,59 @@ var customHomepage = {};
   this.initPlugin = function () {
     var options = {
       JsURLs: [this.jsonFilePath,
-               this.jsonModuleChatFilePath,
-               this.promotionsJsonPath,
-               this.brandsJsonPath, 
-               this.carousalJsonPath, 
-               this.freeShippingJsonPath, 
-               this.accountBalanceJsonPath,
-               this.activeOrderJsonPath, 
-               this.submitedOrderJsonPath, 
-               this.accountDropdownJsonPath, 
-               this.navigationJsonPath,
-               this.jsListenersJsonPath,
-               this.helperJsonPath],
-      cssURLs: [this.cssFilePath, 
-                this.carousalcssPath, 
-                this.brandscssPath, 
-                this.freeShippingCssPath, 
-                this.accountBalanceCssPath, 
-                this.submitedOrderCssPath, 
-                this.activeOrderCssPath, 
-                this.accountDropdownCssPath],
+      this.jsonModuleChatFilePath,
+      this.promotionsJsonPath,
+      this.brandsJsonPath,
+      this.carousalJsonPath,
+      this.freeShippingJsonPath,
+      this.accountBalanceJsonPath,
+      this.activeOrderJsonPath,
+      this.submitedOrderJsonPath,
+      this.accountDropdownJsonPath,
+      this.navigationJsonPath,
+      this.jsListenersJsonPath,
+      this.helperJsonPath],
+      cssURLs: [this.cssFilePath,
+      this.carousalcssPath,
+      this.brandscssPath,
+      this.freeShippingCssPath,
+      this.accountBalanceCssPath,
+      this.submitedOrderCssPath,
+      this.activeOrderCssPath,
+      this.accountDropdownCssPath],
     };
     return options;
   };
   this.onPluginLoad = function (context) {
     this.context = context;
     var data = JSON.parse(context.pluginData);
-    if (data) {
+    if (data && this.isMultiAccount) {
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
+    } else if (data) {
+      this.accountUUID = data.accountUUID
+      this.setSessionStorage("accountUUID", data.accountUUID)
     }
-    customHomepage.getCatalogs();
+    customHomepage.getCatalogsAndBuildHTML();
   };
- 
-// TODO: start
- 
-//end  
+
+  // TODO: start
+
+  //end  
   this.buildHTML = function () {
-    if (document.getElementById("carousal-content")) {
+    if (document.getElementById("carousal-content")) {//try to remove ifelse, settimeout also remove
       this.transactionName = Transaction
       this.catalogName = Catalog
-      for (var keys in blocks_config) {
-        if (!blocks_config[keys])
-          document.getElementById(keys).style.display = "none"
-        else
-          document.getElementById(keys).style.display = "flex"
-      }
-      let additionalAccountFields = []
-      if (blocks_config.free_shipping && blocks_config.free_shipping.field)
-        additionalAccountFields.push(blocks_config.free_shipping.field)
-      if (blocks_config.account_balance && blocks_config.account_balance.field)
-        additionalAccountFields.push(blocks_config.account_balance.field)
-      if (blocks_config["active-order"] && blocks_config["active-order"].table && blocks_config["active-order"].table.length > 0)
-        this.transactionFields = blocks_config["active-order"].table
-      if (blocks_config["active-order"] && blocks_config["submitted_orders"].table && blocks_config["submitted_orders"].table.length > 0){
-        console.log("blocks_config[submitted_orders].table", blocks_config["submitted_orders"].table);
-        this.transactionsHistoryFields = blocks_config["submitted_orders"].table
-      }
-        
-      this.getAccounts(additionalAccountFields);
-      this.closeAllMenusListener();
+      // if (blocks_config["active-order"] && blocks_config["active-order"].table && blocks_config["active-order"].table.length > 0)
+      //   this.transactionFields = blocks_config["active-order"].table
+      // if (blocks_config["active-order"] && blocks_config["submitted_orders"].table && blocks_config["submitted_orders"].table.length > 0) {
+      //   console.log("blocks_config[submitted_orders].table", blocks_config["submitted_orders"].table);
+      //   this.transactionsHistoryFields = blocks_config["submitted_orders"].table
+      // }
+      customHomepage.closeAllMenusListener();
       customHomepage.carousel("carousal-content", CaruselData)
       customHomepage.drawImagesBlocks("brands", Brands)
       customHomepage.drawPromotions("promotions", Promotions)
+      customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
     } else {
       setTimeout(() => {
         customHomepage.buildHTML()
@@ -187,9 +179,16 @@ var customHomepage = {};
   this.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
-  //navigation
-  
-  //JS listeners
-
-
+  this.findTransactionForSelectedAccount = function (uuid) {
+    this.accountUUID = uuid;
+    customHomepage.setSessionStorage("accountUUID", uuid);
+    if (blocks_config.free_shipping) {
+      customHomepage.freeShipping(uuid, blocks_config.free_shipping,"free_shipping")
+    }
+    if (blocks_config.account_balance) {
+      customHomepage.accountBalance(uuid, blocks_config.account_balance,"account_balance")
+    }
+    customHomepage.activeOrder(customHomepage.transactionName, customHomepage.transactionFields, uuid)
+    customHomepage.submitedOrders(customHomepage.transactionName, customHomepage.transactionFields, uuid)
+  }
 }.apply(customHomepage));
