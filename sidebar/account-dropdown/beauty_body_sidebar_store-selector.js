@@ -57,7 +57,6 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
     customHomepage.setActiveDropdown(customHomepage.accounts[0].UUID, customHomepage.accounts[0].Name)
   //customHomepage.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
   
-  var x = callback(customHomepage.getSessionStorage("accountUUID"));
-  x.call()
+  this[callback(customHomepage.getSessionStorage("accountUUID"))];
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };
