@@ -101,7 +101,8 @@ customHomepage.buildOpenOrdersTable = function (data) {
   html += `</ul>
   <button class="comonBtn" id="orderBtn">Back to Cart</button>`
   document.getElementById("active-order").innerHTML = html
-  document.getElementById("active-order").style.display = "flex"
+  document.getElementById("active-order").style.display = "flex"  
+  document.getElementById("active-order").style.flexDirection = "column"
   console.log('blocks-config:', blocks_config["active-order"])
   document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
 };

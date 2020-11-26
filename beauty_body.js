@@ -81,7 +81,7 @@ var customHomepage = {};
           
                 <hr id ="store-selector-hr" style="display:none">
           
-                <div id="active-order" style="display:none; flex-direction:column">
+                <div id="active-order" style="display:none">
                   
                 </div>
           
