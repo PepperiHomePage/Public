@@ -51,6 +51,7 @@ customHomepage.activeOrder = function(transactionName,fields,accountUUID){
 }
 
 customHomepage.getRecentTransactionForAccountCallback = function (data) {
+  customHomepage.transactionFields =  blocks_config["active-order"].table
   console.log("data", data)
   console.log("blocks_config",JSON.stringify(blocks_config))
   let recentOrdBtnDeeplink = ''
