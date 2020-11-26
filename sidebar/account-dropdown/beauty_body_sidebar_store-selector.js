@@ -31,7 +31,7 @@ customHomepage.setActiveDropdown = function (uuid, name) {
   document.getElementById(uuid).classList.add("active-dropdown-item");
   customHomepage.setSessionStorage("accountUUID", uuid);
 }
-customHomepage.buildAccountsDropDown = function (thisAccounts, ) {
+customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
   let ddElement = document.getElementById("select-menu");
   let html = "";
   accounts = thisAccounts
