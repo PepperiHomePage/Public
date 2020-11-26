@@ -163,7 +163,7 @@ var customHomepage = {};
       customHomepage.carousel("carousal-content", CaruselData)
       customHomepage.drawImagesBlocks("brands", Brands)
       customHomepage.drawPromotions("promotions", Promotions)
-      customHomepage.getAccounts(customHomepage.findTransactionForSelectedAccount);
+      customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
     } else {
       setTimeout(() => {
         customHomepage.buildHTML()
