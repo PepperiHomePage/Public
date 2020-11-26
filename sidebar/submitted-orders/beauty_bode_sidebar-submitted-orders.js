@@ -70,12 +70,12 @@ customHomepage.buildSubmittedOrdersTable = function (data) {
 }</h3><hr>
   <ul id="open-orders" class="leaders">`
   data.forEach((element) => {
-    let dateValue = new Date(element[customHomepage.transactionsHistoryFields[0]]).toLocaleDateString();
+    let dateValue = new Date(element.ActionDateTime).toLocaleDateString();
     let deepLink = "/transactions/cart/" + element.UUID;
     tableHtml += `
                   <li>
                   <span  class="dimmed">${dateValue}</span>
-                  <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element[customHomepage.transactionsHistoryFields[1]]}</a></span>
+                  <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element.InternalID}</a></span>
                 </li>
                     
           `;
