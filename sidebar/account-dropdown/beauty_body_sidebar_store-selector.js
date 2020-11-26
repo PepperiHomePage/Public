@@ -23,6 +23,7 @@ customHomepage.setAccountDD = function (data) {
   console.log("accounts", data)
   if (!data.success || data.count == 0) return;
   customHomepage.accounts = data.objects;
+  console.log("data.requestID --->", data.requestID);
   customHomepage.buildAccountsDropDown(customHomepage.accounts,data.requestID);
 };
 customHomepage.setActiveDropdown = function (uuid, name) {
@@ -57,6 +58,6 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
     customHomepage.setActiveDropdown(customHomepage.accounts[0].UUID, customHomepage.accounts[0].Name)
   //customHomepage.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
   
-  this[callback(customHomepage.getSessionStorage("accountUUID"))];
+  callback()
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };
