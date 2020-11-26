@@ -83,6 +83,7 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
 };
 
 customHomepage.buildOpenOrdersTable = function (data) {
+  console.log("active order data ->>>> ", data);
   var is_new = false;
   if (data[0].Status == 1000)
     is_new = true;
