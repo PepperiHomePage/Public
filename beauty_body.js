@@ -111,26 +111,28 @@ var customHomepage = {};
   this.initPlugin = function () {
     var options = {
       JsURLs: [this.jsonFilePath,
-      this.jsonModuleChatFilePath,
-      this.promotionsJsonPath,
-      this.brandsJsonPath,
-      this.carousalJsonPath,
-      this.freeShippingJsonPath,
-      this.accountBalanceJsonPath,
-      this.activeOrderJsonPath,
-      this.submitedOrderJsonPath,
-      this.accountDropdownJsonPath,
-      this.navigationJsonPath,
-      this.jsListenersJsonPath,
-      this.helperJsonPath],
+        this.jsonModuleChatFilePath,
+        this.promotionsJsonPath,
+        this.brandsJsonPath,
+        this.carousalJsonPath,
+        this.freeShippingJsonPath,
+        this.accountBalanceJsonPath,
+        this.activeOrderJsonPath,
+        this.submitedOrderJsonPath,
+        this.accountDropdownJsonPath,
+        this.navigationJsonPath,
+        this.jsListenersJsonPath,
+        this.helperJsonPath
+      ],
       cssURLs: [this.cssFilePath,
-      this.carousalcssPath,
-      this.brandscssPath,
-      this.freeShippingCssPath,
-      this.accountBalanceCssPath,
-      this.submitedOrderCssPath,
-      this.activeOrderCssPath,
-      this.accountDropdownCssPath],
+        this.carousalcssPath,
+        this.brandscssPath,
+        this.freeShippingCssPath,
+        this.accountBalanceCssPath,
+        this.submitedOrderCssPath,
+        this.activeOrderCssPath,
+        this.accountDropdownCssPath
+      ],
     };
     return options;
   };
@@ -150,10 +152,10 @@ var customHomepage = {};
 
   //end  
   this.buildHTML = function () {
-    if (document.getElementById("carousal-content")) {//try to remove ifelse, settimeout also remove
+    if (document.getElementById("carousal-content")) { //try to remove ifelse, settimeout also remove
       this.transactionName = Transaction
       this.catalogName = Catalog
-      // if (blocks_config["active-order"] && blocks_config["active-order"].table && blocks_config["active-order"].table.length > 0)
+      // if (blocks_config["active-order"] && blocks_config["active-order"].table && )
       //   this.transactionFields = blocks_config["active-order"].table
       // if (blocks_config["active-order"] && blocks_config["submitted_orders"].table && blocks_config["submitted_orders"].table.length > 0) {
       //   console.log("blocks_config[submitted_orders].table", blocks_config["submitted_orders"].table);
@@ -184,12 +186,16 @@ var customHomepage = {};
     this.accountUUID = uuid;
     customHomepage.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {
-      customHomepage.freeShipping(uuid, blocks_config.free_shipping,"free_shipping")
+      customHomepage.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
     }
     if (blocks_config.account_balance) {
-      customHomepage.accountBalance(uuid, blocks_config.account_balance,"account_balance")
+      customHomepage.accountBalance(uuid, blocks_config.account_balance, "account_balance")
     }
-    customHomepage.activeOrder(customHomepage.transactionName, blocks_config["active-order"].table, uuid)
-    customHomepage.submitedOrders(customHomepage.transactionName, customHomepage.transactionFields, uuid)
+    if (blocks_config["active-order"]) {
+      customHomepage.activeOrder(customHomepage.transactionName, blocks_config["active-order"].table, uuid, "active-order")
+    }
+    if (blocks_config["submitted_orders"]) {
+      customHomepage.submitedOrders(customHomepage.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
+    }
   }
 }.apply(customHomepage));

@@ -1,9 +1,8 @@
-customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
+customHomepage.submitedOrders = function (transactionName,fields,accountUUID, id) {
   pepperi.api.transactions.search({
     fields: [
       "UUID",
-      "ActionDateTime",
-      "InternalID"
+      ...fields
     ],
     filter: {
       Operation: "AND",
@@ -46,24 +45,25 @@ customHomepage.submitedOrders = function (transactionName,fields,accountUUID) {
     pageSize: 5,
     page: 1,
     responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
+    requestID:id
   });
 };
 customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data) {
   console.log("transaction data ------> ", data);
   if (data && data.objects && data.objects.length) {
-    customHomepage.buildSubmittedOrdersTable(data.objects);
+    customHomepage.buildSubmittedOrdersTable(data.objects, data.requestID);
   } else {
-    document.getElementById("submitted_orders"
+    document.getElementById(data.requestID
     ).innerHTML = `<h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
     <hr>
     <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
       `;
-      document.getElementById("submitted_orders").style.display = "flex"
+      document.getElementById(data.requestID).style.display = "flex"
   }
 };
-customHomepage.buildSubmittedOrdersTable = function (data) {
+customHomepage.buildSubmittedOrdersTable = function (data, id) {
   let tableHtml = "";
-  let Container = document.getElementById("submitted_orders");
+  let Container = document.getElementById(id);
   tableHtml += `
   <h3 class="title-2-sm " id="submitted_orders_name">${blocks_config['submitted_orders'].name
 
@@ -82,6 +82,6 @@ customHomepage.buildSubmittedOrdersTable = function (data) {
   });
   tableHtml += `</ul>`
   Container.innerHTML = tableHtml;
-  document.getElementById("submitted_orders").classList.add("sidebar-box");
-  document.getElementById("submitted_orders").style.display = "flex"
+  document.getElementById(id).classList.add("sidebar-box");
+  document.getElementById(id).style.display = "flex"
 };
