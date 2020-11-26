@@ -31,7 +31,7 @@ customHomepage.setActiveDropdown = function (uuid, name) {
   document.getElementById(uuid).classList.add("active-dropdown-item");
   customHomepage.setSessionStorage("accountUUID", uuid);
 }
-customHomepage.buildAccountsDropDown = function (thisAccounts,callback) {
+customHomepage.buildAccountsDropDown = function (thisAccounts, ) {
   let ddElement = document.getElementById("select-menu");
   let html = "";
   accounts = thisAccounts
@@ -56,6 +56,7 @@ customHomepage.buildAccountsDropDown = function (thisAccounts,callback) {
   if (!customHomepage.getSessionStorage("accountUUID") || customHomepage.getSessionStorage("accountUUID") == '')
     customHomepage.setActiveDropdown(customHomepage.accounts[0].UUID, customHomepage.accounts[0].Name)
   //customHomepage.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
-  new Function(`function (data) {${callback}(data)}`)(customHomepage.getSessionStorage("accountUUID"));
+  let x = new Function(`function (data) {${callback}(data)}`)(customHomepage.getSessionStorage("accountUUID"));
+  x()
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };
