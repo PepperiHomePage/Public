@@ -59,6 +59,6 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
   console.log(callback);
   x = callback.toString();
   console.log(x);
-  window[callback](customHomepage.getSessionStorage("accountUUID"));
+  window[x](customHomepage.getSessionStorage("accountUUID"));
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };
