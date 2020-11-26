@@ -56,9 +56,8 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
   if (!customHomepage.getSessionStorage("accountUUID") || customHomepage.getSessionStorage("accountUUID") == '')
     customHomepage.setActiveDropdown(customHomepage.accounts[0].UUID, customHomepage.accounts[0].Name)
   //customHomepage.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
-  console.log(callback);
-  x = callback.toString();
-  console.log(x);
-  window[x](customHomepage.getSessionStorage("accountUUID"));
+  
+  var x = callback(customHomepage.getSessionStorage("accountUUID"));
+  x.call()
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };
