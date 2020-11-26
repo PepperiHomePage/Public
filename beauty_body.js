@@ -81,7 +81,7 @@ var customHomepage = {};
           
                 <hr id ="store-selector-hr" style="display:none">
           
-                <div id="active-order" style="display:none">
+                <div id="active-order" style="display:none; flex-direction:column">
                   
                 </div>
           
@@ -189,7 +189,7 @@ var customHomepage = {};
     if (blocks_config.account_balance) {
       customHomepage.accountBalance(uuid, blocks_config.account_balance,"account_balance")
     }
-    customHomepage.activeOrder(customHomepage.transactionName, customHomepage.transactionFields, uuid)
+    customHomepage.activeOrder(customHomepage.transactionName, blocks_config["active-order"].table, uuid)
     customHomepage.submitedOrders(customHomepage.transactionName, customHomepage.transactionFields, uuid)
   }
 }.apply(customHomepage));

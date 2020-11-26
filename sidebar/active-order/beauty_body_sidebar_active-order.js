@@ -80,6 +80,7 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
     html += `</ul><button class="comonBtn" id="orderBtn">Back to Cart</button>`
     document.getElementById("active-order").innerHTML = html
     document.getElementById("active-order").style.display = "flex"
+    document.getElementById("active-order").style.flexDirection = "column"
   }
 };
 
