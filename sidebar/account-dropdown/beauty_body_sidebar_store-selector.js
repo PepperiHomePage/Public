@@ -1,4 +1,5 @@
-customHomepage.getAccounts = function (callbackName) {
+customHomepage.getAccounts = function (callbackName) { 
+  console.log("callbackName ->>>>", callbackName);
   var bridgeObject = {
     fields: ["Name", "UUID", "ExternalID"],
     filter: {
