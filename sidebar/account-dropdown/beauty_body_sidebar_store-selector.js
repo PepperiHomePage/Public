@@ -46,12 +46,11 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
     document.getElementById("store-selector").classList.add("sidebar-box")
     document.getElementById("store-selector").classList.add("sidebar-gap")
   }
-  var x = element.Name + `(${element.ExternalID})`;
   accounts.forEach((element) => {
     if ((customHomepage.getSessionStorage("accountUUID") && customHomepage.getSessionStorage("accountUUID") != '' && element.UUID == customHomepage.getSessionStorage("accountUUID"))) {
       html += `<label class="title-1-xs sidebar-gap" for="order-for">Order for:</label>
       <div class="custom-input-dropdown" onclick="customHomepage.openStoreSelect()">
-        <p role="label" id="selected-account">${x}</p>
+        <p role="label" id="selected-account">${element.Name + `(${element.ExternalID})`}</p>
         <ul class="dropdown-content-fit" id="select-menu" role="select">
         <li class="active-dropdown-item" onclick="customHomepage.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customHomepage.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>
         </ul>
