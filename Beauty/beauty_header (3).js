@@ -28,7 +28,7 @@ var customHeader = {};
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;
-  this.jsFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/config_header.js'
+  this.jsFilePath = 'https://pepperihomepage.github.io/Public/Beauty/config_header.js'
   this.orderJsonPath = 'https://pepperihomepage.github.io/Public/headerOrder/beauty_header-order.js'
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_header_helper.js'
 
