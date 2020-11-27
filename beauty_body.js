@@ -152,26 +152,14 @@ var customHomepage = {};
 
   //end  
   this.buildHTML = function () {
-    if (document.getElementById("carousal-content")) { //try to remove ifelse, settimeout also remove
-      this.transactionName = Transaction
-      this.catalogName = Catalog
-      // if (blocks_config["active-order"] && blocks_config["active-order"].table && )
-      //   this.transactionFields = blocks_config["active-order"].table
-      // if (blocks_config["active-order"] && blocks_config["submitted_orders"].table && blocks_config["submitted_orders"].table.length > 0) {
-      //   console.log("blocks_config[submitted_orders].table", blocks_config["submitted_orders"].table);
-      //   this.transactionsHistoryFields = blocks_config["submitted_orders"].table
-      // }
-      customHomepage.closeAllMenusListener();
-      customHomepage.carousel("carousal-content", CaruselData)
-      customHomepage.drawImagesBlocks("brands", Brands)
-      customHomepage.drawPromotions("promotions", Promotions)
-      customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
-    } else {
-      setTimeout(() => {
-        customHomepage.buildHTML()
-      }, 100);
-    }
-
+    //try to remove ifelse, settimeout also remove
+    this.transactionName = Transaction
+    this.catalogName = Catalog
+    customHomepage.closeAllMenusListener();
+    customHomepage.carousel("carousal-content", CaruselData)
+    customHomepage.drawImagesBlocks("brands", Brands)
+    customHomepage.drawPromotions("promotions", Promotions)
+    customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
   };
 
 
