@@ -1446,10 +1446,7 @@ var customHeader = {};
     return str;
   };
 
-  this.openInNewTab = function (url) {
-    var win = window.open(url, '_blank');
-    win.focus();
-  };
+
 
   this.initPlugin = function () {
     var options = {
@@ -1472,79 +1469,12 @@ var customHeader = {};
       this.transactionName = data.typeName || '';
       this.accountUUID = data.accountUUID || '';
     }
-    this.getAccountStatus();
+    customHeader.getAccountStatus();
   };
 
-  this.getAccountStatus = function () {
-    var bridgeObject = {
-      fields: ['Name', 'UUID'],
-      sorting: [],
-      responseCallback: 'customHeader.getCurrentAccountCallback'
-    };
-    pepperi.api.accounts.search(bridgeObject);
-  };
-  this.getCurrentAccountCallback = function (res) {
-    if (res && res.success && res.objects && res.objects.length)
-      this.accountUUID = res.objects[0].UUID;
-    this.getCatalogs();
-  }
+  
 
-  this.navigation = function (path) {
-    var eventData = {
-      detail: {
-        path: path
-      }
-    };
-
-    var event = new CustomEvent('navigateTo', eventData);
-    if (document.createEvent) {
-      window.dispatchEvent(event);
-    } else {
-      window.fireEvent('on' + event.eventType, event);
-    }
-    window.location.href = path;
-  };
-
-  this.setSessionStorage = function (paramName, data) {
-    sessionStorage.setItem(paramName, data);
-  };
-
-  this.getSessionStorage = function (paramName) {
-    return sessionStorage.getItem(paramName);
-  };
-
-  this.logout = function () {
-    var event = new CustomEvent('logout');
-    if (document.createEvent) {
-      window.dispatchEvent(event);
-    } else {
-      window.fireEvent('on' + event.eventType, event);
-    }
-  };
-
-  this.changePassword = function () {
-    window.location.href = 'https://idp.pepperi.com/Account/ChangePassword';
-  };
-
-  this.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving) {
-    let catalogUUID = !inCatalog ? this.catalogs.find((el) => el.ExternalID === this.catalogName).UUID : this.catalogs.find((el) => el.ExternalID === inCatalog).UUID
-    var bridgeObject = {
-      references: {
-        account: {
-          UUID: this.accountUUID
-        },
-        catalog: {
-          UUID: catalogUUID
-        }
-      },
-      type: {
-        Name: !in_transactionName ? this.transactionName : in_transactionName
-      },
-      responseCallback: skipSessionSaving ? "customHeader.createNewTransactionCallback" : "customHeader.createNewOrderCallback",
-      requestID: deepLink
-    };
-    pepperi.app.transactions.add(bridgeObject);
-  };
+  
   this.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null) {
     const uuid = customHeader.getSessionStorage('LastOpenTransactionUUID');
     if (uuid && uuid !== "undefined") {
@@ -1556,39 +1486,15 @@ var customHeader = {};
   };
 
 
-  this.createNewOrderCallback = function (res) {
-    console.log('createNewOrderCallback res', res);
-    if (res && res.success) {
-      customHeader.setSessionStorage('LastOpenTransactionUUID', res.id);
-      let uuid = res.id;
-      if (res.requestID) {
-        var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-        customHeader.navigation(requestID);
-      }
-    }
+  
+  customHeader.setSessionStorage = function (paramName, data) {
+    sessionStorage.setItem(paramName, data);
   };
-  this.createNewTransactionCallback = function (res) {
-    console.log('createNewTransactionCallback res', res);
-    if (res && res.success) {
-      let uuid = res.id;
-      if (res.requestID) {
-        var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-        customHeader.navigation(requestID);
-      }
-    }
+  
+  customHeader.getSessionStorage = function (paramName) {
+    return sessionStorage.getItem(paramName);
   };
-  this.getCatalogs = function () {
-    pepperi.api.catalogs.search({
-      fields: ["UUID", "ExternalID", "Description", "ID"],
-      responseCallback: 'customHeader.getCatalogsCallback'
-    });
-  }
-  this.getCatalogsCallback = function (res) {
-    console.log("get catalog res", res);
-    (res && res.objects && res.objects.length) ? this.catalogs = res.objects: false;
-    this.buildHTML();
-  }
-
+  
   this.buildHTML = function () {
     this.transactionName = Transaction
     this.catalogName = Catalog
@@ -1633,88 +1539,23 @@ var customHeader = {};
   }
   this.handleAction = function (item) {
     var deepLink = item.deepLink.replace(/\"/g, '%22');
-    if (item.action == 'navigation') {
-      return `customHeader.navigation('${deepLink}')`;
-    } else if (item.action == 'setUUIDandNav') {
-      return `customHeader.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
-    } else if (item.action == 'openInNewTab') {
-      return `customHeader.openInNewTab('${deepLink}')`;
-    } else if (item.action == 'createNewActivity') {
-      return `customHeader.createNewActivity('${item.activity}','${deepLink}')`;
-    } else if (item.action == 'createNewTransaction') {
-      return `customHeader.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
-    } else if (item.action == 'zendesk') {
-      return `location.href = 'javascript:$zopim.livechat.window.show()'`;
+    switch (item.action) {
+      case 'navigation':
+        return `customHeader.navigation('${deepLink}')`;
+      case 'setUUIDandNav':
+        return `customHeader.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
+      case 'openInNewTab':
+        return `customHeader.openInNewTab('${deepLink}')`;
+      case 'createNewActivity':
+        return `customHeader.createNewActivity('${item.activity}','${deepLink}')`;
+      case 'createNewTransaction':
+        return `customHeader.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
+      case 'zendesk':
+        return `location.href = 'javascript:$zopim.livechat.window.show()'`
     }
   }
-  this.closeHamburgerMenu = function () {
-    $('#myDropdown').toggleClass('show').focus()
-  }
-  this.closeMenu = function () {
-    $('#menuDropdown').toggleClass('show').focus();
-  }
 
-  this.linksMenu = function () {
-    $('#linksDropdown').toggleClass('show').focus()
-  }
 
-  this.closeAllMenusListener = function () {
-
-    $('#menuDropdown').attr('tabindex', '-1');
-    $('#linksDropdown').attr('tabindex', '-1');
-    $('#myDropdown').attr('tabindex', '-1');
-
-    $('#menuDropdown').on('focusout', function () {
-      $('#menuDropdown').removeClass('show');
-    });
-
-    $('#linksDropdown').on('focusout', function () {
-      $('#linksDropdown').removeClass('show');
-    });
-
-    $('#myDropdown').on('focusout', function () {
-      $('#myDropdown').removeClass('show');
-    });
-
-    // $('#sidebar-sm').on('focusout', function () {
-    //   const e = document.getElementById("sidebar-sm");
-    //   const btn = document.getElementById("btn");
-    //   if (e.style.display == 'block') {
-    //     e.style.display = 'none';
-    //     btn.innerText = 'Open Menu'
-    //   }
-    // });
-  }
-  this.createNewActivity = function (in_transactionName, deeplink) {
-    var bridgeObject = {
-      references: {
-        account: {
-          UUID: customHomepage.accountUUID,
-        },
-      },
-      type: {
-        Name: !in_transactionName ? this.transactionName : in_transactionName,
-      },
-
-      responseCallback: "customHomepage.createNewActivityCallback",
-      requestID: deeplink,
-    };
-
-    pepperi.app.activities.add(bridgeObject);
-  };
-  this.createNewActivityCallback = function (res) {
-    if (res && res.success) {
-      var uuid = res.id;
-
-      if (res.requestID) {
-        var requestID = res.requestID.replace(
-          "{{UUID}}",
-          uuid.replace(/-/g, "")
-        );
-        customHomepage.navigation(requestID);
-      }
-    }
-  };
 
 
 }.apply(customHeader));
