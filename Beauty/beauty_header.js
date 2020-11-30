@@ -33,6 +33,7 @@ var customHeader = {};
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_header_helper.js'
   this.rightMenuJsonPath = 'https://pepperihomepage.github.io/Public/rightMenu/rightMenu.js'
   this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/leftMenu.js'
+  this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
 
   this.setHtml = function () {
     var str =
@@ -1459,7 +1460,8 @@ var customHeader = {};
         this.orderJsonPath,
         this.helperJsonPath,
         this.rightMenuJsonPath,
-        this.leftMenuJsonPath
+        this.leftMenuJsonPath,
+        this.customHelperJsonPath
       ],
       cssURLs: [],
       favIcon: this.favIconURL,

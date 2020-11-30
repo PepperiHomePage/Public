@@ -43,6 +43,7 @@ var customHomepage = {};
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
   this.jsListenersJsonPath = 'https://pepperihomepage.github.io/Public/jsListeners/beauty_demo_jsListeners.js'
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_demo_helper.js'
+  this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.isMultiAccount = true
   this.cssFilePath = "";
   this.transactionFields = []
@@ -112,7 +113,8 @@ var customHomepage = {};
         this.accountDropdownJsonPath,
         this.navigationJsonPath,
         this.jsListenersJsonPath,
-        this.helperJsonPath
+        this.helperJsonPath,
+        this.customHelperJsonPath
       ],
       cssURLs: [this.cssFilePath,
         this.carousalcssPath,
@@ -135,7 +137,7 @@ var customHomepage = {};
       this.accountUUID = data.accountUUID
       this.setSessionStorage("accountUUID", data.accountUUID)
     }
-    customHomepage.getCatalogsAndBuildHTML();
+    customFunction.getCatalogs();
   };
 
   // TODO: start

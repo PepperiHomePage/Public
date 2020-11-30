@@ -9,7 +9,7 @@ customHeader.getAccountStatus = function () {
 customHeader.getCurrentAccountCallback = function (res) {
   if (res && res.success && res.objects && res.objects.length)
     customHeader.accountUUID = res.objects[0].UUID;
-  customHeader.getCatalogs();
+    customFunction.getCatalogs();
 }
 
 customHeader.navigation = function (path) {
