@@ -1,14 +1,4 @@
-customHomepage.getCatalogsAndBuildHTML = function () {
-    pepperi.api.catalogs.search({
-      fields: ["UUID", "ExternalID", "Description", "ID"],
-      responseCallback: 'customHomepage.getCatalogsCallback'
-    });
-  }
-  customHomepage.getCatalogsCallback = function (res) {
-    (res && res.objects && res.objects.length) ? customHomepage.catalogs = res.objects: false;
-    customHomepage.buildHTML();
-  }
-  customHomepage.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving) {
+customHomepage.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving) {
     let catalogUUID = !inCatalog ? customHomepage.catalogs.find((el) => el.ExternalID === customHomepage.catalogName).UUID : customHomepage.catalogs.find((el) => el.ExternalID === inCatalog).UUID
     var bridgeObject = {
       references: {

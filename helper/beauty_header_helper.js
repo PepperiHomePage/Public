@@ -12,19 +12,6 @@ customHeader.getCurrentAccountCallback = function (res) {
   customHeader.getCatalogs();
 }
 
-customHeader.getCatalogs = function () {
-  pepperi.api.catalogs.search({
-    fields: ["UUID", "ExternalID", "Description", "ID"],
-    responseCallback: 'customHeader.getCatalogsCallback'
-  });
-}
-customHeader.getCatalogsCallback = function (res) {
-  console.log("get catalog res", res);
-  (res && res.objects && res.objects.length) ? customHeader.catalogs = res.objects: false;
-  customHeader.buildHTML();
-}
-
-
 customHeader.navigation = function (path) {
   var eventData = {
     detail: {
