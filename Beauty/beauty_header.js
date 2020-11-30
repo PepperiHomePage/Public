@@ -1480,6 +1480,7 @@ var customHeader = {};
       this.accountUUID = data.accountUUID || '';
     }
     customHeader.getAccountStatus();
+    customFunction.getCatalogs();
   };
 
 
