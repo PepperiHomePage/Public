@@ -1,4 +1,4 @@
-customHeader.LeftMenu - function(LeftMenu){
+customHeader.HeaderLeftMenu - function(LeftMenu){
     let htmlStr = '';
     for (const item of LeftMenu) {
         let classMenu = "link"

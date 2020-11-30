@@ -31,6 +31,8 @@ var customHeader = {};
   this.jsFilePath = 'https://pepperihomepage.github.io/Public/Beauty/config_header.js'
   this.orderJsonPath = 'https://pepperihomepage.github.io/Public/headerOrder/beauty_header-order.js'
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_header_helper.js'
+  this.rightMenuJsonPath = 'https://pepperihomepage.github.io/Public/rightMenu/rightMenu.js'
+  this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/leftMenu.js'
 
   this.setHtml = function () {
     var str =
@@ -1455,7 +1457,9 @@ var customHeader = {};
       JsURLs: [
         this.jsFilePath,
         this.orderJsonPath,
-        this.helperJsonPath
+        this.helperJsonPath,
+        this.rightMenuJsonPath,
+        this.leftMenuJsonPath
       ],
       cssURLs: [],
       favIcon: this.favIconURL,
@@ -1476,9 +1480,9 @@ var customHeader = {};
     customHeader.getAccountStatus();
   };
 
-  
 
-  
+
+
   this.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null) {
     const uuid = customHeader.getSessionStorage('LastOpenTransactionUUID');
     if (uuid && uuid !== "undefined") {
@@ -1490,24 +1494,24 @@ var customHeader = {};
   };
 
 
-  
+
   customHeader.setSessionStorage = function (paramName, data) {
     sessionStorage.setItem(paramName, data);
   };
-  
+
   customHeader.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
-  
+
   this.buildHTML = function () {
     this.transactionName = Transaction
     this.catalogName = Catalog
     document.getElementById("logo").src = logo
     customHeader.closeAllMenusListener();
-    
-    console.log(LeftMenu) 
-    customHeader.LeftMenu(LeftMenu);
-    
+
+    console.log(LeftMenu)
+    customHeader.HeaderLeftMenu(LeftMenu);
+
 
     console.log(RightMenu)
     customHeader.RightMenu(RightMenu);
