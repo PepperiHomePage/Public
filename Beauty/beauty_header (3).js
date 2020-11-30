@@ -1504,42 +1504,13 @@ var customHeader = {};
     this.catalogName = Catalog
     document.getElementById("logo").src = logo
     customHeader.closeAllMenusListener();
-    let htmlStr = '';
-    console.log(LeftMenu)
-    for (const item of LeftMenu) {
-      let classMenu = "link"
-      let htmlTag = "a"
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        classMenu = "link"
-        htmlTag = "a"
-      }
-      if (window.innerWidth <= 960){
-        classMenu = "active"
-        htmlTag = "li"
-      }
-      htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${this.handleAction(item)}">${item.title}</${htmlTag}>`;
-    }
-    if (document.getElementById('menuDropdown')) {
-      document.getElementById('menuDropdown').innerHTML += `<ul class="shown-on-mobile">${htmlStr}</ul><hr class="shown-on-mobile">`;
-    }
-    if (document.getElementById('header_btn_bar')) {
-      document.getElementById('header_btn_bar').innerHTML = htmlStr;
-    }
-    document.getElementById("userNameText").innerHTML = this.context.userName
+    
+    console.log(LeftMenu) 
+    customHeader.LeftMenu(LeftMenu);
+    
 
     console.log(RightMenu)
-    let dropdownMenuMob = ''
-    let rightSideHtmlStr = ''
-    for (const item of RightMenu) {
-      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${this.handleAction(item)}">${item.title}${item.icon ? item.icon : ''}</button>`;
-      dropdownMenuMob += `<li class="active" onclick="${this.handleAction(item)}"><p>${item.title}</p></li>`
-    }
-    let rightAddMenu = document.getElementById('right_additional_menu').innerHTML;
-    document.getElementById('right_additional_menu').innerHTML = rightSideHtmlStr + rightAddMenu;
-    if (document.getElementById('menuDropdown')) {
-      document.getElementById('menuDropdown').innerHTML += `<ul>${dropdownMenuMob}</ul>`;
-    }
-
+    customHeader.RightMenu(RightMenu);
   }
   this.handleAction = function (item) {
     var deepLink = item.deepLink.replace(/\"/g, '%22');
