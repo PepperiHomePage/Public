@@ -34,6 +34,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     pepperi.app.activities.add(bridgeObject);
   };
   customFunction.createNewActivityCallback = function (res) {
+    console.log(res);  
     if (res && res.success) {
       var uuid = res.id;
   

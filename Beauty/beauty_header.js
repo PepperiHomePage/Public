@@ -1492,7 +1492,7 @@ var customHeader = {};
       case 'openInNewTab':
         return `customHeader.openInNewTab('${deepLink}')`;
       case 'createNewActivity':
-        return `customHeader.createNewActivity('${item.activity}','${deepLink}')`;
+        return `customFunction.createNewActivity('${item.activity}','${deepLink}', 'customHeader')`;
       case 'createNewTransaction':
         return `customHeader.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
       case 'zendesk':
