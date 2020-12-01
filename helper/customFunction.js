@@ -43,7 +43,42 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
           "{{UUID}}",
           uuid.replace(/-/g, "")
         );
-        customHomepage.navigation(requestID);
+        customFunction.navigation(requestID);
       }
     }
   };
+  customFunction.handleAction = function (item, nameOfMainJs) {
+    var name = eval("(" + nameOfMainJs + ")")  
+    var deepLink = item.deepLink.replace(/\"/g, '%22');
+    switch (item.action) {
+      case 'navigation':
+        return `customFunction.navigation('${deepLink}')`;
+      case 'setUUIDandNav':
+        return `name.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
+      case 'openInNewTab':
+        return `name.openInNewTab('${deepLink}')`;
+      case 'createNewActivity':
+        return `customFunction.createNewActivity('${item.activity}','${deepLink}', 'customHeader')`;
+      case 'createNewTransaction':
+        return `name.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
+      case 'zendesk':
+        return `location.href = 'javascript:$zopim.livechat.window.show()'`
+    }
+  }
+  customFunction.navigation = function (path) {
+    var eventData = {
+      detail: {
+        path: path,
+      },
+    };
+  
+    var event = new CustomEvent("navigateTo", eventData);
+  
+    if (document.createEvent) {
+      window.dispatchEvent(event);
+    } else {
+      window.fireEvent("on" + event.eventType, event);
+    }
+    window.location.href = path;
+  };
+  

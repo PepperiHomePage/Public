@@ -25,7 +25,7 @@ customHeader.createNewOrderCallback = function (res) {
     let uuid = res.id;
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-      customHeader.navigation(requestID);
+      customFunction.navigation(requestID);
     }
   }
 };
@@ -35,7 +35,7 @@ customHeader.createNewTransactionCallback = function (res) {
     let uuid = res.id;
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-      customHeader.navigation(requestID);
+      customFunction.navigation(requestID);
     }
   }
 };

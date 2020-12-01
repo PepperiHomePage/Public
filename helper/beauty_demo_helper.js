@@ -41,7 +41,7 @@ customHomepage.createNewOrder = function (inCatalog = null, in_transactionName =
       let uuid = res.id;
       if (res.requestID) {
         var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-        customHomepage.navigation(requestID);
+        customFunction.navigation(requestID);
       }
     }
   };
@@ -51,7 +51,7 @@ customHomepage.createNewOrder = function (inCatalog = null, in_transactionName =
       let uuid = res.id;
       if (res.requestID) {
         var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
-        customHomepage.navigation(requestID);
+        customFunction.navigation(requestID);
       }
     }
   };
@@ -64,7 +64,7 @@ customHomepage.createNewOrder = function (inCatalog = null, in_transactionName =
           "{{UUID}}",
           uuid.replace(/-/g, "")
         );
-        customHomepage.navigation(requestID);
+        customFunction.navigation(requestID);
       }
     }
   };

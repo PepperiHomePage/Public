@@ -1451,7 +1451,7 @@ var customHeader = {};
     const uuid = customHeader.getSessionStorage('LastOpenTransactionUUID');
     if (uuid && uuid !== "undefined") {
       deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
-      customHeader.navigation(deepLink);
+      customFunction.navigation(deepLink);
     } else {
       customHeader.createNewOrder(in_catalog, in_transactionName, deepLink);
     }
@@ -1482,23 +1482,7 @@ var customHeader = {};
 
    
   }
-  this.handleAction = function (item) {
-    var deepLink = item.deepLink.replace(/\"/g, '%22');
-    switch (item.action) {
-      case 'navigation':
-        return `customHeader.navigation('${deepLink}')`;
-      case 'setUUIDandNav':
-        return `customHeader.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
-      case 'openInNewTab':
-        return `customHeader.openInNewTab('${deepLink}')`;
-      case 'createNewActivity':
-        return `customFunction.createNewActivity('${item.activity}','${deepLink}', 'customHeader')`;
-      case 'createNewTransaction':
-        return `customHeader.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
-      case 'zendesk':
-        return `location.href = 'javascript:$zopim.livechat.window.show()'`
-    }
-  }
+  
 
 
 

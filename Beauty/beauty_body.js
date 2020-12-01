@@ -154,7 +154,6 @@ var customHomepage = {};
     customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
   };
 
-
   this.setSessionStorage = function (paramName, data) {
     sessionStorage.setItem(paramName, data);
   };

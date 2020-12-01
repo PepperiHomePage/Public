@@ -12,21 +12,6 @@ customHeader.getCurrentAccountCallback = function (res) {
     
 }
 
-customHeader.navigation = function (path) {
-  var eventData = {
-    detail: {
-      path: path
-    }
-  };
-
-  var event = new CustomEvent('navigateTo', eventData);
-  if (document.createEvent) {
-    window.dispatchEvent(event);
-  } else {
-    window.fireEvent('on' + event.eventType, event);
-  }
-  window.location.href = path;
-};
 
 
 customHeader.logout = function () {

@@ -2,7 +2,7 @@ customHomepage.setUUIDandNav = function (in_catalog = null, in_transactionName =
   const uuid = customHomepage.getSessionStorage('LastOpenTransactionUUID');
   if (uuid && uuid !== "undefined") {
     deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
-    customHomepage.navigation(deepLink);
+    customFunction.navigation(deepLink);
   } else {
     customHomepage.createNewOrder(in_catalog, in_transactionName, deepLink);
   }
@@ -10,24 +10,10 @@ customHomepage.setUUIDandNav = function (in_catalog = null, in_transactionName =
 customHomepage.NavigateToActiveCart = function (data) {
   var uuid = customHomepage.getSessionStorage("LastOpenTransactionUUID");
   if (uuid) {
-    customHomepage.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
+    customFunction.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
   }
 };
-customHomepage.navigation = function (path) {
-  var eventData = {
-    detail: {
-      path: path,
-    },
-  };
 
-  var event = new CustomEvent("navigateTo", eventData);
-
-  if (document.createEvent) {
-    window.dispatchEvent(event);
-  } else {
-    window.fireEvent("on" + event.eventType, event);
-  }
-};
 customHomepage.logout = function () {
   var event = new CustomEvent("logout");
 

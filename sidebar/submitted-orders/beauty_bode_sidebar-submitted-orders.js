@@ -76,7 +76,7 @@ customHomepage.buildSubmittedOrdersTable = function (data, id) {
     tableHtml += `
                   <li>
                   <span  class="dimmed">${dateValue}</span>
-                  <span class="bold"><a onClick="customHomepage.navigation('${deepLink}')">${element.InternalID}</a></span>
+                  <span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</a></span>
                 </li>
                     
           `;
