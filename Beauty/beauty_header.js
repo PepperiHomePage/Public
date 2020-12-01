@@ -1473,12 +1473,14 @@ var customHeader = {};
     document.getElementById("logo").src = logo
     customHeader.closeAllMenusListener();
 
+    console.log(RightMenu)
+    customHeader.RightMenu(RightMenu);
+
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
 
 
-    console.log(RightMenu)
-    customHeader.RightMenu(RightMenu);
+   
   }
   this.handleAction = function (item) {
     var deepLink = item.deepLink.replace(/\"/g, '%22');

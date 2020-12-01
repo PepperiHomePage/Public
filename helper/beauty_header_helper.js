@@ -42,36 +42,7 @@ customHeader.changePassword = function () {
   window.location.href = 'https://idp.pepperi.com/Account/ChangePassword';
 };    
 
-customHeader.createNewActivity = function (in_transactionName, deeplink) {
-  var bridgeObject = {
-    references: {
-      account: {
-        UUID: customHomepage.accountUUID,
-      },
-    },
-    type: {
-      Name: !in_transactionName ? customHeader.transactionName : in_transactionName,
-    },
 
-    responseCallback: "customHomepage.createNewActivityCallback",
-    requestID: deeplink,
-  };
-
-  pepperi.app.activities.add(bridgeObject);
-};
-customHeader.createNewActivityCallback = function (res) {
-  if (res && res.success) {
-    var uuid = res.id;
-
-    if (res.requestID) {
-      var requestID = res.requestID.replace(
-        "{{UUID}}",
-        uuid.replace(/-/g, "")
-      );
-      customHomepage.navigation(requestID);
-    }
-  }
-};
 
 customHeader.closeHamburgerMenu = function () {
   $('#myDropdown').toggleClass('show').focus()

@@ -14,3 +14,35 @@ customFunction.getCatalogsCallback = function (res) {
     var fun = eval("(" + res.requestID + ")");
     fun.buildHTML();
 }
+
+customFunction.createNewActivity = function (in_transactionName, deeplink, customName) {
+    var evalCustomName = eval("(" + customName + ")")
+    var bridgeObject = {
+      references: {
+        account: {
+          UUID: evalCustomName.accountUUID,
+        },
+      },
+      type: {
+        Name: !in_transactionName ? evalCustomName.transactionName : in_transactionName,
+      },
+  
+      responseCallback: "customFunction.createNewActivityCallback",
+      requestID: {deeplink, customName},
+    };
+  
+    pepperi.app.activities.add(bridgeObject);
+  };
+  customFunction.createNewActivityCallback = function (res) {
+    if (res && res.success) {
+      var uuid = res.id;
+  
+      if (res.requestID) {
+        var requestID = res.requestID.replace(
+          "{{UUID}}",
+          uuid.replace(/-/g, "")
+        );
+        customHomepage.navigation(requestID);
+      }
+    }
+  };
