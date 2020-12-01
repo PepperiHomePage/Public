@@ -11,5 +11,6 @@ customFunction.getCatalogs = function (x) {
 customFunction.getCatalogsCallback = function (res) {
     console.log("get catalog res", res);
     (res && res.objects && res.objects.length) ? customFunction.catalogs = res.objects: false;
-    res.requestID.buildHTML();
+    var fun = eval("(" + res.requestID + ")");
+    fun.buildHTML();
 }
