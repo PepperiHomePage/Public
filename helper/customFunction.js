@@ -9,6 +9,6 @@ customFunction.getCatalogs = function () {
 customFunction.getCatalogsCallback = function (res) {
     console.log("get catalog res", res);
     (res && res.objects && res.objects.length) ? customFunction.catalogs = res.objects: false;
-    customHeader.buildHTML();
     customHomepage.buildHTML();
+    customHeader.buildHTML();
 }
