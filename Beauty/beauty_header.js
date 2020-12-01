@@ -1404,7 +1404,8 @@ var customHeader = {};
                 </div>
               </div>
               <div class="header-end" id="right_additional_menu">
-              </div>
+                
+            </div>
         </header>
         `;
 
