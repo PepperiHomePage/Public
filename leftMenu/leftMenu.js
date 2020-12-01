@@ -11,7 +11,7 @@ customHeader.HeaderLeftMenu = function(LeftMenu){
           classMenu = "active"
           htmlTag = "li"
         }
-        htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${customHeader.handleAction(item)}">${item.title}</${htmlTag}>`;
+        htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${customFunction.handleAction(item, "customHeader")}">${item.title}</${htmlTag}>`;
       }
       if (document.getElementById('menuDropdown')) {
         document.getElementById('menuDropdown').innerHTML += `<ul class="shown-on-mobile">${htmlStr}</ul><hr class="shown-on-mobile">`;

@@ -2,8 +2,8 @@ customHeader.RightMenu = function(RightMenu){
     let dropdownMenuMob = ''
     let rightSideHtmlStr = ''
     for (const item of RightMenu) {
-      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${customHeader.handleAction(item, "customHeader")}">${item.title}${item.icon ? item.icon : ''}</button>`;
-      dropdownMenuMob += `<li class="active" onclick="${customHeader.handleAction(item,"customHeader")}"><p>${item.title}</p></li>`
+      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${customFunction.handleAction(item, "customHeader")}">${item.title}${item.icon ? item.icon : ''}</button>`;
+      dropdownMenuMob += `<li class="active" onclick="${customFunction.handleAction(item,"customHeader")}"><p>${item.title}</p></li>`
     }
     let rightAddMenu = `<div class="dropdown shown-on-web">
     <button class="button-weak button-icon" onclick="customHeader.closeMenu()">
