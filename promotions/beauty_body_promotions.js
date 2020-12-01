@@ -7,7 +7,7 @@ customHomepage.drawPromotions = function (id, Promotions) {
           <h2 class="title-4-lg">${value.title}</h2>
           <div>
             <button class="comonBtn custom-btn"
-              onclick="customHomepage.setUUIDandNav(null, null, '${value.link}')">
+              onclick="customFunction.setUUIDandNav(null, null, '${value.link}', "customHomepage")">
               ${value.buttonText}
             </button>
           </div>

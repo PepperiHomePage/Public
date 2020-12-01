@@ -1444,21 +1444,6 @@ var customHeader = {};
     customFunction.getCatalogs("customHeader");
   };
 
-
-
-
-  this.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null) {
-    const uuid = customHeader.getSessionStorage('LastOpenTransactionUUID');
-    if (uuid && uuid !== "undefined") {
-      deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
-      customFunction.navigation(deepLink);
-    } else {
-      customHeader.createNewOrder(in_catalog, in_transactionName, deepLink);
-    }
-  };
-
-
-
   customHeader.setSessionStorage = function (paramName, data) {
     sessionStorage.setItem(paramName, data);
   };

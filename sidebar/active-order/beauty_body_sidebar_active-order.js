@@ -60,13 +60,13 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
     let uuid = data.objects[0].UUID ? data.objects[0].UUID : "00000000";
     customHomepage.setSessionStorage("LastOpenTransactionUUID", uuid);
     recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
-    $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
+    $("#orderBtn").attr("onclick", `customFunction.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}', "customHomepage")`);
     $("#orderBtn").text("Back to Cart")
     customHomepage.buildOpenOrdersTable(data.objects, data.requestID);
   } else {
     customHomepage.setSessionStorage("LastOpenTransactionUUID", '');
     recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
-    $("#orderBtn").attr("onclick", `customHomepage.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}')`);
+    $("#orderBtn").attr("onclick", `customFunction.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}', "customHomepage")`);
     $("#orderBtn").text("Create New Order");
     let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
     <ul class="leaders" id="currTransactionFields">

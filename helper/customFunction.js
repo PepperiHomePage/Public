@@ -54,7 +54,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       case 'navigation':
         return `customFunction.navigation('${deepLink}')`;
       case 'setUUIDandNav':
-        return `name.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
+        return `customFunction.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}', '${nameOfMainJs}')`;
       case 'openInNewTab':
         return `name.openInNewTab('${deepLink}')`;
       case 'createNewActivity':
@@ -65,7 +65,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
         return `location.href = 'javascript:$zopim.livechat.window.show()'`
     }
   }
-  customFunction.navigation = function (path) {
+   .navigation = function (path) {
     var eventData = {
       detail: {
         path: path,
@@ -82,3 +82,13 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     window.location.href = path;
   };
   
+  customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
+    var name = eval("(" + nameOfMainJs + ")")  
+    const uuid = customHomepage.getSessionStorage('LastOpenTransactionUUID');
+    if (uuid && uuid !== "undefined") {
+      deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
+      customFunction.navigation(deepLink);
+    } else {
+        name.createNewOrder(in_catalog, in_transactionName, deepLink);
+    }
+  };

@@ -4,12 +4,12 @@ customHomepage.drawImagesBlocks = function (id,ImagesBlock) {
   for (const [idx1, value] of ImagesBlock.entries()) {
     if (value.bigImage)
       imagesBlocks += `
-      <div class="brand big-brand" onclick="customHomepage.setUUIDandNav(null,null,'${value.link}')"
+      <div class="brand big-brand" onclick="customFunction.setUUIDandNav(null,null,'${value.link}', "customFunction")"
       style="background-image: url(${value.img});">
   </div>`;
     else
       imagesBlocks += `
-  <div class="brand" onclick="customHomepage.setUUIDandNav(null,null,'${value.link}')"
+  <div class="brand" onclick="customFunction.setUUIDandNav(null,null,'${value.link}', "customFunction")"
   style="background-image: url(${value.img});">
 </div>`;
   }
