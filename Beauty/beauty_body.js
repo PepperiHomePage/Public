@@ -137,7 +137,7 @@ var customHomepage = {};
       this.accountUUID = data.accountUUID
       this.setSessionStorage("accountUUID", data.accountUUID)
     }
-    customFunction.getCatalogs();
+    customFunction.getCatalogs("customHomepage");
   };
 
   // TODO: start
