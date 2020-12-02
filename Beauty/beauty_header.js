@@ -1444,9 +1444,7 @@ var customHeader = {};
     customFunction.getCatalogs("customHeader");
   };
 
-  customHeader.setSessionStorage = function (paramName, data) {
-    sessionStorage.setItem(paramName, data);
-  };
+  
 
   customHeader.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);

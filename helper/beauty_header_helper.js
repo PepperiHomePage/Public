@@ -59,7 +59,3 @@ customHeader.closeAllMenusListener = function () {
   });
 }
 
-customHeader.openInNewTab = function (url) {
-  var win = window.open(url, '_blank');
-  win.focus();
-};

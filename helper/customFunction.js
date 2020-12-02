@@ -55,7 +55,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       case 'setUUIDandNav':
         return `customFunction.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}', '${nameOfMainJs}')`;
       case 'openInNewTab':
-        return `name.openInNewTab('${deepLink}')`;
+        return `customFunction.openInNewTab('${deepLink}')`;
       case 'createNewActivity':
         return `customFunction.createNewActivity('${item.activity}','${deepLink}', '${nameOfMainJs}')`;
       case 'createNewTransaction':
@@ -87,6 +87,58 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
     } else {
-      name.createNewOrder(in_catalog, in_transactionName, deepLink);
+      name.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
     }
+  };
+
+  customFunction.openInNewTab = function (url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+  };
+
+  customFunction.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving,nameOfMainJs) {
+    var name = eval("(" + nameOfMainJs + ")") 
+    let catalogUUID = !inCatalog ? name.catalogs.find((el) => el.ExternalID === name.catalogName).UUID : name.catalogs.find((el) => el.ExternalID === inCatalog).UUID
+    var bridgeObject = {
+      references: {
+        account: {
+          UUID: name.accountUUID
+        },
+        catalog: {
+          UUID: catalogUUID
+        }
+      },
+      type: {
+        Name: !in_transactionName ? name.transactionName : in_transactionName
+      },
+      responseCallback: skipSessionSaving ? "customFunction.createNewOrderCallback" : "customFunction.createNewOrderAndNavCallback",
+      requestID: deepLink
+    };
+    pepperi.app.transactions.add(bridgeObject);
+  };
+
+  customFunction.createNewOrderAndNavCallback = function (res) {
+    console.log('createNewOrderAndNavCallback res', res);
+    if (res && res.success) {
+      customFunction.setSessionStorage('LastOpenTransactionUUID', res.id);
+      let uuid = res.id;
+      if (res.requestID) {
+        var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
+        customFunction.navigation(requestID);
+      }
+    }
+  };
+  customFunction.createNewOrderCallback = function (res) {
+    console.log('createNewOrderCallback res', res);
+    if (res && res.success) {
+      let uuid = res.id;
+      if (res.requestID) {
+        var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
+        customFunction.navigation(requestID);
+      }
+    }
+  };
+
+  customFunction.setSessionStorage = function (paramName, data) {
+    sessionStorage.setItem(paramName, data);
   };
