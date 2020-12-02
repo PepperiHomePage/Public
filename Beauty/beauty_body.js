@@ -148,7 +148,6 @@ var customHomepage = {};
 
   //end  
   this.buildHTML = function () {
-    
     //try to remove ifelse, settimeout also remove
     this.transactionName = Transaction
     this.catalogName = Catalog
