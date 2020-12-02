@@ -1454,7 +1454,7 @@ var customHeader = {};
     this.transactionName = Transaction
     this.catalogName = Catalog
     document.getElementById("logo").src = logo
-    customHeader.closeAllMenusListener();
+    customFunction.closeAllMenusListener();
 
     console.log(RightMenu)
     customHeader.RightMenu(RightMenu);

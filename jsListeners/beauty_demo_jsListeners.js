@@ -17,9 +17,3 @@ customHomepage.openStoreSelect = function () {
       $('#sidebar-sm').focus()
     }
   };
-  customHomepage.closeAllMenusListener = function () {
-    $('#select-menu').attr('tabindex', '-1');
-    $('#select-menu').on('focusout', function () {
-      $('#select-menu').removeClass('show');
-    });
-  };

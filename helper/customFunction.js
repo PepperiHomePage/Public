@@ -142,3 +142,26 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
   customFunction.setSessionStorage = function (paramName, data) {
     sessionStorage.setItem(paramName, data);
   };
+
+  customFunction.closeAllMenusListener = function () {
+    $('#select-menu').attr('tabindex', '-1');
+    $('#select-menu').on('focusout', function () {
+      $('#select-menu').removeClass('show');
+    });
+
+    $('#menuDropdown').attr('tabindex', '-1');
+    $('#linksDropdown').attr('tabindex', '-1');
+    $('#myDropdown').attr('tabindex', '-1');
+  
+    $('#menuDropdown').on('focusout', function () {
+      $('#menuDropdown').removeClass('show');
+    });
+  
+    $('#linksDropdown').on('focusout', function () {
+      $('#linksDropdown').removeClass('show');
+    });
+  
+    $('#myDropdown').on('focusout', function () {
+      $('#myDropdown').removeClass('show');
+    });
+  };
