@@ -31,7 +31,7 @@ customHomepage.setActiveDropdown = function (uuid, name) {
   document.getElementById("selected-account").innerHTML = name
   document.querySelector('li.active-dropdown-item') ? document.querySelector('li.active-dropdown-item').classList.remove("active-dropdown-item") : null;
   document.getElementById(uuid).classList.add("active-dropdown-item");
-  customHomepage.setSessionStorage("accountUUID", uuid);
+  customFunction.setSessionStorage("accountUUID", uuid);
 }
 customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
   let ddElement = document.getElementById("store-selector");
@@ -60,7 +60,7 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
         </svg>
       </div>`;
       ddElement.innerHTML = html;
-      customHomepage.setSessionStorage("accountUUID", element.UUID);
+      customFunction.setSessionStorage("accountUUID", element.UUID);
     } else
       html += `<label class="title-1-xs sidebar-gap" for="order-for">Order for:</label>
       <div class="custom-input-dropdown" onclick="customHomepage.openStoreSelect()">

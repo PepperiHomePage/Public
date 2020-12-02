@@ -135,7 +135,7 @@ var customHomepage = {};
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
     } else if (data) {
       this.accountUUID = data.accountUUID
-      this.setSessionStorage("accountUUID", data.accountUUID)
+      customFunction.setSessionStorage("accountUUID", data.accountUUID)
     }
     customFunction.getCatalogs("customHomepage");
   };
@@ -154,16 +154,14 @@ var customHomepage = {};
     customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
   };
 
-  this.setSessionStorage = function (paramName, data) {
-    sessionStorage.setItem(paramName, data);
-  };
+
   this.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
   this.findTransactionForSelectedAccount = function (uuid) {
     console.log("uuid -----> ", uuid)
     this.accountUUID = uuid;
-    customHomepage.setSessionStorage("accountUUID", uuid);
+    customFunction.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {
       customHomepage.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
     }

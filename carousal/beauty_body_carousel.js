@@ -44,7 +44,7 @@ customHomepage.carousel = function (slideid, CaruselData) {
 
 
     document.getElementById("indicators").innerHTML = indicatorsStr;
-    customHomepage.setSessionStorage("savedIDX", 0);
+    customFunction.setSessionStorage("savedIDX", 0);
     customHomepage.slideLifetyme = value.time;
     customHomepage.switchSlide();
     
@@ -77,14 +77,14 @@ customHomepage.switchSlide = function (isCurrent, next = true) {
 
     value = customHomepage.CaruselData[idx];
     if (next) {
-        customHomepage.setSessionStorage(
+        customFunction.setSessionStorage(
             "savedIDX",
             +sessionStorage.getItem("savedIDX") + 1 < customHomepage.CaruselData.length ?
             +sessionStorage.getItem("savedIDX") + 1 :
             0
         );
     } else {
-        customHomepage.setSessionStorage(
+        customFunction.setSessionStorage(
             "savedIDX",
             +sessionStorage.getItem("savedIDX") - 1 > 0 ?
             +sessionStorage.getItem("savedIDX") - 1 :
