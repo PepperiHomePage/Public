@@ -59,7 +59,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       case 'createNewActivity':
         return `customFunction.createNewActivity('${item.activity}','${deepLink}', '${nameOfMainJs}')`;
       case 'createNewTransaction':
-        return `name.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
+        return `customFunction.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true, '${nameOfMainJs}')`;
       case 'zendesk':
         return `location.href = 'javascript:$zopim.livechat.window.show()'`
     }
