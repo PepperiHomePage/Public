@@ -286,7 +286,8 @@ var customHeader = {};
           -webkit-box-pack: justify;
               -ms-flex-pack: justify;
                   justify-content: space-between;
-          max-width: 100%;
+          max-width: 1464px;
+          width: 100%;
           display: flex;
           -webkit-box-align: center;
               -ms-flex-align: center;
@@ -1395,7 +1396,7 @@ var customHeader = {};
          }
          /*# sourceMappingURL=style.css.map */
                   </style>
-        <header id="header-section" class="header" style="margin: 0 auto;">
+        <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
               <div class="header-start"> 
                 <a id="logo" href="/HomePage" class="logo">
                   <img id="logo" src="" /> 

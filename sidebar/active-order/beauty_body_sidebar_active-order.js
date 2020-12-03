@@ -82,6 +82,8 @@ customHomepage.getRecentTransactionForAccountCallback = function (data) {
     
     document.getElementById(data.requestID).style.display = "flex"
     document.getElementById(data.requestID).style.flexDirection = "column"
+    document.getElementById(data.requestID).classList.add("sidebar-box");
+    document.getElementById(data.requestID).classList.add("sidebar-gap");
     document.getElementById(data.requestID).innerHTML = html
   }
 };
@@ -104,6 +106,8 @@ customHomepage.buildOpenOrdersTable = function (data, id) {
   <button class="comonBtn" id="orderBtn">Back to Cart</button>`  
   document.getElementById(id).style.display = "flex"  
   document.getElementById(id).style.flexDirection = "column"
+  document.getElementById(data.requestID).classList.add("sidebar-box");
+  document.getElementById(data.requestID).classList.add("sidebar-gap");
   document.getElementById(id).innerHTML = html
   document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
 };

@@ -151,7 +151,6 @@ var customHomepage = {};
     //try to remove ifelse, settimeout also remove
     this.transactionName = Transaction
     this.catalogName = Catalog
-    debugger
     customFunction.closeAllMenusListener();
     customHomepage.carousel("carousal-content", CaruselData)
     customHomepage.drawImagesBlocks("brands", Brands)
