@@ -47,7 +47,7 @@ customFunction.buildAccountsDropDown = function (thisAccounts, callback) {
     document.getElementById("store-selector").classList.add("sidebar-gap")
   }
   accounts.forEach((element) => {
-    if ((customFunction.getSessionStorage("accountUUID") && customFunction.getSessionStorage("accountUUID") != '' && element.UUID == customFunction.getSessionStorage("accountUUID"))) {
+    if ((customHomepage.getSessionStorage("accountUUID") && customHomepage.getSessionStorage("accountUUID") != '' && element.UUID == customHomepage.getSessionStorage("accountUUID"))) {
       html += `<label class="title-1-xs sidebar-gap" for="order-for">Order for:</label>
       <div class="custom-input-dropdown" onclick="customFunction.openStoreSelect()">
         <p role="label" id="selected-account">${element.Name + `(${element.ExternalID})`}</p>
@@ -77,10 +77,10 @@ customFunction.buildAccountsDropDown = function (thisAccounts, callback) {
   });
   ddElement.innerHTML = html;
 
-  if (!customFunction.getSessionStorage("accountUUID") || customFunction.getSessionStorage("accountUUID") == '')
+  if (!customHomepage.getSessionStorage("accountUUID") || customHomepage.getSessionStorage("accountUUID") == '')
     customFunction.setActiveDropdown(customFunction.accounts[0].UUID, customFunction.accounts[0].Name)
-  //customFunction.findTransactionForSelectedAccount(customFunction.getSessionStorage("accountUUID"),callback);
-  var value = '(customFunction.getSessionStorage("accountUUID"))'
+  //customFunction.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
+  var value = '(customHomepage.getSessionStorage("accountUUID"))'
   var cb = eval("(" + callback + value + ")");
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };

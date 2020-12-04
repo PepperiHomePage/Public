@@ -1,7 +1,7 @@
 
 
 customFunction.NavigateToActiveCart = function (data) {
-  var uuid = customFunction.getSessionStorage("LastOpenTransactionUUID");
+  var uuid = customHomepage.getSessionStorage("LastOpenTransactionUUID");
   if (uuid) {
     customFunction.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
   }
