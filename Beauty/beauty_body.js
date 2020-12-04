@@ -152,7 +152,7 @@ var customHomepage = {};
     this.transactionName = Transaction
     this.catalogName = Catalog
     customFunction.closeAllMenusListener();
-    customHomepage.carousel("carousal-content", CaruselData)
+    customFunction.carousel("carousal-content", CaruselData)
     customHomepage.drawImagesBlocks("brands", Brands)
     customHomepage.drawPromotions("promotions", Promotions)
     customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
