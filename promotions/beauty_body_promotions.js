@@ -7,7 +7,7 @@ customFunction.drawPromotions = function (id, Promotions) {
           <h2 class="title-4-lg">${value.title}</h2>
           <div>
             <button class="comonBtn custom-btn"
-              onclick="customFunction.setUUIDandNav(null, null, '${value.link}', "customFunction")">
+              onclick="customFunction.setUUIDandNav(null, null, '${value.link}', 'customFunction')">
               ${value.buttonText}
             </button>
           </div>

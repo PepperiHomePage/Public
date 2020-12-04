@@ -13,7 +13,7 @@ customFunction.carousel = function (slideid, CaruselData) {
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', "customFunction")" >${value.buttonText}</button>
+            <button id="shop_now" onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', 'customFunction')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
@@ -98,7 +98,7 @@ customFunction.switchSlide = function (isCurrent, next = true) {
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', "customFunction")" >${value.buttonText}</button>
+            <button id="shop_now" onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', 'customFunction')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
