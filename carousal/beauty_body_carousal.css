@@ -103,7 +103,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 180px;
+  width: 100%;
   align-items: center;
 }
 

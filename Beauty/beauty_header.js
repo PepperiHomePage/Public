@@ -286,7 +286,6 @@ var customHeader = {};
           -webkit-box-pack: justify;
               -ms-flex-pack: justify;
                   justify-content: space-between;
-          max-width: 1464px;
           width: 100%;
           display: flex;
           -webkit-box-align: center;
@@ -300,6 +299,9 @@ var customHeader = {};
           position: -webkit-sticky;
           position: sticky;
           top: 0;
+        }
+        .wrp{
+          max-width: 1464px;
         }
          
          @media screen and (max-width: 768px) {
@@ -1397,6 +1399,7 @@ var customHeader = {};
          /*# sourceMappingURL=style.css.map */
                   </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
+            <div class="wrp">
               <div class="header-start"> 
                 <a id="logo" href="/HomePage" class="logo">
                   <img id="logo" src="" /> 
@@ -1406,6 +1409,7 @@ var customHeader = {};
               </div>
               <div class="header-end" id="right_additional_menu">
                 
+            </div>
             </div>
         </header>
         `;
