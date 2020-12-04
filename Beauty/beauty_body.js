@@ -159,7 +159,7 @@ var customHomepage = {};
   };
 
 
-  this.getSessionStorage = function (paramName) {
+  customHomepage.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
   this.findTransactionForSelectedAccount = function (uuid) {
