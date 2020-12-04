@@ -1,20 +1,20 @@
-customHomepage.freeShipping=function(uuid,config,id){
-  customHomepage.freeShippingConfig=config
+customFunction.freeShipping=function(uuid,config,id){
+  customFunction.freeShippingConfig=config
   pepperi.api.accounts.get({
      key: { UUID: uuid },
      fields: [config.field],
-     responseCallback:"customHomepage.freeShippingCallback",
+     responseCallback:"customFunction.freeShippingCallback",
      requestID:id
 });
 }
 
  
 
-customHomepage.freeShippingCallback=function(data){
+customFunction.freeShippingCallback=function(data){
         document.getElementById(data.requestID).innerHTML = `
       <div>
-      <p>${customHomepage.freeShippingConfig.text}${data.object[customHomepage.freeShippingConfig.field]}</p>
-    </div>` + (customHomepage.freeShippingConfig.svg ? `<img src="${customHomepage.freeShippingConfig.svg}" alt="Promotion truck icon">` : '')
+      <p>${customFunction.freeShippingConfig.text}${data.object[customFunction.freeShippingConfig.field]}</p>
+    </div>` + (customFunction.freeShippingConfig.svg ? `<img src="${customFunction.freeShippingConfig.svg}" alt="Promotion truck icon">` : '')
 
     document.getElementById(data.requestID).classList.add("card", "sidebar-gap","dark-card")
     document.getElementById(data.requestID).style.display = "flex"

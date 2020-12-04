@@ -1,4 +1,4 @@
-customHomepage.getAccounts = function (callbackName) {
+customFunction.getAccounts = function (callbackName) {
   console.log("callbackName ->>>>", callbackName);
   var bridgeObject = {
     fields: ["Name", "UUID", "ExternalID"],
@@ -15,25 +15,25 @@ customHomepage.getAccounts = function (callbackName) {
         Values: ["false"],
       },
     },
-    responseCallback: "customHomepage.setAccountDD",
+    responseCallback: "customFunction.setAccountDD",
     requestID: callbackName
   };
   pepperi.api.accounts.search(bridgeObject);
 };
-customHomepage.setAccountDD = function (data) {
+customFunction.setAccountDD = function (data) {
   console.log("accounts", data)
   if (!data.success || data.count == 0) return;
-  customHomepage.accounts = data.objects;
+  customFunction.accounts = data.objects;
   console.log("data.requestID --->", data.requestID);
-  customHomepage.buildAccountsDropDown(customHomepage.accounts, data.requestID);
+  customFunction.buildAccountsDropDown(customFunction.accounts, data.requestID);
 };
-customHomepage.setActiveDropdown = function (uuid, name) {
+customFunction.setActiveDropdown = function (uuid, name) {
   document.getElementById("selected-account").innerHTML = name
   document.querySelector('li.active-dropdown-item') ? document.querySelector('li.active-dropdown-item').classList.remove("active-dropdown-item") : null;
   document.getElementById(uuid).classList.add("active-dropdown-item");
   customFunction.setSessionStorage("accountUUID", uuid);
 }
-customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
+customFunction.buildAccountsDropDown = function (thisAccounts, callback) {
   let ddElement = document.getElementById("store-selector");
   let html = "";
   accounts = thisAccounts
@@ -47,12 +47,12 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
     document.getElementById("store-selector").classList.add("sidebar-gap")
   }
   accounts.forEach((element) => {
-    if ((customHomepage.getSessionStorage("accountUUID") && customHomepage.getSessionStorage("accountUUID") != '' && element.UUID == customHomepage.getSessionStorage("accountUUID"))) {
+    if ((customFunction.getSessionStorage("accountUUID") && customFunction.getSessionStorage("accountUUID") != '' && element.UUID == customFunction.getSessionStorage("accountUUID"))) {
       html += `<label class="title-1-xs sidebar-gap" for="order-for">Order for:</label>
-      <div class="custom-input-dropdown" onclick="customHomepage.openStoreSelect()">
+      <div class="custom-input-dropdown" onclick="customFunction.openStoreSelect()">
         <p role="label" id="selected-account">${element.Name + `(${element.ExternalID})`}</p>
         <ul class="dropdown-content-fit" id="select-menu" role="select">
-        <li class="active-dropdown-item" onclick="customHomepage.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customHomepage.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>
+        <li class="active-dropdown-item" onclick="customFunction.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customFunction.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>
         </ul>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill-rule="evenodd"
@@ -63,10 +63,10 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
       customFunction.setSessionStorage("accountUUID", element.UUID);
     } else
       html += `<label class="title-1-xs sidebar-gap" for="order-for">Order for:</label>
-      <div class="custom-input-dropdown" onclick="customHomepage.openStoreSelect()">
+      <div class="custom-input-dropdown" onclick="customFunction.openStoreSelect()">
         <p role="label" id="selected-account">Select a store</p>
         <ul class="dropdown-content-fit" id="select-menu" role="select">
-          <li onclick="customHomepage.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customHomepage.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>  
+          <li onclick="customFunction.setActiveDropdown('${element.UUID}','${element.Name}(${element.ExternalID})'); customFunction.findTransactionForSelectedAccount('${element.UUID}')" id="${element.UUID}">${element.Name}(${element.ExternalID})</li>  
         </ul>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill-rule="evenodd"
@@ -77,10 +77,10 @@ customHomepage.buildAccountsDropDown = function (thisAccounts, callback) {
   });
   ddElement.innerHTML = html;
 
-  if (!customHomepage.getSessionStorage("accountUUID") || customHomepage.getSessionStorage("accountUUID") == '')
-    customHomepage.setActiveDropdown(customHomepage.accounts[0].UUID, customHomepage.accounts[0].Name)
-  //customHomepage.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
-  var value = '(customHomepage.getSessionStorage("accountUUID"))'
+  if (!customFunction.getSessionStorage("accountUUID") || customFunction.getSessionStorage("accountUUID") == '')
+    customFunction.setActiveDropdown(customFunction.accounts[0].UUID, customFunction.accounts[0].Name)
+  //customFunction.findTransactionForSelectedAccount(customFunction.getSessionStorage("accountUUID"),callback);
+  var value = '(customFunction.getSessionStorage("accountUUID"))'
   var cb = eval("(" + callback + value + ")");
   document.getElementById("store-selector-hr").classList.add("sidebar-gap");
 };

@@ -1,5 +1,5 @@
 
-customHomepage.drawImagesBlocks = function (id,ImagesBlock) {
+customFunction.drawImagesBlocks = function (id,ImagesBlock) {
   let imagesBlocks = "";
   for (const [idx1, value] of ImagesBlock.entries()) {
     if (value.bigImage)

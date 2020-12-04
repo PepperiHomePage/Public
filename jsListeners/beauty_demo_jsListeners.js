@@ -1,7 +1,7 @@
-customHomepage.openStoreSelect = function () {
+customFunction.openStoreSelect = function () {
     document.getElementById('select-menu').classList.toggle('show')
   }
-  customHomepage.openCloseMenu = function () {
+  customFunction.openCloseMenu = function () {
     const over = document.getElementById("overSide");
     const e = document.getElementById("sidebar-sm");
     const btn = document.getElementById("btn");

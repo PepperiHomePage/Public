@@ -153,9 +153,9 @@ var customHomepage = {};
     this.catalogName = Catalog
     customFunction.closeAllMenusListener();
     customFunction.carousel("carousal-content", CaruselData)
-    customHomepage.drawImagesBlocks("brands", Brands)
-    customHomepage.drawPromotions("promotions", Promotions)
-    customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
+    customFunction.drawImagesBlocks("brands", Brands)
+    customFunction.drawPromotions("promotions", Promotions)
+    customFunction.getAccounts('customFunction.findTransactionForSelectedAccount');
   };
 
 
@@ -167,16 +167,16 @@ var customHomepage = {};
     this.accountUUID = uuid;
     customFunction.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {
-      customHomepage.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
+      customFunction.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
     }
     if (blocks_config.account_balance) {
-      customHomepage.accountBalance(uuid, blocks_config.account_balance, "account_balance")
+      customFunction.accountBalance(uuid, blocks_config.account_balance, "account_balance")
     }
     if (blocks_config["active-order"]) {
-      customHomepage.activeOrder(customHomepage.transactionName, blocks_config["active-order"].table, uuid, "active-order")
+      customFunction.activeOrder(customFunction.transactionName, blocks_config["active-order"].table, uuid, "active-order")
     }
     if (blocks_config["submitted_orders"]) {
-      customHomepage.submitedOrders(customHomepage.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
+      customFunction.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
     }
   }
 }.apply(customHomepage));

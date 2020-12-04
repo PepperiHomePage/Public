@@ -1,4 +1,4 @@
-customHomepage.submitedOrders = function (transactionName,fields,accountUUID, id) {
+customFunction.submitedOrders = function (transactionName,fields,accountUUID, id) {
   pepperi.api.transactions.search({
     fields: [
       "UUID",
@@ -44,14 +44,14 @@ customHomepage.submitedOrders = function (transactionName,fields,accountUUID, id
     sorting: [{ Field: "ActionDateTime", Ascending: false }],
     pageSize: 5,
     page: 1,
-    responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
+    responseCallback: "customFunction.getRecentSubmittedTransactionForAccountCallback",
     requestID:id
   });
 };
-customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data) {
+customFunction.getRecentSubmittedTransactionForAccountCallback = function (data) {
   console.log("transaction data ------> ", data);
   if (data && data.objects && data.objects.length) {
-    customHomepage.buildSubmittedOrdersTable(data.objects, data.requestID);
+    customFunction.buildSubmittedOrdersTable(data.objects, data.requestID);
   } else {
     document.getElementById(data.requestID).style.display = "flex"
     document.getElementById(data.requestID
@@ -62,7 +62,7 @@ customHomepage.getRecentSubmittedTransactionForAccountCallback = function (data)
       
   }
 };
-customHomepage.buildSubmittedOrdersTable = function (data, id) {
+customFunction.buildSubmittedOrdersTable = function (data, id) {
   let tableHtml = "";
   let Container = document.getElementById(id);
   tableHtml += `

@@ -1,23 +1,23 @@
 
-  customHomepage.createNewActivity = function (in_transactionName, deeplink) {
+  customFunction.createNewActivity = function (in_transactionName, deeplink) {
     var bridgeObject = {
       references: {
         account: {
-          UUID: customHomepage.accountUUID,
+          UUID: customFunction.accountUUID,
         },
       },
       type: {
-        Name: !in_transactionName ? customHomepage.transactionName : in_transactionName,
+        Name: !in_transactionName ? customFunction.transactionName : in_transactionName,
       },
 
-      responseCallback: "customHomepage.createNewActivityCallback",
+      responseCallback: "customFunction.createNewActivityCallback",
       requestID: deeplink,
     };
 
     pepperi.app.activities.add(bridgeObject);
   };
  
-  customHomepage.createNewActivityCallback = function (res) {
+  customFunction.createNewActivityCallback = function (res) {
     if (res && res.success) {
       var uuid = res.id;
 
