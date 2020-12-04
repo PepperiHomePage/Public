@@ -80,14 +80,14 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     }
   };
   
-  customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
+  customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, ) {
     var name = eval("(" + nameOfMainJs + ")")  
     const uuid = name.getSessionStorage('LastOpenTransactionUUID');
     if (uuid && uuid !== "undefined") {
       deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
     } else {
-      name.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
+      customFunction.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
     }
   };
 
