@@ -1,5 +1,5 @@
 var Transaction = 'B2B Order';
-var Catalog='Default Catalog'
+var Catalog='StoreFront Catalog'
 var blocks_config = {
     'free_shipping': {
         text: "Free shipping for orders over $99",
