@@ -155,7 +155,7 @@ var customHomepage = {};
     customFunction.carousel("carousal-content", CaruselData)
     customFunction.drawImagesBlocks("brands", Brands)
     customFunction.drawPromotions("promotions", Promotions)
-    customFunction.getAccounts('customFunction.findTransactionForSelectedAccount');
+    customFunction.getAccounts('customHomepage.findTransactionForSelectedAccount');
   };
 
 

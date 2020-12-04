@@ -302,6 +302,11 @@ var customHeader = {};
         }
         .wrp{
           max-width: 1464px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin: 0 auto;
+          align-items: center;
         }
          
          @media screen and (max-width: 768px) {
