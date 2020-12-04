@@ -1,6 +1,6 @@
 if (!customFunction)
     var customFunction = {}
-customFunction.getCatalogs = function (x) {
+customFunction.get = function (x) {
     console.log(x)
     pepperi.api.catalogs.search({
         fields: ["UUID", "ExternalID", "Description", "ID"],
