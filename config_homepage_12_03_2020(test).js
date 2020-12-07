@@ -28,8 +28,8 @@ var blocks_config = {
 
 //Small images under "Our Brands"
 var Brands = [
-    {
-        link: 'transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Oligo%20Professional%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+    {           
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.TSAOnPromotion%5C",%5C"Value%5C":%5C"On%20Promotion%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Oligo%20Professional%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://princessprofessional.com/wp-content/uploads/2020/10/Oligo_Logo.png',
     },
     {
