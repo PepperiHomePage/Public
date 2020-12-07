@@ -83,6 +83,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
   customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
     var name = eval("(" + nameOfMainJs + ")")  
     const uuid = name.getSessionStorage('LastOpenTransactionUUID');
+    console.log("uuid --->",uuid);
     if (uuid && uuid !== "undefined") {
       deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
