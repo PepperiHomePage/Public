@@ -1,5 +1,7 @@
 if (!customFunction)
     var customFunction = {}
+customFunction.transactionName = Transaction
+customFunction.catalogName = Catalog
 customFunction.getCatalogs = function (x) {
     console.log(x)
     pepperi.api.catalogs.search({
