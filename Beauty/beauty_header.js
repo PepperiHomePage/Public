@@ -1460,6 +1460,8 @@ var customHeader = {};
   };
 
   this.buildHTML = function () {
+    this.transactionName = Transaction
+    this.catalogName = Catalog
     document.getElementById("logo").src = logo
     customFunction.closeAllMenusListener();
 
