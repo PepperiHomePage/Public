@@ -722,6 +722,13 @@ var customHeader = {};
            #carousal-content {
              margin-top: var(--header-height);
            }
+            .wrapper{
+              padding: 0 !important;
+              grid-template-areas: "carousal" "categories";
+              grid-template-columns: auto;
+              max-width: 100%;
+              margin: 0;
+            }
          }
          
          #categories {
@@ -1427,7 +1434,6 @@ var customHeader = {};
     var options = {
       JsURLs: [
         this.jsFilePath,
-        this.orderJsonPath,
         this.helperJsonPath,
         this.rightMenuJsonPath,
         this.leftMenuJsonPath,
@@ -1435,6 +1441,7 @@ var customHeader = {};
       ],
       cssURLs: [],
       favIcon: this.favIconURL,
+      
       pageTitle: this.pageTitle
     };
 
