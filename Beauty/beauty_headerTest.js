@@ -755,6 +755,9 @@ var customHeader = {};
          }
          
          @media screen and (max-width: 576px) {
+           .zopim{
+             display: none !important;
+           }
            #categories {
              -ms-grid-columns: 1fr;
                  grid-template-columns: 1fr;
