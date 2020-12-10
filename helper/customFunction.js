@@ -67,6 +67,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     }
   }
   customFunction.navigation = function (path) {
+    customFunction.closeAllMenusListener();
     var eventData = {
       detail: {
         path: path,
@@ -83,6 +84,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
   };
   
   customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
+    customFunction.closeAllMenusListener();
     var name = eval("(" + nameOfMainJs + ")")  
     const uuid = name.getSessionStorage('LastOpenTransactionUUID');
     console.log("uuid --->",uuid);
