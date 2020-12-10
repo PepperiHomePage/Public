@@ -91,7 +91,7 @@ customFunction.getRecentTransactionForAccountCallback = function (data) {
 customFunction.buildOpenOrdersTable = function (data, id) {
   console.log("active order data ->>>> ", data);
   console.log("active order block config ->>>> ", blocks_config["active-order"].table);
-  recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
+  recentOrdBtnDeeplink = 'Transactions/Cart/' + data.UUID;
   var is_new = false;
   if (data[0].Status == 1000)
     is_new = true;
