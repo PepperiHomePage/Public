@@ -98,10 +98,18 @@ customFunction.buildOpenOrdersTable = function (data, id) {
   let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
   <ul class="leaders" id="currTransactionFields">`;
   customFunction.transactionFields.forEach(el => {
-    html += `<li>
+    if(el.text == 'Total Quantity'){
+      html += `<li>
     <span  class="dimmed">${el.text}</span>
     <span class="bold">${is_new ? 0 : data[0][el.field]}</span>
   </li>`
+    }else{
+      html += `<li>
+    <span  class="dimmed">${el.text}</span>
+    <span class="bold">${is_new ? 0 : data[0][el.field]}$</span>
+  </li>`
+    }
+    
   })
   html += `</ul>
   <button class="comonBtn" id="orderBtn">Back to Cart</button>`  
