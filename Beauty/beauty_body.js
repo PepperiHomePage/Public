@@ -55,7 +55,7 @@ var customHomepage = {};
             </section>
             <aside id="sidebar">
               <div id="response-menu" class="response-menu">
-                <button onclick="customHomepage.openCloseMenu();" class="regular-button" id="btn">Open menu</button>
+                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">Open menu</button>
               </div>
           
               <div id="sidebar-sm" class="sidebar-menu">
@@ -81,7 +81,7 @@ var customHomepage = {};
                 <div id="submitted_orders" style="display:none">
                   
                 </div>
-                <div id="overSide"></div>
+                <div id="overlay"></div>
               </div>
           
           

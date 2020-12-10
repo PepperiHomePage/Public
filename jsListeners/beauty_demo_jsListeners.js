@@ -2,7 +2,7 @@ customFunction.openStoreSelect = function () {
     document.getElementById('select-menu').classList.toggle('show')
   }
   customFunction.openCloseMenu = function () {
-    const over = document.getElementById("overSide");
+    const over = document.getElementById("overlay");
     const e = document.getElementById("sidebar-sm");
     const btn = document.getElementById("btn");
     if (e.style.display == "block") {
