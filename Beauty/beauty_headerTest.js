@@ -317,6 +317,11 @@ var customHeader = {};
          .logo {
            max-height: 2.5rem;
          }
+
+         .header-start .logo {
+          -webkit-margin-end: 1rem;
+                  margin-inline-end: 1rem;
+        }
          
          .header-start,
          .header-end {
@@ -1412,9 +1417,7 @@ var customHeader = {};
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="wrp">
               <div class="header-start"> 
-                <a id="logo" href="/HomePage" class="logo">
-                  <img id="logo" src="" /> 
-                </a>                                     
+                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />                                     
                 <div id="header_btn_bar" class="links hidden-on-mobile">      
                 </div>
               </div>
@@ -1467,7 +1470,7 @@ var customHeader = {};
   };
 
   this.buildHTML = function () {
-    document.getElementById("logo").src = logo
+    $("#logo").attr("src", logo);
     customFunction.closeAllMenusListener();
 
     console.log(RightMenu)

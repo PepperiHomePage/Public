@@ -111,5 +111,5 @@ customFunction.buildOpenOrdersTable = function (data, id) {
   document.getElementById(id).classList.add("sidebar-gap");
   document.getElementById(id).innerHTML = html
   document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
-  $("#orderBtn").attr("onclick", `customFunction.setUUIDandNav(null,null,'/Transactions/scope_items/{{UUID}}', 'customHomepage')`);
+  $("#orderBtn").attr("onclick", `customFunction.setUUIDandNav(null,null,'/Transactions/Cart/{{UUID}}', 'customHomepage')`);
 };
