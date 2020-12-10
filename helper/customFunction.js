@@ -161,6 +161,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     $('#menuDropdown').on('focusout', function () {
       $('#menuDropdown').removeClass('show');
     });
+    $('#menuDropdown').removeClass('show');
   
     $('#linksDropdown').on('focusout', function () {
       $('#linksDropdown').removeClass('show');
