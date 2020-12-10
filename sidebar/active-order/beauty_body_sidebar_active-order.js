@@ -91,7 +91,7 @@ customFunction.getRecentTransactionForAccountCallback = function (data) {
 customFunction.buildOpenOrdersTable = function (data, id) {
   console.log("active order data ->>>> ", data);
   console.log("active order block config ->>>> ", blocks_config["active-order"].table);
-  recentOrdBtnDeeplink = 'Transactions/Cart/' + data.UUID;
+  recentOrdBtnDeeplink = 'Transactions/Cart/' + data[0].UUID;
   var is_new = false;
   if (data[0].Status == 1000)
     is_new = true;
@@ -111,5 +111,5 @@ customFunction.buildOpenOrdersTable = function (data, id) {
   document.getElementById(id).classList.add("sidebar-gap");
   document.getElementById(id).innerHTML = html
   document.getElementById("currTransactionName").innerHTML = blocks_config["active-order"].name
-  $("#orderBtn").attr("onclick", `customFunction.setUUIDandNav(null,null,'${recentOrdBtnDeeplink}', 'customHomepage')`);
+  $("#orderBtn").attr("onclick", `customFunction.setUUIDandNav(null,null,'/Transactions/scope_items/{{UUID}}', 'customHomepage')`);
 };
