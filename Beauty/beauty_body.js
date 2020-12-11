@@ -100,6 +100,7 @@ var customHomepage = {};
     return str;
   };
   this.initPlugin = function () {
+    alert("initPlugin run")
     var options = {
       JsURLs: [this.jsonFilePath,
         this.jsonModuleChatFilePath,
@@ -135,9 +136,9 @@ var customHomepage = {};
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
     } else if (data) {
       this.accountUUID = data.accountUUID
-      customFunction.setSessionStorage("accountUUID", data.accountUUID)
+      this.setSessionStorage("accountUUID", data.accountUUID)
     }
-    customFunction.getCatalogs("customHomepage");
+    customFunction.getCatalogs();
   };
 
   // TODO: start
@@ -147,7 +148,7 @@ var customHomepage = {};
     //try to remove ifelse, settimeout also remove
     this.transactionName = Transaction
     this.catalogName = Catalog
-    customFunction.closeAllMenusListener();
+    customHomepage.closeAllMenusListener();
     customHomepage.carousel("carousal-content", CaruselData)
     customHomepage.drawImagesBlocks("brands", Brands)
     customHomepage.drawPromotions("promotions", Promotions)
@@ -155,13 +156,16 @@ var customHomepage = {};
   };
 
 
+  this.setSessionStorage = function (paramName, data) {
+    sessionStorage.setItem(paramName, data);
+  };
   this.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
   this.findTransactionForSelectedAccount = function (uuid) {
     console.log("uuid -----> ", uuid)
     this.accountUUID = uuid;
-    customFunction.setSessionStorage("accountUUID", uuid);
+    customHomepage.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {
       customHomepage.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
     }

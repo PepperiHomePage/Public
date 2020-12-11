@@ -33,12 +33,12 @@ customHomepage.carousel = function (slideid, CaruselData) {
         indicatorsStr +=
             idx1 == idx ?
             `<div class="radio-box">
-           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="customHomepage.switchSlide(true)" checked="checked">
-           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick=" customHomepage.switchSlide(true)" ></span>
+           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="customHomepage.setSessionStorage('savedIDX', this.getAttribute('data-slide')); customHomepage.switchSlide(true)" checked="checked">
+           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', this.getAttribute('data-slide'));  customHomepage.switchSlide(true)" ></span>
            </div>` :
             `<div class="radio-box">
-           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick=" customHomepage.switchSlide(true)">
-           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick=" customHomepage.switchSlide(true)"></span>
+           <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick="customHomepage.setSessionStorage('savedIDX', this.getAttribute('data-slide'));  customHomepage.switchSlide(true)">
+           <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="customHomepage.setSessionStorage('savedIDX', this.getAttribute('data-slide'));  customHomepage.switchSlide(true)"></span>
            </div>`
     }
 
