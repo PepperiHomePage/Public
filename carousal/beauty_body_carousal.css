@@ -103,8 +103,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 180px;
+  width: 100%;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .slide-controllers button {
@@ -186,17 +187,6 @@
   position: relative;
 }
 
-.indicators {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 100px;
-  padding: 8px 5px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-}
 
 .indicators:hover {
   background-color: rgba(255, 255, 255, 0.4);

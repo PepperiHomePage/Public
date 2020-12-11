@@ -29,7 +29,6 @@ var customHeader = {};
   this.transactionName = "";
   this.catalogs;
   this.jsFilePath = 'https://pepperihomepage.github.io/Public/Beauty/config_header.js'
-  this.orderJsonPath = 'https://pepperihomepage.github.io/Public/headerOrder/beauty_header-order.js'
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_header_helper.js'
   this.rightMenuJsonPath = 'https://pepperihomepage.github.io/Public/rightMenu/rightMenu.js'
   this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/leftMenu.js'
@@ -286,7 +285,7 @@ var customHeader = {};
           -webkit-box-pack: justify;
               -ms-flex-pack: justify;
                   justify-content: space-between;
-          max-width: 100%;
+          width: 100%;
           display: flex;
           -webkit-box-align: center;
               -ms-flex-align: center;
@@ -300,6 +299,14 @@ var customHeader = {};
           position: sticky;
           top: 0;
         }
+        .wrp{
+          max-width: 1464px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin: 0 auto;
+          align-items: center;
+        }
          
          @media screen and (max-width: 768px) {
           .header {
@@ -310,6 +317,11 @@ var customHeader = {};
          .logo {
            max-height: 2.5rem;
          }
+
+         .header-start .logo {
+          -webkit-margin-end: 1rem;
+                  margin-inline-end: 1rem;
+        }
          
          .header-start,
          .header-end {
@@ -715,6 +727,13 @@ var customHeader = {};
            #carousal-content {
              margin-top: var(--header-height);
            }
+            .wrapper{
+              padding: 0 !important;
+              grid-template-areas: "carousal" "categories";
+              grid-template-columns: auto;
+              max-width: 100%;
+              margin: 0;
+            }
          }
          
          #categories {
@@ -736,6 +755,9 @@ var customHeader = {};
          }
          
          @media screen and (max-width: 576px) {
+           .zopim{
+             display: none !important;
+           }
            #categories {
              -ms-grid-columns: 1fr;
                  grid-template-columns: 1fr;
@@ -1395,16 +1417,16 @@ var customHeader = {};
          }
          /*# sourceMappingURL=style.css.map */
                   </style>
-        <header id="header-section" class="header" style="margin: 0 auto;">
+        <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
+            <div class="wrp">
               <div class="header-start"> 
-                <a id="logo" href="/HomePage" class="logo">
-                  <img id="logo" src="" /> 
-                </a>                                     
+                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />                                     
                 <div id="header_btn_bar" class="links hidden-on-mobile">      
                 </div>
               </div>
               <div class="header-end" id="right_additional_menu">
                 
+            </div>
             </div>
         </header>
         `;
@@ -1418,7 +1440,6 @@ var customHeader = {};
     var options = {
       JsURLs: [
         this.jsFilePath,
-        this.orderJsonPath,
         this.helperJsonPath,
         this.rightMenuJsonPath,
         this.leftMenuJsonPath,
@@ -1426,6 +1447,7 @@ var customHeader = {};
       ],
       cssURLs: [],
       favIcon: this.favIconURL,
+      
       pageTitle: this.pageTitle
     };
 
@@ -1451,9 +1473,7 @@ var customHeader = {};
   };
 
   this.buildHTML = function () {
-    this.transactionName = Transaction
-    this.catalogName = Catalog
-    document.getElementById("logo").src = logo
+    $("#logo").attr("src", logo);
     customFunction.closeAllMenusListener();
 
     console.log(RightMenu)

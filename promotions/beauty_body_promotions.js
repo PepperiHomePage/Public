@@ -1,4 +1,4 @@
-customHomepage.drawPromotions = function (id, Promotions) {
+customFunction.drawPromotions = function (id, Promotions) {
   let str = "";
   for (const [idx1, value] of Promotions.entries()) {
     str += `
@@ -7,7 +7,7 @@ customHomepage.drawPromotions = function (id, Promotions) {
           <h2 class="title-4-lg">${value.title}</h2>
           <div>
             <button class="comonBtn custom-btn"
-              onclick="customFunction.setUUIDandNav(null, null, '${value.link}', "customHomepage")">
+              onclick="customFunction.setUUIDandNav(null, null, '${value.link}', 'customHomepage')">
               ${value.buttonText}
             </button>
           </div>

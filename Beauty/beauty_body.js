@@ -55,7 +55,7 @@ var customHomepage = {};
             </section>
             <aside id="sidebar">
               <div id="response-menu" class="response-menu">
-                <button onclick="customHomepage.openCloseMenu();" class="regular-button" id="btn">Open menu</button>
+                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">Open menu</button>
               </div>
           
               <div id="sidebar-sm" class="sidebar-menu">
@@ -81,7 +81,7 @@ var customHomepage = {};
                 <div id="submitted_orders" style="display:none">
                   
                 </div>
-                <div id="overSide"></div>
+                <div id="overlay"></div>
               </div>
           
           
@@ -100,7 +100,7 @@ var customHomepage = {};
     return str;
   };
   this.initPlugin = function () {
-    alert("initPlugin run")
+    
     var options = {
       JsURLs: [this.jsonFilePath,
         this.jsonModuleChatFilePath,
@@ -127,9 +127,12 @@ var customHomepage = {};
         this.accountDropdownCssPath
       ],
     };
+    
+    console.log("initPlugin body",options)
     return options;
   };
   this.onPluginLoad = function (context) {
+    console.log("onPluginLoad body")
     this.context = context;
     var data = JSON.parse(context.pluginData);
     if (data && this.isMultiAccount) {
@@ -146,20 +149,16 @@ var customHomepage = {};
   //end  
   this.buildHTML = function () {
     //try to remove ifelse, settimeout also remove
-    this.transactionName = Transaction
-    this.catalogName = Catalog
-    customHomepage.closeAllMenusListener();
-    customHomepage.carousel("carousal-content", CaruselData)
-    customHomepage.drawImagesBlocks("brands", Brands)
-    customHomepage.drawPromotions("promotions", Promotions)
-    customHomepage.getAccounts('customHomepage.findTransactionForSelectedAccount');
+    
+    customFunction.closeAllMenusListener();
+    customFunction.carousel("carousal-content", CaruselData)
+    customFunction.drawImagesBlocks("brands", Brands)
+    customFunction.drawPromotions("promotions", Promotions)
+    customFunction.getAccounts('customHomepage.findTransactionForSelectedAccount');
   };
 
 
-  this.setSessionStorage = function (paramName, data) {
-    sessionStorage.setItem(paramName, data);
-  };
-  this.getSessionStorage = function (paramName) {
+  customHomepage.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
   this.findTransactionForSelectedAccount = function (uuid) {
@@ -167,16 +166,16 @@ var customHomepage = {};
     this.accountUUID = uuid;
     customHomepage.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {
-      customHomepage.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
+      customFunction.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
     }
     if (blocks_config.account_balance) {
-      customHomepage.accountBalance(uuid, blocks_config.account_balance, "account_balance")
+      customFunction.accountBalance(uuid, blocks_config.account_balance, "account_balance")
     }
     if (blocks_config["active-order"]) {
-      customHomepage.activeOrder(customHomepage.transactionName, blocks_config["active-order"].table, uuid, "active-order")
+      customFunction.activeOrder(customFunction.transactionName, blocks_config["active-order"].table, uuid, "active-order")
     }
     if (blocks_config["submitted_orders"]) {
-      customHomepage.submitedOrders(customHomepage.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
+      customFunction.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
     }
   }
 }.apply(customHomepage));

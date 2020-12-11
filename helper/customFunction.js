@@ -1,5 +1,7 @@
 if (!customFunction)
     var customFunction = {}
+customFunction.transactionName = Transaction
+customFunction.catalogName = Catalog
 customFunction.getCatalogs = function (x) {
     console.log(x)
     pepperi.api.catalogs.search({
@@ -65,6 +67,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     }
   }
   customFunction.navigation = function (path) {
+    customFunction.closeAllMenusListener();
     var eventData = {
       detail: {
         path: path,
@@ -81,13 +84,15 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
   };
   
   customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
+    customFunction.closeAllMenusListener();
     var name = eval("(" + nameOfMainJs + ")")  
     const uuid = name.getSessionStorage('LastOpenTransactionUUID');
+    console.log("uuid --->",uuid);
     if (uuid && uuid !== "undefined") {
       deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
     } else {
-      name.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
+      customFunction.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
     }
   };
 
@@ -98,7 +103,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
 
   customFunction.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving,nameOfMainJs) {
     var name = eval("(" + nameOfMainJs + ")") 
-    let catalogUUID = !inCatalog ? name.catalogs.find((el) => el.ExternalID === name.catalogName).UUID : name.catalogs.find((el) => el.ExternalID === inCatalog).UUID
+    let catalogUUID = !inCatalog ? customFunction.catalogs.find((el) => el.ExternalID === name.catalogName).UUID : customFunction.catalogs.find((el) => el.ExternalID === inCatalog).UUID
     var bridgeObject = {
       references: {
         account: {
@@ -156,6 +161,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     $('#menuDropdown').on('focusout', function () {
       $('#menuDropdown').removeClass('show');
     });
+    $('#menuDropdown').removeClass('show');
   
     $('#linksDropdown').on('focusout', function () {
       $('#linksDropdown').removeClass('show');
@@ -164,4 +170,20 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     $('#myDropdown').on('focusout', function () {
       $('#myDropdown').removeClass('show');
     });
+  };
+  customFunction.openCloseMenu = function () {
+    const over = document.getElementById("overlay");
+    const e = document.getElementById("sidebar-sm");
+    const btn = document.getElementById("btn");
+    if (e.style.display == "block") {
+      e.style.display = "none";
+      over.style.display = "none";
+      btn.innerText = "Open Menu";
+    } else {
+      over.style.display = "block";
+      e.style.display = "block";
+      btn.innerText = "Close Menu";
+      $('#sidebar-sm').attr('tabindex', '-1');
+      $('#sidebar-sm').focus()
+    }
   };
