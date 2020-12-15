@@ -15,7 +15,7 @@ if (!customDemoFunction)
           Name: !in_transactionName ? this.transactionName : in_transactionName,
         },
         // catalog: this.catalogName,
-        responseCallback: "customDemoFunction.createNewOrderCallback",
+        responseCallback: "customFunction.createNewOrderCallback",
         requestID: deeplink,
       };
       pepperi.app.transactions.add(bridgeObject);

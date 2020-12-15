@@ -19,9 +19,9 @@
 var customHomepage = {};
 (function () {
   this.context;
-  this.jsonFilePath =
-    "https://storage.pepperi.com/PreSales/food_demo_1/config_body.js"; 
+  this.jsonFilePath ="https://storage.pepperi.com/PreSales/food_demo_1/config_body.js"; 
   this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
+  this.customFoodHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFoodDemoFunction.js'
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.topSidebarBuildJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar.js'
@@ -33,6 +33,7 @@ var customHomepage = {};
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
   this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/food_demo_categories.js'
   this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/food_demo_account_info.js'
+  this.cssFilePath = "";
   this.cssFilePath = "";
   this.accountUUID;
   this.typeName;
@@ -1041,7 +1042,8 @@ var customHomepage = {};
                this.topSidebarSmallJsonPath,
                this.navigationJsonPath,
                this.categoriesJsonPath,
-               this.accountJsonPath
+               this.accountJsonPath,
+               this.customFoodHelperJsonPath
                ],
       cssURLs: [this.cssFilePath,
                 this.carousalcssPath],
