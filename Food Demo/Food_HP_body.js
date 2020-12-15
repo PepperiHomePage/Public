@@ -1109,16 +1109,16 @@ var customHomepage = {};
     var uuid = customHomepage.getSessionStorage("LastOpenTransactionUUID");
     if (uuid) {
       deepLink = deepLink.replace("{{UUID}}", uuid.replace(/-/g, ""));
-      customHomepage.navigation(deepLink);
+      customFunction.navigation(deepLink);
     } else {
-      customFunction.createNewOrder(this.transactionName, deepLink);
+      customDemoFunction.createNewOrder(this.transactionName, deepLink);
     }
   };
 
   this.NavigateToActiveCart = function (data) {
     var uuid = customHomepage.getSessionStorage("LastOpenTransactionUUID");
     if (uuid) {
-      customHomepage.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
+      customFunction.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
     }
   };
 
