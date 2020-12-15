@@ -20,7 +20,10 @@ var customHomepage = {};
 (function () {
   this.context;
   this.jsonFilePath =
-    "https://storage.pepperi.com/PreSales/food_demo_1/config_body.js";
+    "https://storage.pepperi.com/PreSales/food_demo_1/config_body.js"; 
+  this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
+  this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
+  this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.cssFilePath = "";
   this.accountUUID;
   this.typeName;
@@ -1018,8 +1021,12 @@ var customHomepage = {};
 
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath],
-      cssURLs: [this.cssFilePath],
+      JsURLs: [this.jsonFilePath,
+              this.customHelperJsonPath,
+               this.carousalJsonPath, 
+               ],
+      cssURLs: [this.cssFilePath,
+                this.carousalcssPath],
     };
     return options;
   };
@@ -1274,12 +1281,12 @@ var customHomepage = {};
     customFunction.carousel("carousal-content", CaruselData);
     customFunction.buildShippingBaner("shipping-baner");
 
-    this.buildSidebar("sidebar");
-    this.buildSidebarSmall("sidebar-sm");
-    this.buildBaseList("baselist");
-    this.buildFoodList("food_list");
-    this.buildSidebarPopup("popup");
-    this.buildLists("lists");
+    customFunction.buildSidebar("sidebar");
+    customFunction.buildSidebarSmall("sidebar-sm");
+    customFunction.buildBaseList("baselist");
+    customFunction.buildFoodList("food_list");
+    customFunction.buildSidebarPopup("popup");
+    customFunction.buildLists("lists");
 
     this.buildAccountInfo("account_info");
 
@@ -1290,78 +1297,6 @@ var customHomepage = {};
   // End Carusel & Shipping
 
   // Start top sidebar
-  this.buildSidebar = function (slideid) {
-    var sidebarHTML = "";
-
-    sidebarHTML += `<div id="response-menu" class="response-menu">
-                      <button onclick="customHomepage.openCloseMenu();" class="dropbtn" id="btn">Open menu</button>
-                    </div>
-                    <div id="sidebar-sm" class="sidebar-menu"></div>`;
-
-    document.getElementById(slideid).innerHTML = sidebarHTML;
-  };
-
-  this.buildSidebarSmall = function (slideid) {
-    var sidebarSmallHTML = "";
-
-    sidebarSmallHTML += `<div id="baselist" class="baselist" style="display: none;"></div>
-                      <hr>
-                      <div id="account_info" style="display: none;"></div>`;
-
-    document.getElementById(slideid).innerHTML = sidebarSmallHTML;
-  };
-
-  this.buildBaseList = function (slideid) {
-    var baseListHTML = "";
-
-    baseListHTML += `<div class="top-base">
-                        <p>Base list</p>   
-                      </div>
-                      <hr>
-                      <div id="food_list" style="display: none"></div>
-                      <button class="order-button" id="transactionTotal" onclick="customHomepage.NavigateToActiveCart()">Go to Order</button>`;
-
-    document.getElementById(slideid).innerHTML = baseListHTML;
-    document.getElementById(slideid).style.display = "flex";
-  };
-
-  this.buildFoodList = function (slideid) {
-    var foodListHTML = "";
-
-    foodListHTML += `<div id="popup" style="display: none"></div>
-                     <div id="lists" style="display: none;"></div>`;
-
-    document.getElementById(slideid).innerHTML = foodListHTML;
-    document.getElementById(slideid).style.display = "block";
-  };
-
-  this.buildSidebarPopup = function (slideid) {
-    var popupHTML = "";
-
-    popupHTML += `<div id="overlay1"></div>
-                  <div id="content" onclick="customHomepage.togglePopup()">                          
-                    <h1>Success!</h1>
-                    <hr>
-                    <p id="modal-text">Items from selected list were succesfully added to the cart!</p>
-                    <hr>                            
-                  </div>`;
-
-    document.getElementById(slideid).innerHTML = popupHTML;
-  };
-
-  this.buildLists = function (slideid) {
-    var listsHTML = "";
-
-    for (const [index, item] of list.entries()) {
-      listsHTML += `
-            <div class="option">
-            <p id="list">${item.listLabel}</p>
-            <button id="add" onclick="customHomepage.setUUIDandNav('${item.deepLink}')"></button>
-        </div>`;
-    }
-    document.getElementById(slideid).innerHTML = listsHTML;
-    document.getElementById(slideid).style.display = "block";
-  };
 
   // End top sidebar
 
@@ -1391,7 +1326,7 @@ var customHomepage = {};
     return creditHTML;
   };
 
-  this.buildBalance = function () {
+   this.buildBalance = function () {
     var balanceHTML = "";
 
     balanceHTML += `<div class="balance">

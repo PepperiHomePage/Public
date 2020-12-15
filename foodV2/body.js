@@ -1088,6 +1088,7 @@ input[type='radio']:checked:after {
             <button onclick="customHomepage.openCloseMenu();" class="dropbtn" id="btn">Open menu</button>
           </div>
           <div id="sidebar-sm" class="sidebar-menu">
+            
             <div class="baselist">
               <div class="top-base">
                 <p>My Lists</p>
