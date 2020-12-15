@@ -193,7 +193,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       "LastOpenTransactionUUID"
     );
     if (!currentTransactionUUID) {
-      customFunction.createNewOrder();
+      customDemoFunction.createNewOrder();
     } else {
       var fields = ["Status", "UUID", "Currency"];
       var filter = {
@@ -221,7 +221,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     ) {
       var transaction = res.objects[0];
     } else {
-      customFunction.createNewOrder();
+      customDemoFunction.createNewOrder();
     }
   };
 
@@ -289,7 +289,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
         res.objects[0].UUID
       );
     } else {
-      customFunction.createNewOrder();
+      customDemoFunction.createNewOrder();
     }
   };
 
