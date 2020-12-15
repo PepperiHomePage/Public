@@ -277,7 +277,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       filter,
       sortBy,
       Size,
-      "customHomepage.getLastTransactionsCallback"
+      "customFunction.getLastTransactionsCallback"
     );
   };
   customFunction.getLastTransactionsCallback = function (res) {
