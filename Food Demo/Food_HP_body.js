@@ -31,6 +31,8 @@ var customHomepage = {};
   this.topSidebarPopupJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_popup.js'
   this.topSidebarSmallJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_small.js'
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
+  this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/food_demo_categories.js'
+  this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/food_demo_account_info.js'
   this.cssFilePath = "";
   this.accountUUID;
   this.typeName;
@@ -1037,7 +1039,9 @@ var customHomepage = {};
                this.topSidebarListsJsonPath,
                this.topSidebarPopupJsonPath,
                this.topSidebarSmallJsonPath,
-               this.navigationJsonPath
+               this.navigationJsonPath,
+               this.categoriesJsonPath,
+               this.accountJsonPath
                ],
       cssURLs: [this.cssFilePath,
                 this.carousalcssPath],
@@ -1056,8 +1060,8 @@ var customHomepage = {};
       this.transactionName = data.typeName || "";
       this.accountUUID = data.accountUUID || "";
     }
-    this.getTransactionStatus();
-    this.getLastTransactions();
+    customFunction.getTransactionStatus();
+    customFunction.getLastTransactions();
   };
 
   this.getAccountInternalID = function () {
@@ -1093,154 +1097,6 @@ var customHomepage = {};
     this.accountUUID = data.objects[0].UUID;
   };
 
-  this.getTransactionStatus = function () {
-    var currentTransactionUUID = customHomepage.getSessionStorage(
-      "LastOpenTransactionUUID"
-    );
-    if (!currentTransactionUUID) {
-      customHomepage.createNewOrder();
-    } else {
-      var fields = ["Status", "UUID", "Currency"];
-      var filter = {
-        ExpressionId: 1,
-        ApiName: "UUID",
-        Operation: "IsEqual",
-        Values: [currentTransactionUUID],
-      };
-      customHomepage.getTransactions(
-        fields,
-        filter,
-        [],
-        100000,
-        "customHomepage.getExitTransactionCallback"
-      );
-    }
-  };
-
-  this.getExitTransactionCallback = function (res) {
-    if (
-      res &&
-      res.objects &&
-      res.objects.length &&
-      (res.objects[0].Status == 1 || res.objects[0].Status == 1000)
-    ) {
-      var transaction = res.objects[0];
-    } else {
-      customHomepage.createNewOrder();
-    }
-  };
-  this.getLastTransactions = function () {
-    var fields = [
-      "Status",
-      "UUID",
-      "GrandTotal",
-      "QuantitiesTotal",
-      "CreationDateTime",
-    ];
-    var sortBy = [{ Field: "CreationDateTime", Ascending: false }];
-    var Size = 1;
-    var filter = {
-      ComplexId: 4,
-      Operation: "AND",
-      LeftNode: {
-        ComplexId: 3,
-        Operation: "AND",
-        LeftNode: {
-          ComplexId: 2,
-          Operation: "AND",
-          LeftNode: {
-            ExpressionId: 1,
-            ApiName: "CreationDateTime",
-            Operation: "InTheLast",
-            Values: ["20", "Weeks"],
-          },
-          RightNode: {
-            ExpressionId: 2,
-            ApiName: "Status",
-            Operation: "IsEqual",
-            Values: ["1"],
-          },
-        },
-        RightNode: {
-          ExpressionId: 3,
-          ApiName: "QuantitiesTotal",
-          Operation: ">",
-          Values: ["0"],
-        },
-      },
-      RightNode: {
-        ExpressionId: 4,
-        ApiName: "ActivityTypeID",
-        Operation: "IsEqual",
-        Values: ["270336"],
-      },
-    };
-
-    customHomepage.getTransactions(
-      fields,
-      filter,
-      sortBy,
-      Size,
-      "customHomepage.getLastTransactionsCallback"
-    );
-  };
-  this.getLastTransactionsCallback = function (res) {
-    console.log("getLastTransactionsCallback---->", res);
-    if (res && res.objects != null && res.objects.length > 0) {
-      console.log(res.objects[0].UUID);
-      customHomepage.setSessionStorage(
-        "LastOpenTransactionUUID",
-        res.objects[0].UUID
-      );
-    } else {
-      customHomepage.createNewOrder();
-    }
-  };
-
-  this.getTransactions = function (fields, filter, sortBy, Size, callBack) {
-    var bridgeObject = {
-      fields: fields,
-      filter: filter,
-      sorting: sortBy,
-      pageSize: Size,
-      responseCallback: callBack,
-    };
-    pepperi.api.transactions.search(bridgeObject);
-  };
-  this.createNewOrder = function (
-    in_transactionName,
-    deeplink /* = 'Transactions/scope_items/{{UUID}})'*/
-  ) {
-    var bridgeObject = {
-      references: {
-        account: {
-          UUID: this.accountUUID,
-        },
-      },
-      type: {
-        Name: !in_transactionName ? this.transactionName : in_transactionName,
-      },
-      // catalog: this.catalogName,
-      responseCallback: "customHomepage.createNewOrderCallback",
-      requestID: deeplink,
-    };
-    pepperi.app.transactions.add(bridgeObject);
-  };
-
-  this.createNewOrderCallback = function (res) {
-    if (res && res.success) {
-      customHomepage.setSessionStorage("LastOpenTransactionUUID", res.id);
-      var uuid = res.id;
-      if (res.requestID) {
-        var requestID = res.requestID.replace(
-          "{{UUID}}",
-          uuid.replace(/-/g, "")
-        );
-        customHomepage.navigation(requestID);
-      }
-    }
-  };
-
   this.setSessionStorage = function (paramName, data) {
     sessionStorage.setItem(paramName, data);
   };
@@ -1255,7 +1111,7 @@ var customHomepage = {};
       deepLink = deepLink.replace("{{UUID}}", uuid.replace(/-/g, ""));
       customHomepage.navigation(deepLink);
     } else {
-      customHomepage.createNewOrder(this.transactionName, deepLink);
+      customFunction.createNewOrder(this.transactionName, deepLink);
     }
   };
 
@@ -1263,20 +1119,6 @@ var customHomepage = {};
     var uuid = customHomepage.getSessionStorage("LastOpenTransactionUUID");
     if (uuid) {
       customHomepage.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
-    }
-  };
-
-  this.navigation = function (path) {
-    var eventData = {
-      detail: {
-        path: path,
-      },
-    };
-    var event = new CustomEvent("navigateTo", eventData);
-    if (document.createEvent) {
-      window.dispatchEvent(event);
-    } else {
-      window.fireEvent("on" + event.eventType, event);
     }
   };
 

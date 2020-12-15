@@ -187,3 +187,119 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       $('#sidebar-sm').focus()
     }
   };
+
+  customFunction.getTransactionStatus = function () {
+    var currentTransactionUUID = customHomepage.getSessionStorage(
+      "LastOpenTransactionUUID"
+    );
+    if (!currentTransactionUUID) {
+      customFunction.createNewOrder();
+    } else {
+      var fields = ["Status", "UUID", "Currency"];
+      var filter = {
+        ExpressionId: 1,
+        ApiName: "UUID",
+        Operation: "IsEqual",
+        Values: [currentTransactionUUID],
+      };
+      customHomepage.getTransactions(
+        fields,
+        filter,
+        [],
+        100000,
+        "customHomepage.getExitTransactionCallback"
+      );
+    }
+  };
+
+  customFunction.getExitTransactionCallback = function (res) {
+    if (
+      res &&
+      res.objects &&
+      res.objects.length &&
+      (res.objects[0].Status == 1 || res.objects[0].Status == 1000)
+    ) {
+      var transaction = res.objects[0];
+    } else {
+      customFunction.createNewOrder();
+    }
+  };
+
+  customFunction.getLastTransactions = function () {
+    var fields = [
+      "Status",
+      "UUID",
+      "GrandTotal",
+      "QuantitiesTotal",
+      "CreationDateTime",
+    ];
+    var sortBy = [{ Field: "CreationDateTime", Ascending: false }];
+    var Size = 1;
+    var filter = {
+      ComplexId: 4,
+      Operation: "AND",
+      LeftNode: {
+        ComplexId: 3,
+        Operation: "AND",
+        LeftNode: {
+          ComplexId: 2,
+          Operation: "AND",
+          LeftNode: {
+            ExpressionId: 1,
+            ApiName: "CreationDateTime",
+            Operation: "InTheLast",
+            Values: ["20", "Weeks"],
+          },
+          RightNode: {
+            ExpressionId: 2,
+            ApiName: "Status",
+            Operation: "IsEqual",
+            Values: ["1"],
+          },
+        },
+        RightNode: {
+          ExpressionId: 3,
+          ApiName: "QuantitiesTotal",
+          Operation: ">",
+          Values: ["0"],
+        },
+      },
+      RightNode: {
+        ExpressionId: 4,
+        ApiName: "ActivityTypeID",
+        Operation: "IsEqual",
+        Values: ["270336"],
+      },
+    };
+
+    customFunction.getTransactions(
+      fields,
+      filter,
+      sortBy,
+      Size,
+      "customHomepage.getLastTransactionsCallback"
+    );
+  };
+  customFunction.getLastTransactionsCallback = function (res) {
+    console.log("getLastTransactionsCallback---->", res);
+    if (res && res.objects != null && res.objects.length > 0) {
+      console.log(res.objects[0].UUID);
+      customHomepage.setSessionStorage(
+        "LastOpenTransactionUUID",
+        res.objects[0].UUID
+      );
+    } else {
+      customFunction.createNewOrder();
+    }
+  };
+
+  customFunction.getTransactions = function (fields, filter, sortBy, Size, callBack) {
+    var bridgeObject = {
+      fields: fields,
+      filter: filter,
+      sorting: sortBy,
+      pageSize: Size,
+      responseCallback: callBack,
+    };
+    pepperi.api.transactions.search(bridgeObject);
+  };
