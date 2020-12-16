@@ -34,7 +34,7 @@ var customHomepage = {};
   this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/food_demo_categories.js'
   this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/food_demo_account_info.js'
   this.cssFilePath = "";
-  this.cssFilePath = "";
+  this.cssFoodDemoFilePath ="https://pepperihomepage.github.io/Public/beauty-food-demo-bode.css"; 
   this.accountUUID;
   this.typeName;
   this.clientApiPath =
@@ -78,7 +78,8 @@ var customHomepage = {};
                this.customFoodHelperJsonPath
                ],
       cssURLs: [this.cssFilePath,
-                this.carousalcssPath],
+                this.carousalcssPath,
+                this.cssFoodDemoFilePath],
     };
     return options;
   };
