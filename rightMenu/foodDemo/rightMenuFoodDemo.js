@@ -1,4 +1,4 @@
-customHeader.RightMenu = function (RightMenu) {
+customHeader.HeaderRightMenu = function (RightMenu) {
   let dropdownMenuMob = "";
   let rightSideHtmlStr = "";
   for (const item of RightMenu) {
