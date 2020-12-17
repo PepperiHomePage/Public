@@ -87,8 +87,8 @@ var customHomepage = {};
   this.onPluginLoad = function (context) {
     this.context = context;
     this.transactionName = "Buyer Order";
-    customHomepage.setSessionStorage("isWeb", true);
-    this.getAccountInternalID();
+    customFunction.setSessionStorage("isWeb", true);
+    customFunction.getAccountInternalID();
     this.buildHTML();
     var data = JSON.parse(context.pluginData);
     if (data) {
@@ -99,18 +99,7 @@ var customHomepage = {};
     customFunction.getLastTransactions();
   };
 
-  this.getAccountInternalID = function () {
-    var bridgeObject = {
-      fields: ["Name", "InternalID", "UUID"], //"TSACreditLine", "TSABalance"
-      //   filter:{
-      //       ApiName:"UUID",
-      //       Operation:"IsEqual",
-      //       Value:this.accountUUID
-      //   },
-      responseCallback: "customHomepage.setAccountInternalID",
-    };
-    pepperi.api.accounts.search(bridgeObject);
-  };
+ 
 
   this.setAccountInternalID = function (data) {
     console.log(data);
@@ -132,9 +121,7 @@ var customHomepage = {};
     this.accountUUID = data.objects[0].UUID;
   };
 
-  this.setSessionStorage = function (paramName, data) {
-    sessionStorage.setItem(paramName, data);
-  };
+ 
 
   this.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);

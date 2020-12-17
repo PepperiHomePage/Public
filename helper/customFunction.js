@@ -144,10 +144,6 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     }
   };
 
-  customFunction.setSessionStorage = function (paramName, data) {
-    sessionStorage.setItem(paramName, data);
-  };
-
   customFunction.closeAllMenusListener = function () {
     $('#select-menu').attr('tabindex', '-1');
     $('#select-menu').on('focusout', function () {
@@ -284,7 +280,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     console.log("getLastTransactionsCallback---->", res);
     if (res && res.objects != null && res.objects.length > 0) {
       console.log(res.objects[0].UUID);
-      customHomepage.setSessionStorage(
+      customFunction.setSessionStorage(
         "LastOpenTransactionUUID",
         res.objects[0].UUID
       );
@@ -302,4 +298,35 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       responseCallback: callBack,
     };
     pepperi.api.transactions.search(bridgeObject);
+  };
+
+  customFunction.getAccountInternalID = function () {
+    var bridgeObject = {
+      fields: ["Name", "InternalID", "UUID"], //"TSACreditLine", "TSABalance"
+      //   filter:{
+      //       ApiName:"UUID",
+      //       Operation:"IsEqual",
+      //       Value:this.accountUUID
+      //   },
+      responseCallback: "customHomepage.setAccountInternalID",
+    };
+    pepperi.api.accounts.search(bridgeObject);
+  };
+
+  customFunction.setSessionStorage = function (paramName, data) {
+    sessionStorage.setItem(paramName, data);
+  };
+
+  customFunction.getAccountStatus = function () {
+    var bridgeObject = {
+      fields: ["Name", "UUID"],
+      sorting: [],
+      responseCallback: "customFunction.getCurrentAccountCallback",
+    };
+    pepperi.api.accounts.search(bridgeObject);
+  };
+
+  customFunction.getCurrentAccountCallback = function (res) {
+    if (res && res.success && res.objects && res.objects.length)
+      customHeader.accountUUID = res.objects[0].UUID;
   };
