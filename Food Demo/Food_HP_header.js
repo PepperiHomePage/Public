@@ -28,9 +28,9 @@ var customHeader = {};
   this.favIconURL = "";
   this.pageTitle = "Food test";
   this.jsonFilePath = "https://pepperihomepage.github.io/Public/Food%20Demo/config_Food_HP_head.js";
-  this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/beauty_header_helper.js'
+  this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/header_helper.js'
   this.rightMenuJsonPath = 'https://pepperihomepage.github.io/Public/rightMenu/foodDemo/rightMenu.js'
-  this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/foodDemo/leftMenugit.js'
+  this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/foodDemo/leftMenu.js'
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;

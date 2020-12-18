@@ -20,9 +20,8 @@ var customHomepage = {};
 (function () {
   this.context;
   this.jsonFilePath ="https://storage.pepperi.com/PreSales/food_demo_1/config_body.js"; 
-  this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/beauty_body_carousel.js'
-  this.customFoodHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFoodDemoFunction.js'
-  this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
+  this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/body_carousel.js'
+  this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/body_carousal.css";
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.topSidebarBuildJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar.js'
   this.topSidebarBaseListJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_base_list.js'
@@ -30,7 +29,7 @@ var customHomepage = {};
   this.topSidebarListsJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_lists.js'
   this.topSidebarPopupJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_popup.js'
   this.topSidebarSmallJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_small.js'
-  this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
+  this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/body_navigation.js'
   this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/categories.js'
   this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/account_info.js'
   this.cssFilePath = "";
