@@ -24,17 +24,17 @@ var customHomepage = {};
   this.customFoodHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFoodDemoFunction.js'
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/beauty_body_carousal.css";
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
-  this.topSidebarBuildJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar.js'
-  this.topSidebarBaseListJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_base_list.js'
-  this.topSidebarFoodListJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_food_list.js'
-  this.topSidebarListsJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_lists.js'
-  this.topSidebarPopupJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_popup.js'
-  this.topSidebarSmallJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/food_demo_top_sidebar_small.js'
+  this.topSidebarBuildJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar.js'
+  this.topSidebarBaseListJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_base_list.js'
+  this.topSidebarFoodListJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_food_list.js'
+  this.topSidebarListsJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_lists.js'
+  this.topSidebarPopupJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_popup.js'
+  this.topSidebarSmallJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/topSidebar/sidebar_small.js'
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/beauty_body_navigation.js'
-  this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/food_demo_categories.js'
-  this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/food_demo_account_info.js'
+  this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/categories.js'
+  this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/account_info.js'
   this.cssFilePath = "";
-  this.cssFoodDemoFilePath ="https://pepperihomepage.github.io/Public/beauty-food-demo-bode.css"; 
+  this.cssFoodDemoFilePath ="https://pepperihomepage.github.io/Public/beauty-food-demo-body.css"; 
   this.accountUUID;
   this.typeName;
   this.clientApiPath =
