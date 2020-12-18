@@ -89,7 +89,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
     const uuid = name.getSessionStorage('LastOpenTransactionUUID');
     console.log("uuid --->",uuid);
     if (uuid && uuid !== "undefined") {
-      deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
+      deepLink =   deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
     } else {
       customFunction.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
