@@ -26,11 +26,12 @@ var customHeader = {};
   this.accountUUID;
   this.transactionName;
   this.favIconURL = "";
-  this.pageTitle = "Food test";
+  this.pageTitle = "Food  test";
   this.jsonFilePath = "https://pepperihomepage.github.io/Public/Food%20Demo/config_Food_HP_head.js";
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/header_helper.js'
   this.rightMenuJsonPath = 'https://pepperihomepage.github.io/Public/rightMenu/foodDemo/rightMenu.js'
   this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/foodDemo/leftMenu.js'
+  this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;
@@ -723,7 +724,7 @@ var customHeader = {};
 
   this.initPlugin = function () {
     var options = {
-      JsURLs: [this.jsonFilePath, this.rightMenuJsonPath, this.leftMenuJsonPath, this.helperJsonPath],
+      JsURLs: [this.jsonFilePath, this.rightMenuJsonPath, this.leftMenuJsonPath, this.helperJsonPath,this.customHelperJsonPath],
       cssURLs: [],
       favIcon: this.favIconURL,
       pageTitle: this.pageTitle,
