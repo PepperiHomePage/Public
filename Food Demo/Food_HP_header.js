@@ -35,7 +35,7 @@ var customHeader = {};
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;
-  this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-header.css";
+  this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-food-demo-header.css";
 
   this.setHtml = function () {
     var str = `
