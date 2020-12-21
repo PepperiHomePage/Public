@@ -5,7 +5,7 @@ customFunction.buildLists = function (slideid) {
     listsHTML += `
           <div class="option">
           <p id="list">${item.listLabel}</p>
-          <button id="add" onclick="customHomepage.setUUIDandNav('${item.deepLink}')"></button>
+          <button id="add" onclick="customHomepage.setUUIDandNav(null,null'${item.deepLink}', 'customFunction')"></button>
       </div>`;
   }
   document.getElementById(slideid).innerHTML = listsHTML;
