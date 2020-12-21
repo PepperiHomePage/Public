@@ -19,7 +19,7 @@
 var customHomepage = {};
 (function () {
   this.context;
-  this.jsonFilePath ="https://storage.pepperi.com/PreSales/food_demo_1/config_body.js"; 
+  this.jsonFilePath = "https://pepperihomepage.github.io/Public/Food%20Demo/config_Food_HP_body.js";
   this.carousalJsonPath = 'https://pepperihomepage.github.io/Public/carousal/body_carousel.js'
   this.carousalcssPath = "https://pepperihomepage.github.io/Public/carousal/body_carousal.css";
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
@@ -33,11 +33,10 @@ var customHomepage = {};
   this.categoriesJsonPath = 'https://pepperihomepage.github.io/Public/foodDemoCategories/categories.js'
   this.accountJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/foodDemo/account_info.js'
   this.cssFilePath = "";
-  this.cssFoodDemoFilePath ="https://pepperihomepage.github.io/Public/beauty-food-demo-body.css"; 
+  this.cssFoodDemoFilePath = "https://pepperihomepage.github.io/Public/beauty-food-demo-body.css";
   this.accountUUID;
   this.typeName;
-  this.clientApiPath =
-    "https://webapp.pepperi.com/V16_20/WebApp_154/ClientApi/clientapi.js";
+  this.clientApiPath = "https://webapp.pepperi.com/V16_20/WebApp_154/ClientApi/clientapi.js";
   this.catalogName = "Default Catalog";
   //this.slides;
   //this.slideDesc;
@@ -63,22 +62,22 @@ var customHomepage = {};
   this.initPlugin = function () {
     var options = {
       JsURLs: [this.jsonFilePath,
-              this.customHelperJsonPath,
-               this.carousalJsonPath,
-               this.topSidebarBuildJsonPath,
-               this.topSidebarBaseListJsonPath,
-               this.topSidebarFoodListJsonPath,
-               this.topSidebarListsJsonPath,
-               this.topSidebarPopupJsonPath,
-               this.topSidebarSmallJsonPath,
-               this.navigationJsonPath,
-               this.categoriesJsonPath,
-               this.accountJsonPath,
-               this.customFoodHelperJsonPath
-               ],
+        this.customHelperJsonPath,
+        this.carousalJsonPath,
+        this.topSidebarBuildJsonPath,
+        this.topSidebarBaseListJsonPath,
+        this.topSidebarFoodListJsonPath,
+        this.topSidebarListsJsonPath,
+        this.topSidebarPopupJsonPath,
+        this.topSidebarSmallJsonPath,
+        this.navigationJsonPath,
+        this.categoriesJsonPath,
+        this.accountJsonPath,
+      ],
       cssURLs: [this.cssFilePath,
-                this.carousalcssPath,
-                this.cssFoodDemoFilePath],
+        this.carousalcssPath,
+        this.cssFoodDemoFilePath
+      ],
     };
     return options;
   };
@@ -98,7 +97,7 @@ var customHomepage = {};
     customFunction.getLastTransactions();
   };
 
- 
+
 
   this.setAccountInternalID = function (data) {
     console.log(data);
@@ -120,7 +119,7 @@ var customHomepage = {};
     this.accountUUID = data.objects[0].UUID;
   };
 
- 
+
 
   this.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
@@ -173,7 +172,7 @@ var customHomepage = {};
 
 
 
-   this.openCloseMenu = function () {
+  this.openCloseMenu = function () {
     const e = document.getElementById("sidebar-sm");
     const btn = document.getElementById("btn");
     if (e.style.display == "block") {

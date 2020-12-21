@@ -41,8 +41,8 @@ var customHomepage = {};
   this.accountDropdownJsonPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/body_sidebar_store-selector.js'
   this.accountDropdownCssPath = 'https://pepperihomepage.github.io/Public/sidebar/account-dropdown/body_sidebar_store-selector.css'
   this.navigationJsonPath = 'https://pepperihomepage.github.io/Public/navigation/body_navigation.js'
-  this.jsListenersJsonPath = 'https://pepperihomepage.github.io/Public/jsListeners/demo_jsListeners.js'
-  this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/demo_helper.js'
+  this.jsListenersJsonPath = 'https://pepperihomepage.github.io/Public/jsListeners/jsListeners.js'
+  this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/body_helper.js'
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.isMultiAccount = true
   this.cssFilePath = "";
@@ -139,9 +139,9 @@ var customHomepage = {};
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
     } else if (data) {
       this.accountUUID = data.accountUUID
-      this.setSessionStorage("accountUUID", data.accountUUID)
+      customFunction.setSessionStorage("accountUUID", data.accountUUID)
     }
-    customFunction.getCatalogs();
+    customFunction.getCatalogs('customHomepage');
   };
 
   // TODO: start
@@ -164,7 +164,7 @@ var customHomepage = {};
   this.findTransactionForSelectedAccount = function (uuid) {
     console.log("uuid -----> ", uuid)
     this.accountUUID = uuid;
-    customHomepage.setSessionStorage("accountUUID", uuid);
+    customFunction.setSessionStorage("accountUUID", uuid);
     if (blocks_config.free_shipping) {
       customFunction.freeShipping(uuid, blocks_config.free_shipping, "free_shipping")
     }
