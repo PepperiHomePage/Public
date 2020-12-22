@@ -13,7 +13,7 @@ customFunction.carousel = function (slideid, CaruselData) {
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', 'customFunction')" >${value.buttonText}</button>
+            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', 'customFunction')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
@@ -28,7 +28,8 @@ customFunction.carousel = function (slideid, CaruselData) {
 </div></div></div>`
 
     document.getElementById(slideid).innerHTML = htmlStr;
-
+    if (!value.buttonText)
+        document.querySelector(".slide .gard-overlay").style.background = 'none'
     for (const [idx1, value] of customFunction.CaruselData.entries()) {
         indicatorsStr +=
             idx1 == idx ?
@@ -87,7 +88,7 @@ customFunction.switchSlide = function (isCurrent, next = true) {
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')" >${value.buttonText}</button>
+            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
@@ -102,6 +103,8 @@ customFunction.switchSlide = function (isCurrent, next = true) {
 </div>`;
     if (document.getElementById("slides")) {
         document.getElementById("slides").innerHTML = htmlStr;
+        if (!value.buttonText)
+            document.querySelector(".slide .gard-overlay").style.background = 'none'
         for (const [idx1, value] of CaruselData.entries()) {
             indicatorsStr +=
                 idx1 == idx ?
