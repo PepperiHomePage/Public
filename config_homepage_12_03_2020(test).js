@@ -29,7 +29,7 @@ var blocks_config = {
 //Small images under "Our Brands"
 var Brands = [
     {           
-        link: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Oligo%20Professional%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/Transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Oligo%20Professional%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://princessprofessional.com/wp-content/uploads/2020/10/Oligo_Logo.png',
     },
     {
@@ -64,7 +64,7 @@ var Brands = [
         link: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"GK%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/10/GK_Logo.png',
     },
-    {
+    {       
         link: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Biotop%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/10/Biotop_logo.png',
     },
