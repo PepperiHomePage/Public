@@ -198,12 +198,12 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
         Operation: "IsEqual",
         Values: [currentTransactionUUID],
       };
-      customHomepage.getTransactions(
+      customFunction.getTransactions(
         fields,
         filter,
         [],
         100000,
-        "customHomepage.getExitTransactionCallback"
+        "customFunction.getExitTransactionCallback"
       );
     }
   };
