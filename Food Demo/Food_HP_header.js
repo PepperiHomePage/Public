@@ -34,7 +34,6 @@ var customHeader = {};
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.catalogName = "";
   this.transactionName = "";
-  this.catalogs;
   this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-food-demo-header.css";
 
   this.setHtml = function () {

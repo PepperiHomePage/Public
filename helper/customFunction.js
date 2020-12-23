@@ -1,5 +1,6 @@
 if (!customFunction)
     var customFunction = {}
+customFunction.catalogs;
 customFunction.transactionName = Transaction
 customFunction.catalogName = Catalog
 customFunction.getCatalogs = function (x) {
