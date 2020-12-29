@@ -77,39 +77,39 @@ var Brands = [
         img: 'http://princessprofessional.com/wp-content/uploads/2020/10/Aluram_logo.png',
     },
     {
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Megix10%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: 'Transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Megix10%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/10/Megix10_logo.png',
     },
     {
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Saints%20And%20Sinners%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'Transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Saints%20And%20Sinners%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/11/Saintssinners_logo.png'
     },
 	{
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Pai%20Shau%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'Transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Pai%20Shau%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/11/Paishau_logo.png'
     },
     {
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Neuma%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Neuma%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/10/Neuma_Logo.png',
     },
 	{
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22N4%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"N4%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/11/N4_logo.png',
     },	
     {
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ethica%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ethica%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/10/Ethica_Logo.png',
     },
 	{
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Keranique%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}??SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Keranique%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/11/KQ_logo.png',
     },
 	{
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Uniq%20One%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Uniq%20One%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/11/uniqone_logo.png',
     },
 	{
-        link: 'transactions/scope_items/{{UUID}}?SearchString=CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Style%20Edit%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&TopPadding=0&SearchAll=false&CurrentTab="%7B%5C"JsonFilter%5C":%5C"7c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Style%20Edit%5C%5C%5C"%7D%5C"%7D"',
         img: 'http://princessprofessional.com/wp-content/uploads/2020/11/StyleEdit_logo.png',
     },
     {
