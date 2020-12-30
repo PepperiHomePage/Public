@@ -87,7 +87,7 @@ var customHomepage = {};
     this.transactionName = "Buyer Order";
     customFunction.setSessionStorage("isWeb", true);
     customFunction.getAccountInternalID();
-    this.buildHTML();
+    customFunction.getCatalogs("customHomepage")
     var data = JSON.parse(context.pluginData);
     if (data) {
       this.transactionName = data.typeName || "";
