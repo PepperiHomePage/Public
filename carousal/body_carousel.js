@@ -157,7 +157,7 @@ customFunction.swipeListener = function () {
 
 customFunction.buildCarouselBanner = function (slideid) {
     var carouselBannerHTML = "";
-
+    
     carouselBannerHTML += `<section id="carousal-content"></section>
                             <div id="shipping-baner" style="display: block;"></div>`;
 
