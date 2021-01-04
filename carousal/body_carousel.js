@@ -9,7 +9,7 @@ customFunction.carousel = function (slideid, CaruselData) {
     var value = customFunction.CaruselData[idx];
 
     htmlStr += ` <div id="carousel" class="carousel"> 
-    <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'/Transactions/scope_items/{{UUID}}','customHomepage')"><div class="slide" data-state="active"
+    <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')"><div class="slide" data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
