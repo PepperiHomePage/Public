@@ -102,33 +102,33 @@ customFunction.switchSlide = function (isCurrent, next = true) {
     </div>
 </div></div>`;
     document.getElementById("carousel").innerHTML = htmlStr;
-        if (!value.buttonText){
-            document.querySelector(".slide .gard-overlay").style.background = 'none'
-        for (const [idx1, value] of CaruselData.entries()) {
-            indicatorsStr +=
-                idx1 == idx ?
-                `<div class="radio-box">
+    if (!value.buttonText)
+        document.querySelector(".slide .gard-overlay").style.background = 'none'
+    for (const [idx1, value] of CaruselData.entries()) {
+        indicatorsStr +=
+            idx1 == idx ?
+            `<div class="radio-box">
            <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}"  data-state="active" onclick="event.stopImmediatePropagation();customFunction.setSessionStorage('savedIDX', this.getAttribute('data-slide')); customFunction.switchSlide(true)" checked="checked">
            <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="event.stopImmediatePropagation();customFunction.setSessionStorage('savedIDX', this.getAttribute('data-slide')); customFunction.switchSlide(true)"></span>
            </div>` :
-                `<div class="radio-box">
+            `<div class="radio-box">
            <input type="radio" name="indicator" data-slide="${idx1}" data-time="${value.time}" onclick="event.stopImmediatePropagation();customFunction.setSessionStorage('savedIDX', this.getAttribute('data-slide')); customFunction.switchSlide(true)">
            <span class="radio-dot" data-slide="${idx1}" data-time="${value.time}"  data-state="active"  onclick="event.stopImmediatePropagation();customFunction.setSessionStorage('savedIDX', this.getAttribute('data-slide')); customFunction.switchSlide(true)"></span>
            </div>`;
-        }
-        document.getElementById("indicators").innerHTML = indicatorsStr;
-        document.querySelectorAll(".slide-text")[0].style.opacity = 1;
-        var carousel = document.getElementById("carousel");
-        if (carousel) {
-            this.slides = carousel.querySelectorAll(".slide");
-            this.slideDesc = carousel.querySelectorAll(".slide-text");
-            this.indicators = carousel.querySelectorAll(".indicator");
-        }
-        this.speed = value.time;
-        this.switcher = setTimeout(function () {
-            customFunction.switchSlide();
-        }, this.speed);
     }
+    document.getElementById("indicators").innerHTML = indicatorsStr;
+    document.querySelectorAll(".slide-text")[0].style.opacity = 1;
+    var carousel = document.getElementById("carousel");
+    if (carousel) {
+        this.slides = carousel.querySelectorAll(".slide");
+        this.slideDesc = carousel.querySelectorAll(".slide-text");
+        this.indicators = carousel.querySelectorAll(".indicator");
+    }
+    this.speed = value.time;
+    this.switcher = setTimeout(function () {
+        customFunction.switchSlide();
+    }, this.speed);
+
 };
 customFunction.swipeListener = function () {
     var initialPoint;
@@ -156,7 +156,7 @@ customFunction.swipeListener = function () {
 
 customFunction.buildCarouselBanner = function (slideid) {
     var carouselBannerHTML = "";
-    
+
     carouselBannerHTML += `<section id="carousal-content"></section>
                             <div id="shipping-baner" style="display: block;"></div>`;
 
