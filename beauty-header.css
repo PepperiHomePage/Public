@@ -1399,5 +1399,19 @@ button {
 #launcher {
   display: none;
 }
+#selectBox{
+  border-radius:4px;
+  background-color: rgba(10, 10, 10, 0.08);
+}
+.lang-change{
+  display: flex;
+  border: none;
+  height: 2.5rem;
+  -webkit-box-align: center;
+}
+.lang-change:hover{
+
+  background-color: rgba(10, 10, 10, 0.25);
+}
 
 /*# sourceMappingURL=style.css.map */
