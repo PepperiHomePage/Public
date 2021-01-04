@@ -102,8 +102,8 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         </div>
     </div>
 </div></div></div>`;
-    if (document.getElementById("slides")) {
-        document.getElementById("slides").innerHTML = htmlStr;
+    if (document.getElementById("slideid")) {
+        document.getElementById("slideid").innerHTML = htmlStr;
         if (!value.buttonText)
             document.querySelector(".slide .gard-overlay").style.background = 'none'
         for (const [idx1, value] of CaruselData.entries()) {
