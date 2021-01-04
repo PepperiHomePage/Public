@@ -84,12 +84,11 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         0
     );
 
-    htmlStr += `<div id="carousel" class="carousel"> 
-    <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')"><div class="slide" data-state="active"
+    htmlStr += `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')"><div class="slide"  data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', 'customFunction')" >${value.buttonText}</button>
+            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
@@ -101,9 +100,9 @@ customFunction.switchSlide = function (isCurrent, next = true) {
             </button>
         </div>
     </div>
-</div></div></div>`;
-    if (document.getElementById("slideid")) {
-        document.getElementById("slideid").innerHTML = htmlStr;
+</div></div>`;
+    if (document.getElementById("carousel")) {
+        document.getElementById("carousel").innerHTML = htmlStr;
         if (!value.buttonText)
             document.querySelector(".slide .gard-overlay").style.background = 'none'
         for (const [idx1, value] of CaruselData.entries()) {
