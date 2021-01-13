@@ -3,7 +3,7 @@ customFunction.buildCategories = function (slideid) {
   categoriesImgHTML += `
           <div class="box box1">
                 <div class="item1"
-                onclick="customFunction.setUUIDandNav('null,null,${left_top_img_left.deepLink}')"
+                onclick="customFunction.setUUIDandNav('null,null,${left_top_img_left.deepLink},customHomepage')"
                 style="background-image: url(${left_top_img_left.image});">
                     <div class="overlay">${left_top_img_left.title}</div>
                 </div>
@@ -20,7 +20,7 @@ customFunction.buildCategories = function (slideid) {
               </div>
               <div class="box box2">
                  <div class="item4" 
-                 onclick="customHcustomFunctionomepage.setUUIDandNav('null,null,${midle_top_left_img.deepLink}')"
+                 onclick="customFunctionomepage.setUUIDandNav('null,null,${midle_top_left_img.deepLink}')"
                  style="background-image: url(${midle_top_left_img.image});">
                      <div class="overlay">${midle_top_left_img.title}</div>
                  </div>

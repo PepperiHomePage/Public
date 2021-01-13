@@ -79,9 +79,8 @@ var customHomepage = {};
         this.cssFoodDemoFilePath
       ],
     };
-    return options;
-  };
-
+    return options; 
+  }
   this.onPluginLoad = function (context) {
     this.context = context;
     this.transactionName = "Buyer Order";
@@ -183,4 +182,4 @@ var customHomepage = {};
       btn.innerText = "Close button";
     }
   };
-}.apply(customHomepage));
+}).apply(customHomepage)
