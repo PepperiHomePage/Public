@@ -93,7 +93,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       deepLink =   deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
     } else {
-      customFunction.createNewOrder();
+      customFunction.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
     }
   };
 
@@ -285,7 +285,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
         res.objects[0].UUID
       );
     } else {
-      customFunction.createNewOrder(null,null,null,true,'customHomepage');
+      customFunction.createNewOrder();
     }
   };
 
