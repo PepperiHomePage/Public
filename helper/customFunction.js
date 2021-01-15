@@ -308,7 +308,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       //       Operation:"IsEqual",
       //       Value:this.accountUUID
       //   },
-      responseCallback: "customHomepage.setAccountInternalID",
+      responseCallback: "customFunction.setAccountInternalID",
     };
     pepperi.api.accounts.search(bridgeObject);
   };
