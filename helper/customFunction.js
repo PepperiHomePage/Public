@@ -285,7 +285,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
         res.objects[0].UUID
       );
     } else {
-      customFunction.createNewOrder();
+      customFunction.createNewOrder(null,null,null,true,'customHomepage');
     }
   };
 

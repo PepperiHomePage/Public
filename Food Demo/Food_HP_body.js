@@ -129,13 +129,13 @@ var customHomepage = {};
     customFunction.buildShippingBaner("shipping-baner");
 
     customFunction.buildSidebar("sidebar");
+    customFunction.buildAccountInfo("account_info");
     customFunction.buildSidebarSmall("sidebar-sm");
     customFunction.buildBaseList("baselist");
     customFunction.buildFoodList("food_list");
     customFunction.buildSidebarPopup("popup");
     customFunction.buildLists("lists");
 
-    customFunction.buildAccountInfo("account_info");
 
     customFunction.buildCategories("categories");
   };
