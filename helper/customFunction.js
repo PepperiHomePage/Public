@@ -93,7 +93,7 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       deepLink =   deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(deepLink);
     } else {
-      customFunction.createNewOrder(in_catalog, in_transactionName, deepLink, false ,nameOfMainJs);
+      customFunction.createNewOrder();
     }
   };
 

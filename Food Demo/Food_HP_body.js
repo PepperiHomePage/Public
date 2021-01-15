@@ -85,7 +85,7 @@ var customHomepage = {};
     this.context = context;
     this.transactionName = "Buyer Order";
     customFunction.setSessionStorage("isWeb", true);
-    customFunction.getAccountInternalID();
+    
     customFunction.getCatalogs("customHomepage")
     var data = JSON.parse(context.pluginData);
     if (data) {
@@ -129,15 +129,16 @@ var customHomepage = {};
     customFunction.buildShippingBaner("shipping-baner");
 
     customFunction.buildSidebar("sidebar");
-    customFunction.buildAccountInfo("account_info");
     customFunction.buildSidebarSmall("sidebar-sm");
     customFunction.buildBaseList("baselist");
     customFunction.buildFoodList("food_list");
     customFunction.buildSidebarPopup("popup");
     customFunction.buildLists("lists");
 
-
+    
+    customFunction.buildAccountInfo("account_info");
     customFunction.buildCategories("categories");
+    customFunction.getAccountInternalID();
   };
 
   // Start Carusel & Shipping
