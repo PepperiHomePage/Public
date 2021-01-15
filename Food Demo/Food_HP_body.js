@@ -98,25 +98,7 @@ var customHomepage = {};
 
 
 
-  this.setAccountInternalID = function (data) {
-    console.log(data);
-    if (!data.success) return;
-    var balance = data.objects[0].TSABalance;
-    var credit = data.objects[0].TSACreditLine;
-    if (balance == null) {
-      document.getElementById("balance").innerHTML = "$" + 0.0;
-    } else {
-      document.getElementById("balance").innerHTML = "$" + balance;
-    }
 
-    if (credit == null) {
-      document.getElementById("credit").innerHTML = "$" + 0.0;
-    } else {
-      document.getElementById("credit").innerHTML = "$" + credit;
-    }
-    this.AccountInternalID = data.objects[0].InternalID;
-    this.accountUUID = data.objects[0].UUID;
-  };
 
 
 
@@ -167,7 +149,7 @@ var customHomepage = {};
 
   // Start Account info
 
-  // End Account info
+  // End Account info  
 
 
 
@@ -182,4 +164,6 @@ var customHomepage = {};
       btn.innerText = "Close button";
     }
   };
-}).apply(customHomepage)
+
+
+}).apply(customHomepage) 
