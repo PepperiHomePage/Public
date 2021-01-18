@@ -217,6 +217,8 @@ customFunction.createNewActivity = function (in_transactionName, deeplink, custo
       (res.objects[0].Status == 1 || res.objects[0].Status == 1000)
     ) {
       var transaction = res.objects[0];
+      this.setQuantitiesTotal(transaction.QuantitiesTotal)
+      this.setCurrentTransaction(transaction.UUID, transaction.TSANewGrandTotalCurrency, transaction.Currency);
     } else {
       customFunction.createNewOrder();
     }

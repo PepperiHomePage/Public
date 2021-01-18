@@ -166,9 +166,9 @@ customFunction.buildCarouselBanner = function (slideid) {
 customFunction.buildShippingBaner = function (slideid) {
     var shippingHTML = "";
 
-    shippingHTML += `<div class="shipping" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink}', 'customFunction')">
+    shippingHTML += `<div class="shipping" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink}', 'customHomepage')">
                         <p>${shipping.title}</p>
-                        <button class="delivery" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink}', 'customFunction')">${shipping.buttonText}</button>    
+                        <button class="delivery" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink}', 'customHomepage')">${shipping.buttonText}</button>    
                       </div>`;
 
     document.getElementById(slideid).innerHTML = shippingHTML;
