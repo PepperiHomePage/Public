@@ -92,8 +92,8 @@ var customHomepage = {};
       this.transactionName = data.typeName || "";
       this.accountUUID = data.accountUUID || "";
     }
-    customFunction.getTransactionStatus();
-    customFunction.getLastTransactions();
+    /*customFunction.getTransactionStatus();
+    customFunction.getLastTransactions();*/
   };
 
 
