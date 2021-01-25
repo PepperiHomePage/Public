@@ -22,7 +22,7 @@ var customHomepage = {};
   this.accountUUID;
   this.catalogs = [];
   this.accounts = [];
-  this.jsonFilePath = 'https://github.com/LudoPepperi/bainetnature/blob/main/config_body.js'
+  this.jsonFilePath = 'https://pepperihomepage.github.io/Public/BainEtNature/config_body%20(15).js'
   this.isMultiAccount = true
   this.cssFilePath = "";
   this.transactionFields = []
