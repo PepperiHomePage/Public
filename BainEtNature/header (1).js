@@ -330,4 +330,13 @@ this.closeAllMenusListener = function () {
     $('#myDropdown').toggleClass('show').focus()
   }
 
+  customHeader.logout = function () {
+    var event = new CustomEvent('logout');
+    if (document.createEvent) {
+      window.dispatchEvent(event);
+    } else {
+      window.fireEvent('on' + event.eventType, event);
+    }
+  };
+
 }.apply(customHeader));

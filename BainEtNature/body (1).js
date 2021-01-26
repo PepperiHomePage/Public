@@ -921,19 +921,16 @@ font-size: 1.125rem;
     this.getAccounts('customHomepage.findTransactionForSelectedAccount');
   };
 
-  this.getCatalogs = function (x) {
-    console.log(x)
+  this.getCatalogs = function () {
     pepperi.api.catalogs.search({
       fields: ["UUID", "ExternalID", "Description", "ID"],
-      responseCallback: "customHomepage.getCatalogsCallback",
-      requestID: x
+      responseCallback: "customHomepage.getCatalogsCallback"
     });
   }
   this.getCatalogsCallback = function (res) {
     console.log("get catalog res", res);
     (res && res.objects && res.objects.length) ? this.catalogs = res.objects: false;
-    var fun = eval("(" + res.requestID + ")");
-    fun.buildHTML();
+    customHomepage.buildHTML();
   }
 
 
@@ -1270,7 +1267,7 @@ font-size: 1.125rem;
 
     if (!customHomepage.getSessionStorage("accountUUID") || customHomepage.getSessionStorage("accountUUID") == '')
       this.setActiveDropdown(this.accounts[0].UUID, this.accounts[0].Name)
-    //this.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
+    this.findTransactionForSelectedAccount(customHomepage.getSessionStorage("accountUUID"),callback);
     var value = '(customHomepage.getSessionStorage("accountUUID"))'
     var cb = eval("(" + callback + value + ")");
     document.getElementById("store-selector-hr").classList.add("sidebar-gap");
@@ -1660,10 +1657,9 @@ style="background-image: url(${value.img});">
     }
   };
 
-  customHomepage.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
+  customHomepage.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null) {
     this.closeAllMenusListener();
-    var name = eval("(" + nameOfMainJs + ")")
-    const uuid = name.getSessionStorage('LastOpenTransactionUUID');
+    const uuid = customHomepage.getSessionStorage('LastOpenTransactionUUID');
     console.log("uuid --->", uuid);
     if (uuid && uuid !== "undefined") {
       deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
