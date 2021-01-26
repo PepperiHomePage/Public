@@ -28,7 +28,7 @@ var customHeader = {};
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;
-  this.jsFilePath = 'https://github.com/LudoPepperi/bainetnature/blob/main/config_header.js'
+  this.jsFilePath = 'https://pepperihomepage.github.io/Public/BainEtNature/config_header%20(14).js'
   this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-header.css";
 
   this.setHtml = function () {
@@ -39,7 +39,7 @@ var customHeader = {};
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="wrp">
               <div class="header-start"> 
-                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />                                     
+                <img class="logo" onclick="customHeader.navigation(\'HomePage\')" id="logo" src="" />                                     
                 <div id="header_btn_bar" class="links hidden-on-mobile">      
                 </div>
               </div>
@@ -83,7 +83,20 @@ var customHeader = {};
     customHeader.getCatalogs("customHeader");
   };
 
-  
+  customHeader.getAccountStatus = function () {
+    var bridgeObject = {
+      fields: ['Name', 'UUID'],
+      sorting: [],
+      responseCallback: 'customHeader.getCurrentAccountCallback'
+    };
+    pepperi.api.accounts.search(bridgeObject);
+  };
+
+  customHeader.getCurrentAccountCallback = function (res) {
+    if (res && res.success && res.objects && res.objects.length)
+      customHeader.accountUUID = res.objects[0].UUID;
+      
+  }
 
   customHeader.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
