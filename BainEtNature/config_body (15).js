@@ -3,12 +3,12 @@ var Catalog='B2B'
 var blocks_config = {
     'free_shipping': {
         text: "",
-        field: "TSAFreeShipping",
+        field: "InternalID",
         svg:"https://storage.pepperi.com/General/Icons/truck.svg"
     },
     'account_balance': {
         text: "Point",
-        field: "TSACreditLimit",
+        field: "InternalID",
         measure_unit: "Points",
         svg:"https://storage.pepperi.com/General/Icons/balance.svg"
     },

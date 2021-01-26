@@ -339,4 +339,8 @@ this.closeAllMenusListener = function () {
     }
   };
 
+  customHeader.changePassword = function () {
+    window.location.href = 'https://idp.pepperi.com/Account/ChangePassword';
+  };   
+
 }.apply(customHeader));

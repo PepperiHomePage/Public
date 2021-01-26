@@ -957,7 +957,7 @@ font-size: 1.125rem;
             <div id="indicators" class="indicators">
                 
             </div>
-            <button onclick="event.stopImmediatePropagation();this.playerClick();" class="pause" id="player">
+            <button onclick="event.stopImmediatePropagation();customHomepage.playerClick();" class="pause" id="player">
             </button>
         </div>
     </div>
@@ -987,7 +987,7 @@ font-size: 1.125rem;
     this.swipeListener()
   }
 
-  this.playerClick = function () {
+  customHomepage.playerClick = function () {
     var btn = document.getElementById("player");
     var btnClass = btn.className;
     if (btnClass == "play") {
@@ -1031,7 +1031,7 @@ font-size: 1.125rem;
             <div id="indicators" class="indicators">
                 
             </div>
-            <button onclick="event.stopImmediatePropagation();this.playerClick();" class="pause" id="player">
+            <button onclick="event.stopImmediatePropagation();customHomepage.playerClick();" class="pause" id="player">
             </button>
         </div>
     </div>
