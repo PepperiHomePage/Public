@@ -326,5 +326,8 @@ this.closeAllMenusListener = function () {
       }
     }
   };
+  customHeader.closeHamburgerMenu = function () {
+    $('#myDropdown').toggleClass('show').focus()
+  }
 
 }.apply(customHeader));
