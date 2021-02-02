@@ -2,7 +2,7 @@ var Transaction = 'B2B Order';
 var Catalog='ALL'
 var blocks_config = {
     'free_shipping': {
-        text: "Free shipping for orders over $",
+        text: "Free shipping for orders over 50$",
         field: "TSAFreeShipping",
         svg:"https://storage.pepperi.com/General/Icons/truck.svg"
     },
