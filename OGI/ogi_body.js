@@ -83,7 +83,17 @@ var customHomepage = {};
   };
 
   this.setHtml = function () {
-    var str = `            
+    var str = `
+            <style>
+              .brand{
+                height: 256px !important;
+                width: 256px !important;
+                background-size: contain !important;
+              }
+              #brands{
+                grid-template-columns: repeat(3, 1fr) !important;
+              }
+            </style>            
             <main class="wrapper">
             <section id="carousal-content">
             </section>
