@@ -3,12 +3,12 @@ var Catalog='ALL'
 var blocks_config = {
     'free_shipping': {
         text: "Free shipping for orders over $",
-        field: "TSAFreeShipping",
+        field: "free_shipping",
         svg:"https://storage.pepperi.com/General/Icons/truck.svg"
     },
     'account_balance': {
         text: "Account Balance",
-        field: "TSACreditLimit",
+        field: "account_balance",
         measure_unit: "Points",
         svg:"https://storage.pepperi.com/General/Icons/balance.svg"
     },
@@ -35,33 +35,28 @@ var blocks_config = {
 }
 var Brands = [
     {
-        bigImage: true,
-        link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22Face%20Serums%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/8.jpg',
-    },
-    {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Hair%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/7.jpg',
+        img: 'https://storage.pepperi.com/OGI/img/Pepperi front page logo banner_OGI.jpg',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22Dry%20Shampoo%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/16.jpg',
+        img: 'https://storage.pepperi.com/OGI/img/',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22Co%20Wash%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/17.jpg',
+        img: 'https://storage.pepperi.com/OGI/img/',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Treatments%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/18.jpg',
+        img: 'https://storage.pepperi.com/OGI/img/',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Treatments%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/19.jpg',
+        img: 'https://storage.pepperi.com/OGI/img/',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Face%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%227142a6f9-af48-4dba-a30d-85d89b2ed083%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/23.jpg',
+        img: 'https://storage.pepperi.com/OGI/img/',
 
     },
     {

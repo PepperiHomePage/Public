@@ -48,6 +48,40 @@ var customHomepage = {};
   this.cssFilePath = "";
   this.transactionFields = []
   this.transactionsHistoryFields = []
+
+  this.initPlugin = function () {
+    
+    var options = {
+      JsURLs: [this.jsonFilePath,
+        this.jsonModuleChatFilePath,
+        this.promotionsJsonPath,
+        this.brandsJsonPath,
+        this.carousalJsonPath,
+        this.freeShippingJsonPath,
+        this.accountBalanceJsonPath,
+        this.activeOrderJsonPath,
+        this.submitedOrderJsonPath,
+        this.accountDropdownJsonPath,
+        this.navigationJsonPath,
+        this.jsListenersJsonPath,
+        this.helperJsonPath,
+        this.customHelperJsonPath
+      ],
+      cssURLs: [this.cssFilePath,
+        this.carousalcssPath,
+        this.brandscssPath,
+        this.freeShippingCssPath,
+        this.accountBalanceCssPath,
+        this.submitedOrderCssPath,
+        this.activeOrderCssPath,
+        this.accountDropdownCssPath
+      ],
+    };
+    
+    console.log("initPlugin body",options)
+    return options;
+  };
+
   this.setHtml = function () {
     var str = `            
             <main class="wrapper">
@@ -99,38 +133,7 @@ var customHomepage = {};
     `;
     return str;
   };
-  this.initPlugin = function () {
-    
-    var options = {
-      JsURLs: [this.jsonFilePath,
-        this.jsonModuleChatFilePath,
-        this.promotionsJsonPath,
-        this.brandsJsonPath,
-        this.carousalJsonPath,
-        this.freeShippingJsonPath,
-        this.accountBalanceJsonPath,
-        this.activeOrderJsonPath,
-        this.submitedOrderJsonPath,
-        this.accountDropdownJsonPath,
-        this.navigationJsonPath,
-        this.jsListenersJsonPath,
-        this.helperJsonPath,
-        this.customHelperJsonPath
-      ],
-      cssURLs: [this.cssFilePath,
-        this.carousalcssPath,
-        this.brandscssPath,
-        this.freeShippingCssPath,
-        this.accountBalanceCssPath,
-        this.submitedOrderCssPath,
-        this.activeOrderCssPath,
-        this.accountDropdownCssPath
-      ],
-    };
-    
-    console.log("initPlugin body",options)
-    return options;
-  };
+
   this.onPluginLoad = function (context) {
     console.log("onPluginLoad body")
     this.context = context;
