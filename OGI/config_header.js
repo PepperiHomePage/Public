@@ -1,26 +1,26 @@
-var Transaction = 'B2B Order';
+var Transaction = 'Buyer Order';
 var Catalog='ALL'
 const logo = 'https://assets2.brandfolder.io/bf-boulder-prod/qeawf1-8ab1pk-742hwo/v/25188232/original/OGI_Eyewear_Standard_RGB.png'
 const LeftMenu = [
   {
     catalog: "ALL",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "New Arrivals",
     action:"setUUIDandNav",
-    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227142a6f9-af48-4dba-a30d-85d89b2ed083%5C%22%7D%22'
+    deepLink: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
   },
   {
     catalog: "ALL",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "Best Sellers",
     action:"setUUIDandNav",
-    deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%22%7D%22'
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"a58db397-4b63-4131-80fa-d8257aa33b34%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
   },
 ];
 const RightMenu = [
   {
     catalog: "ALL",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "Favorites",
     icon:`          
 	<svg class="end-icon" xmlns="http://www.w3.org/2000/svg" style="width:24px !important;height:24px !important" viewBox="0 0 24 24">
