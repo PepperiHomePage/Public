@@ -22,7 +22,7 @@ var customHomepage = {};
   this.accountUUID;
   this.catalogs = [];
   this.accounts = [];
-  this.jsonFilePath = 'https://pepperihomepage.github.io/Public/Beauty/config_body.js'
+  this.jsonFilePath = 'https://pepperihomepage.github.io/Public/OGI/config_body.js'
   this.jsonModuleChatFilePath = 'https://storage.pepperi.com/PreSales/beauty_demo/chat.js'
   this.promotionsJsonPath = 'https://pepperihomepage.github.io/Public/promotions/body_promotions.js'
   this.brandscssPath = "https://pepperihomepage.github.io/Public/brands/body_brands.css";

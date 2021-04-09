@@ -3,12 +3,12 @@ var Catalog='ALL'
 var blocks_config = {
     'free_shipping': {
         text: "Free shipping for orders over $",
-        field: "free_shipping",
+        field: "TSAFreeShipping",
         svg:"https://storage.pepperi.com/General/Icons/truck.svg"
     },
     'account_balance': {
         text: "Account Balance",
-        field: "account_balance",
+        field: "TSACreditLimit",
         measure_unit: "Points",
         svg:"https://storage.pepperi.com/General/Icons/balance.svg"
     },
