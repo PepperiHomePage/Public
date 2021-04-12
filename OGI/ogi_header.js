@@ -39,11 +39,21 @@ var customHeader = {};
     var str =
       `
             <style>
-                  </style>
+            .dropdown-content-fit {
+              min-width: unset;
+              left: 0;
+              right: 0;
+            }
+            </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="wrp">
               <div class="header-start"> 
-                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />                                     
+                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />
+                <div id="header_btn_bar" class="custom-input-dropdown links hidden-on-mobile" onclick="customHeader.openDropDown()">
+                      <p role="label" class=" link" id="selected-account-header">Brands</p>
+                      <ul class="dropdown-content-fit" id="select-menu-header" role="select">
+                      </ul>                                            
+                </div>                                 
                 <div id="header_btn_bar" class="links hidden-on-mobile">      
                 </div>
               </div>
@@ -104,9 +114,9 @@ var customHeader = {};
 
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
-
-
-   
+  }
+  this.openDropDown = function () {
+    document.getElementById('select-menu-header').classList.toggle('show')
   }
   
 
