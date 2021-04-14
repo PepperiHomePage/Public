@@ -44,13 +44,24 @@ var customHeader = {};
               left: 0;
               right: 0;
             }
+            .show {
+              max-width: 770px;
+              width: max-content;
+              display: flex !important;
+              flex-wrap: wrap;
+             }
+             @media screen and (max-width: 960px) {
+              .show{
+               display: block !important
+             }
+            }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="wrp">
               <div class="header-start"> 
                 <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />
-                <div id="header_btn_bar" class="custom-input-dropdown links hidden-on-mobile" onclick="customHeader.openDropDown()">
-                      <p role="label" class=" link" id="selected-account-header">Brands</p>
+                <div  class="custom-input-dropdown links hidden-on-mobile" onclick="customHeader.openDropDown()">
+                      <p role="label" class=" link" id="selected-account-header">Collections</p>
                       <ul class="dropdown-content-fit" id="select-menu-header" role="select">
                       </ul>                                            
                 </div>                                 
@@ -114,6 +125,26 @@ var customHeader = {};
 
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
+
+    for (const item of DropDown) {
+      let classMenu = "dropdown-item"
+    let htmlTag = "li"
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      classMenu = "dropdown-item"
+      htmlTag = "li"
+    }
+
+      console.log(JSON.stringify(item));
+      
+      htmlStr += `<${htmlTag} onClick="${this.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
+    }
+
+    if (document.getElementById('mobileVersion')) {
+      document.getElementById('mobileVersion').innerHTML = htmlStr;
+    }
+    if (document.getElementById('select-menu-header')) {
+      document.getElementById('select-menu-header').innerHTML = htmlStr;
+    }
   }
   this.openDropDown = function () {
     document.getElementById('select-menu-header').classList.toggle('show')

@@ -14,7 +14,7 @@ customHeader.HeaderLeftMenu = function(LeftMenu){
         htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${customFunction.handleAction(item, "customHeader")}">${item.title}</${htmlTag}>`;
       }
       if (document.getElementById('menuDropdown')) {
-        document.getElementById('menuDropdown').innerHTML += `<ul class="shown-on-mobile">${htmlStr}</ul><hr class="shown-on-mobile">`;
+        document.getElementById('menuDropdown').innerHTML += `<ul class="shown-on-mobile" id="mobileVersion">${htmlStr}</ul><hr class="shown-on-mobile">`;
       }
       if (document.getElementById('header_btn_bar')) {
         document.getElementById('header_btn_bar').innerHTML = htmlStr;
