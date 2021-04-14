@@ -6,7 +6,7 @@ customFunction.drawPromotions = function (id, Promotions) {
         <div class="gard-overlay" style="${(!value.title || value.title == '') ? 'background:none' : ''}" onclick="${(!value.buttonText|| value.buttonText== '') ? 'customFunction.setUUIDandNav(null, null, \''+value.link+'\', \'customHomepage\')' : ''}">
           <h2 class="title-4-lg">${value.title}</h2>
           <div>
-            <button class="comonBtn custom-btn" style="${(!value.buttonText|| value.buttonText== '') ? 'display:none' : ''}
+            <button class="comonBtn custom-btn" style="${(!value.buttonText|| value.buttonText== '') ? 'display:none' : ''}"
               onclick="customFunction.setUUIDandNav(null, null, '${value.link}', 'customHomepage')">
               ${value.buttonText}
             </button>

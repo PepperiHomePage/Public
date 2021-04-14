@@ -44,12 +44,6 @@ var customHeader = {};
               left: 0;
               right: 0;
             }
-            .show {
-              max-width: 770px;
-              width: max-content;
-              display: flex !important;
-              flex-wrap: wrap;
-             }
              @media screen and (max-width: 960px) {
               .show{
                display: block !important
@@ -60,9 +54,9 @@ var customHeader = {};
             <div class="wrp">
               <div class="header-start"> 
                 <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />
-                <div  class="custom-input-dropdown links hidden-on-mobile" onclick="customHeader.openDropDown()">
+                <div  class="links hidden-on-mobile" onclick="customHeader.openDropDown()">
                       <p role="label" class=" link" id="selected-account-header">Collections</p>
-                      <ul class="dropdown-content-fit" id="select-menu-header" role="select">
+                      <ul class="dropdown-content" id="select-menu-header" role="select">
                       </ul>                                            
                 </div>                                 
                 <div id="header_btn_bar" class="links hidden-on-mobile">      
@@ -126,6 +120,8 @@ var customHeader = {};
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
 
+    let htmlStr = '';
+
     for (const item of DropDown) {
       let classMenu = "dropdown-item"
     let htmlTag = "li"
@@ -136,7 +132,7 @@ var customHeader = {};
 
       console.log(JSON.stringify(item));
       
-      htmlStr += `<${htmlTag} onClick="${this.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
+      htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
     }
 
     if (document.getElementById('mobileVersion')) {
