@@ -24,15 +24,15 @@ var blocks_config = {
 }
 var Brands = [
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Ogi%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_OGI.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Seraphin%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Seraphin.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Red%20Rose%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Red%20Rose.jpg',
     },
     {
@@ -40,13 +40,12 @@ var Brands = [
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Shimmer.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%20Kids%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Ogi%20Kids%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_OGI%20Kids.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Scojo%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Scojo%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_SCOJO.jpg',
-
     }]
 //Promotions block
 var Promotions = [
