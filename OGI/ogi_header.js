@@ -44,10 +44,21 @@ var customHeader = {};
               left: 0;
               right: 0;
             }
-             @media screen and (max-width: 960px) {
-              .show{
-               display: block !important
-             }
+            .show{
+              display: flex !important;
+              flex-direction: column !important;
+              padding: 38px 42px !important;
+           }
+            [class*="dropdown-content"] {
+              max-width: 219px;
+              width: 219px 100%;
+            }
+            [class*="dropdown-content"] li{
+              font-size: 14px !important;
+              font-weight: normal !important;
+              height: 20px !important;
+              letter-spacing: 0.12px !important;
+              line-height: 20px !important;
             }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
@@ -78,10 +89,10 @@ var customHeader = {};
     var options = {
       JsURLs: [
         this.jsFilePath,
+        this.customHelperJsonPath,
         this.helperJsonPath,
         this.rightMenuJsonPath,
         this.leftMenuJsonPath,
-        this.customHelperJsonPath
       ],
       cssURLs: [this.cssFilePath],
       favIcon: this.favIconURL,
@@ -136,7 +147,7 @@ var customHeader = {};
     }
 
     if (document.getElementById('mobileVersion')) {
-      document.getElementById('mobileVersion').innerHTML = htmlStr;
+      document.getElementById('mobileVersion').innerHTML += htmlStr;  
     }
     if (document.getElementById('select-menu-header')) {
       document.getElementById('select-menu-header').innerHTML = htmlStr;
