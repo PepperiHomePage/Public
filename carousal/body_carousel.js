@@ -9,11 +9,11 @@ customFunction.carousel = function (slideid, CaruselData) {
     var value = customFunction.CaruselData[idx];
 
     htmlStr += ` <div id="carousel" class="carousel"> 
-    <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')"><div class="slide" data-state="active"
+    <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide" data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}', 'customFunction')" >${value.buttonText}</button>
+            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}', 'customFunction')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
@@ -84,11 +84,11 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         0
     );
 
-    htmlStr += `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')"><div class="slide"  data-state="active"
+    htmlStr += `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide"  data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
-            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink}','customHomepage')" >${value.buttonText}</button>
+            <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
             <p class="desc">${value.description}</p>
         </div>
@@ -166,9 +166,9 @@ customFunction.buildCarouselBanner = function (slideid) {
 customFunction.buildShippingBaner = function (slideid) {
     var shippingHTML = "";
 
-    shippingHTML += `<div class="shipping" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink}', 'customHomepage')">
+    shippingHTML += `<div class="shipping" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink.replace(/["']/g,"%22")}', 'customHomepage')">
                         <p>${shipping.title}</p>
-                        <button class="delivery" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink}', 'customHomepage')">${shipping.buttonText}</button>    
+                        <button class="delivery" onclick="customFunction.setUUIDandNav(null,null,'${shipping.deepLink.replace(/["']/g,"%22")}', 'customHomepage')">${shipping.buttonText}</button>    
                       </div>`;
 
     document.getElementById(slideid).innerHTML = shippingHTML;
