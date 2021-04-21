@@ -90,7 +90,7 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         <div class="slide-text">
             <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')" >${value.buttonText}</button>
             <p class="title">${value.title}</p>
-            <p class="desc">${value.description}</p>
+            <p class="desc">${(!value.description || value.description== '') ? 'display:none' : ''}</p>
         </div>
         <div class="slide-controllers">
             <div id="indicators" class="indicators">
