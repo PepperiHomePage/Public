@@ -93,6 +93,7 @@ var customHomepage = {};
               #brands{
                 grid-template-columns: repeat(3, 1fr) !important;
               }
+              
             </style>            
             <main class="wrapper">
             <section id="carousal-content">
