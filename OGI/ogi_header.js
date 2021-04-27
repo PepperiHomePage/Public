@@ -51,7 +51,16 @@ var customHeader = {};
            }
             [class*="dropdown-content"] {
               max-width: 219px;
-              width: 219px 100%;
+              background: rgb(255, 255, 255);
+              border-radius: 4px;
+              box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08),
+              0px 0px 8px 0px rgba(0, 0, 0, 0.08),
+              0px 0px 16px 0px rgba(0, 0, 0, 0.08),
+              0px 12px 24px 0px rgba(0, 0, 0, 0.12),
+              0px 24px 48px 0px rgba(0, 0, 0, 0.08),
+              0px 32px 64px 0px rgba(0, 0, 0, 0.06);
+              height: 224px;
+              width: 219px;
             }
             [class*="dropdown-content"] li{
               font-size: 14px !important;
@@ -59,6 +68,7 @@ var customHeader = {};
               height: 20px !important;
               letter-spacing: 0.12px !important;
               line-height: 20px !important;
+              text-align: center
             }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
@@ -96,7 +106,7 @@ var customHeader = {};
       ],
       cssURLs: [this.cssFilePath],
       favIcon: this.favIconURL,
-      
+
       pageTitle: this.pageTitle
     };
 
@@ -115,7 +125,7 @@ var customHeader = {};
     customFunction.getCatalogs("customHeader");
   };
 
-  
+
 
   customHeader.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
@@ -135,19 +145,19 @@ var customHeader = {};
 
     for (const item of DropDown) {
       let classMenu = "dropdown-item"
-    let htmlTag = "li"
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      classMenu = "dropdown-item"
-      htmlTag = "li"
-    }
+      let htmlTag = "li"
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        classMenu = "dropdown-item"
+        htmlTag = "li"
+      }
 
       console.log(JSON.stringify(item));
-      
+
       htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
     }
 
     if (document.getElementById('mobileVersion')) {
-      document.getElementById('mobileVersion').innerHTML += htmlStr;  
+      document.getElementById('mobileVersion').innerHTML += htmlStr;
     }
     if (document.getElementById('select-menu-header')) {
       document.getElementById('select-menu-header').innerHTML = htmlStr;
@@ -156,7 +166,7 @@ var customHeader = {};
   this.openDropDown = function () {
     document.getElementById('select-menu-header').classList.toggle('show')
   }
-  
+
 
 
 

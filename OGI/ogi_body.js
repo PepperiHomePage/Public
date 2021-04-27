@@ -50,7 +50,7 @@ var customHomepage = {};
   this.transactionsHistoryFields = []
 
   this.initPlugin = function () {
-    
+
     var options = {
       JsURLs: [this.jsonFilePath,
         this.jsonModuleChatFilePath,
@@ -77,8 +77,8 @@ var customHomepage = {};
         this.accountDropdownCssPath
       ],
     };
-    
-    console.log("initPlugin body",options)
+
+    console.log("initPlugin body", options)
     return options;
   };
 
@@ -93,7 +93,65 @@ var customHomepage = {};
               #brands{
                 grid-template-columns: repeat(3, 1fr) !important;
               }
+
+              #dealer_level{
+                background: rgb(26, 26, 26);
+                border-radius: 4px;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                height: 121px;
+                width: 256px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              }
+
+              #dealer_level hr{
+                background: rgb(153, 153, 153);
+                border-radius: 0px;
+              }
+              .dealerLevelText{
+                color: rgb(255, 255, 255);
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 0.15px;
+                line-height: 24px;
+              }
               
+              .levelUp{
+                color: rgb(255, 255, 255);
+                font-size: 14px;
+                font-weight: normal;
+                letter-spacing: 0.12px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 112px;
+              }
+
+              .level{
+                color: rgb(255, 255, 255);
+                font-size: 40px;
+                font-weight: bold;
+                letter-spacing: 1.67px;
+                line-height: 48px;
+                text-align: center;
+              }
+              .levelInfo{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+              }
+              .termsCondition{
+                color: rgba(26, 26, 26, 0.7);
+                font-size: 12px;
+                font-weight: normal;
+                height: 16px;
+                letter-spacing: 0.11px;
+                line-height: 16px;
+                text-align: center;
+                padding: 7px 0 16px 0;
+              }
             </style>            
             <main class="wrapper">
             <section id="carousal-content">
@@ -109,11 +167,12 @@ var customHomepage = {};
           
                 <!--<hr>-->
                  
-                <div id="free_shipping" style="display:none">
+                <div id="dealer_level">
                 </div>
-          
-                <div id="account_balance" style="display:none">
-                </div>
+
+                <span class="termsCondition">See program’s <span>Terms & conditions here</span></span>
+
+                <hr>
           
                 <hr id ="store-selector-hr" style="display:none">
           
@@ -141,6 +200,65 @@ var customHomepage = {};
               </div>
             </div>
           </main>
+          <footer>
+          <div>
+          <div>
+              
+          </div>
+          <div>
+      
+          </div>
+      </div>
+      <table>
+          <tr>
+              <th>Title</th>
+              <th>Title</th>
+              <th>Title</th>
+              <th>Title</th>
+              <th>Title</th>
+          </tr>
+          <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+          </tr>
+          <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+          </tr>
+          <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+          </tr>
+          <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+          </tr>
+          <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+          </tr>
+      </table>
+          </footer>
     `;
     return str;
   };
@@ -153,7 +271,7 @@ var customHomepage = {};
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
     } else if (data) {
       this.accountUUID = data.accountUUID
-      customFunction.setSessionStorage("accountUUID", data.accountUUID)
+      customFunction.setSessionStorage("accountUUID",  data.accountUUID)
     }
     customFunction.getCatalogs('customHomepage');
   };
@@ -163,8 +281,8 @@ var customHomepage = {};
   //end  
   this.buildHTML = function () {
     //try to remove ifelse, settimeout also remove
-    
-    customFunction.closeAllMenusListener();
+
+    customFunction.closeAllMenusListener();   
     customFunction.carousel("carousal-content", CaruselData)
     customFunction.drawImagesBlocks("brands", Brands)
     customFunction.drawPromotions("promotions", Promotions)
@@ -175,7 +293,38 @@ var customHomepage = {};
   customHomepage.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
-  this.findTransactionForSelectedAccount = function (uuid) {
+
+  customHomepage.getDealerlevel = function (uuid) {
+
+    pepperi.api.accounts.get({
+      key: {
+        UUID: uuid
+      },
+      fields: ["Prop2", "TSAFramesNextLevel"],
+      responseCallback: "customHomepage.buildDealerlevel"
+    });
+
+  }
+
+  customHomepage.buildDealerlevel = function (data) {
+    console.log("Dealerlevel", data);
+
+    var dealerLevel = document.getElementById("dealer_level");
+    let html = '';
+
+    html = `<div class="levelInfo">
+          <span class="dealerLevelText">Dealer Level</span><span class="dealerLevelText">${data.object.Prop2}</span>
+      </div>
+      <hr>
+      <div class="levelInfo">
+          <span class='levelUp'>Frames needed to Level Up</span><span class="level">${data.object.TSAFramesNextLevel}</span>
+      </div>`
+      dealerLevel.innerHTML = html
+  }
+
+
+
+  this.findTransactionForSelectedAccount = function (uuid) {   
     console.log("uuid -----> ", uuid)
     this.accountUUID = uuid;
     customFunction.setSessionStorage("accountUUID", uuid);
@@ -190,6 +339,7 @@ var customHomepage = {};
     }
     if (blocks_config["submitted_orders"]) {
       customFunction.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
-    }
+    } 
+    customHomepage.getDealerlevel(uuid)
   }
 }.apply(customHomepage));
