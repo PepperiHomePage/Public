@@ -335,11 +335,125 @@ var customHomepage = {};
       customFunction.accountBalance(uuid, blocks_config.account_balance, "account_balance")
     }
     if (blocks_config["active-order"]) {
-      customFunction.activeOrder(customFunction.transactionName, blocks_config["active-order"].table, uuid, "active-order")
+      customHomepage.activeOrder(customFunction.transactionName, blocks_config["active-order"].table, uuid, "active-order")
     }
     if (blocks_config["submitted_orders"]) {
       customFunction.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
     } 
     customHomepage.getDealerlevel(uuid)
   }
+
+  customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
+    console.log("text----------->", transactionName, accountUUID);
+    pepperi.api.transactions.search({
+      fields: [
+        "UUID",
+        "Status",
+        "WrntyID",
+        ...fields.map(el => el.field)
+      ],
+      filter: {
+        Operation: "AND",
+        RightNode: {
+          ApiName: "ActionDateTime",
+          Operation: "InTheLast",
+          Values: ["4", "Weeks"],
+        },
+        LeftNode: {
+          Operation: "AND",
+          RightNode: {
+            ApiName: "Type",
+            Operation: "IsEqual",
+            Values: [transactionName],
+          },
+          LeftNode: {
+            Operation: "AND",
+            RightNode: {
+              ApiName: "Account.UUID",
+              Operation: "IsEqual",
+              Values: [accountUUID],
+            },
+            LeftNode: {
+              Operation: "AND",
+              RightNode: {
+                ApiName: "Hidden",
+                Operation: "IsEqual",
+                Values: ['false'],
+              },
+              LeftNode: {
+                ApiName: "Status",
+                Operation: "IsEqual",
+                Values: ["2"],
+              },
+            },
+          },
+        },
+      },
+      sorting: [{
+        Field: "ActionDateTime",
+        Ascending: false
+      }],
+      pageSize: 3,
+      page: 1,
+      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
+      requestID: id
+    });
+  }
+
+  this.getRecentTransactionForAccountCallback = function (data) {
+    this.transactionFields = blocks_config["active-order"].table
+    console.log("data", data)
+    console.log("blocks_config", JSON.stringify(blocks_config))
+    let recentOrdBtnDeeplink = ''
+    if (data && data.objects && data.objects.length) {
+      let uuid = data.objects[0].UUID ? data.objects[0].UUID : "00000000";
+      customFunction.setSessionStorage("LastOpenTransactionUUID", uuid);
+      recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
+      this.buildOpenOrdersTable(data.objects, data.requestID);
+    } else {
+      customFunction.setSessionStorage("LastOpenTransactionUUID", '');
+      recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
+      let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
+    <ul class="leaders" id="currTransactionFields">
+    `;
+      this.transactionFields.forEach(el => {
+        html += `
+      <li>
+      <span  class="dimmed">${el.text}</span>
+      <span class="bold">0</span>
+    </li>`
+      })
+
+      document.getElementById(data.requestID).style.display = "flex"
+      document.getElementById(data.requestID).style.flexDirection = "column"
+      document.getElementById(data.requestID).classList.add("sidebar-box");
+      document.getElementById(data.requestID).classList.add("sidebar-gap");
+      document.getElementById(data.requestID).innerHTML = html
+    }
+  };
+
+  this.buildOpenOrdersTable = function (data, id) {
+    console.log("active order data ->>>> ", data);
+    console.log("active order block config ->>>> ", blocks_config["active-order"].table);
+    recentOrdBtnDeeplink = 'Transactions/Cart/' + data[0].UUID;
+    var is_new = false;
+    if (data[0].Status == 1000)
+      is_new = true;
+    let html = `<div><h3 class="title-2-sm " id="currTransactionName"></h3> <a>See All</a> </div><ul class="leaders" id="currTransactionFields">`;
+    this.transactionFields.forEach(el => {
+        html += `<li>
+    <span  class="dimmed">${el.text}</span>
+    <span class="bold">${is_new ? 0 : data[0][el.field]}$</span>
+  </li>`
+    })
+    html += `</ul>`
+    document.getElementById(id).style.display = "flex"
+    document.getElementById(id).style.flexDirection = "column"
+    document.getElementById(id).classList.add("sidebar-box");
+    document.getElementById(id).classList.add("sidebar-gap");
+    document.getElementById(id).innerHTML = html
+    document.getElementById("currTransactionName").innerHTML = "Open Orders"
+  };
+
+
 }.apply(customHomepage));

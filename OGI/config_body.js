@@ -5,13 +5,13 @@ var blocks_config = {
     {
         name: "My Current Order",
         table: [{
-            text: "Sub Total",
-            field: "SubTotal"
+            text: "Order ID",
+            field: "InternalID"
         }, {
-            text: "Total Quantity",
-            field: "QuantitiesTotal"
+            text: "Total",
+            field: "GrandTotal"
         }, {
-            text: "Total Sum",
+            text: "Frames",
             field: "GrandTotal"
         }]
     }
