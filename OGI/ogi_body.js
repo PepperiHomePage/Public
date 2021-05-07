@@ -271,7 +271,7 @@ var customHomepage = {};
       this.accountUUID = this.getSessionStorage("accountUUID") || "";
     } else if (data) {
       this.accountUUID = data.accountUUID
-      customFunction.setSessionStorage("accountUUID",  data.accountUUID)
+      customFunction.setSessionStorage("accountUUID", data.accountUUID)
     }
     customFunction.getCatalogs('customHomepage');
   };
@@ -282,7 +282,7 @@ var customHomepage = {};
   this.buildHTML = function () {
     //try to remove ifelse, settimeout also remove
 
-    customFunction.closeAllMenusListener();   
+    customFunction.closeAllMenusListener();
     customFunction.carousel("carousal-content", CaruselData)
     customFunction.drawImagesBlocks("brands", Brands)
     customFunction.drawPromotions("promotions", Promotions)
@@ -319,12 +319,12 @@ var customHomepage = {};
       <div class="levelInfo">
           <span class='levelUp'>Frames needed to Level Up</span><span class="level">${data.object.TSAFramesNextLevel}</span>
       </div>`
-      dealerLevel.innerHTML = html
+    dealerLevel.innerHTML = html
   }
 
 
 
-  this.findTransactionForSelectedAccount = function (uuid) {   
+  this.findTransactionForSelectedAccount = function (uuid) {
     console.log("uuid -----> ", uuid)
     this.accountUUID = uuid;
     customFunction.setSessionStorage("accountUUID", uuid);
@@ -338,8 +338,8 @@ var customHomepage = {};
       customHomepage.activeOrder(customFunction.transactionName, blocks_config["active-order"].table, uuid, "active-order")
     }
     if (blocks_config["submitted_orders"]) {
-      customFunction.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
-    } 
+      customHomepage.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
+    }
     customHomepage.getDealerlevel(uuid)
   }
 
@@ -439,14 +439,13 @@ var customHomepage = {};
     var is_new = false;
     if (data[0].Status == 1000)
       is_new = true;
-    let html = `<div><h3 class="title-2-sm " id="currTransactionName"></h3> <a>See All</a> </div><ul class="leaders" id="currTransactionFields">`;
-    this.transactionFields.forEach(el => {
-        html += `<li>
-    <span  class="dimmed">${el.text}</span>
-    <span class="bold">${is_new ? 0 : data[0][el.field]}$</span>
-  </li>`
+    let html = `<div><h3 class="title-2-sm " id="currTransactionName"></h3> <a>See All</a> </div>`;
+    data.objects.forEach(element => {
+      let deepLink = "/transactions/cart/" + element.UUID;
+
+      html += `<ul class="leaders" id="currTransactionFields">`
+      html += `<li><span  class="dimmed">Order ID</span><span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</span></li><li><span  class="dimmed">Total</span><span class="bold">${element.GrandTotal}$</span></li><li><span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}$</span></li></ul>`
     })
-    html += `</ul>`
     document.getElementById(id).style.display = "flex"
     document.getElementById(id).style.flexDirection = "column"
     document.getElementById(id).classList.add("sidebar-box");
@@ -456,4 +455,88 @@ var customHomepage = {};
   };
 
 
+
+  customHomepage.submitedOrders = function (transactionName, fields, accountUUID, id) {
+    pepperi.api.transactions.search({
+      fields: [
+        "UUID",
+        ...fields
+      ],
+      filter: {
+        Operation: "AND",
+        RightNode: {
+          ApiName: "ActionDateTime",
+          Operation: "InTheLast",
+          Values: ["4", "Weeks"],
+        },
+        LeftNode: {
+          Operation: "AND",
+          RightNode: {
+            ApiName: "Type",
+            Operation: "IsEqual",
+            Values: [transactionName],
+          },
+          LeftNode: {
+            Operation: "AND",
+            RightNode: {
+              ApiName: "Account.UUID",
+              Operation: "IsEqual",
+              Values: [accountUUID],
+            },
+            LeftNode: {
+              ApiName: "Hidden",
+              Operation: "IsEqual",
+              Values: ['false'],
+            },
+          },
+        },
+      },
+      sorting: [{
+        Field: "ActionDateTime",
+        Ascending: false
+      }],
+      pageSize: 4,
+      page: 1,
+      responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
+      requestID: id
+    });
+  };
+  this.getRecentSubmittedTransactionForAccountCallback = function (data) {
+    console.log("transaction data ------> ", data);
+    if (data && data.objects && data.objects.length) {
+      customHomepage.buildSubmittedOrdersTable(data.objects, data.requestID);
+    } else {
+      document.getElementById(data.requestID).style.display = "flex"
+      document.getElementById(data.requestID).innerHTML = `<h3 class="title-2-sm " id="submitted_orders_name">Submitted Orders</h3>
+      <hr>
+      <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
+        `;
+
+    }
+  };
+  this.buildSubmittedOrdersTable = function (data, id) {
+    let tableHtml = "";
+    let Container = document.getElementById(id);
+    tableHtml += `
+    <h3 class="title-2-sm " id="submitted_orders_name">${blocks_config['submitted_orders'].name
+  
+  }</h3><hr>
+    <ul id="open-orders" class="leaders">`
+    data.forEach((element) => {
+      let dateValue = new Date(element.ActionDateTime).toLocaleDateString();
+      let deepLink = "/transactions/cart/" + element.UUID;
+      tableHtml += `
+                    <li>
+                    <span  class="dimmed">${dateValue}</span>
+                    <span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</a></span>
+                  </li>
+                      
+            `;
+    });
+    tableHtml += `</ul>`
+    document.getElementById(id).classList.add("sidebar-box");
+    document.getElementById(id).style.display = "flex"
+    Container.innerHTML = tableHtml;
+
+  };
 }.apply(customHomepage));

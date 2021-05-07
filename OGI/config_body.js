@@ -12,7 +12,7 @@ var blocks_config = {
             field: "GrandTotal"
         }, {
             text: "Frames",
-            field: "GrandTotal"
+            field: "QuantitiesTotal"
         }]
     }
     ,
@@ -20,6 +20,9 @@ var blocks_config = {
         name: "Last Orders",
         statuses: ["2"],
         table: ["ActionDateTime", "InternalID"]
+    },
+    'third_block':{
+        
     }
 }
 var Brands = [
