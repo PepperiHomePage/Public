@@ -20,22 +20,19 @@ var blocks_config = {
         name: "Last Orders",
         statuses: ["2"],
         table: ["ActionDateTime", "InternalID"]
-    },
-    'third_block':{
-        
     }
 }
 var Brands = [
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Ogi%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_OGI.jpg',
     },
     {
-        link: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Seraphin%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Seraphin.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Red%20Rose%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Red%20Rose.jpg',
     },
     {
@@ -43,11 +40,11 @@ var Brands = [
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Shimmer.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Ogi%20Kids%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%20Kids%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_OGI%20Kids.jpg',
     },
     {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.MainCategory%5C",%5C"Value%5C":%5C"Scojo%5C"%7D"&TopPadding=0&SearchAll=false',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Scojo%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_SCOJO.jpg',
     }]
 //Promotions block
@@ -75,7 +72,6 @@ var Promotions = [
 ]
 
 var CaruselData = [{
-
     title: 'View Seraphin Spring 2021 Collection',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselSeraphin.jpg',
     buttonText: 'See the Collection',
@@ -83,7 +79,6 @@ var CaruselData = [{
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
 {
-
     title: "The Sky's the Limit with OGI Eyewear",
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselOGI.jpg',
     buttonText: 'See the Collection',
@@ -91,7 +86,6 @@ var CaruselData = [{
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
 {
-
     title: 'New Seraphin Shimmer Capsule Collection',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselShimmer.jpg',
     buttonText: 'See the Collection',
@@ -99,7 +93,6 @@ var CaruselData = [{
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.TSASeries%5C",%5C"Value%5C":%5C"Shimmer%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
 {
-
     title: 'Discover Red Rose Fresh Styles',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselRR.jpg',
     buttonText: 'See the Collection',

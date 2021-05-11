@@ -180,11 +180,9 @@ var customHomepage = {};
                   
                 </div>
           
-                <hr class="sidebar-gap">
-          
-                <div id="submitted_orders" style="display:none">
-                  
-                </div>
+                <div id="submitted_orders" style="display:none"></div>
+
+                <div id="user_info"></div>
                 <div id="overlay"></div>
               </div>
           
@@ -341,6 +339,8 @@ var customHomepage = {};
       customHomepage.submitedOrders(customFunction.transactionName, blocks_config["submitted_orders"].table, uuid, "submitted_orders")
     }
     customHomepage.getDealerlevel(uuid)
+
+    customHomepage.getUserInfo(uuid)
   }
 
   customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
@@ -439,12 +439,12 @@ var customHomepage = {};
     var is_new = false;
     if (data[0].Status == 1000)
       is_new = true;
-    let html = `<div><h3 class="title-2-sm " id="currTransactionName"></h3> <a>See All</a> </div>`;
-    data.objects.forEach(element => {
+    let html = `<div style="display:flex"><h3 class="title-2-sm " id="currTransactionName"></h3> <span class="bold"><a onClick="customFunction.navigation('list/all_activities'>See All</a></span></div>`;
+    data.forEach(element => {
       let deepLink = "/transactions/cart/" + element.UUID;
 
       html += `<ul class="leaders" id="currTransactionFields">`
-      html += `<li><span  class="dimmed">Order ID</span><span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</span></li><li><span  class="dimmed">Total</span><span class="bold">${element.GrandTotal}$</span></li><li><span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}$</span></li></ul>`
+      html += `<li><span  class="dimmed">Order ID</span><span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</a></span></li><li><span  class="dimmed">Total</span><span class="bold">${element.GrandTotal}$</span></li><li><span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}$</span></li></ul>`
     })
     document.getElementById(id).style.display = "flex"
     document.getElementById(id).style.flexDirection = "column"
@@ -518,9 +518,8 @@ var customHomepage = {};
     let tableHtml = "";
     let Container = document.getElementById(id);
     tableHtml += `
-    <h3 class="title-2-sm " id="submitted_orders_name">${blocks_config['submitted_orders'].name
-  
-  }</h3><hr>
+    <h3 class="title-2-sm " id="submitted_orders_name">${blocks_config['submitted_orders'].name}</h3>
+    <hr>
     <ul id="open-orders" class="leaders">`
     data.forEach((element) => {
       let dateValue = new Date(element.ActionDateTime).toLocaleDateString();
@@ -539,4 +538,39 @@ var customHomepage = {};
     Container.innerHTML = tableHtml;
 
   };
+
+  customHomepage.getUserInfo = function (uuid) {
+
+    pepperi.api.accounts.get({
+      key: {
+        UUID: uuid
+      },
+      fields: ["TSARepFullName", "Email", "Phone"],
+      responseCallback: "customHomepage.buildUserInfo"
+    });
+
+  }
+
+  customHomepage.buildUserInfo = function (data) {
+    console.log(data);
+    var imgName = data.object.TSARepFullName.replaceAll(" ","-")
+    imgName = imgName.toLowerCase()
+    console.log(imgName)
+    
+    var html = '';
+    html = `<div>
+              <h3 class="title-2-sm">${data.object.TSARepFullName}</h3>
+              <hr>
+              <span class="bold"><a href="">${data.object.Email}</a></span>
+              <span class="bold"><a href="">${data.object.Phone}</a></span>
+              <div>
+                  <img src="https://pepperihomepage.github.io/Public/OGI/img/${imgName}.jpg" alt="">
+              </div>
+            </div>`
+    document.getElementById("user_info").innerHTML = html
+
+  }
+
+
+
 }.apply(customHomepage));
