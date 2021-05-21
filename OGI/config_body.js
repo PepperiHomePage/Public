@@ -1,5 +1,6 @@
 var Transaction = 'Buyer Order';
 var Catalog='ALL'
+const logo = 'https://assets2.brandfolder.io/bf-boulder-prod/qeawf1-8ab1pk-742hwo/v/25188232/original/OGI_Eyewear_Standard_RGB.png'
 var blocks_config = {
     'active-order':
     {
