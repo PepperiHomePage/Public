@@ -86,12 +86,13 @@ var customHomepage = {};
     var str = `
             <style>
               .brand{
-                height: 256px !important;
-                width: 256px !important;
+                height: 256px;
+                width: 256px;
                 background-size: contain !important;
               }
               #brands{
                 grid-template-columns: repeat(3, 1fr) !important;
+                height: fit-content;
               }
 
               #dealer_level{
@@ -115,6 +116,18 @@ var customHomepage = {};
                 font-weight: 600;
                 letter-spacing: 0.15px;
                 line-height: 24px;
+              }
+
+              .promotion{
+                height: 7.5rem !important
+              }
+
+              .wrapper{
+                height: fit-content !important;
+              }
+
+              th, td{
+                text-align: center;
               }
               
               .levelUp{
@@ -152,6 +165,111 @@ var customHomepage = {};
                 text-align: center;
                 padding: 7px 0 16px 0;
               }
+              .accountPhoto{
+                background: rgb(255, 255, 255);
+                border-radius: 4px;
+                box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 
+                0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+                height: 271px;
+                width: 256px;
+              }
+              .accountPhoto img{
+                width: 100%;
+                height: 100%;
+              }
+              .footerLinksBlocks{
+                display:flex;
+                justify-content:space-around;
+                flex-wrap:wrap;
+              }
+              footer{
+                min-height: 500px;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                max-width: 1964px;
+              }
+
+              .footerLinksBlock{
+                display: flex;
+                flex-direction:column;
+                max-width: 230px;
+                width: 100%;
+                margin-bottom:64px
+              }
+
+              .footerLinksBlock a{
+                color: rgb(23, 102, 166);
+                font-size: 14px;
+                font-weight: normal;
+                letter-spacing: 0.12px;
+                line-height: 20px;
+                padding:6px 0;
+              }
+
+              .footerLinksBlock h3{
+                color: rgba(26, 26, 26, 0.7);
+                font-size: 18px;
+                font-weight: 900;
+                letter-spacing: 0.28px;
+                line-height: 24px;
+                width: 192px;
+                padding-bottom: 16px;
+                padding-top: 24px;
+              }
+
+              .paddingTop16px{
+                padding-top:16px !important;
+              }
+              .pepperiText{
+                color: rgba(26, 26, 26, 0.7);
+                font-size: 14px;
+                font-weight: normal;
+                text-align: right;
+                letter-spacing: 0.12px;
+                line-height: 20px;
+              }
+
+              .links{
+                color: rgb(23, 102, 166);
+                font-size: 14px;
+                font-weight: normal;
+                text-align: right;
+                letter-spacing: 0.12px;
+                line-height: 20px;
+              }
+
+              .lastBlockInFooter{
+                padding-top: 16px;
+                display:flex;
+                justify-content: space-between;
+              }
+
+              .footerLink{
+                color: rgba(26, 26, 26, 0.7);
+                font-size: 16px;
+                font-weight: normal;
+                letter-spacing: 0.15px;
+                line-height: 24px;
+              }
+
+              @media screen and (max-width:1300px) {
+                .brand{
+                  height: 224px;
+                  width: 224px;
+                }
+              }
+
+              @media screen and (max-width:960px) {
+                .brand{
+                  width: 160px;
+                  height: 160px;
+                }
+                #brands{
+                  display: flex !important;
+                  flex-wrap:wrap;
+                }
+              }
+              
             </style>            
             <main class="wrapper">
             <section id="carousal-content">
@@ -169,9 +287,6 @@ var customHomepage = {};
                  
                 <div id="dealer_level">
                 </div>
-
-                <span class="termsCondition">See program’s <span>Terms & conditions here</span></span>
-
                 <hr>
           
                 <hr id ="store-selector-hr" style="display:none">
@@ -199,64 +314,76 @@ var customHomepage = {};
             </div>
           </main>
           <footer>
-          <div>
-          <div>
-              
+          <div >
+            <div>
+                <span class="footerLink rightBorder">
+                  Premium Fashion Eyewear | OGI Eyewear
+                  OGI Eyewear
+                </span>
+            </div>
+            <div> 
+              <a href="https://www.facebook.com/ogiframes"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Facebook.svg" alt=""></a>
+              <a href="https://www.linkedin.com/company/ogi-eyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
+              <a href="https://twitter.com/OgiEyewear"><img src="" alt="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Twitter.svg"></a>
+              <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Youtube.svg" alt=""></a>
+              <a href="https://www.instagram.com/ogieyewear/"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
+            </div>
           </div>
-          <div>
-      
+          <hr>
+          <div class="footerLinksBlocks">
+            <div class="footerLinksBlock">
+              <h3>OGI EYEWEAR</h3>
+              <hr>
+              <a class="paddingTop16px" href="https://www.ogieyewear.com/our-story">Our Story</a>
+              <a href="https://brandfolder.com/s/77xf3gtqwhh4fh9xbj47f">General Terms and Conditions</a>
+              <a href="https://www.ogieyewear.com/news">News</a>
+              <a href="https://www.ogieyewear.com/ogi-in-press">OGI in Press</a>
+              <a href="https://www.ogieyewear.com/sustainability">Sustainability</a>
+              <a href="https://www.ogieyewear.com/privacy-policy">Privacy</a>
+            </div>
+            <div class="footerLinksBlock">
+              <h3>BRAND FOLDER</h3>
+              <hr>
+              <a class="paddingTop16px" href="https://brandfolder.com/s/fhkj88mvt7j3nztghm54k4s7">OGI creative assets</a>
+              <a href="https://brandfolder.com/s/w4mx7vckxn7psjxc8tb7wbcr">Seraphin creative assets</a>
+              <a href="https://brandfolder.com/s/2tfzs9rb29pf7g6f8r5sxn6">Seraphin Shimmer creative assets</a>
+              <a href="https://brandfolder.com/s/ncnck6xkjxcrg3mk4nn2w4h">Red Rose creative assets</a>
+              <a href="https://brandfolder.com/s/8khfg5jh3ps5sknx5nxsvp">OGI Kids creative assets</a>
+              <a href="https://brandfolder.com/s/hgx5q88854tcbvq88t4bms">SCOJO New York creative assets</a>
+            </div>
+            <div class="footerLinksBlock">
+              <h3>SOCIAL MEDIA</h3>
+              <hr>
+              <a class="paddingTop16px" href="https://www.linkedin.com/company/ogi-eyewear">LinkedIn</a>
+              <a href="https://www.facebook.com/ogiframes">Facebook</a>
+              <a href="https://twitter.com/OgiEyewear">Twitter</a>
+              <a href="https://www.instagram.com/ogieyewear/">Instagram</a>
+              <a href="https://www.pinterest.com/ogieyewear/">Pinterest</a>
+              <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg">Youtube</a>
+            </div>
+            <div class="footerLinksBlock"s>
+              <h3>CONTACT US</h3>
+              <hr>
+              <a class="paddingTop16px" href="https://www.ogieyewear.com/ogi-sales-team">Sales Team</a>
+              <a href="https://www.ogieyewear.com/ogi-customer-relations">Customer Relations</a>
+              <a href="https://www.ogieyewear.com/shipping-returns">Shipping & Returns</a>
+              <a href="https://www.ogieyewear.com/ogi-creative-team">Creative Team</a>
+              <a href="https://www.ogieyewear.com/ogi-administration">Administration</a>
+              <a href="https://www.ogieyewear.com/ogi-ceo">CEO</a>
+            </div>
           </div>
-      </div>
-      <table>
-          <tr>
-              <th>Title</th>
-              <th>Title</th>
-              <th>Title</th>
-              <th>Title</th>
-              <th>Title</th>
-          </tr>
-          <tr>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-          </tr>
-          <tr>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-          </tr>
-          <tr>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-          </tr>
-          <tr>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-          </tr>
-          <tr>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-              <td>Item</td>
-          </tr>
-      </table>
-          </footer>
+        <hr>
+        <div class="lastBlockInFooter">
+            <div>
+              <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo2" src="" />
+            </div>
+            <div>
+              <span class="pepperiText">© Pepperi 2021</span>
+              <span class="links"><a href="https://www.pepperi.com/privacy-policy/">Privacy Policy</a></span>
+              <span class="links"><a href="https://www.pepperi.com/cookie-policy/">Cookie Policy</a></span>
+            </div>
+        </div>
+      </footer>
     `;
     return str;
   };
@@ -279,6 +406,7 @@ var customHomepage = {};
   //end  
   this.buildHTML = function () {
     //try to remove ifelse, settimeout also remove
+    $("#logo2").attr("src", logo);
 
     customFunction.closeAllMenusListener();
     customFunction.carousel("carousal-content", CaruselData)
@@ -414,14 +542,13 @@ var customHomepage = {};
       customFunction.setSessionStorage("LastOpenTransactionUUID", '');
       recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
       let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
-    <ul class="leaders" id="currTransactionFields">
-    `;
+    <ul class="leaders" id="currTransactionFields">`;
       this.transactionFields.forEach(el => {
         html += `
       <li>
-      <span  class="dimmed">${el.text}</span>
-      <span class="bold">0</span>
-    </li>`
+        <span  class="dimmed">${el.text}</span>
+        <span class="bold">0</span>
+      </li>`
       })
 
       document.getElementById(data.requestID).style.display = "flex"
@@ -439,12 +566,25 @@ var customHomepage = {};
     var is_new = false;
     if (data[0].Status == 1000)
       is_new = true;
-    let html = `<div style="display:flex"><h3 class="title-2-sm " id="currTransactionName"></h3> <span class="bold"><a onClick="customFunction.navigation('list/all_activities'>See All</a></span></div>`;
+    let html = `<div style="display:flex">
+                  <h3 class="title-2-sm" id="currTransactionName"></h3> 
+                  <span class="bold"><a onClick="customFunction.navigation('list/all_activities')">See All</a></span>
+                </div>`;
     data.forEach(element => {
       let deepLink = "/transactions/cart/" + element.UUID;
 
-      html += `<ul class="leaders" id="currTransactionFields">`
-      html += `<li><span  class="dimmed">Order ID</span><span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</a></span></li><li><span  class="dimmed">Total</span><span class="bold">${element.GrandTotal}$</span></li><li><span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}$</span></li></ul>`
+      html += `<ul class="leaders">
+                <li>
+                  <span  class="dimmed">Order ID</span>
+                  <span class="bold"><a onClick="customFunction.navigation('${deepLink}')">${element.InternalID}</a></span>
+                </li>
+                <li>
+                  <span  class="dimmed">Total</span><span class="bold">${element.GrandTotal}$</span>
+                </li>
+                <li>
+                  <span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}$</span>
+                </li>
+              </ul>`
     })
     document.getElementById(id).style.display = "flex"
     document.getElementById(id).style.flexDirection = "column"
@@ -469,7 +609,7 @@ var customHomepage = {};
           Operation: "InTheLast",
           Values: ["4", "Weeks"],
         },
-        LeftNode: {
+        LeftNode: { 
           Operation: "AND",
           RightNode: {
             ApiName: "Type",
@@ -511,7 +651,6 @@ var customHomepage = {};
       <hr>
       <ul id="open-orders" class="leaders"><li>No submitted orders for this account</li></ul>
         `;
-
     }
   };
   this.buildSubmittedOrdersTable = function (data, id) {
@@ -540,12 +679,11 @@ var customHomepage = {};
   };
 
   customHomepage.getUserInfo = function (uuid) {
-
     pepperi.api.accounts.get({
       key: {
         UUID: uuid
       },
-      fields: ["TSARepFullName", "Email", "Phone"],
+      fields: ["TSAMainRepName", "TSARepEmail", "TSAMainRepMobile"],
       responseCallback: "customHomepage.buildUserInfo"
     });
 
@@ -553,22 +691,26 @@ var customHomepage = {};
 
   customHomepage.buildUserInfo = function (data) {
     console.log(data);
-    var imgName = data.object.TSARepFullName.replaceAll(" ","-")
+    var imgName = data.object.TSAMainRepName.replaceAll(" ","-")
     imgName = imgName.toLowerCase()
     console.log(imgName)
     
     var html = '';
     html = `<div>
-              <h3 class="title-2-sm">${data.object.TSARepFullName}</h3>
+              <h3 class="title-2-sm">${data.object.TSAMainRepName}</h3>
               <hr>
-              <span class="bold"><a href="">${data.object.Email}</a></span>
-              <span class="bold"><a href="">${data.object.Phone}</a></span>
-              <div>
+              <span class="bold"><a href="">${data.object.TSAMainRepMobile}</a></span>
+              <span class="bold"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="">${data.object.TSARepEmail}</a></span>
+              <div class="accountPhoto">
                   <img src="https://pepperihomepage.github.io/Public/OGI/img/${imgName}.jpg" alt="">
               </div>
             </div>`
     document.getElementById("user_info").innerHTML = html
 
+  }
+
+  customHomepage.buildUserInfo2 = function (data) {
+    console.log(data);
   }
 
 

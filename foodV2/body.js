@@ -1322,7 +1322,7 @@ style="background-image: url('${value.imageURL}')">
         };
         pepperi.api.accounts.search(bridgeObject);
     }
-    this.setAccountInternalID = function(data) {
+     = function(data) {
         var self = this;
         this.AccountInternalID = data.objects.filter(el => {
             return el.UUID.replace(/-/g, '') == self.accountUUID

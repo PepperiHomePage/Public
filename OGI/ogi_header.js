@@ -61,14 +61,21 @@ var customHeader = {};
               0px 32px 64px 0px rgba(0, 0, 0, 0.06);
               height: 224px;
               width: 219px;
+              overflow:hidden;
             }
             [class*="dropdown-content"] li{
               font-size: 14px !important;
               font-weight: normal !important;
-              height: 20px !important;
               letter-spacing: 0.12px !important;
               line-height: 20px !important;
-              text-align: center
+              text-align: center;
+              padding: 0 !important;
+              color: rgb(26, 26, 26);
+
+            }
+
+            [class*="dropdown-content"] li:hover{
+              color: rgb(23, 102, 166);
             }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
