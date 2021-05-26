@@ -67,6 +67,13 @@ const RightMenu = [
   {
     catalog: "ALL",
     transaction: "Buyer Order",
+    title: "Go to Cart",
+    action: "setUUIDandNav",
+    customFunction: "openLastTransaction"
+  },
+  {
+    catalog: "ALL",
+    transaction: "Buyer Order",
     title: "Favorites",
     icon:`          
 	<svg class="end-icon" xmlns="http://www.w3.org/2000/svg" style="width:24px !important;height:24px !important" viewBox="0 0 24 24">
@@ -81,11 +88,6 @@ const RightMenu = [
     action:"navigation",
     deepLink: 'list/all_activities'
   },
-  {
-    title: "Support",
-    action:"zendesk",
-    deepLink: 'list/all_activities'
-  }
 ]
 /*actions:
 

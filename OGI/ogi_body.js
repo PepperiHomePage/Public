@@ -242,6 +242,7 @@ var customHomepage = {};
                 padding-top: 16px;
                 display:flex;
                 justify-content: space-between;
+                flex-wrap: wrap;
               }
 
               .footerLink{
@@ -250,6 +251,10 @@ var customHomepage = {};
                 font-weight: normal;
                 letter-spacing: 0.15px;
                 line-height: 24px;
+              }
+
+              .response-menu{
+                background-color: black !important;
               }
 
               @media screen and (max-width:1300px) {
@@ -269,14 +274,45 @@ var customHomepage = {};
                   flex-wrap:wrap;
                 }
               }
-              
+              .socialMedia{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap:wrap
+              }
+
+              .socialMedia a {
+                width: 24px;
+                height: 24px;
+              }
+
+              .socialMedia a img{
+                width:24px;
+                height: 24px;
+              }
+              #sidebar{
+                display: flex;
+                justify-content: flex-end;
+              }
+              .sidebar-menu{
+                width: 304px
+              }
+              #btn{
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 600;
+                text-align: center;
+                letter-spacing: 0.16px;
+                line-height: 28px;
+                background: rgb(0, 0, 0);
+                border-radius: 0px;
+              }
             </style>            
             <main class="wrapper">
             <section id="carousal-content">
             </section>
             <aside id="sidebar">
               <div id="response-menu" class="response-menu">
-                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">Open menu</button>
+                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">Open Sidebar Menu</button>
               </div>
           
               <div id="sidebar-sm" class="sidebar-menu">
@@ -314,7 +350,7 @@ var customHomepage = {};
             </div>
           </main>
           <footer>
-          <div >
+          <div class="socialMedia">
             <div>
                 <span class="footerLink rightBorder">
                   Premium Fashion Eyewear | OGI Eyewear
@@ -324,7 +360,7 @@ var customHomepage = {};
             <div> 
               <a href="https://www.facebook.com/ogiframes"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Facebook.svg" alt=""></a>
               <a href="https://www.linkedin.com/company/ogi-eyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
-              <a href="https://twitter.com/OgiEyewear"><img src="" alt="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Twitter.svg"></a>
+              <a href="https://twitter.com/OgiEyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Twitter.svg" alt=""></a>
               <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Youtube.svg" alt=""></a>
               <a href="https://www.instagram.com/ogieyewear/"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
             </div>

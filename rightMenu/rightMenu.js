@@ -12,8 +12,7 @@ customHeader.RightMenu = function(RightMenu){
                 d="M19,16 C19.5522847,16 20,16.4477153 20,17 C20,17.5522847 19.5522847,18 19,18 L5,18 C4.44771525,18 4,17.5522847 4,17 C4,16.4477153 4.44771525,16 5,16 L19,16 Z M19,11 C19.5522847,11 20,11.4477153 20,12 C20,12.5522847 19.5522847,13 19,13 L5,13 C4.44771525,13 4,12.5522847 4,12 C4,11.4477153 4.44771525,11 5,11 L19,11 Z M19,6 C19.5522847,6 20,6.44771525 20,7 C20,7.55228475 19.5522847,8 19,8 L5,8 C4.44771525,8 4,7.55228475 4,7 C4,6.44771525 4.44771525,6 5,6 L19,6 Z" />
         </svg>
     </button>
-    <div class="dropdown-content-end" id="menuDropdown">
-    </div>
+    
 </div>
 <div class="dropdown">
     <button class="button-weak button-icon" onclick="customHeader.closeHamburgerMenu()">
