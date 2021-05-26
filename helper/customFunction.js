@@ -54,7 +54,8 @@ customFunction.createNewActivityCallback = function (res) {
   }
 };
 customFunction.handleAction = function (item, nameOfMainJs) {
-  var deepLink = item.deepLink.replace(/\"/g, '%22');
+  if(item.deepLink)
+    var deepLink = item.deepLink.replace(/\"/g, '%22');
   switch (item.action) {
     case 'navigation':
       return `customFunction.navigation('${deepLink}')`;
