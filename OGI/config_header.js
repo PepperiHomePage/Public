@@ -68,7 +68,6 @@ const RightMenu = [
     catalog: "ALL",
     transaction: "Buyer Order",
     title: "Go to Cart",
-    action: "setUUIDandNav",
     customFunction: "openLastTransaction"
   },
   {
