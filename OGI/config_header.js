@@ -52,7 +52,8 @@ const LeftMenu = [
     title: "Collections",
     customFunction: "customHeader.openDropDown()",
     id: "select-menu-header",
-    customHtmlTag : "ul"
+    customHtmlTag : "ul",
+    splecialConfig : true
   },
   {
     catalog: "ALL",

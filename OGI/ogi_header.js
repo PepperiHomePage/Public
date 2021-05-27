@@ -173,7 +173,7 @@ var customHeader = {};
       document.getElementById('mobileVersion').innerHTML += htmlStr;
     }
     if (document.getElementById('select-menu-header')) {
-      document.getElementById('select-menu-header').innerHTML = htmlStr;
+      document.getElementById('select-menu-header').innerHTML += htmlStr;
     }
   }
   this.openDropDown = function () {
@@ -302,6 +302,10 @@ var customHeader = {};
         if (window.innerWidth <= 960){
           classMenu = "active"
           htmlTag = "li"
+        }
+        if (item.specialConfig){
+          htmlStr += `<div><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
+
         }
         htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag} id="${item.id ? item.id : ''}"  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
       }
