@@ -53,7 +53,7 @@ const LeftMenu = [
     customFunction: "customHeader.openDropDown()",
     id: "select-menu-header",
     customHtmlTag : "ul",
-    splecialConfig : true
+    specialConfig : true
   },
   {
     catalog: "ALL",
