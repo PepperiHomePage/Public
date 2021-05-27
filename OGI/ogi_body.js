@@ -306,6 +306,18 @@ var customHomepage = {};
                 background: rgb(0, 0, 0);
                 border-radius: 0px;
               }
+
+              #user_info{
+                display:flex;
+                flex-direction:column;
+              }
+              .userEmailAndPhone{
+                display:flex;
+                align-items: center;
+              }
+              .userEmailAndPhone img{
+                padding-right: 12px
+              }
             </style>            
             <main class="wrapper">
             <section id="carousal-content">
@@ -362,7 +374,7 @@ var customHomepage = {};
               <a href="https://www.linkedin.com/company/ogi-eyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
               <a href="https://twitter.com/OgiEyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Twitter.svg" alt=""></a>
               <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Youtube.svg" alt=""></a>
-              <a href="https://www.instagram.com/ogieyewear/"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
+              <a href="https://www.instagram.com/ogieyewear/"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Instagram.svg" alt=""></a>
             </div>
           </div>
           <hr>
@@ -732,15 +744,14 @@ var customHomepage = {};
     console.log(imgName)
     
     var html = '';
-    html = `<div>
-              <h3 class="title-2-sm">${data.object.TSAMainRepName}</h3>
+    html = `<h3 class="title-2-sm">${data.object.TSAMainRepName}</h3>
               <hr>
-              <span class="bold"><a href="">${data.object.TSAMainRepMobile}</a></span>
-              <span class="bold"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="">${data.object.TSARepEmail}</a></span>
+              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-phone.svg" alt=""><a href="">${data.object.TSAMainRepMobile}</a></span>
+              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="">${data.object.TSARepEmail}</a></span>
               <div class="accountPhoto">
                   <img src="https://pepperihomepage.github.io/Public/OGI/img/${imgName}.jpg" alt="">
               </div>
-            </div>`
+            `
     document.getElementById("user_info").innerHTML = html
 
   }

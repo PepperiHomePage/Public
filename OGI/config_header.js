@@ -49,6 +49,11 @@ const DropDown = [
 ];
 const LeftMenu = [
   {
+    title: "Collections",
+    customFunction: "customHeader.openDropDown()",
+    id: "select-menu-header"
+  },
+  {
     catalog: "ALL",
     transaction: "Buyer Order",
     title: "New Arrivals",

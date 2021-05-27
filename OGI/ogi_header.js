@@ -30,7 +30,6 @@ var customHeader = {};
   this.catalogs;
   this.jsFilePath = 'https://pepperihomepage.github.io/Public/OGI/config_header.js'
   this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/header_helper.js'
-  this.leftMenuJsonPath = 'https://pepperihomepage.github.io/Public/leftMenu/leftMenu.js'
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-header.css";
 
@@ -77,6 +76,7 @@ var customHeader = {};
               left:0 !important;
               height: fit-content !important;
               width: 288px !important;
+              max-height: none
             }
 
             [class*="dropdown-content"] li:hover{
@@ -88,12 +88,7 @@ var customHeader = {};
             </div>
             <div class="wrp">
               <div class="header-start"> 
-                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />
-                <div  class="links hidden-on-mobile" onclick="customHeader.openDropDown()">
-                      <p role="label" class=" link" id="selected-account-header">Collections</p>
-                      <ul class="dropdown-content" id="select-menu-header" role="select">
-                      </ul>                                            
-                </div>                                 
+                <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo" src="" />                              
                 <div id="header_btn_bar" class="links hidden-on-mobile">      
                 </div>
               </div>
@@ -115,7 +110,6 @@ var customHeader = {};
         this.jsFilePath,
         this.customHelperJsonPath,
         this.helperJsonPath,
-        this.leftMenuJsonPath,
       ],
       cssURLs: [this.cssFilePath],
       favIcon: this.favIconURL,
@@ -131,8 +125,8 @@ var customHeader = {};
 
     var data = JSON.parse(context.pluginData);
     if (data) {
-      this.transactionName = data.typeName || '';
-      this.accountUUID = data.accountUUID || '';
+      customHeader.transactionName = data.typeName || '';
+      customHeader.accountUUID = data.accountUUID || '';
     }
     customHeader.getAccountStatus();
     customFunction.getCatalogs("customHeader");
@@ -184,7 +178,7 @@ var customHeader = {};
     let dropdownMenuMob = ''
     let rightSideHtmlStr = ''
     for (const item of RightMenu) {
-      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}${item.icon ? item.icon : ''}</button>`;
+      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${item.customFunction ? 'customHeader.'+item.customFunction +'()' : customFunction.handleAction(item, "customHeader")}">${item.title}${item.icon ? item.icon : ''}</button>`;
       dropdownMenuMob += `<li class="active" onclick="${customFunction.handleAction(item,"customHeader")}"><p>${item.title}</p></li>`
     }
     let rightAddMenu = `<div class="dropdown shown-on-web">
@@ -231,5 +225,89 @@ var customHeader = {};
     }
 
   }
+  customHeader.openLastTransaction = function(){
+    pepperi.api.transactions.search({
+      fields: [
+        "UUID"
+      ],
+      filter: {
+        Operation: "AND",
+        RightNode: {
+          ApiName: "ActionDateTime",
+          Operation: "InTheLast",
+          Values: ["4", "Weeks"],
+        },
+        LeftNode: {
+          Operation: "AND",
+          RightNode: {
+            ApiName: "Type",
+            Operation: "IsEqual",
+            Values: [customHeader.transactionName],
+          },
+          LeftNode: {
+            Operation: "AND",
+            RightNode: {
+              ApiName: "Account.UUID",
+              Operation: "IsEqual",
+              Values: [customHeader.accountUUID],
+            },
+            LeftNode: {
+              Operation: "AND",
+              RightNode: {
+                ApiName: "Hidden",
+                Operation: "IsEqual",
+                Values: ['false'],
+              },
+              LeftNode: {
+                ApiName: "Status",
+                Operation: "IsEqual",
+                Values: ["1", "1000"],
+              },
+            },
+          },
+        },
+      },
+      sorting: [{ Field: "ActionDateTime", Ascending: false }],
+      pageSize: 1,
+      page: 1,
+      responseCallback: "customHeader.getRecentTransactionForAccountCallback"
+    });
+
+  }
+
+  this.getRecentTransactionForAccountCallback = function(data){
+    console.log(data);
+    if (data.success) {
+      customFunction.navigation("/Transactions/Cart/" + data.objects[0].UUID.replace(/-/g, ""));
+    }else{
+      customFunction.createNewOrder()
+    }
+  }
+
+  customHeader.HeaderLeftMenu = function(LeftMenu){
+    let htmlStr = '';
+    for (const item of LeftMenu) {
+        let classMenu = "link"
+        let htmlTag = "a"
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+          classMenu = "link"
+          htmlTag = "a"
+        }
+        if (window.innerWidth <= 960){
+          classMenu = "active"
+          htmlTag = "li"
+        }
+        htmlStr += `<${htmlTag} id="${item.id ? item.id : ''}"  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${htmlTag}>`;
+      }
+      if (document.getElementById('header_btn_bar')) {
+        document.getElementById('header_btn_bar').innerHTML = htmlStr;
+      }
+      if (document.getElementById('menuDropdown')) {
+        document.getElementById('menuDropdown').innerHTML += htmlStr;   
+      }
+      document.getElementById("userNameText").innerHTML = customHeader.context.userName
+}
+
+
 
 }.apply(customHeader));
