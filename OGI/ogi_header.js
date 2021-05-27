@@ -72,6 +72,10 @@ var customHeader = {};
 
             }
 
+            .links {
+              display: flex
+            }
+
             #menuDropdown{
               left:0 !important;
               height: fit-content !important;
@@ -162,6 +166,8 @@ var customHeader = {};
 
       htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
     }
+
+    console.log("select-menu-header",document.getElementById('select-menu-header'));
 
     if (document.getElementById('mobileVersion')) {
       document.getElementById('mobileVersion').innerHTML += htmlStr;
@@ -297,7 +303,7 @@ var customHeader = {};
           classMenu = "active"
           htmlTag = "li"
         }
-        htmlStr += `<${htmlTag} id="${item.id ? item.id : ''}"  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${htmlTag}>`;
+        htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag} id="${item.id ? item.id : ''}"  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
       }
       if (document.getElementById('header_btn_bar')) {
         document.getElementById('header_btn_bar').innerHTML = htmlStr;
