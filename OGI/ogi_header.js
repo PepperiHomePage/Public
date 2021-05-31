@@ -97,7 +97,15 @@ var customHeader = {};
               left:0;
               top:0;
               max-height: none;
-            } 
+              height: 100%
+            }
+            .select-menu-header-mobile-header{
+              display: flex;
+              align-items: center;
+            }
+            .select-menu-header-mobile-header h1{
+              
+            }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="dropdown-content-end" id="menuDropdown">
@@ -327,7 +335,7 @@ var customHeader = {};
     let htmlStr = '';
 
     if (window.innerWidth <= 960) {
-      htmlStr += `<div>
+      htmlStr += `<div class="select-menu-header-mobile-header">
                     <button class="button-weak button-icon" onclick="customHeader.closeMenu()">
                       <img style="width:24px !important;height:24px !important" src="https://pepperihomepage.github.io/Public/OGI/img/arrow-pointing-to-left-svgrepo-com.svg" alt="">
                     </button>
@@ -352,7 +360,9 @@ var customHeader = {};
     console.log("select-menu-header html", htmlStr);
 
     if (document.getElementById('select-menu-header-mobile')) {
-      document.getElementById('select-menu-header-mobile').innerHTML += htmlStr + ``;
+      document.getElementById('select-menu-header-mobile').innerHTML += htmlStr + `<hr><button class="button-weak button-icon" onclick="customHeader.closeMenu()">
+      <img style="width:24px !important;height:24px !important" src="https://pepperihomepage.github.io/Public/OGI/img/x-symbol-svgrepo-com.svg" alt="">
+    </button>`;
     }
     if (document.getElementById('select-menu-header')) {
       document.getElementById('select-menu-header').innerHTML += htmlStr;
