@@ -92,6 +92,12 @@ var customHeader = {};
               flex-direction: column-reverse;
               align-items: center;
             }
+            #select-menu-header-mobile{
+              position: absolute;
+              left:0;
+              top:0;
+              max-height: none;
+            } 
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="dropdown-content-end" id="menuDropdown">
@@ -160,6 +166,10 @@ var customHeader = {};
   }
   this.openDropDown = function () {
     document.getElementById('select-menu-header').classList.toggle('show')
+  }
+
+  this.openDropDownMobile = function () {
+    document.getElementById('select-menu-header-mobile').classList.toggle('show')
   }
 
   this.RightMenu = function (RightMenu) {
@@ -289,19 +299,23 @@ var customHeader = {};
         htmlTag = "li"
       }
       if (item.specialConfig) {
-        if (window.innerWidth <= 960){
-          htmlStr += `<${htmlTag} id="${item.mobileId ? item.mobileId : ''}" class="${classMenu}" onclick="${item.customFunctionMobile ? item.customFunctionMobile : customFunction.handleAction(item, "customHeader")}">${item.title}</${htmlTag}>`
-        }else{
+        if (window.innerWidth <= 960) {
+          htmlStr += `<${htmlTag} class="${classMenu}" onclick="${item.customFunctionMobile ? item.customFunctionMobile : customFunction.handleAction(item, "customHeader")}"><p role="label" class="link">${item.title}</p><ul class="dropdown-content"id="${item.mobileId ? item.mobileId : ''}" role="select"></ul></${htmlTag}>`
+        } else {
           htmlStr += `<div class="links hidden-on-mobile" onclick="customHeader.openDropDown()"><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
         }
       } else {
-        htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
+        if (window.innerWidth <= 960) {
+          htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}"><p role="label" class="link">${item.title}</p></${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
+        }else{
+          htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
+        }
       }
     }
 
     if (window.innerWidth <= 960) {
       document.getElementById('menuDropdownUl').innerHTML += htmlStr + '</ul>';
-    }else{
+    } else {
       document.getElementById('header_btn_bar').innerHTML = htmlStr;
     }
     document.getElementById("userNameText").innerHTML = customHeader.context.userName
@@ -311,6 +325,16 @@ var customHeader = {};
 
   this.buildSelectMenuHeader = function () {
     let htmlStr = '';
+
+    if (window.innerWidth <= 960) {
+      htmlStr += `<div>
+                    <button class="button-weak button-icon" onclick="customHeader.closeMenu()">
+                      <img style="width:24px !important;height:24px !important" src="https://pepperihomepage.github.io/Public/OGI/img/arrow-pointing-to-left-svgrepo-com.svg" alt="">
+                    </button>
+                    <h1>Categories</h1>
+                  </div>
+                  <hr>`
+    }
 
     for (const item of DropDown) {
       let classMenu = "dropdown-item"
@@ -327,13 +351,13 @@ var customHeader = {};
 
     console.log("select-menu-header html", htmlStr);
 
-    if (document.getElementById('mobileVersion')) {
-      document.getElementById('mobileVersion').innerHTML += htmlStr;
+    if (document.getElementById('select-menu-header-mobile')) {
+      document.getElementById('select-menu-header-mobile').innerHTML += htmlStr + ``;
     }
     if (document.getElementById('select-menu-header')) {
       document.getElementById('select-menu-header').innerHTML += htmlStr;
     }
-    console.log("select-menu-header",document.getElementById('select-menu-header'))
+    console.log("select-menu-header", document.getElementById('select-menu-header'))
   }
 
 }.apply(customHeader));
