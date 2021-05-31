@@ -151,30 +151,6 @@ var customHeader = {};
 
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
-
-    let htmlStr = '';
-
-    for (const item of DropDown) {
-      let classMenu = "dropdown-item"
-      let htmlTag = "li"
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        classMenu = "dropdown-item"
-        htmlTag = "li"
-      }
-
-      console.log(JSON.stringify(item));
-
-      htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
-    }
-
-    console.log("select-menu-header",document.getElementById('select-menu-header'));
-
-    if (document.getElementById('mobileVersion')) {
-      document.getElementById('mobileVersion').innerHTML += htmlStr;
-    }
-    if (document.getElementById('select-menu-header')) {
-      document.getElementById('select-menu-header').innerHTML += htmlStr;
-    }
   }
   this.openDropDown = function () {
     document.getElementById('select-menu-header').classList.toggle('show')
@@ -227,11 +203,11 @@ var customHeader = {};
 </div>`;
     document.getElementById('right_additional_menu').innerHTML = rightSideHtmlStr + rightAddMenu;
     if (document.getElementById('menuDropdown')) {
-      document.getElementById('menuDropdown').innerHTML += `<h1>Categories</h1><hr><ul>${dropdownMenuMob}</ul>`;
+      document.getElementById('menuDropdown').innerHTML += `<h1>Categories</h1><hr><ul>${dropdownMenuMob}`;
     }
 
   }
-  customHeader.openLastTransaction = function(){
+  customHeader.openLastTransaction = function () {
     pepperi.api.transactions.search({
       fields: [
         "UUID"
@@ -273,7 +249,10 @@ var customHeader = {};
           },
         },
       },
-      sorting: [{ Field: "ActionDateTime", Ascending: false }],
+      sorting: [{
+        Field: "ActionDateTime",
+        Ascending: false
+      }],
       pageSize: 1,
       page: 1,
       responseCallback: "customHeader.getRecentTransactionForAccountCallback"
@@ -281,43 +260,74 @@ var customHeader = {};
 
   }
 
-  this.getRecentTransactionForAccountCallback = function(data){
+  this.getRecentTransactionForAccountCallback = function (data) {
     console.log(data);
     if (data.success) {
       customFunction.navigation("/Transactions/Cart/" + data.objects[0].UUID.replace(/-/g, ""));
-    }else{
+    } else {
       customFunction.createNewOrder()
     }
   }
 
-  customHeader.HeaderLeftMenu = function(LeftMenu){
+  customHeader.HeaderLeftMenu = function (LeftMenu) {
     let htmlStr = '';
     for (const item of LeftMenu) {
-        let classMenu = "link"
-        let htmlTag = "a"
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-          classMenu = "link"
-          htmlTag = "a"
-        }
+      let classMenu = "link"
+      let htmlTag = "a"
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        classMenu = "link"
+        htmlTag = "a"
+      }
+      if (window.innerWidth <= 960) {
+        classMenu = "active"
+        htmlTag = "li"
+      }
+      if (item.specialConfig) {
         if (window.innerWidth <= 960){
-          classMenu = "active"
-          htmlTag = "li"
+          htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  id="${item.mobileId ? item.mobileId : ''}" class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`
+        }else{
+          htmlStr += `<div class="links hidden-on-mobile" onclick="customHeader.openDropDown()"><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
         }
-        if (item.specialConfig){
-          htmlStr += `<div><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
-
-        }
-        htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag} id="${item.id ? item.id : ''}"  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
+      } else {
+        htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
       }
-      if (document.getElementById('header_btn_bar')) {
-        document.getElementById('header_btn_bar').innerHTML = htmlStr;
-      }
-      if (document.getElementById('menuDropdown')) {
-        document.getElementById('menuDropdown').innerHTML += htmlStr;   
-      }
-      document.getElementById("userNameText").innerHTML = customHeader.context.userName
-}
+    }
 
+    if (window.innerWidth <= 960) {
+      document.getElementById('menuDropdown').innerHTML += htmlStr + '</ul>';
+    }else{
+      document.getElementById('header_btn_bar').innerHTML = htmlStr;
+    }
+    document.getElementById("userNameText").innerHTML = customHeader.context.userName
 
+    customHeader.buildSelectMenuHeader()
+  }
+
+  this.buildSelectMenuHeader = function () {
+    let htmlStr = '';
+
+    for (const item of DropDown) {
+      let classMenu = "dropdown-item"
+      let htmlTag = "li"
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        classMenu = "dropdown-item"
+        htmlTag = "li"
+      }
+
+      console.log(JSON.stringify(item));
+
+      htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
+    }
+
+    console.log("select-menu-header html", htmlStr);
+
+    if (document.getElementById('mobileVersion')) {
+      document.getElementById('mobileVersion').innerHTML += htmlStr;
+    }
+    if (document.getElementById('select-menu-header')) {
+      document.getElementById('select-menu-header').innerHTML += htmlStr;
+    }
+    console.log("select-menu-header",document.getElementById('select-menu-header'))
+  }
 
 }.apply(customHeader));
