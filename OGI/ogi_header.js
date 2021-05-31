@@ -86,6 +86,12 @@ var customHeader = {};
             [class*="dropdown-content"] li:hover{
               color: rgb(23, 102, 166);
             }
+
+            #menuDropdownUl{
+              display: flex;
+              flex-direction: column-reverse;
+              align-items: center;
+            }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="dropdown-content-end" id="menuDropdown">
@@ -203,7 +209,7 @@ var customHeader = {};
 </div>`;
     document.getElementById('right_additional_menu').innerHTML = rightSideHtmlStr + rightAddMenu;
     if (document.getElementById('menuDropdown')) {
-      document.getElementById('menuDropdown').innerHTML += `<h1>Categories</h1><hr><ul>${dropdownMenuMob}`;
+      document.getElementById('menuDropdown').innerHTML += `<h1>Categories</h1><hr><ul id="menuDropdownUl">${dropdownMenuMob}`;
     }
 
   }
@@ -284,7 +290,7 @@ var customHeader = {};
       }
       if (item.specialConfig) {
         if (window.innerWidth <= 960){
-          htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  id="${item.mobileId ? item.mobileId : ''}" class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`
+          htmlStr += `<${htmlTag} id="${item.mobileId ? item.mobileId : ''}" class="${classMenu}" onclick="${item.customFunctionMobile ? item.customFunctionMobile : customFunction.handleAction(item, "customHeader")}">${item.title}</${htmlTag}>`
         }else{
           htmlStr += `<div class="links hidden-on-mobile" onclick="customHeader.openDropDown()"><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
         }
@@ -294,7 +300,7 @@ var customHeader = {};
     }
 
     if (window.innerWidth <= 960) {
-      document.getElementById('menuDropdown').innerHTML += htmlStr + '</ul>';
+      document.getElementById('menuDropdownUl').innerHTML += htmlStr + '</ul>';
     }else{
       document.getElementById('header_btn_bar').innerHTML = htmlStr;
     }

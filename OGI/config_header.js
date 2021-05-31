@@ -51,6 +51,7 @@ const LeftMenu = [
   {
     title: "Collections",
     customFunction: "customHeader.openDropDown()",
+    customFunctionMobile: "customHeader.openDropDownMobile()",
     id: "select-menu-header",
     mobileId: "select-menu-header-mobile",
     customHtmlTag : "ul",
