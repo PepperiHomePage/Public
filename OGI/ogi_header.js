@@ -28,8 +28,7 @@ var customHeader = {};
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;
-  this.jsFilePath = 'https://pepperihomepage.github.io/Public/OGI/config_header.js'
-  this.helperJsonPath = 'https://pepperihomepage.github.io/Public/helper/header_helper.js'
+  this.jsFilePath = 'https://pepperihomepage.github.io/Public/OGI/config_header.js' 
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-header.css";
 
@@ -76,9 +75,9 @@ var customHeader = {};
               display: flex
             }
 
-            #menuDropdown{
+            #menuDropdownCustom{
               left:0 !important;
-              height: fit-content !important;
+              height: 100vh !important;
               width: 288px !important;
               max-height: none
             }
@@ -108,7 +107,7 @@ var customHeader = {};
             }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
-            <div class="dropdown-content-end" id="menuDropdown">
+            <div class="dropdown-content-end" id="menuDropdownCustom">
             </div>
             <div class="wrp">
               <div class="header-start"> 
@@ -133,11 +132,9 @@ var customHeader = {};
       JsURLs: [
         this.jsFilePath,
         this.customHelperJsonPath,
-        this.helperJsonPath,
       ],
       cssURLs: [this.cssFilePath],
       favIcon: this.favIconURL,
-
       pageTitle: this.pageTitle
     };
 
@@ -152,7 +149,7 @@ var customHeader = {};
       customHeader.transactionName = data.typeName || '';
       customHeader.accountUUID = data.accountUUID || '';
     }
-    customHeader.getAccountStatus();
+    customFunction.getAccountStatus();
     customFunction.getCatalogs("customHeader");
   };
 
@@ -172,12 +169,15 @@ var customHeader = {};
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
   }
+
   this.openDropDown = function () {
-    document.getElementById('select-menu-header').classList.toggle('show')
+    document.getElementById('select-menu-headef').classList.add('show')
   }
 
   this.openDropDownMobile = function () {
-    document.getElementById('select-menu-header-mobile').classList.toggle('show')
+    console.log("openDropDownMobile clicked");
+    $(this).blur()
+    $('#select-menu-header-mobile').toggleClass('show')
   }
 
   this.RightMenu = function (RightMenu) {
@@ -188,7 +188,7 @@ var customHeader = {};
       dropdownMenuMob += `<li class="active" onclick="${customFunction.handleAction(item,"customHeader")}"><p>${item.title}</p></li>`
     }
     let rightAddMenu = `<div class="dropdown shown-on-web">
-    <button class="button-weak button-icon" onclick="customHeader.closeMenu()">
+    <button class="button-weak button-icon" onclick="customHeader.closeMenuCustom()">
         <svg xmlns="http://www.w3.org/2000/svg" style="width:24px !important;height:24px !important" viewBox="0 0 24 24">
             <path fill-rule="evenodd"
                 d="M19,16 C19.5522847,16 20,16.4477153 20,17 C20,17.5522847 19.5522847,18 19,18 L5,18 C4.44771525,18 4,17.5522847 4,17 C4,16.4477153 4.44771525,16 5,16 L19,16 Z M19,11 C19.5522847,11 20,11.4477153 20,12 C20,12.5522847 19.5522847,13 19,13 L5,13 C4.44771525,13 4,12.5522847 4,12 C4,11.4477153 4.44771525,11 5,11 L19,11 Z M19,6 C19.5522847,6 20,6.44771525 20,7 C20,7.55228475 19.5522847,8 19,8 L5,8 C4.44771525,8 4,7.55228475 4,7 C4,6.44771525 4.44771525,6 5,6 L19,6 Z" />
@@ -226,8 +226,8 @@ var customHeader = {};
     </div>
 </div>`;
     document.getElementById('right_additional_menu').innerHTML = rightSideHtmlStr + rightAddMenu;
-    if (document.getElementById('menuDropdown')) {
-      document.getElementById('menuDropdown').innerHTML += `<h1>Categories</h1><hr><ul id="menuDropdownUl">${dropdownMenuMob}`;
+    if (document.getElementById('menuDropdownCustom')) {
+      document.getElementById('menuDropdownCustom').innerHTML += `<h1>Categories</h1><hr><ul id="menuDropdownUl">${dropdownMenuMob}`;
     }
 
   }
@@ -336,7 +336,7 @@ var customHeader = {};
 
     if (window.innerWidth <= 960) {
       htmlStr += `<div class="select-menu-header-mobile-header">
-                    <button class="button-weak button-icon" onclick="customHeader.closeMenu()">
+                    <button class="button-weak button-icon">
                       <img style="width:24px !important;height:24px !important" src="https://pepperihomepage.github.io/Public/OGI/img/arrow-pointing-to-left-svgrepo-com.svg" alt="">
                     </button>
                     <h1>Categories</h1>
@@ -354,13 +354,13 @@ var customHeader = {};
 
       console.log(JSON.stringify(item));
 
-      htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item)}" class="${classMenu}" >${item.title}</${htmlTag}>`;
+      htmlStr += `<${htmlTag} onClick="${customFunction.handleAction(item, "customHeader")}" class="${classMenu}" ><p role="label" class=" link" id="selected-account-header">${item.title}</p></${htmlTag}>`;
     }
 
     console.log("select-menu-header html", htmlStr);
 
     if (document.getElementById('select-menu-header-mobile')) {
-      document.getElementById('select-menu-header-mobile').innerHTML += htmlStr + `<hr><button class="button-weak button-icon" onclick="customHeader.closeMenu()">
+      document.getElementById('select-menu-header-mobile').innerHTML += htmlStr + `<hr><button class="button-weak button-icon" >
       <img style="width:24px !important;height:24px !important" src="https://pepperihomepage.github.io/Public/OGI/img/x-symbol-svgrepo-com.svg" alt="">
     </button>`;
     }
@@ -370,4 +370,22 @@ var customHeader = {};
     console.log("select-menu-header", document.getElementById('select-menu-header'))
   }
 
+  customHeader.closeHamburgerMenu = function () {
+    $('#myDropdown').toggleClass('show').focus()
+  }
+  this.closeMenuCustom = function () {
+    $('#menuDropdownCustom').toggleClass('show').focus();
+  }
+  customHeader.linksMenu = function () {
+    $('#linksDropdown').toggleClass('show').focus()
+  }
+
+  customHeader.logout = function () {
+    var event = new CustomEvent('logout');
+    if (document.createEvent) {
+      window.dispatchEvent(event);
+    } else {
+      window.fireEvent('on' + event.eventType, event);
+    }
+  };
 }.apply(customHeader));
