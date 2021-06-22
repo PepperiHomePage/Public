@@ -51,17 +51,18 @@ var Brands = [
 var Promotions = [
     {
         title: "Top 10 Sellers",
-        link: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22e3c559be-8581-4313-9095-cb5c113c3564%5C%22%7D%22&TopPadding=0&SmartSearch=%5B%7B%22ApiName%22:%22ItemMainCategory%22,%22ComparisonType%22:%22Values%22,%22Values%22:%5B%22Paul%20Pitchell%22%5D%7D%5D',
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"a58db397-4b63-4131-80fa-d8257aa33b34%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         image: 'https://pepperihomepage.github.io/Public/OGI/img/1.Top%20sellers_promotions.jpg'
     },
     {
-        title: "Recommendations for You",
+        title: "Recommended for you",
         link: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%223da50a6c-8a60-4b9c-93f6-a0c83de35072%5C%22%7D%22&TopPadding=0',
         image: 'https://pepperihomepage.github.io/Public/OGI/img/2.Recommendations_promotions.jpg'
     },
     {
         title: "Sign up for Newsletter",
-        link: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22e3c559be-8581-4313-9095-cb5c113c3564%5C%22%7D%22&TopPadding=0&SmartSearch=%5B%7B%22ApiName%22:%22ItemMainCategory%22,%22ComparisonType%22:%22Values%22,%22Values%22:%5B%22Beauty%20%26%20Make%20Up%22%5D%7D%5D',
+        newsite: true,
+        link: ' https://e.ogieyewear.com/p/4VWV-4WI/thank-you',
         image: 'https://pepperihomepage.github.io/Public/OGI/img/3.Newsletter_promotions.jpg'
     },
     {

@@ -192,7 +192,7 @@ var customHomepage = {};
               .footerLinksBlock{
                 display: flex;
                 flex-direction:column;
-                max-width: 230px;
+                max-width: 185px;
                 width: 100%;
                 margin-bottom:64px
               }
@@ -264,7 +264,7 @@ var customHomepage = {};
                 }
               }
 
-              @media screen and (max-width:960px) {
+              @media screen and (max-width:1100px) {
                 .brand{
                   width: 160px;
                   height: 160px;
@@ -318,13 +318,38 @@ var customHomepage = {};
               .userEmailAndPhone img{
                 padding-right: 12px
               }
+              .title-4-lg{
+                font-size:1.5rem
+              }
+              @media screen and (max-width: 600px){
+                .indicators{
+                  height: 2rem;
+                }
+                .radio-dot{
+                  height: 1rem;
+                  width: 1rem;
+                }
+                .slide-controllers button{
+                  height: 2rem;
+                }
+                .radio-box{
+                  margin-top:4px
+                }
+                .footerLinksBlock{
+                  max-width: 150px;
+                }
+                .brand{
+                  width: 135px;
+                  height: 135px;
+                }
+              }
             </style>            
             <main class="wrapper">
             <section id="carousal-content">
             </section>
             <aside id="sidebar">
               <div id="response-menu" class="response-menu">
-                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">Open Sidebar Menu</button>
+                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">View Sidebar</button>
               </div>
           
               <div id="sidebar-sm" class="sidebar-menu">
@@ -362,21 +387,6 @@ var customHomepage = {};
             </div>
           </main>
           <footer>
-          <div class="socialMedia">
-            <div>
-                <span class="footerLink rightBorder">
-                  Premium Fashion Eyewear | OGI Eyewear
-                  OGI Eyewear
-                </span>
-            </div>
-            <div> 
-              <a href="https://www.facebook.com/ogiframes"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Facebook.svg" alt=""></a>
-              <a href="https://www.linkedin.com/company/ogi-eyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Linkedin.svg" alt=""></a>
-              <a href="https://twitter.com/OgiEyewear"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Twitter.svg" alt=""></a>
-              <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Youtube.svg" alt=""></a>
-              <a href="https://www.instagram.com/ogieyewear/"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-social-Instagram.svg" alt=""></a>
-            </div>
-          </div>
           <hr>
           <div class="footerLinksBlocks">
             <div class="footerLinksBlock">
@@ -422,9 +432,6 @@ var customHomepage = {};
           </div>
         <hr>
         <div class="lastBlockInFooter">
-            <div>
-              <img class="logo" onclick="customFunction.navigation(\'HomePage\')" id="logo2" src="" />
-            </div>
             <div>
               <span class="pepperiText">© Pepperi 2021</span>
               <span class="links"><a href="https://www.pepperi.com/privacy-policy/">Privacy Policy</a></span>
@@ -589,7 +596,7 @@ var customHomepage = {};
     } else {
       customFunction.setSessionStorage("LastOpenTransactionUUID", '');
       recentOrdBtnDeeplink = '/Transactions/scope_items/{{UUID}}';
-      let html = `<h3 class="title-2-sm " id="currTransactionName"></h3>
+      let html = `<h3 class="title-2-sm" id="currTransactionName"></h3>
     <ul class="leaders" id="currTransactionFields">`;
       this.transactionFields.forEach(el => {
         html += `
@@ -614,8 +621,8 @@ var customHomepage = {};
     var is_new = false;
     if (data[0].Status == 1000)
       is_new = true;
-    let html = `<div style="display:flex">
-                  <h3 class="title-2-sm" id="currTransactionName"></h3> 
+    let html = `<div style="display: flex; align-items: center; justify-content: space-between;">
+                  <h3 class="title-2-sm" id="currTransactionName" style="margin-bottom:0"></h3> 
                   <span class="bold"><a onClick="customFunction.navigation('list/all_activities')">See All</a></span>
                 </div>`;
     data.forEach(element => {
@@ -630,7 +637,7 @@ var customHomepage = {};
                   <span  class="dimmed">Total</span><span class="bold">${element.GrandTotal}$</span>
                 </li>
                 <li>
-                  <span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}$</span>
+                  <span  class="dimmed">Frames</span><span class="bold">${element.QuantitiesTotal}</span>
                 </li>
               </ul>`
     })
