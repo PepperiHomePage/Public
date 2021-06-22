@@ -5,7 +5,7 @@ customFunction.drawPromotions = function (id, Promotions) {
     if(value.newsite){
       str += `
       <div class="promotion kits" style="background-image:url('${value.image}')">
-      <div class="gard-overlay" style="${(!value.title || value.title == '') ? 'background:none' : ''}" onclick="${(!value.buttonText|| value.buttonText== '') ? 'customFunction.setUUIDandNav(\''+value.link+'\')' : ''}">
+      <div class="gard-overlay" style="${(!value.title || value.title == '') ? 'background:none' : ''}" onclick="${(!value.buttonText|| value.buttonText== '') ? 'customFunction.navigation(\''+value.link+'\')' : ''}">
         <h2 class="title-4-lg">${value.title}</h2>
         <div>
           <button class="comonBtn custom-btn" style="${(!value.buttonText|| value.buttonText== '') ? 'display:none' : ''}"
