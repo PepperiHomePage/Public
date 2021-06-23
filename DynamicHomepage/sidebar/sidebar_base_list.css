@@ -1,0 +1,68 @@
+.baselist {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  background: #f7f7f7eb;
+  color: #000;
+  border-radius: 4px;
+  padding: 6px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 10%), 0px 8px 16px 0px rgb(21 24 26 / 10%), 0px 16px 32px 0px rgb(0 0 0 / 10%);
+}
+
+.top-base {
+  display: flex;
+  flex-direction: row;
+  height: 28px;
+  justify-content: space-between;
+}
+
+.top-base p {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.16px;
+  line-height: 28px;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+}
+
+.baselist #add {
+  background: #535353eb;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+  color: #ffffff;
+  margin: 3px;
+  background-image: url("https://storage.pepperi.com/PreSales/NewFoodDemoImg/Icon_number_plus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.order-button {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12px;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 14px;
+  background: rgb(250, 250, 250);
+  border-radius: 4px;
+  border: 1px solid rgb(153, 153, 153);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  height: 40px;
+  color: #000;
+}
+
+hr {
+  background: rgb(255, 255, 255);
+  opacity: 25%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
