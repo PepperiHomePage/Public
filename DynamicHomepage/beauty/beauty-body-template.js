@@ -38,14 +38,7 @@ var customConfigBody = {};
   this.startup = async function (parentContext, storage) {
     await customConfigBody.appendConfigFiles(storage);
     await customConfigBody.buildHtml();
-    await customFunction.buildSidebar("sidebar");
-    await customFunction.buildSidebarSmall("sidebar-sm");
-    await customFunction.buildBaseList("baselist");
-    await customFunction.buildItemList("item_list");
-    await customFunction.buildLists("lists");
-    await customFunction.buildAccountInfo("account_info");
     await customConfigBody.onPluginLoad(parentContext);
-    await customConfigBody.getAccountInternalID();
   };
 
   this.buildHtml = function () {
@@ -54,7 +47,37 @@ var customConfigBody = {};
             <section id="carousal-content">
             </section>
             <aside id="sidebar">
-
+              <div id="response-menu" class="response-menu">
+                <button onclick="customFunction.openCloseMenu();" class="regular-button" id="btn">Open menu</button>
+              </div>
+          
+              <div id="sidebar-sm" class="sidebar-menu">
+                <div id="store-selector" style="display:none">                  
+                </div>
+          
+                <!--<hr>-->
+                
+                <div id="free_shipping" style="display:none">
+                </div>
+          
+                <div id="account_balance" style="display:none">
+                </div>
+          
+                <hr id ="store-selector-hr" style="display:none">
+          
+                <div id="active-order" style="display:none">
+                  
+                </div>
+          
+                <hr class="sidebar-gap">
+          
+                <div id="submitted_orders" style="display:none">
+                  
+                </div>
+                <div id="overlay"></div>
+              </div>
+          
+          
             </aside>
           
             <div id="categories">
@@ -66,7 +89,7 @@ var customConfigBody = {};
               </div>
             </div>
           </main>
-    `;
+        `;
     document.getElementById('custom_body_id').innerHTML = str;
   };
 
@@ -90,8 +113,10 @@ var customConfigBody = {};
     //try to remove ifelse, settimeout also remove
 
     customFunction.closeAllMenusListener();
-    customFunction.carousel("carousal-content", customHomepage.configFile.CaruselData);
-    customFunction.drawImagesBlocks("brands", customHomepage.configFile.Categories);
+    customFunction.carousel("carousal-content", CaruselData)
+    customFunction.drawImagesBlocks("brands", Brands)
+    customFunction.drawPromotions("promotions", Promotions)
+    customFunction.getAccounts('customHomepage.findTransactionForSelectedAccount');
     // customFunction.drawPromotions("promotions", Promotions);
     // customFunction.getAccounts(
     //   "customConfigBody.findTransactionForSelectedAccount"
@@ -101,79 +126,62 @@ var customConfigBody = {};
   customConfigBody.getSessionStorage = function (paramName) {
     return sessionStorage.getItem(paramName);
   };
-  // this.findTransactionForSelectedAccount = function (uuid) {
-  //   console.log("uuid -----> ", uuid);
-  //   this.accountUUID = uuid;
-  //   customFunction.setSessionStorage("accountUUID", uuid);
 
-  //   // switch(customHomepage.configFile.Sidebar) {
-  //   //   case ""
-  //   // }
-  //   if (blocks_config.free_shipping) {
-  //     customFunction.freeShipping(
-  //       uuid,
-  //       blocks_config.free_shipping,
-  //       "free_shipping"
-  //     );
-  //   }
-  //   if (blocks_config.account_balance) {
-  //     customFunction.accountBalance(
-  //       uuid,
-  //       blocks_config.account_balance,
-  //       "account_balance"
-  //     );
-  //   }
-  //   if (blocks_config["active-order"]) {
-  //     customFunction.activeOrder(
-  //       customFunction.transactionName,
-  //       blocks_config["active-order"].table,
-  //       uuid,
-  //       "active-order"
-  //     );
-  //   }
-  //   if (blocks_config["submitted_orders"]) {
-  //     customFunction.submitedOrders(
-  //       customFunction.transactionName,
-  //       blocks_config["submitted_orders"].table,
-  //       uuid,
-  //       "submitted_orders"
-  //     );
-  //   }
-  // };
-
-  customConfigBody.getAccountInternalID = function () {
-    var bridgeObject = {
-      fields: ["Name", "InternalID", "ExternalID", "UUID"],
-        filter:{
-            ApiName:"UUID",
-            Operation:"IsEqual",
-            Values:[customConfigBody.accountUUID]
-        },
-      responseCallback: "customConfigBody.setAccountInternalID",
-    };
-    pepperi.api.accounts.search(bridgeObject);
+  customConfigBody.navigateToActiveCart = function () {
+    var uuid = customConfigBody.getSessionStorage("LastOpenTransactionUUID");
+    if (uuid) {
+      customConfigBody.navigation("/Transactions/Cart/" + uuid.replace(/-/g, ""));
+    }
   };
 
-  customConfigBody.setAccountInternalID = function (data) {
-    console.log(data);
-    if (!data.success) return;
-    var balance = null;
-    var credit = null;
-    if (data.objects.length) {
-      balance = data.objects[0].TSABalance || null;
-      credit = data.objects[0].TSACreditLimit || null;
-    }
-
-    if (balance == null || balance == NaN || balance == undefined) {
-      document.getElementById("balance").innerHTML = "$" + 0.0;
+  customConfigBody.navigation = function (path) {
+    var eventData = {
+      detail: {
+        path: path,
+      },
+    };
+    var event = new CustomEvent("navigateTo", eventData);
+    if (document.createEvent) {
+      window.dispatchEvent(event);
     } else {
-      document.getElementById("balance").innerHTML = "$" + balance;
+      window.fireEvent("on" + event.eventType, event);
     }
+  };
 
-    if (credit == null || credit == NaN || credit == undefined) {
-      document.getElementById("credit").innerHTML = "$" + 0.0;
-    } else {
-      document.getElementById("credit").innerHTML = "$" + credit;
+  this.findTransactionForSelectedAccount = function (uuid) {
+    console.log("uuid -----> ", uuid);
+    this.accountUUID = uuid;
+    customFunction.setSessionStorage("accountUUID", uuid);
+
+    if (Sidebar.FreeShipping) {
+      customFunction.freeShipping(
+        uuid,
+        Sidebar.FreeShipping,
+        "free_shipping"
+      );
+    }
+    if (Sidebar.AccountBalance) {
+      customFunction.accountBalance(
+        uuid,
+        Sidebar.AccountBalance,
+        "account_balance"
+      );
+    }
+    if (Sidebar["ActiveOrder"]) {
+      customFunction.activeOrder(
+        customFunction.transactionName,
+        Sidebar["ActiveOrder"].Table,
+        uuid,
+        "active-order"
+      );
+    }
+    if (Sidebar["SubmittedOrders"]) {
+      customFunction.submitedOrders(
+        customFunction.transactionName,
+        Sidebar["SubmittedOrders"].Table,
+        uuid,
+        "submitted_orders"
+      );
     }
   };
 
