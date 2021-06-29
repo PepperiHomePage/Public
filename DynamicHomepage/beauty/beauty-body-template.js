@@ -110,17 +110,11 @@ var customConfigBody = {};
 
   //end
   this.buildHTML = function () {
-    //try to remove ifelse, settimeout also remove
-
     customFunction.closeAllMenusListener();
-    customFunction.carousel("carousal-content", CaruselData)
-    customFunction.drawImagesBlocks("brands", Brands)
-    customFunction.drawPromotions("promotions", Promotions)
-    customFunction.getAccounts('customHomepage.findTransactionForSelectedAccount');
-    // customFunction.drawPromotions("promotions", Promotions);
-    // customFunction.getAccounts(
-    //   "customConfigBody.findTransactionForSelectedAccount"
-    // );
+    customFunction.carousel("carousal-content", customHomepage.configFile.CaruselData)
+    customFunction.drawImagesBlocks("brands", customHomepage.configFile.Brands)
+    customFunction.drawPromotions("promotions", customHomepage.configFile.Promotions)
+    customFunction.getAccounts('customConfigBody.findTransactionForSelectedAccount');
   };
 
   customConfigBody.getSessionStorage = function (paramName) {
@@ -153,32 +147,32 @@ var customConfigBody = {};
     this.accountUUID = uuid;
     customFunction.setSessionStorage("accountUUID", uuid);
 
-    if (Sidebar.FreeShipping) {
+    if (customHomepage.configFile.Sidebar.FreeShipping) {
       customFunction.freeShipping(
         uuid,
-        Sidebar.FreeShipping,
+        customHomepage.configFile.Sidebar.FreeShipping,
         "free_shipping"
       );
     }
-    if (Sidebar.AccountBalance) {
+    if (customHomepage.configFile.Sidebar.AccountBalance) {
       customFunction.accountBalance(
         uuid,
-        Sidebar.AccountBalance,
+        customHomepage.configFile.Sidebar.AccountBalance,
         "account_balance"
       );
     }
-    if (Sidebar["ActiveOrder"]) {
+    if (customHomepage.configFile.Sidebar["ActiveOrder"]) {
       customFunction.activeOrder(
         customFunction.transactionName,
-        Sidebar["ActiveOrder"].Table,
+        customHomepage.configFile.Sidebar["ActiveOrder"].Table,
         uuid,
         "active-order"
       );
     }
-    if (Sidebar["SubmittedOrders"]) {
+    if (customHomepage.configFile.Sidebar["SubmittedOrders"]) {
       customFunction.submitedOrders(
         customFunction.transactionName,
-        Sidebar["SubmittedOrders"].Table,
+        customHomepage.configFile.Sidebar["SubmittedOrders"].Table,
         uuid,
         "submitted_orders"
       );

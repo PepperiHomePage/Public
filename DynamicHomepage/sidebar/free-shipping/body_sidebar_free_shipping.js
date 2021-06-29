@@ -1,11 +1,11 @@
 customFunction.freeShipping = function (uuid, config, id) {
   customFunction.freeShippingConfig = config
-  if (config.field && config.field != '') {
+  if (config.Field && config.Field != '') {
     pepperi.api.accounts.get({
       key: {
         UUID: uuid
       },
-      fields: [config.field],
+      fields: [config.Field],
       responseCallback: "customFunction.freeShippingCallback",
       requestID: id
     });
@@ -14,23 +14,23 @@ customFunction.freeShipping = function (uuid, config, id) {
   }
 
 }
-
+5
 
 
 customFunction.freeShippingCallback = function (data, id) {
-  if (data) {
+  if (data && data.success) {
     document.getElementById(data.requestID).innerHTML = `
       <div>
-      <p>${customFunction.freeShippingConfig.text}${data.object[customFunction.freeShippingConfig.field]}</p>
-    </div>` + (customFunction.freeShippingConfig.svg ? `<img src="${customFunction.freeShippingConfig.svg}" alt="Promotion truck icon">` : '')
+      <p>${customFunction.freeShippingConfig.Title}${data.object[customFunction.freeShippingConfig.Field]}</p>
+    </div>` + (customFunction.freeShippingConfig.Icon ? `<img src="${customFunction.freeShippingConfig.Icon}" alt="Promotion truck icon">` : '')
 
     document.getElementById(data.requestID).classList.add("card", "sidebar-gap", "dark-card")
     document.getElementById(data.requestID).style.display = "flex"
   } else {
     document.getElementById(id).innerHTML = `
       <div>
-      <p>${customFunction.freeShippingConfig.text}</p>
-    </div>` + (customFunction.freeShippingConfig.svg ? `<img src="${customFunction.freeShippingConfig.svg}" alt="Promotion truck icon">` : '')
+      <p>${customFunction.freeShippingConfig.Title}</p>
+    </div>` + (customFunction.freeShippingConfig.Icon ? `<img src="${customFunction.freeShippingConfig.Icon}" alt="Promotion truck icon">` : '')
 
     document.getElementById(id).classList.add("card", "sidebar-gap", "dark-card")
     document.getElementById(id).style.display = "flex"

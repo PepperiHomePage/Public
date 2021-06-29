@@ -1,8 +1,8 @@
-customFunction.submitedOrders = function (transactionName,fields,accountUUID, id) {
+customFunction.submitedOrders = function (transactionName,customFields,accountUUID, id) {
   pepperi.api.transactions.search({
     fields: [
       "UUID",
-      ...fields
+      ...customFields
     ],
     filter: {
       Operation: "AND",
@@ -35,7 +35,7 @@ customFunction.submitedOrders = function (transactionName,fields,accountUUID, id
             LeftNode: {
               ApiName: "Status",
               Operation: "IsEqual",
-              Values: blocks_config["submitted_orders"].statuses,
+              Values: customHomepage.configFile.Sidebar["SubmittedOrders"].Statuses,
             },
           },
         },
@@ -66,7 +66,7 @@ customFunction.buildSubmittedOrdersTable = function (data, id) {
   let tableHtml = "";
   let Container = document.getElementById(id);
   tableHtml += `
-  <h3 class="title-2-sm " id="submitted_orders_name">${blocks_config['submitted_orders'].name
+  <h3 class="title-2-sm " id="submitted_orders_name">${customHomepage.configFile.Sidebar["SubmittedOrders"].Name
 
 }</h3><hr>
   <ul id="open-orders" class="leaders">`
