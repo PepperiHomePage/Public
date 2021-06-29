@@ -1,5 +1,9 @@
 {
-  "GeneralInfo": { "TransactionType": "B2B Order", "Catalog": "ALL" },
+  "GeneralInfo": {
+    "TransactionType": "B2B Order",
+    "Catalog": "ALL",
+    "ChatURL": "https://storage.pepperi.com/PreSales/beauty_demo/chat.js"
+  },
   "CaruselData": [
     {
       "Position": 1,
