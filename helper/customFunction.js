@@ -119,7 +119,7 @@ customFunction.createNewOrder = function (inCatalog = null, in_transactionName =
       }
     },
     type: {
-      Name: !in_transactionName ? name.transactionName : in_transactionName
+      Name: !in_transactionName ? customFunction.transactionName : in_transactionName
     },
     responseCallback: skipSessionSaving ? "customFunction.createNewOrderCallback" : "customFunction.createNewOrderAndNavCallback",
     requestID: deepLink
