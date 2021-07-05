@@ -1,5 +1,5 @@
 var Transaction = 'Buyer Order';
-var Catalog='OGI'
+var Catalog='Ogi'
 var blocks_config = {
     'active-order':
     {

@@ -1,16 +1,16 @@
 var Transaction = 'Buyer Order';
-var Catalog='OGI'
+var Catalog='Ogi'
 const logo = 'https://assets2.brandfolder.io/bf-boulder-prod/qeawf1-8ab1pk-742hwo/v/25188232/original/OGI_Eyewear_Standard_RGB.png'
 const DropDown = [
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "B2B Order",
     title: "OGI Collection",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.TSAOnPromotion%5C%22,%5C%22Value%5C%22:%5C%22On%20Promotion%5C%22%7D%22&TopPadding=0&SearchAll=false'
   },
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "B2B Order",
     title: "Seraphin Shimmer",
     action:"setUUIDandNav",
@@ -18,7 +18,7 @@ const DropDown = [
   },
 
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "B2B Order",
     title: "Seraphin",
     action:"setUUIDandNav",
@@ -26,21 +26,21 @@ const DropDown = [
   },
 
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "B2B Order",
     title: "Red Rose",
     action:"setUUIDandNav",
     deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Aloxxi%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false'
   },
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "B2B Order",
     title: "OGI Kids",
     action:"setUUIDandNav",
     deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227c36fb8f-c04e-4435-bc7a-315ef721ca6c%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Aluram%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false'
   },
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "B2B Order",
     title: "Scojo New York",
     action:"setUUIDandNav",
@@ -58,14 +58,14 @@ const LeftMenu = [
     specialConfig : true
   },
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "Buyer Order",
     title: "New Arrivals",
     action:"setUUIDandNav",
     deepLink: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
   },
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "Buyer Order",
     title: "Best Sellers",
     action:"setUUIDandNav",
@@ -74,13 +74,13 @@ const LeftMenu = [
 ];
 const RightMenu = [
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "Buyer Order",
     title: "Go to Cart",
     customFunction: "openLastTransaction"
   },
   {
-    catalog: "OGI",
+    catalog: "Ogi",
     transaction: "Buyer Order",
     title: "Favorites",
     icon:`          
