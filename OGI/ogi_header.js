@@ -56,9 +56,10 @@ var customHeader = {};
               0px 12px 24px 0px rgba(0, 0, 0, 0.12),
               0px 24px 48px 0px rgba(0, 0, 0, 0.08),
               0px 32px 64px 0px rgba(0, 0, 0, 0.06);
-              height: 224px;
+              height: 315px;
               width: 219px;
               overflow:hidden;
+              max-height: 315px;
             }
             [class*="dropdown-content"] li{
               font-size: 14px !important;
@@ -88,7 +89,7 @@ var customHeader = {};
 
             #menuDropdownUl{
               display: flex;
-              flex-direction: column-reverse;
+              flex-direction: column;
               align-items: center;
             }
             #select-menu-header-mobile{
@@ -105,9 +106,103 @@ var customHeader = {};
             .select-menu-header-mobile-header h1{
               
             }
+            @media screen and (max-width:1200px){
+              .slide-text .title{
+                font-size:1.5rem
+              }
+            }
+            @media screen and (max-width: 1024px) {
+              #carousal-content {
+                margin-top: var(--header-height);
+              }
+            
+              .wrapper {
+                padding: 0 !important;
+                grid-template-areas: "carousal""categories";
+                grid-template-columns: auto;
+                max-width: 100%;
+                margin: 0;
+              }
+              .header {
+                padding: 0 1rem;
+              }
+              .carousel {
+                border-radius: 0;
+              }
+              .sidebar-menu {
+                background: white;
+                padding: 2rem 2rem 3rem 2rem;
+              }
+            
+              #sidebar {
+                position: absolute;
+                z-index: 900;
+                min-width: 100vw;
+              }
+            
+              #sidebar-sm {
+                display: none;
+                -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08);
+                position: relative;
+                margin-top: var(--header-height);
+              }
+            
+              .response-menu {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                width: 100%;
+                height: var(--header-height);
+                background-color: white;
+                -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08);
+                position: fixed;
+                top: var(--header-height);
+                z-index: 500;
+              }
+            
+              #overlay {
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: -100;
+                position: fixed;
+                /* Sit on top of the page content */
+                display: none;
+                /* Hidden by default */
+                width: 100%;
+                /* Full width (cover the whole page) */
+                height: 100%;
+                /* Full height (cover the whole page) */
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+              }
+            }
+            @media screen and (max-width: 600px){
+              .indicators{
+                height: 2rem;
+              }
+              .radio-dot{
+                height: 1rem;
+                width: 1rem;
+              }
+              .slide-controllers button{
+                height: 2rem;
+              }
+              .radio-box{
+                margin-top:4px
+              }
+            }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="dropdown-content-end" id="menuDropdownCustom">
+            <h1>Categories</h1><hr><ul id="menuDropdownUl">
             </div>
             <div class="wrp">
               <div class="header-start"> 
@@ -161,17 +256,46 @@ var customHeader = {};
 
   this.buildHTML = function () {
     $("#logo").attr("src", logo);
-    customFunction.closeAllMenusListener();
-
-    console.log(RightMenu)
-    customHeader.RightMenu(RightMenu);
+    customHeader.closeAllMenusListener();
 
     console.log(LeftMenu)
     customHeader.HeaderLeftMenu(LeftMenu);
+
+    console.log(RightMenu)
+    customHeader.RightMenu(RightMenu);
   }
+  customHeader.closeAllMenusListener = function () {
+    $('#select-menu').attr('tabindex', '-1');
+    $('#select-menu').on('focusout', function () {
+      $('#select-menu').removeClass('show');
+    });
+  
+    $('#menuDropdown').attr('tabindex', '-1');
+    $('#linksDropdown').attr('tabindex', '-1');
+    $('#myDropdown').attr('tabindex', '-1');
+    $('#menuDropdownCustom').attr('tabindex', '-1');
+  
+    $('#menuDropdown').on('focusout', function () {
+      $('#menuDropdown').removeClass('show');
+    });
+    $('#menuDropdown').removeClass('show');
+
+    $('#menuDropdownCustom').on('focusout', function () {
+      $('#menuDropdownCustom').removeClass('show');
+    });
+    $('#menuDropdownCustom').removeClass('show');
+  
+    $('#linksDropdown').on('focusout', function () {
+      $('#linksDropdown').removeClass('show');
+    });
+  
+    $('#myDropdown').on('focusout', function () {
+      $('#myDropdown').removeClass('show');
+    });
+  };
 
   this.openDropDown = function () {
-    document.getElementById('select-menu-headef').classList.add('show')
+    document.getElementById('select-menu-header').classList.add('show')
   }
 
   this.openDropDownMobile = function () {
@@ -226,9 +350,10 @@ var customHeader = {};
     </div>
 </div>`;
     document.getElementById('right_additional_menu').innerHTML = rightSideHtmlStr + rightAddMenu;
-    if (document.getElementById('menuDropdownCustom')) {
-      document.getElementById('menuDropdownCustom').innerHTML += `<h1>Categories</h1><hr><ul id="menuDropdownUl">${dropdownMenuMob}`;
+    if (document.getElementById('menuDropdownUl')) {
+      document.getElementById('menuDropdownUl').innerHTML += `${dropdownMenuMob}</ul>`;
     }
+    document.getElementById("userNameText").innerHTML = customHeader.context.userName
 
   }
   customHeader.openLastTransaction = function () {
@@ -322,11 +447,11 @@ var customHeader = {};
     }
 
     if (window.innerWidth <= 960) {
-      document.getElementById('menuDropdownUl').innerHTML += htmlStr + '</ul>';
+      document.getElementById('menuDropdownUl').innerHTML += htmlStr ;
     } else {
       document.getElementById('header_btn_bar').innerHTML = htmlStr;
     }
-    document.getElementById("userNameText").innerHTML = customHeader.context.userName
+    
 
     customHeader.buildSelectMenuHeader()
   }
@@ -386,6 +511,18 @@ var customHeader = {};
       window.dispatchEvent(event);
     } else {
       window.fireEvent('on' + event.eventType, event);
+    }
+  };
+  customHeader.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
+    customHeader .closeAllMenusListener();
+    var name = eval("(" + nameOfMainJs + ")")
+    const uuid = name.getSessionStorage('LastOpenTransactionUUID');
+    console.log("uuid --->", uuid);
+    if (uuid && uuid !== "undefined") {
+      deepLink = deepLink.replace('{{UUID}}', uuid.replace(/-/g, ''));
+      customFunction.navigation(deepLink);
+    } else {
+      customFunction.createNewOrder(in_catalog, in_transactionName, deepLink, false, nameOfMainJs);
     }
   };
 }.apply(customHeader));

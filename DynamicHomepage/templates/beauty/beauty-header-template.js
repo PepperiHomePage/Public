@@ -13,15 +13,15 @@ var customConfigHeader = {};
   this.transactionName = "";
   this.catalogs;
   // Url Update dynamic from storage () Change from git to storage links
-  this.jsFilePath = ""; // https://storage.pepperi.com/PreSales/beauty_demo/config_header_en.js 
-  this.cssFilePath = ""; // https://pepperihomepage.github.io/Public/beauty-header.css
-  this.helperJsonPath = ""; // https://pepperihomepage.github.io/Public/helper/header_helper.js // update
-  this.customHelperJsonPath = ""; // https://pepperihomepage.github.io/Public/helper/customFunction.js
+  // this.jsFilePath = ""; // https://storage.pepperi.com/PreSales/beauty_demo/config_header_en.js 
+  // this.cssFilePath = ""; // https://pepperihomepage.github.io/Public/beauty-header.css
+  // this.helperJsonPath = ""; // https://pepperihomepage.github.io/Public/helper/header_helper.js // update
+  // this.customHelperJsonPath = ""; // https://pepperihomepage.github.io/Public/helper/customFunction.js
 
-  this.startup = function (parentContext, storage) {
-    customConfigHeader.appendConfigFiles(storage);
-    customConfigHeader.buildHtml();
-    customConfigHeader.onPluginLoad(parentContext);
+  this.startup = async function (parentContext, storage) {
+    await customConfigHeader.appendConfigFiles(storage);
+    await customConfigHeader.buildHtml();
+    await customConfigHeader.onPluginLoad(parentContext);
   };
 
   this.buildHtml = function () {
@@ -125,17 +125,15 @@ customConfigHeader.dynamicallyLoadScript = function(selectedValue=false){
 }
 
   this.buildHTML = function () {
-    $("#logo").attr("src", logo);
+    $("#logo").attr("src", customHeader.configFile.GeneralInfo.LogoURL);
     this.closeAllMenusListener();
 
-    console.log(RightMenu)
-    customConfigHeader.RightMenu(RightMenu);
+    console.log(customHeader.configFile.RightMenu)
+    customConfigHeader.RightMenu(customHeader.configFile.RightMenu);
 
-    console.log(LeftMenu)
-    customConfigHeader.HeaderLeftMenu(LeftMenu);
+    console.log(customHeader.configFile.LeftMenu)
+    customConfigHeader.HeaderLeftMenu(customHeader.configFile.LeftMenu);
 
-
-   
   }
   
   customConfigHeader.RightMenu = function(RightMenu){
@@ -144,8 +142,8 @@ customConfigHeader.dynamicallyLoadScript = function(selectedValue=false){
     
     for (const item of RightMenu) {
    
-      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${this.handleAction(item, "customConfigHeader")}">${item.title}${item.icon ? item.icon : ''}</button>`;
-      dropdownMenuMob += `<li class="active" onclick="${this.handleAction(item,"customConfigHeader")}"><p>${item.title}</p></li>`
+      rightSideHtmlStr += `<button class="button-weak hidden-on-web"onclick="${this.handleAction(item, "customConfigHeader")}">${item.Title}${item.Icon ? item.Icon : ''}</button>`;
+      dropdownMenuMob += `<li class="active" onclick="${this.handleAction(item,"customConfigHeader")}"><p>${item.Title}</p></li>`
     }
   
     let rightAddMenu = `<div class="dropdown shown-on-web">
@@ -193,7 +191,7 @@ customConfigHeader.dynamicallyLoadScript = function(selectedValue=false){
 
 
 let langSelect = `<div class="lang-change" style=" display:none">
-<select id="selectBox" onchange="customConfigHeader.dynamicallyLoadScript();customHomepage.dynamicallyLoadScript();"> 
+<select id="selectBox" onchange="customConfigHeader.dynamicallyLoadScript();customConfigHeader.dynamicallyLoadScript();"> 
 <option value="en" style="display:none">En</option>
 <option value="en" >En</option>
 <option value="ru">Ru</option>
@@ -220,7 +218,7 @@ customConfigHeader.HeaderLeftMenu = function(LeftMenu){
         classMenu = "active"
         htmlTag = "li"
       }
-      htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${customConfigHeader.handleAction(item, "customConfigHeader")}">${item.title}</${htmlTag}>`;
+      htmlStr += `<${htmlTag}  class="${classMenu}" onclick="${customConfigHeader.handleAction(item, "customConfigHeader")}">${item.Title}</${htmlTag}>`;
     }
     if (document.getElementById('menuDropdown')) {
       document.getElementById('menuDropdown').innerHTML += `<ul class="shown-on-mobile">${htmlStr}</ul><hr class="shown-on-mobile">`;
@@ -257,18 +255,18 @@ this.closeAllMenusListener = function () {
   };
 
   this.handleAction = function (item, nameOfMainJs) {
-    var deepLink = item.deepLink.replace(/\"/g, '%22');
-    switch (item.action) {
+    var deepLink = item.DeepLink.replace(/\"/g, '%22');
+    switch (item.Action) {
       case 'navigation':
         return `customConfigHeader.navigation('${deepLink}')`;
       case 'setUUIDandNav':
-        return `customConfigHeader.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}', '${nameOfMainJs}')`;
+        return `customConfigHeader.setUUIDandNav('${item.Catalog}','${item.Transaction}','${deepLink}', '${nameOfMainJs}')`;
       case 'openInNewTab':
         return `customConfigHeader.openInNewTab('${deepLink}')`;
       case 'createNewActivity':
-        return `customConfigHeader.createNewActivity('${item.activity}','${deepLink}', '${nameOfMainJs}')`;
+        return `customConfigHeader.createNewActivity('${item.Activity}','${deepLink}', '${nameOfMainJs}')`;
       case 'createNewTransaction':
-        return `customConfigHeader.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true, '${nameOfMainJs}')`;
+        return `customConfigHeader.createNewOrder('${item.Catalog}','${item.Transaction}','${deepLink}',true, '${nameOfMainJs}')`;
       case 'zendesk':
         return `location.href = 'javascript:$zopim.livechat.window.show()'`
     }
@@ -324,7 +322,7 @@ this.closeAllMenusListener = function () {
       type: {
         Name: !in_transactionName ? name.transactionName : in_transactionName
       },
-      responseCallback: skipSessionSaving ? "customHomepage.createNewOrderCallback" : "customHomepage.createNewOrderAndNavCallback",
+      responseCallback: skipSessionSaving ? "customConfigHeader.createNewOrderCallback" : "customConfigHeader.createNewOrderAndNavCallback",
       requestID: deepLink
     };
     pepperi.app.transactions.add(bridgeObject);
@@ -396,34 +394,38 @@ this.closeAllMenusListener = function () {
     $('#linksDropdown').toggleClass('show').focus()
   }
 
-  customConfigHeader.appendConfigFiles = function (storage) {
-    var filePaths = [
-      "header_helper.js",
-      "customfunction.js",
-      "editor_header_config.js",
-      "beauty-header.css"
-    ];
+  customConfigHeader.appendConfigFiles = async function (storage) {
+    return await new Promise((resolve) => {
+      var uploadedFiles = 0;
+      var filePaths = customHeader.appendFilePaths;
 
-    var filteredStorage = storage.filter(({Title}) => {
-      var splittedTitle = Title.split("/");
-      Title = splittedTitle[splittedTitle.length - 1]
-      return filePaths.includes(Title)
-    })
+      var filteredStorage = storage.filter(({Title}) => {
+        var splittedTitle = Title.split("/");
+        Title = splittedTitle[splittedTitle.length - 1]
+        return filePaths.includes(Title)
+      })
 
-    filteredStorage.forEach(el => {
-      var file = '';
-      if (el["URL"].includes('.js')) {
-        file = document.createElement("script");
-        file.src = el["URL"];
-      } else if (el["URL"].includes('.css')) {
-        file = document.createElement("link");
-        file.rel = "stylesheet";
-        file.type = "text/css"
-        file.href = el["URL"];
-      }
-      document.getElementsByTagName("head")[0].appendChild(file);
+      filteredStorage.forEach(el => {
+        var file = '';
+        if (el["URL"].includes('.js')) {
+          file = document.createElement("script");
+          file.src = el["URL"];
+        } else if (el["URL"].includes('.css')) {
+          file = document.createElement("link");
+          file.rel = "stylesheet";
+          file.type = "text/css"
+          file.href = el["URL"];
+        }
+        document.getElementsByTagName("head")[0].appendChild(file);
+
+        file.onload = function () {
+          uploadedFiles++;
+          if (uploadedFiles == filePaths.length) {
+            resolve(uploadedFiles)
+          }
+        };
+      })
     })
   }
-  
 
 }.apply(customConfigHeader));
