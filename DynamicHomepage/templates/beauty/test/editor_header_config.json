@@ -1,0 +1,86 @@
+{
+  "GeneralInfo": {
+    "LogoURL": "https://storage.pepperi.com/PreSales/beauty_demo/logo.png",
+    "FaviconURL": "",
+    "TabTitle": "",
+    "MainTransaction": "B2B Order",
+    "MainCatalog": "Default Catalog",
+    "Multicatalog": null
+  },
+  "LeftMenu": [
+    {
+      "Title": "Facial Cosmetics",
+      "DeepLink": "/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227142a6f9-af48-4dba-a30d-85d89b2ed083%5C%22%7D%22",
+      "Catalog": "Default Catalog",
+      "Action": "setUUIDandNav",
+      "Transaction": "B2B Order",
+      "Icon": "",
+      "IconName": ""
+    },
+    {
+      "Title": "Hands Cosmetics",
+      "DeepLink": "Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%22%7D%22",
+      "Catalog": "Default Catalog",
+      "Action": "setUUIDandNav",
+      "Transaction": "B2B Order",
+      "Icon": "",
+      "IconName": ""
+    },
+    {
+      "Title": "Hair Care",
+      "DeepLink": "Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%22%7D%22",
+      "Catalog": "Default Catalog",
+      "Action": "setUUIDandNav",
+      "Transaction": "B2B Order",
+      "Icon": "",
+      "IconName": ""
+    },
+    {
+      "Title": "Masks",
+      "DeepLink": "Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%222a7c613e-1e67-4497-af60-ae8a6633487a%5C%22%7D%22",
+      "Catalog": "Default Catalog",
+      "Action": "setUUIDandNav",
+      "Transaction": "B2B Order",
+      "Icon": "",
+      "IconName": ""
+    },
+    {
+      "Title": "Line Sheet",
+      "DeepLink": "Transactions/scope_items/{{UUID}}",
+      "Catalog": "Default Catalog",
+      "Action": "createNewTransaction",
+      "Transaction": "Print Catalog",
+      "Icon": "",
+      "IconName": ""
+    }
+  ],
+  "RightMenu": [
+    {
+      "Title": "Favorites",
+      "DeepLink": "/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%227142a6f9-af48-4dba-a30d-85d89b2ed083%5C%22%7D%22",
+      "Catalog": "Default Catalog",
+      "Action": "setUUIDandNav",
+      "Transaction": "B2B Order",
+      "Icon": "",
+      "IconName": ""
+    },
+    {
+      "Title": "History",
+      "DeepLink": "list/all_activities",
+      "Catalog": "",
+      "Action": "navigation",
+      "Transaction": "",
+      "Icon": "",
+      "IconName": ""
+    },
+    {
+      "Title": "Support",
+      "DeepLink": "list/all_activities",
+      "Catalog": "",
+      "Action": "navigation",
+      "Transaction": "",
+      "Icon": "",
+      "IconName": ""
+    }
+  ]
+}
