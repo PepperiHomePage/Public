@@ -56,11 +56,7 @@ var Promotions = [
     },
     {
         title: "Recommended for you",
-<<<<<<< HEAD
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"edcb27c2-a47e-4f9c-9b31-4833ab1cee08%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
-=======
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22a58db397-4b63-4131-80fa-d8257aa33b34%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%225e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
->>>>>>> 4df49a866716ec6cc49dae896dddc94c48be2e6e
         image: 'https://pepperihomepage.github.io/Public/OGI/img/2.Recommendations_promotions.jpg'
     },
     {
