@@ -7,7 +7,7 @@ customFunction.carousel = function (slideid, CaruselData) {
     let indicatorsStr = "";
     var idx = 0;
     var value = customFunction.CaruselData[idx];
-    if (indow.innerWidth <= 960) {
+    if (window.innerWidth <= 960) {
     
         htmlStr += ` <div id="carousel" class="carousel"> 
         <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide" data-state="active"
@@ -107,7 +107,7 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         +sessionStorage.getItem("savedIDX") + 1 :
         0
     );
-    if (indow.innerWidth <= 960) {
+    if (window.innerWidth <= 960) {
     
         htmlStr +=  `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide"  data-state="active"
         style="background-image: url('${value.imageURLMobile?value.imageURLMobile:value.imageURL}')">
