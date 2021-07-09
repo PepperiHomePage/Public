@@ -1,8 +1,8 @@
 if (!customFunction)
   var customFunction = {}
 customFunction.catalogs;
-customFunction.transactionName = Transaction
-customFunction.catalogName = Catalog
+customFunction.transactionName = customHomepage.configFile.GeneralInfo.TransactionType
+customFunction.catalogName = customHomepage.configFile.GeneralInfo.Catalog
 customFunction.getCatalogs = function (x) {
   console.log(x)
   pepperi.api.catalogs.search({
@@ -54,19 +54,19 @@ customFunction.createNewActivityCallback = function (res) {
   }
 };
 customFunction.handleAction = function (item, nameOfMainJs) {
-  if(item.deepLink)
-    var deepLink = item.deepLink.replace(/\"/g, '%22');
-  switch (item.action) {
+  if(item.DeepLink)
+    var deepLink = item.DeepLink.replace(/\"/g, '%22');
+  switch (item.Action) {
     case 'navigation':
       return `customFunction.navigation('${deepLink}')`;
     case 'setUUIDandNav':
-      return `customFunction.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}', '${nameOfMainJs}')`;
+      return `customFunction.setUUIDandNav('${item.Catalog}','${item.Transaction}','${deepLink}', '${nameOfMainJs}')`;
     case 'openInNewTab':
       return `customFunction.openInNewTab('${deepLink}')`;
     case 'createNewActivity':
-      return `customFunction.createNewActivity('${item.activity}','${deepLink}', '${nameOfMainJs}')`;
+      return `customFunction.createNewActivity('${item.Activity}','${deepLink}', '${nameOfMainJs}')`;
     case 'createNewTransaction':
-      return `customFunction.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true, '${nameOfMainJs}')`;
+      return `customFunction.createNewOrder('${item.Catalog}','${item.Transaction}','${deepLink}',true, '${nameOfMainJs}')`;
     case 'zendesk':
       return `location.href = 'javascript:$zopim.livechat.window.show()'`
   }

@@ -1,5 +1,5 @@
 var Transaction = 'Buyer Order';
-var Catalog='ALL'
+var Catalog='Ogi'
 var blocks_config = {
     'active-order':
     {
@@ -56,18 +56,23 @@ var Promotions = [
     },
     {
         title: "Recommended for you",
+<<<<<<< HEAD
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"edcb27c2-a47e-4f9c-9b31-4833ab1cee08%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+=======
+        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22a58db397-4b63-4131-80fa-d8257aa33b34%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%225e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false',
+>>>>>>> 4df49a866716ec6cc49dae896dddc94c48be2e6e
         image: 'https://pepperihomepage.github.io/Public/OGI/img/2.Recommendations_promotions.jpg'
     },
     {
         title: "Sign up for Newsletter",
         newsite: true,
-        link: ' https://e.ogieyewear.com/p/4VWV-4WI/thank-you',
+        link: 'https://e.ogieyewear.com/p/4VWV-4WI/thank-you',
         image: 'https://pepperihomepage.github.io/Public/OGI/img/3.Newsletter_promotions.jpg'
     },
     {
         title: "Virtual Try on",
-        link: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22e3c559be-8581-4313-9095-cb5c113c3564%5C%22%7D%22&TopPadding=0&SmartSearch=%5B%7B%22ApiName%22:%22ItemMainCategory%22,%22ComparisonType%22:%22Values%22,%22Values%22:%5B%22Beauty%20%26%20Make%20Up%22%5D%7D%5D',
+        newsite: true,
+        link: 'https://www.ogieyewear.com/ogi-try-on',
         image: 'https://pepperihomepage.github.io/Public/OGI/img/4.VTO_promotions.jpg'
     }
 ]

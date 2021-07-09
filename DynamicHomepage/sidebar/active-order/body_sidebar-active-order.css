@@ -1,0 +1,49 @@
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: rgba(10, 10, 10, 0.08);
+  color: #1a1a1a;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.card img {
+  width: 3rem;
+  -webkit-margin-start: 0.5rem;
+          margin-inline-start: 0.5rem;
+}
+
+.card p {
+  line-height: 1.5rem;
+}
+
+.dark-card {
+  background-color: #0a0a0a;
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar-menu .sidebar-gap {
+  margin-bottom: 1rem;
+}
+
+.dimmed {
+  opacity: 0.7;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.title-2-sm {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
