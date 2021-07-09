@@ -7,8 +7,28 @@ customFunction.carousel = function (slideid, CaruselData) {
     let indicatorsStr = "";
     var idx = 0;
     var value = customFunction.CaruselData[idx];
-
-    htmlStr += ` <div id="carousel" class="carousel"> 
+    if (indow.innerWidth <= 960) {
+    
+        htmlStr += ` <div id="carousel" class="carousel"> 
+        <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide" data-state="active"
+        style="background-image: url('${value.imageURLMobile?value.imageURLMobile:value.imageURL}')">
+        <div class="gard-overlay">
+            <div class="slide-text">
+                <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}', 'customFunction')" >${value.buttonText}</button>
+                <p class="title">${value.title}</p>
+                <p class="desc" style="${(!value.description || value.description== '') ? 'display:none' : ''}">${value.description}</p>
+            </div>
+            <div class="slide-controllers">
+                <div id="indicators" class="indicators">
+                    
+                </div>
+                <button onclick="event.stopImmediatePropagation();customFunction.playerClick();" class="pause" id="player">
+                </button>
+            </div>
+        </div>
+    </div></div></div>`
+    }else{
+        htmlStr += ` <div id="carousel" class="carousel"> 
     <div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide" data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
@@ -26,6 +46,10 @@ customFunction.carousel = function (slideid, CaruselData) {
         </div>
     </div>
 </div></div></div>`
+    }
+    
+
+    
 
     document.getElementById(slideid).innerHTML = htmlStr;
     if (!value.buttonText)
@@ -83,8 +107,27 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         +sessionStorage.getItem("savedIDX") + 1 :
         0
     );
-
-    htmlStr += `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide"  data-state="active"
+    if (indow.innerWidth <= 960) {
+    
+        htmlStr +=  `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide"  data-state="active"
+        style="background-image: url('${value.imageURLMobile?value.imageURLMobile:value.imageURL}')">
+        <div class="gard-overlay">
+            <div class="slide-text">
+                <button id="shop_now" ${value.buttonText?'':'style="display:none"'} onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')" >${value.buttonText}</button>
+                <p class="title">${value.title}</p>
+                <p class="desc" style="${(!value.description || value.description== '') ? 'display:none' : ''}">${value.description}</p>
+            </div>
+            <div class="slide-controllers">
+                <div id="indicators" class="indicators">
+                    
+                </div>
+                <button onclick="event.stopImmediatePropagation();customFunction.playerClick();" class="pause" id="player">
+                </button>
+            </div>
+        </div>
+    </div></div>`;
+    }else{
+        htmlStr += `<div id="slides" class="slides"  onclick="customFunction.setUUIDandNav(null,null,'${value.deepLink.replace(/["']/g,"%22")}','customHomepage')"><div class="slide"  data-state="active"
     style="background-image: url('${value.imageURL}')">
     <div class="gard-overlay">
         <div class="slide-text">
@@ -101,6 +144,7 @@ customFunction.switchSlide = function (isCurrent, next = true) {
         </div>
     </div>
 </div></div>`;
+    }
     document.getElementById("carousel").innerHTML = htmlStr;
     if (!value.buttonText)
         document.querySelector(".slide .gard-overlay").style.background = 'none'
