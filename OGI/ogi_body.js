@@ -358,7 +358,7 @@ var customHomepage = {};
           
                 <!--<hr>-->
                  
-                <div id="dealer_level">
+                <div id="dealer_level" class="sidebar-gap">
                 </div>
                 <hr>
           
