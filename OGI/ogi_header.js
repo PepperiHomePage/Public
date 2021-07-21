@@ -295,13 +295,13 @@ var customHeader = {};
   };
 
   this.openDropDown = function () {
-    document.getElementById('select-menu-header').classList.add('show')
+    $('#select-menu-header').toggleClass('show').focus()
   }
 
   this.openDropDownMobile = function () {
     console.log("openDropDownMobile clicked");
     $(this).blur()
-    $('#select-menu-header-mobile').toggleClass('show')
+    $('#select-menu-header-mobile').toggleClass('show').focus()
   }
 
   this.RightMenu = function (RightMenu) {
