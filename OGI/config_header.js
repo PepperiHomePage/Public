@@ -14,7 +14,7 @@ const DropDown = [
     transaction: "B2B Order",
     title: "Seraphin Shimmer",
     action:"setUUIDandNav",
-    deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.TSASeries%5C%22,%5C%22Value%5C%22:%5C%22Shimmer%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.TSASeries%5C%22,%5C%22Value%5C%22:%5C%22Shimmer%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
 
   {
@@ -22,7 +22,7 @@ const DropDown = [
     transaction: "B2B Order",
     title: "Seraphin",
     action:"setUUIDandNav",
-    deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
 
   {
@@ -30,21 +30,21 @@ const DropDown = [
     transaction: "B2B Order",
     title: "Red Rose",
     action:"setUUIDandNav",
-    deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Red%20Rose%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Red%20Rose%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
   {
     catalog: "Ogi",
     transaction: "B2B Order",
     title: "OGI Kids",
     action:"setUUIDandNav",
-    deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%20Kids%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%20Kids%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
   {
     catalog: "Ogi",
     transaction: "B2B Order",
     title: "Scojo New York",
     action:"setUUIDandNav",
-    deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Scojo%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Scojo%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
 ];
 const LeftMenu = [
