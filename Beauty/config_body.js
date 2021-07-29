@@ -36,7 +36,7 @@ var blocks_config = {
         svg: "https://storage.pepperi.com/PreSales/NewFoodDemoImg/invoice.svg",
         text: "Open Invoices",
         function: `onclick="customHomepage.createNewActivity('Invoice Payment','activities/details/{​{​UUID}​}​')"`
-    }​,
+    },
 }
 var Brands = [{
         bigImage: true,
