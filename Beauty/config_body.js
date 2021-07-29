@@ -25,15 +25,14 @@ var blocks_config = {
             text: "Total Sum",
             field: "GrandTotal"
         }]
-    }
-    ,
+    },
     'submitted_orders': {
         name: "Last Orders",
         statuses: ["2"],
         table: ["ActionDateTime", "InternalID"]
     },
     'open_invoices':{
-       ​field: "TSACreditLimit",
+       ​//field: "TSACreditLimit",
        measure_unit:"$", 
        svg: "https://storage.pepperi.com/PreSales/NewFoodDemoImg/invoice.svg", 
        text: "Open Invoices", 
