@@ -31,7 +31,15 @@ var blocks_config = {
         name: "Last Orders",
         statuses: ["2"],
         table: ["ActionDateTime", "InternalID"]
-    }
+    },
+    'open_invoices':{
+       ​field: "TSACreditLimit",
+       measure_unit:"$", 
+       svg: "https://storage.pepperi.com/PreSales/NewFoodDemoImg/invoice.svg", 
+       text: "Open Invoices", 
+       function:`onclick="customHomepage.createNewActivity('Invoice Payment','activities/details/{​{​UUID}​}​')"`
+}​,
+
 }
 var Brands = [
     {
