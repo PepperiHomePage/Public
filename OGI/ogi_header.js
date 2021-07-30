@@ -199,6 +199,12 @@ var customHeader = {};
                 margin-top:4px
               }
             }
+            #header-section{
+              height: 75px !important;
+            }
+            .logo{
+              max-height: 4rem;
+            }
             </style>
         <header id="header-section" class="header header-wrapper" style="margin: 0 auto;">
             <div class="dropdown-content-end" id="menuDropdownCustom">

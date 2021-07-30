@@ -392,42 +392,42 @@ var customHomepage = {};
             <div class="footerLinksBlock">
               <h3>OGI EYEWEAR</h3>
               <hr>
-              <a class="paddingTop16px" href="https://www.ogieyewear.com/our-story">Our Story</a>
-              <a href="https://brandfolder.com/s/77xf3gtqwhh4fh9xbj47f">General Terms and Conditions</a>
-              <a href="https://www.ogieyewear.com/news">News</a>
-              <a href="https://www.ogieyewear.com/ogi-in-press">OGI in Press</a>
-              <a href="https://www.ogieyewear.com/sustainability">Sustainability</a>
-              <a href="https://www.ogieyewear.com/privacy-policy">Privacy</a>
+              <a class="paddingTop16px" href="https://www.ogieyewear.com/our-story" target="_blank">Our Story</a>
+              <a href="https://brandfolder.com/s/77xf3gtqwhh4fh9xbj47f" target="_blank">General Terms and Conditions</a>
+              <a href="https://www.ogieyewear.com/news" target="_blank">News</a>
+              <a href="https://www.ogieyewear.com/ogi-in-press" target="_blank">OGI in Press</a>
+              <a href="https://www.ogieyewear.com/sustainability" target="_blank">Sustainability</a>
+              <a href="https://www.ogieyewear.com/privacy-policy" target="_blank">Privacy</a>
             </div>
             <div class="footerLinksBlock">
               <h3>BRAND FOLDER</h3>
               <hr>
-              <a class="paddingTop16px" href="https://brandfolder.com/s/fhkj88mvt7j3nztghm54k4s7">OGI creative assets</a>
-              <a href="https://brandfolder.com/s/w4mx7vckxn7psjxc8tb7wbcr">Seraphin creative assets</a>
-              <a href="https://brandfolder.com/s/2tfzs9rb29pf7g6f8r5sxn6">Seraphin Shimmer creative assets</a>
-              <a href="https://brandfolder.com/s/ncnck6xkjxcrg3mk4nn2w4h">Red Rose creative assets</a>
-              <a href="https://brandfolder.com/s/8khfg5jh3ps5sknx5nxsvp">OGI Kids creative assets</a>
-              <a href="https://brandfolder.com/s/hgx5q88854tcbvq88t4bms">SCOJO New York creative assets</a>
+              <a class="paddingTop16px" href="https://brandfolder.com/s/fhkj88mvt7j3nztghm54k4s7" target="_blank">OGI creative assets</a>
+              <a href="https://brandfolder.com/s/w4mx7vckxn7psjxc8tb7wbcr" target="_blank">Seraphin creative assets</a>
+              <a href="https://brandfolder.com/s/2tfzs9rb29pf7g6f8r5sxn6" target="_blank">Seraphin Shimmer creative assets</a>
+              <a href="https://brandfolder.com/s/ncnck6xkjxcrg3mk4nn2w4h" target="_blank">Red Rose creative assets</a>
+              <a href="https://brandfolder.com/s/8khfg5jh3ps5sknx5nxsvp" target="_blank">OGI Kids creative assets</a>
+              <a href="https://brandfolder.com/s/hgx5q88854tcbvq88t4bms" target="_blank">SCOJO New York creative assets</a>
             </div>
             <div class="footerLinksBlock">
               <h3>SOCIAL MEDIA</h3>
               <hr>
-              <a class="paddingTop16px" href="https://www.linkedin.com/company/ogi-eyewear">LinkedIn</a>
-              <a href="https://www.facebook.com/ogiframes">Facebook</a>
-              <a href="https://twitter.com/OgiEyewear">Twitter</a>
-              <a href="https://www.instagram.com/ogieyewear/">Instagram</a>
-              <a href="https://www.pinterest.com/ogieyewear/">Pinterest</a>
-              <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg">Youtube</a>
+              <a class="paddingTop16px" href="https://www.linkedin.com/company/ogi-eyewear" target="_blank">LinkedIn</a>
+              <a href="https://www.facebook.com/ogiframes" target="_blank">Facebook</a>
+              <a href="https://twitter.com/OgiEyewear" target="_blank">Twitter</a>
+              <a href="https://www.instagram.com/ogieyewear/" target="_blank">Instagram</a>
+              <a href="https://www.pinterest.com/ogieyewear/" target="_blank">Pinterest</a>
+              <a href="https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg" target="_blank">Youtube</a>
             </div>
             <div class="footerLinksBlock"s>
               <h3>CONTACT US</h3>
               <hr>
-              <a class="paddingTop16px" href="https://www.ogieyewear.com/ogi-sales-team">Sales Team</a>
-              <a href="https://www.ogieyewear.com/ogi-customer-relations">Customer Relations</a>
-              <a href="https://www.ogieyewear.com/shipping-returns">Shipping & Returns</a>
-              <a href="https://www.ogieyewear.com/ogi-creative-team">Creative Team</a>
-              <a href="https://www.ogieyewear.com/ogi-administration">Administration</a>
-              <a href="https://www.ogieyewear.com/ogi-ceo">CEO</a>
+              <a class="paddingTop16px" href="https://www.ogieyewear.com/ogi-sales-team" target="_blank">Sales Team</a>
+              <a href="https://www.ogieyewear.com/ogi-customer-relations" target="_blank">Customer Relations</a>
+              <a href="https://www.ogieyewear.com/shipping-returns" target="_blank">Shipping & Returns</a>
+              <a href="https://www.ogieyewear.com/ogi-creative-team" target="_blank">Creative Team</a>
+              <a href="https://www.ogieyewear.com/ogi-administration" target="_blank">Administration</a>
+              <a href="https://www.ogieyewear.com/ogi-ceo" target="_blank">CEO</a>
             </div>
           </div>
         <hr>
@@ -749,12 +749,12 @@ var customHomepage = {};
     var imgName = data.object.TSAMainRepName.replaceAll(" ","-")
     imgName = imgName.toLowerCase()
     console.log(imgName)
-    
+    let hrefMobilePhone = data.object.TSAMainRepMobile.replaceAll("-","")
     var html = '';
     html = `<h3 class="title-2-sm">${data.object.TSAMainRepName}</h3>
               <hr>
-              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-phone.svg" alt=""><a href="">${data.object.TSAMainRepMobile}</a></span>
-              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="">${data.object.TSARepEmail}</a></span>
+              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-phone.svg" alt=""><a href="tel:+${hrefMobilePhone}">${data.object.TSAMainRepMobile}</a></span>
+              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="mailto:${data.object.TSARepEmail}" target="_blank">${data.object.TSARepEmail}</a></span>
               <div class="accountPhoto">
                   <img src="https://pepperihomepage.github.io/Public/OGI/img/${imgName}.jpg" alt="">
               </div>
