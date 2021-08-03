@@ -71,6 +71,13 @@ const LeftMenu = [
     action:"setUUIDandNav",
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"a58db397-4b63-4131-80fa-d8257aa33b34%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
   },
+  {
+    catalog: "Ogi",
+    transaction: "Buyer View Catalog",
+    title: "Catalog View",
+    action:"setUUIDandNav",
+    deepLink: '/transactions/scope_items/{{UUID}}'
+  },
 ];
 const RightMenu = [
   {
