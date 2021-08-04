@@ -29,8 +29,8 @@ customHeader.changePassword = function () {
 
 
 
-customHeader.closeHamburgerMenu = function () {
-  $('#myDropdown').toggleClass('show').focus()
+customHeader.closeHamburgerMenu = function (id) {
+  $(id).toggleClass('show').focus()
 }
 customHeader.closeMenu = function () {
   $('#menuDropdown').toggleClass('show').focus();

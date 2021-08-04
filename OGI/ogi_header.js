@@ -28,7 +28,7 @@ var customHeader = {};
   this.catalogName = "";
   this.transactionName = "";
   this.catalogs;
-  this.jsFilePath = 'https://pepperihomepage.github.io/Public/OGI/config_header.js' 
+  this.jsFilePath = 'https://pepperihomepage.github.io/Public/OGI/config_header.js'
   this.customHelperJsonPath = 'https://pepperihomepage.github.io/Public/helper/customFunction.js'
   this.cssFilePath = "https://pepperihomepage.github.io/Public/beauty-header.css";
 
@@ -279,12 +279,12 @@ var customHeader = {};
     $('#select-menu-header-mobile').on('focusout', function () {
       $('#select-menu-header-mobile').removeClass('show');
     });
-  
+
     $('#menuDropdown').attr('tabindex', '-1');
     $('#linksDropdown').attr('tabindex', '-1');
     $('#myDropdown').attr('tabindex', '-1');
     $('#menuDropdownCustom').attr('tabindex', '-1');
-  
+
     $('#menuDropdown').on('focusout', function () {
       $('#menuDropdown').removeClass('show');
     });
@@ -294,11 +294,11 @@ var customHeader = {};
       $('#menuDropdownCustom').removeClass('show');
     });
     $('#menuDropdownCustom').removeClass('show');
-  
+
     $('#linksDropdown').on('focusout', function () {
       $('#linksDropdown').removeClass('show');
     });
-  
+
     $('#myDropdown').on('focusout', function () {
       $('#myDropdown').removeClass('show');
     });
@@ -330,7 +330,7 @@ var customHeader = {};
     </button>
 </div>
 <div class="dropdown">
-    <button class="button-weak button-icon" onclick="customHeader.closeHamburgerMenu()">
+    <button class="button-weak button-icon" onclick="customHeader.closeHamburgerMenu('#myDropdown')">
         <svg xmlns="http://www.w3.org/2000/svg" style="width:24px !important;height:24px !important" viewBox="0 0 24 24">
             <path fill-rule="evenodd"
                 d="M5.87300934,20 C5.31672677,18.8352719 5,17.5623379 5,16.3333333 C5,13.9259827 6.21522434,12.2548428 8.06569509,11.3364984 C7.70530908,10.3928205 7.5,9.36966701 7.5,8.4 C7.5,5.36243388 9.51471863,4 12,4 C14.4852814,4 16.5,5.36243388 16.5,8.4 C16.5,9.36966701 16.2946909,10.3928205 15.9343049,11.3364984 C17.7847757,12.2548428 19,13.9259827 19,16.3333333 C19,17.5623379 18.6832732,18.8352719 18.1269907,20 C17.7963837,20 17.3817618,20 16.883125,20 C15.7220834,20 15.7220834,19.3712729 15.8841722,19.0335104 C16.2755898,18.2178696 16.5,17.329449 16.5,16.5 C16.5,15.0183086 15.7838916,14.0593118 14.6788931,13.5264125 C13.9304475,14.4190907 13.00359,15 12,15 C10.99641,15 10.0695525,14.4190907 9.32110687,13.5264125 C8.21610842,14.0593118 7.5,15.0183086 7.5,16.5 C7.5,17.3265901 7.72286593,18.211746 8.11178644,19.0250739 C8.2747433,19.3658565 8.2747433,20 7.14578125,20 C6.64072083,20 6.21646352,20 5.87300934,20 Z M12,12.5 C13.1045695,12.5 14,10.2997114 14,8.64285714 C14,6.98600289 13.1045695,6.5 12,6.5 C10.8954305,6.5 10,6.98600289 10,8.64285714 C10,10.2997114 10.8954305,12.5 12,12.5 Z" />
@@ -445,23 +445,23 @@ var customHeader = {};
         if (window.innerWidth <= 960) {
           htmlStr += `<${htmlTag} class="${classMenu}" onclick="${item.customFunctionMobile ? item.customFunctionMobile : customFunction.handleAction(item, "customHeader")}"><p role="label" class="link">${item.title}</p><ul class="dropdown-content"id="${item.mobileId ? item.mobileId : ''}" role="select"></ul></${htmlTag}>`
         } else {
-          htmlStr += `<div class="links hidden-on-mobile" onclick="customHeader.openDropDown()"><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
+          htmlStr += `<div class="links hidden-on-mobile" onclick="customHeader.closeHamburgerMenu('#select-menu-header')"><p role="label" class=" link" id="selected-account-header">${item.title}</p><ul class="dropdown-content" id="select-menu-header" role="select"></ul></div>`;
         }
       } else {
         if (window.innerWidth <= 960) {
           htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}"><p role="label" class="link">${item.title}</p></${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
-        }else{
+        } else {
           htmlStr += `<${item.customHtmlTag ? item.customHtmlTag : htmlTag}  class="${classMenu}" onclick="${item.customFunction ? item.customFunction : customFunction.handleAction(item, "customHeader")}">${item.title}</${item.customHtmlTag ? item.customHtmlTag : htmlTag}>`;
         }
       }
     }
 
     if (window.innerWidth <= 960) {
-      document.getElementById('menuDropdownUl').innerHTML += htmlStr ;
+      document.getElementById('menuDropdownUl').innerHTML += htmlStr;
     } else {
       document.getElementById('header_btn_bar').innerHTML = htmlStr;
     }
-    
+
 
     customHeader.buildSelectMenuHeader()
   }
@@ -505,8 +505,18 @@ var customHeader = {};
     console.log("select-menu-header", document.getElementById('select-menu-header'))
   }
 
-  customHeader.closeHamburgerMenu = function () {
-    $('#myDropdown').toggleClass('show').focus()
+
+  $(document).click(function(event) {
+    var text = $(event.target).text();
+    if(text != "Collections"){
+      if($('#select-menu-header').hasClass('show')){
+        customHeader.closeHamburgerMenu('#select-menu-header')
+      }
+    }
+  });
+
+  customHeader.closeHamburgerMenu = function (id) {
+    $(id).toggleClass('show').focus()
   }
   this.closeMenuCustom = function () {
     $('#menuDropdownCustom').toggleClass('show').focus();
@@ -514,6 +524,8 @@ var customHeader = {};
   customHeader.linksMenu = function () {
     $('#linksDropdown').toggleClass('show').focus()
   }
+
+ 
 
   customHeader.logout = function () {
     var event = new CustomEvent('logout');
@@ -524,7 +536,7 @@ var customHeader = {};
     }
   };
   customHeader.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
-    customHeader .closeAllMenusListener();
+    customHeader.closeAllMenusListener();
     var name = eval("(" + nameOfMainJs + ")")
     const uuid = name.getSessionStorage('LastOpenTransactionUUID');
     console.log("uuid --->", uuid);
