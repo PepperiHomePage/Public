@@ -7,7 +7,7 @@ const DropDown = [
     transaction: "Buyer Order",
     title: "OGI Collection",
     action:"setUUIDandNav",
-    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?SearchString=&CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false'
   },
   {
     catalog: "Ogi",
