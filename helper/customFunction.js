@@ -131,6 +131,7 @@ customFunction.createNewOrderAndNavCallback = function (res) {
   console.log('createNewOrderAndNavCallback res', res);
   if (res && res.success) {
     customFunction.setSessionStorage('LastOpenTransactionUUID', res.id);
+    debugger
     let uuid = res.id;
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
@@ -143,6 +144,7 @@ customFunction.createNewOrderCallback = function (res) {
   if (res && res.success) {
     let uuid = res.id;
     customFunction.setSessionStorage('LastOpenTransactionUUID', uuid);
+    debugger
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(requestID);
@@ -241,6 +243,7 @@ customFunction.setQuantitiesTotal = function (QuantitiesTotal) {
 
 customFunction.setCurrentTransaction = function (uuid, grandTotal) {
   customHomepage.setSessionStorage('LastOpenTransactionUUID', uuid);
+  debugger
   var total = grandTotal ?
     Number(grandTotal)
     .toFixed(2)
