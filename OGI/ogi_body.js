@@ -589,8 +589,6 @@ var customHomepage = {};
     console.log("blocks_config", JSON.stringify(blocks_config))
     let recentOrdBtnDeeplink = ''
     if (data && data.objects && data.objects.length) {
-      let uuid = data.objects[0].UUID ? data.objects[0].UUID : "00000000";
-      customFunction.setSessionStorage("LastOpenTransactionUUID", uuid);
       recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
       this.buildOpenOrdersTable(data.objects, data.requestID);
     } else {
