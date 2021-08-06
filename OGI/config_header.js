@@ -75,7 +75,7 @@ const LeftMenu = [
     catalog: "Ogi",
     transaction: "Buyer View Catalog",
     title: "Catalog View",
-    action:"setUUIDandNav",
+    action:"createNewTransaction",
     deepLink: '/transactions/scope_items/{{UUID}}'
   },
 ];

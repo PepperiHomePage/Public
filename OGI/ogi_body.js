@@ -524,6 +524,62 @@ var customHomepage = {};
     customHomepage.getDealerlevel(uuid)
 
     customHomepage.getUserInfo(uuid)
+
+    customHomepage.getLastTransaction(customFunction.transactionName, uuid)
+  }
+
+  customHomepage.getLastTransaction = function (transactionName, accountUUID) {
+    console.log("text----------->", transactionName, accountUUID);
+    pepperi.api.transactions.search({
+      fields: [
+        "UUID",
+      ],
+      filter: {
+        Operation: "AND",
+        RightNode: {
+          ApiName: "ActionDateTime",
+          Operation: "InTheLast",
+          Values: ["4", "Weeks"],
+        },
+        LeftNode: {
+          Operation: "AND",
+          RightNode: {
+            ApiName: "Type",
+            Operation: "IsEqual",
+            Values: [transactionName],
+          },
+          LeftNode: {
+            Operation: "AND",
+            RightNode: {
+              ApiName: "Account.UUID",
+              Operation: "IsEqual",
+              Values: [accountUUID],
+            },
+            LeftNode: {
+              Operation: "AND",
+              RightNode: {
+                ApiName: "Hidden",
+                Operation: "IsEqual",
+                Values: ['false'],
+              },
+              LeftNode: {
+                ApiName: "Status",
+                Operation: "IsEqual",
+                Values: ["2"],
+              },
+            },
+          },
+        },
+      },
+      sorting: [{
+        Field: "ActionDateTime",
+        Ascending: false
+      }],
+      pageSize: 3,
+      page: 1,
+      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
+      requestID: id
+    });
   }
 
   customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
@@ -697,6 +753,7 @@ var customHomepage = {};
   this.getRecentSubmittedTransactionForAccountCallback = function (data) {
     console.log("transaction data ------> ", data);
     if (data && data.objects && data.objects.length) {
+      customFunction.setSessionStorage("LastOpenTransactionUUID", data.objects[0].UUID);
       customHomepage.buildSubmittedOrdersTable(data.objects, data.requestID);
     } else {
       document.getElementById(data.requestID).style.display = "flex"
