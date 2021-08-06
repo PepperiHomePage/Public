@@ -143,7 +143,6 @@ customFunction.createNewOrderCallback = function (res) {
   console.log('createNewOrderCallback res', res);
   if (res && res.success) {
     let uuid = res.id;
-    customFunction.setSessionStorage('LastOpenTransactionUUID', uuid);
     debugger
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
