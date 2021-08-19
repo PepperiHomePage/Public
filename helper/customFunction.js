@@ -109,6 +109,7 @@ customFunction.openInNewTab = function (url) {
 customFunction.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving, nameOfMainJs) {
   var name = eval("(" + nameOfMainJs + ")")
   let catalogUUID = !inCatalog ? customFunction.catalogs.find((el) => el.ExternalID === customFunction.catalogName).UUID : customFunction.catalogs.find((el) => el.ExternalID === inCatalog).UUID
+
   var bridgeObject = {
     references: {
       account: {
