@@ -527,7 +527,7 @@ var customHomepage = {};
 
   }
 
-  customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
+  customHomepage.submitedOrders = function (transactionName, fields, accountUUID, id) {
     console.log("text----------->", transactionName, accountUUID);
     pepperi.api.transactions.search({
       fields: [
@@ -579,7 +579,7 @@ var customHomepage = {};
       }],
       pageSize: 3,
       page: 1,
-      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
+      responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
       requestID: id
     });
   }
@@ -650,7 +650,7 @@ var customHomepage = {};
 
 
 
-  customHomepage.submitedOrders = function (transactionName, fields, accountUUID, id) {
+  customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
     pepperi.api.transactions.search({
       fields: [
         "UUID",
@@ -691,7 +691,7 @@ var customHomepage = {};
       }],
       pageSize: 4,
       page: 1,
-      responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
+      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
       requestID: id
     });
   };

@@ -1,9 +1,10 @@
 var Transaction = 'Buyer Order';
 var Catalog='Ogi'
 var blocks_config = {
-    'active-order':
+    'submitted_orders':
     {
-        name: "My Current Order",
+        name: "Last Orders",
+        
         table: [{
             text: "Order ID",
             field: "InternalID"
@@ -16,9 +17,8 @@ var blocks_config = {
         }]
     }
     ,
-    'submitted_orders': {
-        name: "Last Orders",
-        statuses: ["2"],
+    'active-order': {
+        name: "My Current Order",
         table: ["ActionDateTime", "InternalID"]
     }
 }
