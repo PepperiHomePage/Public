@@ -109,6 +109,7 @@ customFunction.openInNewTab = function (url) {
 customFunction.createNewOrder = function (inCatalog = null, in_transactionName = null, deepLink = null, skipSessionSaving, nameOfMainJs) {
   var name = eval("(" + nameOfMainJs + ")")
   let catalogUUID = !inCatalog ? customFunction.catalogs.find((el) => el.ExternalID === customFunction.catalogName).UUID : customFunction.catalogs.find((el) => el.ExternalID === inCatalog).UUID
+
   var bridgeObject = {
     references: {
       account: {
@@ -131,6 +132,7 @@ customFunction.createNewOrderAndNavCallback = function (res) {
   console.log('createNewOrderAndNavCallback res', res);
   if (res && res.success) {
     customFunction.setSessionStorage('LastOpenTransactionUUID', res.id);
+    debugger
     let uuid = res.id;
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
@@ -142,6 +144,7 @@ customFunction.createNewOrderCallback = function (res) {
   console.log('createNewOrderCallback res', res);
   if (res && res.success) {
     let uuid = res.id;
+    debugger
     if (res.requestID) {
       var requestID = res.requestID.replace('{{UUID}}', uuid.replace(/-/g, ''));
       customFunction.navigation(requestID);
@@ -240,6 +243,7 @@ customFunction.setQuantitiesTotal = function (QuantitiesTotal) {
 
 customFunction.setCurrentTransaction = function (uuid, grandTotal) {
   customHomepage.setSessionStorage('LastOpenTransactionUUID', uuid);
+  debugger
   var total = grandTotal ?
     Number(grandTotal)
     .toFixed(2)

@@ -7,7 +7,7 @@ const DropDown = [
     transaction: "Buyer Order",
     title: "OGI Collection",
     action:"setUUIDandNav",
-    deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
+    deepLink: '/Transactions/scope_items/{{UUID}}?SearchString=&CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false'
   },
   {
     catalog: "Ogi",
@@ -24,7 +24,6 @@ const DropDown = [
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
-
   {
     catalog: "Ogi",
     transaction: "Buyer Order",
@@ -62,21 +61,21 @@ const LeftMenu = [
     transaction: "Buyer Order",
     title: "New Arrivals",
     action:"setUUIDandNav",
-    deepLink: 'transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+    deepLink: '/Transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
   },
   {
     catalog: "Ogi",
     transaction: "Buyer Order",
     title: "Top Sellers",
     action:"setUUIDandNav",
-    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"a58db397-4b63-4131-80fa-d8257aa33b34%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+    deepLink: '/Transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"a58db397-4b63-4131-80fa-d8257aa33b34%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
   },
   {
     catalog: "Ogi",
     transaction: "Buyer View Catalog",
     title: "Catalog View",
-    action:"setUUIDandNav",
-    deepLink: '/transactions/scope_items/{{UUID}}'
+    action:"createNewTransaction",
+    deepLink: '/Transactions/scope_items/{{UUID}}'
   },
 ];
 const RightMenu = [
@@ -105,7 +104,6 @@ const RightMenu = [
   },
 ]
 /*actions:
-
 setUUIDandNav
 createNewTransaction
 navigation

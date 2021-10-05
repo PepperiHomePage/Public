@@ -524,9 +524,10 @@ var customHomepage = {};
     customHomepage.getDealerlevel(uuid)
 
     customHomepage.getUserInfo(uuid)
+
   }
 
-  customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
+  customHomepage.submitedOrders = function (transactionName, fields, accountUUID, id) {
     console.log("text----------->", transactionName, accountUUID);
     pepperi.api.transactions.search({
       fields: [
@@ -578,7 +579,7 @@ var customHomepage = {};
       }],
       pageSize: 3,
       page: 1,
-      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
+      responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
       requestID: id
     });
   }
@@ -589,8 +590,6 @@ var customHomepage = {};
     console.log("blocks_config", JSON.stringify(blocks_config))
     let recentOrdBtnDeeplink = ''
     if (data && data.objects && data.objects.length) {
-      let uuid = data.objects[0].UUID ? data.objects[0].UUID : "00000000";
-      customFunction.setSessionStorage("LastOpenTransactionUUID", uuid);
       recentOrdBtnDeeplink = 'Transactions/Cart/' + data.objects[0].UUID;
       this.buildOpenOrdersTable(data.objects, data.requestID);
     } else {
@@ -651,7 +650,7 @@ var customHomepage = {};
 
 
 
-  customHomepage.submitedOrders = function (transactionName, fields, accountUUID, id) {
+  customHomepage.activeOrder = function (transactionName, fields, accountUUID, id) {
     pepperi.api.transactions.search({
       fields: [
         "UUID",
@@ -692,7 +691,7 @@ var customHomepage = {};
       }],
       pageSize: 4,
       page: 1,
-      responseCallback: "customHomepage.getRecentSubmittedTransactionForAccountCallback",
+      responseCallback: "customHomepage.getRecentTransactionForAccountCallback",
       requestID: id
     });
   };
