@@ -1,17 +1,17 @@
 var Transaction = 'Buyer Order';
 var Catalog='Ogi'
-const logo = 'https://assets2.brandfolder.io/bf-boulder-prod/qeawf1-8ab1pk-742hwo/v/25188232/original/OGI_Eyewear_Standard_RGB.png'
+const logo = 'https://pepperihomepage.github.io/Public/OGI/img/logo.png'
 const DropDown = [
   {
     catalog: "Ogi",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "OGI Collection",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
   {
     catalog: "Ogi",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "Seraphin Shimmer",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.TSASeries%5C%22,%5C%22Value%5C%22:%5C%22Shimmer%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
@@ -19,7 +19,7 @@ const DropDown = [
 
   {
     catalog: "Ogi",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "Seraphin",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
@@ -27,21 +27,21 @@ const DropDown = [
 
   {
     catalog: "Ogi",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "Red Rose",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Red%20Rose%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
   {
     catalog: "Ogi",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "OGI Kids",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Ogi%20Kids%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
   },
   {
     catalog: "Ogi",
-    transaction: "B2B Order",
+    transaction: "Buyer Order",
     title: "Scojo New York",
     action:"setUUIDandNav",
     deepLink: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Scojo%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&SearchString='
@@ -70,6 +70,13 @@ const LeftMenu = [
     title: "Top Sellers",
     action:"setUUIDandNav",
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"a58db397-4b63-4131-80fa-d8257aa33b34%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"JsonFilter%5C%5C%5C":%5C%5C%5C"5e41726a-2442-46e9-9825-c092569dc7a9%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+  },
+  {
+    catalog: "Ogi",
+    transaction: "Buyer View Catalog",
+    title: "Catalog View",
+    action:"setUUIDandNav",
+    deepLink: '/transactions/scope_items/{{UUID}}'
   },
 ];
 const RightMenu = [

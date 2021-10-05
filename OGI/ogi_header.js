@@ -535,6 +535,11 @@ var customHeader = {};
       window.fireEvent('on' + event.eventType, event);
     }
   };
+
+  customHeader.changePassword = function () {
+    window.location.href = 'https://idp.pepperi.com/Account/ChangePassword';
+  };   
+
   customHeader.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null, nameOfMainJs) {
     customHeader.closeAllMenusListener();
     var name = eval("(" + nameOfMainJs + ")")
