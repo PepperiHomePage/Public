@@ -110,3 +110,110 @@ var CaruselData = [{
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
 ];
+
+var Footer = {
+    CompanyTitle: "OGI EYEWEAR",
+    CompanyLinks: [{
+            Title: "Our Story",
+            Link: "https://www.ogieyewear.com/our-story"
+        },
+        {
+            Title: "General Terms and Conditions",
+            Link: "https://brandfolder.com/s/77xf3gtqwhh4fh9xbj47f"
+        },
+        {
+            Title: "News",
+            Link: "https://www.ogieyewear.com/news"
+        },
+        {
+            Title: "OGI in Press",
+            Link: "https://www.ogieyewear.com/ogi-in-press"
+        },
+        {
+            Title: "Sustainability",
+            Link: "https://www.ogieyewear.com/sustainability"
+        },
+        {
+            Title: "Privacy",
+            Link: "https://www.ogieyewear.com/privacy-policy"
+        }
+    ],
+    BrandTitle: "BRAND FOLDER",
+    BrandLinks: [{
+            Title: "OGI creative assets",
+            Link: "https://brandfolder.com/s/fhkj88mvt7j3nztghm54k4s7"
+        },
+        {
+            Title: "Seraphin creative assets",
+            Link: "https://brandfolder.com/s/w4mx7vckxn7psjxc8tb7wbcr"
+        },
+        {
+            Title: "Seraphin Shimmer creative assets",
+            Link: "https://brandfolder.com/s/2tfzs9rb29pf7g6f8r5sxn6"
+        },
+        {
+            Title: "Red Rose creative assets",
+            Link: "https://brandfolder.com/s/ncnck6xkjxcrg3mk4nn2w4h"
+        },
+        {
+            Title: "OGI Kids creative assets",
+            Link: "https://brandfolder.com/s/8khfg5jh3ps5sknx5nxsvp"
+        },
+        {
+            Title: "SCOJO New York creative assets",
+            Link: "https://brandfolder.com/s/hgx5q88854tcbvq88t4bms"
+        }
+    ],
+    SocialTitle: "SOCIAL MEDIA",
+    SocialLinks: [{
+            Title: "LinkedIn",
+            Link: "https://www.linkedin.com/company/ogi-eyewear"
+        },
+        {
+            Title: "Facebook",
+            Link: "https://www.facebook.com/ogiframes"
+        },
+        {
+            Title: "Twitter",
+            Link: "https://twitter.com/OgiEyewear"
+        },
+        {
+            Title: "Instagram",
+            Link: "https://www.instagram.com/ogieyewear/"
+        },
+        {
+            Title: "Pinterest",
+            Link: "https://www.pinterest.com/ogieyewear/"
+        },
+        {
+            Title: "Youtube",
+            Link: "https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg"
+        }
+    ],
+    ContactTitle: "CONTACT US",
+    ContactLinks: [{
+            Title: "Sales Team",
+            Link: "https://www.ogieyewear.com/ogi-sales-team"
+        },
+        {
+            Title: "Customer Relations",
+            Link: "https://www.ogieyewear.com/ogi-customer-relations"
+        },
+        {
+            Title: "Shipping & Returns",
+            Link: "https://www.ogieyewear.com/shipping-returns"
+        },
+        {
+            Title: "Creative Team",
+            Link: "https://www.ogieyewear.com/ogi-creative-team"
+        },
+        {
+            Title: "Administration",
+            Link: "https://www.ogieyewear.com/ogi-administration"
+        },
+        {
+            Title: "CEO",
+            Link: "https://www.ogieyewear.com/ogi-ceo"
+        }
+    ]
+}
