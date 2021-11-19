@@ -29,7 +29,7 @@ var Brands = [
     },
     {
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
-        img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Seraphin.jpg',
+        img: 'https://cdn.pepperi.com/3904009/CustomizationFile/fe646a99-fc76-4d64-8dac-07a6c139d14b/OGI_Brand_Seraphin.jpg',
     },
     {
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
@@ -74,7 +74,7 @@ var Promotions = [
 ]
 
 var CaruselData = [{
-    title: 'View Seraphin Spring 2021 Collection',
+    title: 'Try Seraphin latest styles',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselSeraphin.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-seraphin.png',
     imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-seraphin.png',
@@ -102,7 +102,7 @@ var CaruselData = [{
 },
 {
     title: 'Discover Red Rose Fresh Styles',
-    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselRR.png',
+    imageURL: 'https://cdn.pepperi.com/3904009/CustomizationFile/bac00bbb-aa2c-49f7-86df-1b276e1438ac/OGI_Carousel_RedRose.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-redrose.png',
     imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-redrose.png',
     buttonText: 'See the Collection',
