@@ -102,7 +102,7 @@ var CaruselData = [{
 },
 {
     title: 'Discover Red Rose Fresh Styles',
-    imageURL: 'https://cdn.pepperi.com/3904009/CustomizationFile/bac00bbb-aa2c-49f7-86df-1b276e1438ac/OGI_Carousel_RedRose.png',
+    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselRedRoseNew.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-redrose.png',
     imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-redrose.png',
     buttonText: 'See the Collection',
