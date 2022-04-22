@@ -74,6 +74,24 @@ var Promotions = [
 ]
 
 var CaruselData = [{
+    title: "The Sky's the Limit with OGI Eyewear",
+    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/sky_limit_new_ogi.jpg',
+    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-ogi.png',
+    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-ogi.png',
+    buttonText: 'See the Collection',
+    time: 5000,
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+},
+    {
+    title: "",
+    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
+    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
+    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
+    buttonText: '',
+    time: 5000,
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+},
+    {
     title: 'Try Seraphin latest styles',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselSeraphin.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-seraphin.png',
@@ -82,15 +100,7 @@ var CaruselData = [{
     time: 5000,
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
-{
-    title: "The Sky's the Limit with OGI Eyewear",
-    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselOGI.png',
-    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-ogi.png',
-    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-ogi.png',
-    buttonText: 'See the Collection',
-    time: 5000,
-    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
-},
+
 {
     title: 'New Seraphin Shimmer Capsule Collection',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselShimmer.png',
