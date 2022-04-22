@@ -29,7 +29,7 @@ var Brands = [
     },
     {
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
-        img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Seraphin.jpg',
+        img: 'https://cdn.pepperi.com/3904009/CustomizationFile/fe646a99-fc76-4d64-8dac-07a6c139d14b/OGI_Brand_Seraphin.jpg',
     },
     {
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
@@ -74,7 +74,25 @@ var Promotions = [
 ]
 
 var CaruselData = [{
-    title: 'View Seraphin Spring 2021 Collection',
+    title: "The Sky's the Limit with OGI Eyewear",
+    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/sky_limit_new_ogi.jpg',
+    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-ogi.png',
+    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-ogi.png',
+    buttonText: 'See the Collection',
+    time: 5000,
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+},
+    {
+    title: "",
+    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
+    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
+    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
+    buttonText: '',
+    time: 5000,
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
+},
+    {
+    title: 'Try Seraphin latest styles',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselSeraphin.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-seraphin.png',
     imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-seraphin.png',
@@ -82,15 +100,7 @@ var CaruselData = [{
     time: 5000,
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"477be57a-521b-4b3d-8f04-11f4c6315e07%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
-{
-    title: "The Sky's the Limit with OGI Eyewear",
-    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselOGI.png',
-    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-ogi.png',
-    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-ogi.png',
-    buttonText: 'See the Collection',
-    time: 5000,
-    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
-},
+
 {
     title: 'New Seraphin Shimmer Capsule Collection',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselShimmer.png',
@@ -102,7 +112,7 @@ var CaruselData = [{
 },
 {
     title: 'Discover Red Rose Fresh Styles',
-    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselRR.png',
+    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselRedRoseNew.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-redrose.png',
     imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-redrose.png',
     buttonText: 'See the Collection',
@@ -110,3 +120,110 @@ var CaruselData = [{
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
 ];
+
+var Footer = {
+    CompanyTitle: "OGI EYEWEAR",
+    CompanyLinks: [{
+            Title: "Our Story",
+            Link: "https://www.ogieyewear.com/our-story"
+        },
+        {
+            Title: "General Terms and Conditions",
+            Link: "https://brandfolder.com/s/77xf3gtqwhh4fh9xbj47f"
+        },
+        {
+            Title: "News",
+            Link: "https://www.ogieyewear.com/news"
+        },
+        {
+            Title: "OGI in Press",
+            Link: "https://www.ogieyewear.com/ogi-in-press"
+        },
+        {
+            Title: "Sustainability",
+            Link: "https://www.ogieyewear.com/sustainability"
+        },
+        {
+            Title: "Privacy",
+            Link: "https://www.ogieyewear.com/privacy-policy"
+        }
+    ],
+    BrandTitle: "BRAND FOLDER",
+    BrandLinks: [{
+            Title: "OGI creative assets",
+            Link: "https://brandfolder.com/s/fhkj88mvt7j3nztghm54k4s7"
+        },
+        {
+            Title: "Seraphin creative assets",
+            Link: "https://brandfolder.com/s/w4mx7vckxn7psjxc8tb7wbcr"
+        },
+        {
+            Title: "Seraphin Shimmer creative assets",
+            Link: "https://brandfolder.com/s/2tfzs9rb29pf7g6f8r5sxn6"
+        },
+        {
+            Title: "Red Rose creative assets",
+            Link: "https://brandfolder.com/s/ncnck6xkjxcrg3mk4nn2w4h"
+        },
+        {
+            Title: "OGI Kids creative assets",
+            Link: "https://brandfolder.com/s/8khfg5jh3ps5sknx5nxsvp"
+        },
+        {
+            Title: "SCOJO New York creative assets",
+            Link: "https://brandfolder.com/s/hgx5q88854tcbvq88t4bms"
+        }
+    ],
+    SocialTitle: "SOCIAL MEDIA",
+    SocialLinks: [{
+            Title: "LinkedIn",
+            Link: "https://www.linkedin.com/company/ogi-eyewear"
+        },
+        {
+            Title: "Facebook",
+            Link: "https://www.facebook.com/ogiframes"
+        },
+        {
+            Title: "Twitter",
+            Link: "https://twitter.com/OgiEyewear"
+        },
+        {
+            Title: "Instagram",
+            Link: "https://www.instagram.com/ogieyewear/"
+        },
+        {
+            Title: "Pinterest",
+            Link: "https://www.pinterest.com/ogieyewear/"
+        },
+        {
+            Title: "Youtube",
+            Link: "https://www.youtube.com/channel/UCazQOXpZYsn_i3VTHpuLWwg"
+        }
+    ],
+    ContactTitle: "CONTACT US",
+    ContactLinks: [{
+            Title: "Sales Team",
+            Link: "https://www.ogieyewear.com/ogi-sales-team"
+        },
+        {
+            Title: "Customer Relations",
+            Link: "https://www.ogieyewear.com/ogi-customer-relations"
+        },
+        {
+            Title: "Shipping & Returns",
+            Link: "https://www.ogieyewear.com/shipping-returns"
+        },
+        {
+            Title: "Creative Team",
+            Link: "https://www.ogieyewear.com/ogi-creative-team"
+        },
+        {
+            Title: "Administration",
+            Link: "https://www.ogieyewear.com/ogi-administration"
+        },
+        {
+            Title: "CEO",
+            Link: "https://www.ogieyewear.com/ogi-ceo"
+        }
+    ]
+}

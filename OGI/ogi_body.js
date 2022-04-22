@@ -817,7 +817,7 @@ var customHomepage = {};
     html = `<h3 class="title-2-sm">${data.object.TSAMainRepName}</h3>
               <hr>
               <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-phone.svg" alt=""><a href="tel:+${hrefMobilePhone}">${data.object.TSAMainRepMobile}</a></span>
-              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="mailto:${data.object.TSARepEmail}" target="_blank">${data.object.TSARepEmail}</a></span>
+              <span class="bold userEmailAndPhone"><img src="https://pepperihomepage.github.io/Public/OGI/img/Icon-email.svg" alt=""><a href="mailto:${data.object.TSARepEmail}">${data.object.TSARepEmail}</a></span>
               <div class="accountPhoto">
                   <img src="https://pepperihomepage.github.io/Public/OGI/img/${imgName}.jpg" alt="">
               </div>
