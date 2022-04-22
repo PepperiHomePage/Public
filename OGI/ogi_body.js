@@ -364,11 +364,11 @@ var customHomepage = {};
           
                 <hr id ="store-selector-hr" style="display:none">
           
-                <div id="active-order" style="display:none">
+                <div id="submitted_orders" style="display:none">
                   
                 </div>
           
-                <div id="submitted_orders" style="display:none"></div>
+                <div id="active-order" style="display:none"></div>
 
                 <div id="user_info"></div>
                 <div id="overlay"></div>
@@ -525,7 +525,71 @@ var customHomepage = {};
 
     customHomepage.getUserInfo(uuid)
 
+    customHomepage.lastActiveTransaction(customFunction.transactionName, uuid)
   }
+
+
+  customHomepage.lastActiveTransaction = function (transactionName, accountUUID) {
+    console.log("text----------->", transactionName, accountUUID);
+    pepperi.api.transactions.search({
+      fields: [
+        "UUID"
+      ],
+      filter: {
+        Operation: "AND",
+        RightNode: {
+          ApiName: "ActionDateTime",
+          Operation: "InTheLast",
+          Values: ["4", "Weeks"],
+        },
+        LeftNode: {
+          Operation: "AND",
+          RightNode: {
+            ApiName: "Type",
+            Operation: "IsEqual",
+            Values: [transactionName],
+          },
+          LeftNode: {
+            Operation: "AND",
+            RightNode: {
+              ApiName: "Account.UUID",
+              Operation: "IsEqual",
+              Values: [accountUUID],
+            },
+            LeftNode: {
+              Operation: "AND",
+              RightNode: {
+                ApiName: "Hidden",
+                Operation: "IsEqual",
+                Values: ['false'],
+              },
+              LeftNode: {
+                ApiName: "Status",
+                Operation: "IsEqual",
+                Values: ["1", "1000"],
+              },
+            },
+          },
+        },
+      },
+      sorting: [{
+        Field: "ActionDateTime",
+        Ascending: false
+      }],
+      pageSize: 1,
+      page: 1,
+      responseCallback: "customHomepage.getLastActiveTransactionCallback"
+    });
+  }
+
+  customHomepage.getLastActiveTransactionCallback = function(data){
+    console.log("----------getLastActiveTransactionCallback--------------",data);
+    if(data && data.objects && data.objects.length){
+      let uuid = data.objects[0].UUID
+      customFunction.setSessionStorage("LastOpenTransactionUUID", uuid);
+    }
+  }
+
 
   customHomepage.submitedOrders = function (transactionName, fields, accountUUID, id) {
     console.log("text----------->", transactionName, accountUUID);
@@ -613,7 +677,7 @@ var customHomepage = {};
     }
   };
 
-  this.buildOpenOrdersTable = function (data, id) {
+  this.buildSubmittedOrdersTable = function (data, id) {
     console.log("active order data ->>>> ", data);
     console.log("active order block config ->>>> ", blocks_config["active-order"].table);
     recentOrdBtnDeeplink = 'Transactions/Cart/' + data[0].UUID;
@@ -707,7 +771,7 @@ var customHomepage = {};
         `;
     }
   };
-  this.buildSubmittedOrdersTable = function (data, id) {
+  this.buildOpenOrdersTable = function (data, id) {
     let tableHtml = "";
     let Container = document.getElementById(id);
     tableHtml += `
