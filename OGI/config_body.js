@@ -226,4 +226,4 @@ var Footer = {
             Link: "https://www.ogieyewear.com/ogi-ceo"
         }
     ]
-}
+}   
