@@ -83,15 +83,6 @@ var CaruselData = [{
     deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
 },
     {
-    title: "Save now with our April Promotion",
-    imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
-    imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
-    imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/april_promotion_ogi.jpg',
-    buttonText: 'Shop Now',
-    time: 5000,
-    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Ogi%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
-},
-    {
     title: 'Try Seraphin latest styles',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselSeraphin.png',
     imageURLIpad: 'https://pepperihomepage.github.io/Public/OGI/img/ipadbanners-seraphin.png',
