@@ -1,4 +1,4 @@
-var Transaction = 'Buyer Order';
+﻿var Transaction = 'Buyer Order';
 var Catalog='Ogi'
 var blocks_config = {
     'submitted_orders':
@@ -35,8 +35,8 @@ var Brands = [
         link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"JsonFilter%5C":%5C"c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Red%20Rose%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Red%20Rose.jpg',
     },
-    {
-        link: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.TSASeries%5C",%5C"Value%5C":%5C"Shimmer%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false',
+    {          
+        link:  '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%22%7B%5C%22"JsonFilter%5C%22":%5C"%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22",%5C%22"Parent%5C%22":%5C%22%7B%5C%5C%5C%22"DynamicFilter%5C%5C%5C%22":%5C%5C%5C%22"Item.MainCategory%5C%5C%5C%22",%5C%5C%5C%22"Value%5C%5C%5C%22":%5C%5C%5C%22"Seraphin%20Shimmer%5C%5C%5C%22"%7D%5C%22"%7D%22"&TopPadding=0&SearchAll=false&StartIndex=0',
         img: 'https://pepperihomepage.github.io/Public/OGI/img/brand_Shimmer.jpg',
     },
     {
@@ -99,8 +99,8 @@ var CaruselData = [{
     imageURLIphone: 'https://pepperihomepage.github.io/Public/OGI/img/iphone-shimmer.png',
     buttonText: 'View Timeless Seraphin Styles',
     time: 5000,
-    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%7B%5C"DynamicFilter%5C":%5C"Item.TSASeries%5C",%5C"Value%5C":%5C"Shimmer%5C",%5C"Parent%5C":%5C"%7B%5C%5C%5C"DynamicFilter%5C%5C%5C":%5C%5C%5C"Item.MainCategory%5C%5C%5C",%5C%5C%5C"Value%5C%5C%5C":%5C%5C%5C"Seraphin%5C%5C%5C"%7D%5C"%7D"&TopPadding=0&SearchAll=false'
-},
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%22%7B%5C%22"JsonFilter%5C%22":%5C"%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22",%5C%22"Parent%5C%22":%5C%22%7B%5C%5C%5C%22"DynamicFilter%5C%5C%5C%22":%5C%5C%5C%22"Item.MainCategory%5C%5C%5C%22",%5C%5C%5C%22"Value%5C%5C%5C%22":%5C%5C%5C%22"Seraphin%20Shimmer%5C%5C%5C%22"%7D%5C%22"%7D%22"&TopPadding=0&SearchAll=false&StartIndex=0'
+},             
 {
     title: 'Discover Red Rose Fresh Styles',
     imageURL: 'https://pepperihomepage.github.io/Public/OGI/img/CarouselRedRoseNew.png',
