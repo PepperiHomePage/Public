@@ -14,9 +14,8 @@ const DropDown = [
     transaction: "Buyer Order",
     title: "Seraphin Shimmer",
     action:"setUUIDandNav",
-    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab="%22%7B%5C%22"JsonFilter%5C%22":%5C"%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22",%5C%22"Parent%5C%22":%5C%22%7B%5C%5C%5C%22"DynamicFilter%5C%5C%5C%22":%5C%5C%5C%22"Item.MainCategory%5C%5C%5C%22",%5C%5C%5C%22"Value%5C%5C%5C%22":%5C%5C%5C%22"Seraphin%20Shimmer%5C%5C%5C%22"%7D%5C%22"%7D%22"&TopPadding=0&SearchAll=false&StartIndex=0'
-  },
-
+    deepLink: '/transactions/scope_items/{{UUID}}?SearchString=&CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22c8ab1f8d-4ebe-4f0e-9735-0e58b50504c3%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22DynamicFilter%5C%5C%5C%22:%5C%5C%5C%22Item.MainCategory%5C%5C%5C%22,%5C%5C%5C%22Value%5C%5C%5C%22:%5C%5C%5C%22Seraphin%20Shimmer%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0&SearchAll=false&StartIndex=0'
+  },          
   {
     catalog: "Ogi",
     transaction: "Buyer Order",
