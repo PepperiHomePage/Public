@@ -45,57 +45,57 @@ var Brands = [{
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Hair%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-1.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-1.png',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22Dry%20Shampoo%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-2.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-2.png',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22Co%20Wash%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-3.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-3.png',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Treatments%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-4.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-4.png',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Treatments%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-5.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-5.png',
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Face%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%227142a6f9-af48-4dba-a30d-85d89b2ed083%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-6.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-6.png',
 
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%223da50a6c-8a60-4b9c-93f6-a0c83de35072%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-7.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-7.png',
 
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22New%20Arrivals%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-8.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-8.png',
 
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22023bad44-a6d3-435b-928d-bab0a41b4dc6%5C%22%7D%22',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-9.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-9.png',
 
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop2%5C%22,%5C%22Value%5C%22:%5C%22New%20Arrivals%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%22696718b2-3431-4aad-b23a-8a6d7c824ef0%5C%5C%5C%22%7D%5C%22%7D%22&amp;TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-10.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-10.png',
 
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%228cf1f19b-9815-40ea-becf-6eced87d910e%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/mock-logo-11.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-11.png',
 
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22fcef195d-fcdd-4ce6-b6e7-f506bc92c46c%5C%22%7D%22&TopPadding=0',
-        img: 'mock-logo-12.png',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-12.png',
 
     }
 ]
