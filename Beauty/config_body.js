@@ -97,11 +97,6 @@ var Brands = [{
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22fcef195d-fcdd-4ce6-b6e7-f506bc92c46c%5C%22%7D%22&TopPadding=0',
         img: 'https://storage.pepperi.com/Beauty_demo/13.jpg',
 
-    },
-    {
-        link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22DynamicFilter%5C%22:%5C%22Item.Prop1%5C%22,%5C%22Value%5C%22:%5C%22Masks%5C%22,%5C%22Parent%5C%22:%5C%22%7B%5C%5C%5C%22JsonFilter%5C%5C%5C%22:%5C%5C%5C%222a7c613e-1e67-4497-af60-ae8a6633487a%5C%5C%5C%22%7D%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/15.jpg',
-
     }
 ]
 //Promotions block
