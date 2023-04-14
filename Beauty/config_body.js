@@ -95,7 +95,7 @@ var Brands = [{
     },
     {
         link: '/Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%22fcef195d-fcdd-4ce6-b6e7-f506bc92c46c%5C%22%7D%22&TopPadding=0',
-        img: 'https://storage.pepperi.com/Beauty_demo/13.jpg',
+        img: 'https://pepperihomepage.github.io/Public/Beauty/mock-logo-0-BIG.png',
 
     }
 ]
