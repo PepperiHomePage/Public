@@ -38,6 +38,13 @@ const LeftMenu = [
     title: "Line Sheet",
     action:"createNewTransaction",
     deepLink: 'Transactions/scope_items/{{UUID}}'
+  },
+  {
+    catalog: "ALL",
+    transaction: "Pre Sale 2024",
+    title: "Presale 2024",
+    action:"createNewTransaction",
+    deepLink: 'Transactions/scope_items/{{UUID}}'
   }
 ];
 const RightMenu = [
