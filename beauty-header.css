@@ -310,7 +310,7 @@ strong,
 
 
 .header-start .link {
-  color: black;
+  color: hsl(var(--pep-color-text-link-h), var(--pep-color-text-link-s), var(--pep-color-text-link-l));
   font-size: 1rem;
   font-weight: 600;
   -webkit-margin-end: 1rem;
@@ -1227,7 +1227,7 @@ button {
   color: white;
   padding: 0.5em 0.7em;
   border-radius: 4px;
-  background: green;
+  background: hsl(var(--pep-color-system-primary-h), var(--pep-color-system-primary-s), var(--pep-color-system-primary-l);
   margin-bottom: 0.25rem;
 }
 
