@@ -310,7 +310,7 @@ strong,
 
 
 .header-start .link {
-  color: hsl(var(--pep-color-text-link-h), var(--pep-color-text-link-s), var(--pep-color-text-link-l));
+  color: black;
   font-size: 1rem;
   font-weight: 600;
   -webkit-margin-end: 1rem;
@@ -320,7 +320,7 @@ strong,
 }
 
 .header-start .link:hover {
-  color: green;
+  color: hsl(var(--pep-color-text-link-h), var(--pep-color-text-link-s), var(--pep-color-text-link-l));
 }
 
 .header-end button {
