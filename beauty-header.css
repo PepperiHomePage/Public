@@ -1227,7 +1227,7 @@ button {
   color: white;
   padding: 0.5em 0.7em;
   border-radius: 4px;
-  background: hsl(var(--pep-color-system-primary-h), var(--pep-color-system-primary-s), var(--pep-color-system-primary-l);
+  background: green;
   margin-bottom: 0.25rem;
 }
 
