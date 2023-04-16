@@ -1,7 +1,7 @@
 var Transaction = 'B2B Order';
 var Catalog='ALL'
-const logo = 'https://storage.pepperi.com/PreSales/beauty_demo/logo.png'
-const LeftMenu = [
+var logo = 'https://storage.pepperi.com/PreSales/beauty_demo/logo.png'
+var LeftMenu = [
   {
     catalog: "ALL",
     transaction: "B2B Order",
@@ -33,21 +33,14 @@ const LeftMenu = [
     deepLink: 'Transactions/scope_items/{{UUID}}?CurrentTab=%22%7B%5C%22JsonFilter%5C%22:%5C%222a7c613e-1e67-4497-af60-ae8a6633487a%5C%22%7D%22'
   },
   {
-    catalog: "ALL",
-    transaction: "Print Catalog",
-    title: "Line Sheet",
-    action:"createNewTransaction",
-    deepLink: 'Transactions/scope_items/{{UUID}}'
-  },
-  {
-    catalog: "ALL",
+    catalog: "Pre Sale 2024",
     transaction: "Pre Sale 2024",
     title: "Presale 2024",
     action:"createNewTransaction",
     deepLink: 'Transactions/scope_items/{{UUID}}'
   }
 ];
-const RightMenu = [
+var RightMenu = [
   {
     catalog: "ALL",
     transaction: "B2B Order",
