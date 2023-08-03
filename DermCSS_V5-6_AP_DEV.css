@@ -1,0 +1,901 @@
+/*24.02.2020 Autoship Launch*/
+
+@-webkit-keyframes carusel-slide {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+@-moz-keyframes carusel-slide {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+@font-face {
+    font-family: NewHelvetica;
+    src: url(../fonts/helveticaneue-roman.otf) format("opentype");
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url(../fonts/Helvetica.ttf) format("truetype");
+}
+
+#customHomepage {
+    font-family: NewHelvetica, Helvetica, Inter;
+    display: grid;
+    max-width: 1120px;
+    margin: 0 auto;
+    height: inherit;
+    background-color: #fff;
+    min-height: -webkit-fill-available;
+    min-height: -moz-fill-available;
+    grid-template-columns: 3fr minmax(250px, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 20px;
+    grid-template-areas: "filters filters" "header header" "header2 header2" "carusel carusel" "aside aside" "transaction transaction";
+}
+
+#customHomepage .roundCorners {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#customHomepage filters {
+    grid-area: header;
+    grid-row: 1;
+    height: 64px;
+    box-shadow: 0px 4px 8px 0px rgba(21, 24, 26, 0.16);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+#customHomepage filtergrid {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-template-areas: "filterCard filterCard filterCard filterCard filterCard filterCard filterCard filterCard filterCard";
+}
+
+#customHomepage filtergrid filterCard {
+    grid-column: auto;
+    display: flex;
+    color: rgb(26, 26, 26);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+    line-height: 32px;
+    border-right: 1px solid rgba(0, 0, 0, 0.24);
+    margin: 16px 0;
+}
+
+#customHomepage filtergrid filterCard:hover {
+    cursor: pointer;
+}
+
+#customHomepage filtergrid filterCard img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+#customHomepage filtergrid filterCard label {
+    width: 100%;
+    padding: 0 7px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#customHomepage filters .filterImgCont:last-of-type {
+    margin-right: 0;
+    /* border-right: 1px solid rgba(0,0,0,0.24); */
+}
+
+#customHomepage header2 {
+    grid-area: header;
+    grid-row: 2;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 13px;
+    height: 41px;
+}
+
+#customHomepage header2 h3 {
+    margin: 8px 0 0 0;
+}
+
+#customHomepage header2 button {
+    height: 32px;
+    background: rgb(0, 125, 174);
+    color: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
+    margin-left: 10px;
+    line-height: 30px;
+    position: relative;
+    overflow: unset;
+    padding: 0 6px;
+}
+
+#customHomepage header2 button .icon {
+    margin: 1px 0 0 3px;
+}
+
+#customHomepage header2 button:after {
+    content: attr(data-count);
+    min-width: 24px;
+    height: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+    display: block;
+    border-radius: 10px;
+    background: #FFF;
+    /* border: 1px solid #FFF; */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    color: #000;
+    position: absolute;
+    top: -14px;
+    right: -11px;
+    padding: 0 5px;
+}
+
+#customHomepage header2 button.hideBadge:after {
+    display: none;
+}
+
+#customHomepage header2 button.btnNewOrder {
+    background: rgba(0, 125, 174, 0.16);
+    border: 1px solid rgba(0, 125, 174, 0.32);
+    margin: 0 auto;
+    color: rgb(26, 26, 26);
+}
+
+#customHomepage carusel {
+    grid-area: 3 / 1 / 3 / 2;
+}
+
+#customHomepage aside {
+    grid-area: 3 / 2 / 4 / 2;
+    /* display: grid; */
+    /* grid-row: 3 / span 2; */
+}
+
+#customHomepage aside .asideRect,
+#customHomepage aside2 .asideRect {
+    background: #f0f0f0;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    height: 70px;
+}
+
+#customHomepage .autoship {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(0, 125, 174, 0.16) !important;
+    border: 1px solid rgba(0, 125, 174, 0.32);
+}
+
+#customHomepage aside .shipping {
+    grid-area: shipping;
+}
+
+#customHomepage aside .dermDolar {
+    grid-area: dermDolar;
+}
+
+#customHomepage aside .activeOrder {
+    grid-area: activeOrder;
+}
+
+#customHomepage aside .autoship {
+    grid-area: autoship;
+}
+
+#customHomepage .autoship span {
+    color: #1a1a1a;
+    font-size: 18px;
+    letter-spacing: 0.16px;
+    line-height: 28px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#customHomepage aside2 {
+    display: none;
+}
+
+#customHomepage aside .asideRect:last-of-type {
+    margin-bottom: 0;
+}
+
+#customHomepage aside .asideRect label,
+#customHomepage aside2 .asideRect label {
+    color: rgba(26, 26, 26, 0.6);
+    font-size: 18px;
+    height: 56px;
+    letter-spacing: 0.16px;
+    line-height: 28px;
+    width: -moz-calc(100% - 55px);
+    width: -webkit-calc(100% - 55px);
+    width: -o-calc(100% - 55px);
+    width: calc(100% - 55px);
+}
+
+#customHomepage aside .asideRect .rectIcon,
+#customHomepage aside2 .asideRect .rectIcon {
+    height: 32px;
+    width: 48px;
+    margin: 12px 0;
+    background-size: contain;
+}
+
+#customHomepage aside .asideRect .rectIcon.truck,
+#customHomepage aside2 .asideRect .rectIcon.truck {
+    background-image: url('../images/SVGs/truck.svg');
+}
+
+#customHomepage aside .asideRect .rectIcon.money,
+#customHomepage aside2 .asideRect .rectIcon.money {
+    background-image: url('../images/SVGs/DermDollars.svg');
+}
+
+#customHomepage aside .asideRect.activeOrder {
+    display: none;
+    min-height: 230px;
+    height: fit-content;
+    padding: 16px 24px;
+}
+
+#customHomepage aside .asideRect.activeOrder .pending-order {
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+    width: 100%;
+    /* margin-bottom: 0px !important; */
+}
+
+#customHomepage aside .asideRect.activeOrder button {
+    background: rgb(0, 125, 174);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 125, 174, 0.32);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+    height: 40px;
+    width: 92%;
+    margin: 0 auto;
+    display: block;
+    color: #fff;
+    /* margin-top: 27px; */
+}
+
+#customHomepage aside .asideRect.activeOrder label {
+    font-size: 13px;
+    /* font-weight: bold;
+  color: rgba(26, 26, 26, 0.6);
+  font-family: NewHelvetica, Helvetica, Inter !important; */
+    letter-spacing: 0.2px;
+    line-height: 17px;
+    width: inherit;
+    height: auto;
+}
+
+#customHomepage transaction {
+    padding: 0;
+    height: fit-content;
+    display: grid;
+    grid-area: 4 / 1 / 4 / 3;
+    grid-column-gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "transactionCard transactionCard transactionCard";
+    /* margin-top: 10px; */
+}
+
+#customHomepage #loggedInUser {
+    color: #009bde;
+}
+
+#customHomepage #aside transactionCard,
+#customHomepage transaction transactionCard {
+    /* height: fit-content; */
+    width: -webkit-fill-available;
+    cursor: pointer;
+    /* max-width: 256px; */
+    background: #F0F0F0;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+    max-height: 256px;
+}
+
+#customHomepage transaction transactionCard:last-of-type {
+    margin-right: 0;
+}
+
+#customHomepage #aside transactionCard .h3,
+#customHomepage transaction transactionCard .h3 {
+    z-index: 110;
+    width: inherit;
+    color: rgb(26, 26, 26);
+    font-size: 15px;
+    font-weight: 600;
+    height: 36px;
+    letter-spacing: 0.18px;
+    line-height: 16px;
+    margin: 0px 0 0 0px;
+    padding: 12px 16px 0 16px;
+}
+
+#customHomepage #aside transactionCard .image,
+#customHomepage transaction transactionCard .image {
+    position: relative;
+}
+
+#customHomepage #aside transactionCard img,
+#customHomepage transaction transactionCard img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 128px;
+}
+
+#customHomepage #aside transactionCard label,
+#customHomepage carusel label,
+#customHomepage transaction transactionCard label {
+    width: 100%;
+    color: #15181A;
+    font-size: 13px;
+    font-weight: 400;
+    /* max-height: 65px !important; */
+    letter-spacing: 0.12px;
+    /* line-height: 20px !important; */
+    margin: 0 -15px 0 0;
+    padding: 5px 12px 0 12px;
+}
+
+#customHomepage carusel .caruselCont {
+    background: #F0F0F0;
+    box-shadow: 0 4px 8px 0 rgba(21, 24, 26, 0.16);
+    /* height: 464px; */
+    height: 486px;
+}
+
+#customHomepage carusel .caruselCont img {
+    /* height: 416px; */
+    object-fit: cover;
+}
+
+#customHomepage carusel .caruselCont h3 {
+    /* height: 45px; */
+    height: 66px;
+    color: #15181A;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.18px;
+    line-height: 21px;
+    padding: 12px 16px 12px 16px;
+    margin: 0;
+}
+
+#customHomepage carusel .caruselCont h3.subTitle {
+    max-width: 45%;
+}
+
+#customHomepage aside .howItWorks a,
+#customHomepage aside2 .howItWorks a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#customHomepage aside .howItWorks a:hover {
+    cursor: pointer;
+}
+
+#customHomepage aside .howItWorks a img,
+#customHomepage aside2 .howItWorks a img {
+    width: 150px;
+    margin: 0 auto;
+}
+
+
+/* #customHomepage carusel .caruselCont h5{
+color: #E62600;
+margin-right: 10px;
+font-weight: 600;
+} */
+
+#customHomepage carusel .caruselCont h6 {
+    line-height: 16px;
+    font-weight: 600;
+}
+
+#customHomepage carusel .caruselCont .caruselProgressbarCont {
+    width: 100%;
+    height: 12px;
+    padding: 2px;
+    background-color: rgba(21, 24, 26, 0.08);
+}
+
+#customHomepage carusel .caruselCont .caruselProgressbar {
+    /*width: 104.8px;*/
+    height: 8px;
+    background: linear-gradient(90deg, rgba(191, 0, 6, 0) 0%, #007dae 100%);
+    border-radius: 2px 2px 2px 2px;
+    width: 0%;
+    /*display: none;*/
+}
+
+#customHomepage carusel .caruselCont .caruselProgressbar.showProgress {
+    /*display: block;*/
+    animation-name: carusel-slide;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -o-animation-duration: 3s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+
+/* styles for ellipsis'...' */
+
+#customHomepage .block-with-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 1.4em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 2.9em;
+    /* fix problem when last visible word doesn't adjoin right side  */
+    /* text-align: justify;   */
+    /* place for '...' */
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+
+/* create the ... */
+
+#customHomepage .block-with-text:before {
+    /* points in the end */
+    /* content: '...'; */
+    /* absolute position */
+    /* position: absolute; */
+    /* set position to right bottom corner of block */
+    /* right: 3px; */
+    /* bottom: 0; */
+}
+
+
+/* hide ... if we have text, which is less than or equal to max lines */
+
+#customHomepage .block-with-text:after {
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    background: #F0F0F0;
+}
+
+
+/* #customHomepage header .activeCartBtn{
+
+background: #BF0006;  
+color: #fff;
+border: 1px solid rgba(21, 24, 26, 0.16);
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+cursor: pointer;
+display: table;
+margin-left: 10px;
+} */
+
+
+/* #customHomepage header .btn-red{
+background: #BF0006;  
+color: #fff;
+border: 1px solid rgba(21, 24, 26, 0.16);
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+cursor: pointer;
+display: table;
+margin-right: 30px;  
+} */
+
+.hideDesktop {
+    display: none;
+}
+
+* {
+    box-sizing: border-box
+}
+
+
+/* Slideshow container */
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+
+/* Hide the images by default */
+
+.mySlides {
+    display: none;
+    cursor: pointer;
+}
+
+.mySlides.show {
+    display: block;
+}
+
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/*Launch Deal Transaction Changes --START*/
+
+ul.dropdown-menu:before,
+ul.dropdown-menu:after {
+    display: none;
+}
+
+
+/*Launch Deal Transaction Changes --END*/
+
+ul.leaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none;
+    line-height: 28px;
+}
+
+ul.leaders li:before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    /*
+content:  ". . . . . . . . . . . . . . . . . . . . "
+          ". . . . . . . . . . . . . . . . . . . . "
+          ". . . . . . . . . . . . . . . . . . . . "
+          ". . . . . . . . . . . . . . . . . . . . ";
+          */
+}
+
+ul.leaders span:first-child {
+    padding-right: 0.33em;
+    color: rgba(26, 26, 26, 0.6);
+    background: #f0f0f0;
+    font-size: 13px;
+}
+
+ul.leaders span+span {
+    float: right;
+    padding-left: 0.33em;
+    color: rgb(26, 26, 26);
+    background: #f0f0f0;
+    font-size: 15px;
+}
+
+
+/* MEDIUM LAYOUT*/
+
+@media (max-width: 1184px) {
+    #customHomepage {
+        padding: 0 20px;
+    }
+    #customHomepage transaction {
+        grid-row-gap: 10px;
+    }
+    #customHomepage filtergrid filterCard {
+        font-size: 13px;
+    }
+    #customHomepage transaction transactionCard:last-of-type {
+        /* margin-top: 10px; */
+    }
+}
+
+
+/* SMALL LAYOUT*/
+
+@media (max-width: 800px) {
+    #customHomepage {
+        grid-template-areas: "filters filters" "header header" "header2 header2" "carusel carusel" "aside aside" "transaction transaction";
+    }
+    #customHomepage transaction {
+        margin-top: 0;
+        grid-area: 4 / 1 / 5 / 3;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "transactionCard transactionCard" "transactionCard transactionCard";
+        grid-row-gap: 20px;
+        grid-column-gap: 20px
+    }
+}
+
+@media (max-width: 1120px) and (min-width: 768px) {
+    #customHomepage aside .shipping,
+    #customHomepage aside .dermDolar {
+        display: none;
+    }
+    #customHomepage {
+        grid-template-areas: "filters filters" "header header" "header2 header2" "carusel carusel" "aside aside" "aside2 aside2" "transaction transaction" !important;
+    }
+    #customHomepage aside {
+        grid-area: 3 / 2 / 3 / 2;
+    }
+    #customHomepage aside2 {
+        display: block;
+        grid-area: 4 / 1 / 4 / 3;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 16px;
+        grid-column-gap: 16px;
+        display: grid;
+    }
+    #customHomepage aside2 .asideRect {
+        margin-bottom: 0;
+        height: 75px;
+        padding: 10px 20px;
+        margin-bottom: 0;
+    }
+    #customHomepage aside2 .howItWorks,
+    #customHomepage aside2 .autoship {
+        display: none;
+    }
+    #customHomepage transaction {
+        grid-area: 5 / 1 / 6 / 3;
+    }
+    #customHomepage carusel .caruselCont {
+        height: unset;
+    }
+    #customHomepage aside .asideRect.activeOrder {
+        height: 255px;
+        display: grid !important;
+        grid-template-rows: max-content max-content auto min-content;
+    }
+    #customHomepage aside .asideRect.activeOrder #activeOrderDetails ul.leaders {
+        height: 100%;
+        display: contents;
+    }
+    #customHomepage aside .asideRect.activeOrder #activeOrderDetails ul.leaders li:nth-child(2) {
+        height: -moz-calc(100% - 75px);
+        height: -webkit-calc(100% - 75px);
+        height: -o-calc(100% - 75px);
+        height: calc(100% - 75px);
+    }
+}
+
+@media (max-width: 768px) {
+    #customHomepage aside .autoship {
+        display: none;
+    }
+    #customHomepage aside .asideRect.activeOrder {
+        height: 100%;
+    }
+    #customHomepage aside2 {
+        display: block;
+        grid-area: 4 / 1 / 4 / 3;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 16px;
+        grid-column-gap: 16px;
+        display: grid;
+    }
+    #customHomepage aside .howItWorks {
+        display: none;
+    }
+    #customHomepage aside2 .howItWorks,
+    #customHomepage aside2 .autoship {
+        display: grid;
+    }
+}
+
+
+/* SMALL LAYOUT*/
+
+@media (max-width: 750px) {
+    #customHomepage filters {
+        display: none;
+    }
+    #customHomepage aside .autoship {
+        display: flex;
+    }
+    #customHomepage {
+        grid-template-areas: "header2" "carusel" "filters" "aside" "header" "transaction";
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 10px;
+    }
+    #customHomepage carusel {
+        grid-area: 3 / 1 / 4 / 3;
+        padding: 0;
+    }
+    #customHomepage carusel .caruselCont {
+        height: fit-content;
+    }
+    #customHomepage aside {
+        grid-area: 5 / 1 / 5 / 3;
+        padding: 0;
+        display: grid;
+        column-gap: 10px;
+        row-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "autoship autoship" "dermDolar dermDolar" "activeOrder activeOrder"
+    }
+
+    #customHomepage .autoship span {
+        line-height: 48px;
+    }
+
+    #customHomepage aside .asideRect {
+        height: 146px;
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    #customHomepage aside .asideRect.activeOrder label {
+        text-align: left;
+    }
+    #customHomepage header2 button {
+        margin-left: 5px;
+    }
+    #customHomepage aside .asideRect label {
+        width: -moz-calc(100% - 0px);
+        width: -webkit-calc(100% - 0px);
+        width: -o-calc(100% - 0px);
+        width: calc(100% - 0px);
+        text-align: center;
+    }
+    #customHomepage aside .asideRect .rectIcon {
+        transform: translate(-50%, -50%);
+        position: relative;
+        left: 50%;
+        top: 80px;
+        float: unset !important;
+    }
+    #customHomepage header2 {
+        grid-row: 2;
+        margin-top: 10px;
+    }
+    /* #customHomepage header2 button{
+ display: none;
+} */
+    #customHomepage transaction {
+        margin-top: 0;
+        grid-area: 6 / 1 / 8 / 3;
+        padding: 0;
+        display: grid;
+        column-gap: 10px;
+        row-gap: 10px;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "full full" "transactioncard transactioncard" "last last"
+    }
+    #customHomepage transaction .full {
+        /* grid-area: full; */
+        grid-column: 1 / 3;
+    }
+    #customHomepage transaction .last {
+        grid-area: last;
+    }
+    #customHomepage transaction transactionCard {
+        margin-right: unset;
+        max-width: unset;
+    }
+    #customHomepage transaction transactionCard.last img,
+    #customHomepage transaction transactionCard.full img {
+        object-fit: scale-down;
+    }
+    #customHomepage transaction transactionCard:last-of-type {
+        margin-bottom: 15px;
+    }
+    #customHomepage aside2 {
+        display: none;
+    }
+    #customHomepage aside .howItWorks {
+        display: grid;
+        grid-area: howItWorks;
+        height: 80px;
+    }
+    #customHomepage aside .howItWorks a {
+        margin: auto;
+    }
+}
+
+
+/* @media (max-width: 569px ) {
+#customHomepage aside .asideRect .rectIcon{
+    transform: translate(-35px, 20px);
+}
+} */
+
+
+/* XS LAYOUT*/
+
+@media (max-width: 496px) {
+    .hideMobile {
+        display: none;
+    }
+    .hideDesktop {
+        display: block;
+    }
+    #customHomepage header2 button .icon {
+        margin: 3px 0 0 -2px;
+    }
+    #customHomepage header2 button .headerText {
+        display: none;
+    }
+}
