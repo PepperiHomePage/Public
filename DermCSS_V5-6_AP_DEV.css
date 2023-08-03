@@ -20,12 +20,12 @@
 
 @font-face {
     font-family: NewHelvetica;
-    src: url(../fonts/helveticaneue-roman.otf) format("opentype");
+    src: url(https://dev-buy.dermalogica.com/Public/fonts/helveticaneue-roman.otf) format("opentype");
 }
 
 @font-face {
     font-family: Helvetica;
-    src: url(../fonts/Helvetica.ttf) format("truetype");
+    src: url( https://dev-buy.dermalogica.com/Public/fonts/Helvetica.ttf) format("truetype");
 }
 
 #customHomepage {
@@ -240,12 +240,12 @@
 
 #customHomepage aside .asideRect .rectIcon.truck,
 #customHomepage aside2 .asideRect .rectIcon.truck {
-    background-image: url('../images/SVGs/truck.svg');
+    background-image: url('https://dev-buy.dermalogica.com/Public/images/SVGs/truck.svg');
 }
 
 #customHomepage aside .asideRect .rectIcon.money,
 #customHomepage aside2 .asideRect .rectIcon.money {
-    background-image: url('../images/SVGs/DermDollars.svg');
+    background-image: url('https://dev-buy.dermalogica.com/Public/images/SVGs/DermDollars.svg');
 }
 
 #customHomepage aside .asideRect.activeOrder {
