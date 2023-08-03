@@ -697,6 +697,11 @@ ul.leaders span+span {
     #customHomepage {
         grid-template-areas: "filters filters" "header header" "header2 header2" "carusel carusel" "aside aside" "aside2 aside2" "transaction transaction" !important;
     }
+
+    #customHomepage .autoship span {
+        font-size: 14px;
+    }
+    
     #customHomepage aside {
         grid-area: 3 / 2 / 3 / 2;
     }
