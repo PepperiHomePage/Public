@@ -800,7 +800,7 @@ ul.leaders span+span {
         column-gap: 10px;
         row-gap: 10px;
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: "autoship autoship" "dermDolar dermDolar" "activeOrder activeOrder"
+        grid-template-areas: "autoship1 autoship1" "autoship autoship" "dermDolar dermDolar" "activeOrder activeOrder"
     }
 
     #customHomepage .autoship span {
