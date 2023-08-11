@@ -1,4 +1,4 @@
-/*11.08.2023 Autoship Launch*/
+/*24.02.2020 Autoship Launch*/
 
 @-webkit-keyframes carusel-slide {
     0% {
@@ -828,6 +828,11 @@ ul.leaders span+span {
     #customHomepage carusel .caruselCont {
         height: fit-content;
     }
+
+    #customHomepage aside .autoship1 {
+        grid-area: autoship1;
+    }
+
     #customHomepage aside {
         grid-area: 5 / 1 / 5 / 3;
         padding: 0;
