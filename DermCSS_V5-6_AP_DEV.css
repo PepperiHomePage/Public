@@ -184,15 +184,6 @@
     border: 1px solid rgba(0, 125, 174, 0.32);
 }
 
-#customHomepage .autoship1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: rgba(0, 125, 174, 0.16) !important;
-    border: 1px solid rgba(0, 125, 174, 0.32);
-}
-
 
 #customHomepage aside .shipping {
     grid-area: shipping;
@@ -211,19 +202,6 @@
 }
 
 #customHomepage .autoship span {
-    color: #1a1a1a;
-    font-size: 18px;
-    letter-spacing: 0.16px;
-    line-height: 28px;
-    font-weight: bold;
-    text-align: left;
-}
-
-#customHomepage aside .autoship1 {
-    grid-area: autoship;
-}
-
-#customHomepage .autoship1 span {
     color: #1a1a1a;
     font-size: 18px;
     letter-spacing: 0.16px;
@@ -724,10 +702,6 @@ ul.leaders span+span {
     #customHomepage .autoship span {
         font-size: 14px;
     }
-
-    #customHomepage .autoship1 span {
-        font-size: 14px;
-    }
     
     #customHomepage aside {
         grid-area: 3 / 2 / 3 / 2;
@@ -747,8 +721,7 @@ ul.leaders span+span {
         margin-bottom: 0;
     }
     #customHomepage aside2 .howItWorks,
-    #customHomepage aside2 .autoship,
-    #customHomepage aside2 .autoship1 {
+    #customHomepage aside2 .autoship {
         display: none;
     }
     #customHomepage transaction {
@@ -778,9 +751,6 @@ ul.leaders span+span {
     #customHomepage aside .autoship {
         display: none;
     }
-    #customHomepage aside .autoship1 {
-        display: none;
-    }
     #customHomepage aside .asideRect.activeOrder {
         height: 100%;
     }
@@ -796,8 +766,7 @@ ul.leaders span+span {
         display: none;
     }
     #customHomepage aside2 .howItWorks,
-    #customHomepage aside2 .autoship,
-    #customHomepage aside2 .autoship1 {
+    #customHomepage aside2 .autoship {
         display: grid;
     }
 }
@@ -810,9 +779,6 @@ ul.leaders span+span {
         display: none;
     }
     #customHomepage aside .autoship {
-        display: flex;
-    }
-    #customHomepage aside .autoship1 {
         display: flex;
     }
     #customHomepage {
@@ -835,13 +801,10 @@ ul.leaders span+span {
         column-gap: 10px;
         row-gap: 10px;
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: "autoship1 autoship1" "autoship autoship" "dermDolar dermDolar" "activeOrder activeOrder"
+        grid-template-areas: "autoship1 autoship1" "autoship2 autoship2" "dermDolar dermDolar" "activeOrder activeOrder"
     }
 
     #customHomepage .autoship span {
-        line-height: 48px;
-    }
-    #customHomepage .autoship1 span {
         line-height: 48px;
     }
 
