@@ -137,8 +137,8 @@
     line-height: 1.4;
 }
 
-#header-section .dropdown-menu .menuContent ul li {
-    height: 100%;
+#header-section .dropdown-menu .menuContent ul .doubleHeight {
+    height: 48px;
     line-height: 1.4; 
 }
 
