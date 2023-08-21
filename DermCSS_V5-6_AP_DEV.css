@@ -129,13 +129,11 @@
 #header-section .right-btn-group {
     display: flex;
     flex-direction: row-reverse;
-    height: 64px;
     align-items: center;
-    top: 35px;
 }
 
 #header-section .right-btn-group button.regular{
-    height: 64px;
+    height: 36px;
     line-height: 1.4;
 }
 
