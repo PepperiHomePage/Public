@@ -137,6 +137,11 @@
     line-height: 1.4;
 }
 
+#header-section .dropdown-menu .menuContent ul li {
+    height: 100%;
+    line-height: 1.4; 
+}
+
 #customHomepage header2 button:after {
     content: attr(data-count);
     min-width: 24px;
