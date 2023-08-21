@@ -126,6 +126,18 @@
     margin: 1px 0 0 3px;
 }
 
+#header-section .right-btn-group {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 64px;
+    align-items: center;
+    top: 35px;
+}
+
+#header-section .right-btn-group button.regular{
+    height: 64px;
+}
+
 #customHomepage header2 button:after {
     content: attr(data-count);
     min-width: 24px;
