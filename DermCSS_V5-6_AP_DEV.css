@@ -136,6 +136,7 @@
 
 #header-section .right-btn-group button.regular{
     height: 64px;
+    line-height: 1.4;
 }
 
 #customHomepage header2 button:after {
