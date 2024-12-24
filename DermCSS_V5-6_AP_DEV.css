@@ -588,6 +588,7 @@ margin-right: 30px;
 /* Next & previous buttons */
 
 .prev,
+.stop,
 .next {
     cursor: pointer;
     position: absolute;
@@ -606,15 +607,21 @@ margin-right: 30px;
 
 /* Position the "next button" to the right */
 
+.stop {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px 0 0 3px;
+}
+
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-
 /* On hover, add a black background color with a little bit see-through */
 
 .prev:hover,
+.stop:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
