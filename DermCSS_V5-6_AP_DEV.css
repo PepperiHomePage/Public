@@ -609,7 +609,7 @@ margin-right: 30px;
 
 .stop {
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
 }
 
