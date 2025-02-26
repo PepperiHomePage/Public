@@ -611,6 +611,7 @@ a.next {
 /* Position the "next button" to the right */
 
 stop {
+    display: none;
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
