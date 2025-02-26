@@ -610,17 +610,19 @@ a.next {
 
 /* Position the "next button" to the right */
 
-.stop {
+a.stop {
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.start{
+a.start{
     display: none;
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .next {
