@@ -610,7 +610,7 @@ a.next {
 
 /* Position the "next button" to the right */
 
-stop {
+a.stop {
 /*     display: none; */
     left: 50%;
     transform: translate(-50%, 0);
@@ -618,7 +618,7 @@ stop {
 /*     background-color: rgba(0, 0, 0, 0.1); */
 }
 
-start{
+a.start{
     display: none;
     left: 50%;
     transform: translate(-50%, 0);
