@@ -611,11 +611,11 @@ a.next {
 /* Position the "next button" to the right */
 
 a.stop {
-/*     display: none; */
+    display: none;
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
-/*     background-color: rgba(0, 0, 0, 0.1); */
+    background-color: rgba(0, 0, 0, 0.1); 
 }
 
 a.start{
