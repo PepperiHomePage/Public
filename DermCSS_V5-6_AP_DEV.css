@@ -634,8 +634,8 @@ a.next {
 .stop:hover,
 .start:hover,
 .next:hover {
-    opacity: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 
