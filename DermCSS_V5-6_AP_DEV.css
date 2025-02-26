@@ -630,10 +630,10 @@ a.next {
 
 /* On hover, add a black background color with a little bit see-through */
 
-.prev:hover,
-.stop:hover,
-.start:hover,
-.next:hover {
+a.prev:hover,
+a.stop:hover,
+a.start:hover,
+a.next:hover {
     opacity: 80%;
     background-color: rgba(0, 0, 0, 0.7);
 }
