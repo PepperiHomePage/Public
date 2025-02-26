@@ -587,10 +587,10 @@ margin-right: 30px;
 
 /* Next & previous buttons */
 
-.prev,
-.stop,
-.start,
-.next {
+a.prev,
+a.stop,
+a.start,
+a.next {
     text-decoration: none;
     cursor: pointer;
     position: absolute;
