@@ -614,7 +614,7 @@ stop {
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 start{
@@ -622,7 +622,7 @@ start{
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px 0 0 3px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .next {
