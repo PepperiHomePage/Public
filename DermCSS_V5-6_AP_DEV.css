@@ -593,6 +593,7 @@ margin-right: 30px;
 .next {
     cursor: pointer;
     position: absolute;
+    opacity: 50%;
     top: 50%;
     width: auto;
     margin-top: -22px;
@@ -632,6 +633,7 @@ margin-right: 30px;
 .stop:hover,
 .start:hover,
 .next:hover {
+    opacity: 100%;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
