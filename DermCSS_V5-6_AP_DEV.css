@@ -626,6 +626,13 @@ a.start{
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+a.prev{
+    display: none;
+}
+
+a.next{
+    display: none;
+}
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
